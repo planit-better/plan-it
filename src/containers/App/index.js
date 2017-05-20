@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './styles.css';
 import { connect } from 'react-redux';
-
+import { loadContractors } from '../../action'
 
 class App extends Component {
 
@@ -11,13 +11,14 @@ class App extends Component {
     super(props);
   }
 
+      //MOUNT EVENT
     componentWillMount() {
      fetch('/api/Contractors', {
       method: "GET"
     }).then((response) =>{
       return response.json()
     }).then((contractors) =>{
-      console.log(contractors)
+      this.props.loadContractors(contractors)
     }).catch(err =>{
       throw err;
     })
@@ -26,18 +27,42 @@ class App extends Component {
 
 
   render() {
+    console.log(this.props.contractors)
     return (
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Planit-Better</h2>
         </div>
-        <p className="App-intro">
-          <button>Load Users</button>
-        </p>
+        <div id="navBar">
+          <button>Contractors</button>
+        </div>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    contractors : state.contractors
+  };
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    loadContractors: contractors =>{
+      dispatch(loadContractors(contractors))
+    }
+  }
+}
+
+const ConnectedApp = connect(
+  mapStateToProps,
+  mapDispatchToProps
+  )(App);
+
+
+
+export default ConnectedApp;
+
+

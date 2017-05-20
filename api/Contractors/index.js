@@ -8,7 +8,6 @@ contractors.get('/', ( req, res) => {
   console.log('hit contractor');
   Contractors.all()
   .then((guests)=>{
-    console.log(guests)
     res.json(guests);
   }).catch(err => {
     res.send(err);
