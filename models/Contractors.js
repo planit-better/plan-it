@@ -2,8 +2,12 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Contractors = sequelize.define("Contractors", {
-    name: DataTypes.STRING,
-    cost: DataTypes.DECIMAL
+    company_name: DataTypes.STRING,
+    cost: DataTypes.DECIMAL,
+    contact: DataTypes.INTEGER,
+    date_hired: DataTypes.DATEONLY,
+    deadline: DataTypes.DATEONLY
+
   }, {
     classMethods: {
       associate: function(models) {
