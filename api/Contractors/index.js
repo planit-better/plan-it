@@ -7,9 +7,9 @@ const { Contractors } = require('../../models');
 contractors.get('/', ( req, res) => {
   console.log('hit contractor');
   Contractors.all()
-    //inculde
   .then((guests)=>{
-    res.json(guest);
+    console.log(guests)
+    res.json(guests);
   }).catch(err => {
     res.send(err);
   });
