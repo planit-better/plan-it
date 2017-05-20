@@ -1,28 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './styles.css';
+import './App.css';
 
 class App extends Component {
-
-  constructor(props){
-
-    super(props);
-  }
-
-    componentWillMount() {
-     fetch('/api/Contractors', {
-      method: "GET"
-    }).then((response) =>{
-      return response.json()
-    }).then((contractors) =>{
-      console.log(contractors)
-    }).catch(err =>{
-      throw err;
-    })
-  }
-
-
-
   render() {
     return (
       <div className="App">
@@ -31,7 +11,7 @@ class App extends Component {
           <h2>Planit-Better</h2>
         </div>
         <p className="App-intro">
-          <button>Load Users</button>
+          To get started, edit <code>src/App.js</code> and save to reload.
         </p>
       </div>
     );
