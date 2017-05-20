@@ -1,6 +1,7 @@
 {
   "name": "plan-it",
   "version": "1.0.0",
+  "proxy": "http://localhost:6969/",
   "description": "",
   "main": "index.js",
   "scripts": {

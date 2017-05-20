@@ -1,7 +1,10 @@
 /*jshint esversion: 6*/
+const express = require('express');
+const router = express.Router();
 
 module.exports = function(sequelize, DataTypes) {
   var Contractors = sequelize.define("Contractors", {
+
     company_name: DataTypes.STRING,
     cost: DataTypes.DECIMAL,
     contact: DataTypes.INTEGER,
@@ -9,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
     deadline: DataTypes.DATEONLY
 
   }, {
-    classMethods: {
+    classMethods:  {
       associate: function(models) {
         // Contractors.belongsTo(models.User);
       }
