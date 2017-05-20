@@ -5,15 +5,11 @@ const contractors = express.Router();
 const { Contractors } = require('../../models');
 
 contractors.get('/', ( req, res) => {
-  Contractors.all({
-    inculde: [
-      {
-        model: User,
-        as: 'Creator'
-      }
-    ]
-  })
-  .catch(err => {
+  console.log('hit contractor');
+  Contractors.all()
+  .then((guests)=>{
+    res.json(guests);
+  }).catch(err => {
     res.send(err);
   });
 });
@@ -31,3 +27,5 @@ contractors.get('/', ( req, res) => {
 // contractors.put('/:id', ( req, res ) => {
 
 // })
+
+module.exports = contractors;
