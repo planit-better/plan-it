@@ -2,8 +2,9 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Menu = sequelize.define("Menu", {
-    name: DataTypes.STRING,
-    cost:DataTypes.DECIMAL
+    type_of_food: DataTypes.STRING,
+    cost_per_person:DataTypes.DECIMAL,
+    restaurant_name: DataTypes.STRING
 
   }, {
     classMethods: {
