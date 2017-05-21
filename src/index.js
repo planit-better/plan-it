@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import constructorReducers  from './reducers';
+import reducers  from './reducers';
 import App from './containers/App';
 import './index.css';
 
 
 const store = createStore(
-  constructorReducers,
+  reducers,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
