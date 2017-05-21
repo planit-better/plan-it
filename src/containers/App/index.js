@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './styles.css';
 import { connect } from 'react-redux';
-import { loadContractors } from '../../action'
+import { loadContractors } from '../../action';
 
 class App extends Component {
 

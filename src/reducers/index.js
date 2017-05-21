@@ -1,20 +1,10 @@
-import {
-  LOAD_CONTRACTORS
-} from '../action';
 
-const initialState = {
-  contractors : []
-};
+import {combineReducers} from 'redux';
 
-const contractors = (state = initialState, action) =>{
-  switch(action.type){
-    case LOAD_CONTRACTORS:
-      return Object.assign({}, state, {
-        contractors: action.contractors
-      });
+import contractors from './contractors'
 
-      default: return state;
-  }
-};
 
-export default contractors;
+export default combineReducers({
+  contractors
+})
+
