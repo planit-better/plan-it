@@ -1,9 +1,11 @@
+/*jshint esversion: 6*/
+
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './styles.css';
 import { connect } from 'react-redux';
 import { loadContractors } from '../../action';
-
+import { Link } from 'react-router-dom';
 class App extends Component {
 
   constructor(props){
