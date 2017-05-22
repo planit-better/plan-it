@@ -12,7 +12,66 @@ class newContractorForm extends Component {
   constructor(props){
 
     super(props);
+
+    this.state = {
+      company_name : "",
+      cost : "",
+      contact : "",
+      date_hired : "",
+      deadline : ""
+    };
   }
+
+    handleContractorSubmit = ( event ) => {
+      event.preventDefault();
+      this.addContractor(this.state);
+
+    }
+
+    handleChangeComanyName = ( event ) => {
+      this.setState({
+        company_name : event.target.value
+      });
+    }
+
+    handleChangeCost = ( event ) => {
+      this.setState({
+        cost : event.target.value
+      });
+    }
+
+    handleChangeContact = ( event ) => {
+      this.setState({
+        contact : event.target.value
+      });
+    }
+
+    handleChangeDateHired = ( event ) => {
+      this.setState({
+        date_hired : event.target.value
+      });
+    }
+
+    handleChangeDeadline = ( event ) => {
+      this.setState({
+        deadline : event.target.value
+      });
+    }
+
+    addContractor(contractor){
+      console.log(contractor)
+      return fetch('/api/contractors',{
+        method: "POST",
+         headers:
+        {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(contractor)
+      }).then(response =>{
+        return(response)
+      })
+    }
 
     render() {
     console.log(this.props.contractors)
@@ -26,11 +85,43 @@ class newContractorForm extends Component {
         <div id="navBar">
           <button>Home</button>
         </div>
+          <form onSubmit={this.handleContractorSubmit}>
+            <div>
+             <span>Company Name</span>
+              <input type="text" placeholder="Company Name" value={this.state.company_name} onChange={this.handleChangeComanyName} />
+            </div>
+            <div>
+            <span>Cost</span>
+              <input type="integer" placeholder="cost" value={this.state.cost} onChange={this.handleChangeCost} />
+            </div>
+            <div>
+              <span>Contact Number</span>
+              <input type="integer" placeholder="contact number" value={this.state.contact} onChange={this.handleChangeContact} />
+            </div>
+            <div>
+            <span>Hire Date</span>
+              <input type="date" placeholder="Hire Date" value={this.state.date_hired} onChange={this.handleChangeDateHired} />
+            </div>
+            <div>
+            <span>Deadline</span>
+              <input type="date" value={this.state.deadline} onChange={this.handleChangeDeadline} />
+            </div>
+            <div>
+              <button name="Login" type="submit">login </button>
+            </div>
+          </form>
+
       </div>
     );
   }
 
 }
+
+// company_name: DataTypes.TEXT,
+//     cost: DataTypes.DECIMAL,
+//     contact: DataTypes.INTEGER,
+//     // date_hired: DataTypes.DATEONLY,
+//     // deadline: DataTypes.DATEONLY
 
 
 const mapStateToProps = (state) => {

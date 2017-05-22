@@ -19,7 +19,7 @@ const store = createStore(
 
 
 ReactDOM.render(
-  <Provider store={store} 
+  <Provider store={store}>
     <Router>
       <div>
         <Route exact path="/" component={App}/>
