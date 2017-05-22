@@ -24,7 +24,8 @@ class newContractorForm extends Component {
 
     handleContractorSubmit = ( event ) => {
       event.preventDefault();
-      this.addContractor(this.state);
+      this.addContractor(this.state)
+      .then(this.clearState())
 
     }
 
@@ -55,6 +56,16 @@ class newContractorForm extends Component {
     handleChangeDeadline = ( event ) => {
       this.setState({
         deadline : event.target.value
+      });
+    }
+
+    clearState(){
+      this.setState({
+      company_name : "",
+      cost : "",
+      contact : "",
+      date_hired : "",
+      deadline : ""
       });
     }
 
@@ -116,13 +127,6 @@ class newContractorForm extends Component {
   }
 
 }
-
-// company_name: DataTypes.TEXT,
-//     cost: DataTypes.DECIMAL,
-//     contact: DataTypes.INTEGER,
-//     // date_hired: DataTypes.DATEONLY,
-//     // deadline: DataTypes.DATEONLY
-
 
 const mapStateToProps = (state) => {
   return {
