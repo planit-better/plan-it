@@ -6,30 +6,15 @@ import './styles.css';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { loadContractors } from '../../action';
-import { Link } from 'react-router-dom';
-class App extends Component {
+
+class newContractorForm extends Component {
 
   constructor(props){
 
     super(props);
   }
 
-      //MOUNT EVENT
-    componentWillMount() {
-     fetch('/api/Contractors', {
-      method: "GET"
-    }).then((response) =>{
-      return response.json()
-    }).then((contractors) =>{
-      this.props.loadContractors(contractors)
-    }).catch(err =>{
-      throw err;
-    })
-  }
-
-
-
-  render() {
+    render() {
     console.log(this.props.contractors)
     return (
       <div className="App">
@@ -37,14 +22,16 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Planit-Better</h2>
         </div>
-        <Link to="/newContractorForm">Home</Link>
+        <Link to="/">Home</Link>
         <div id="navBar">
-          <button>Contractors</button>
+          <button>Home</button>
         </div>
       </div>
     );
   }
+
 }
+
 
 const mapStateToProps = (state) => {
   return {
@@ -60,13 +47,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
 }
 
-const ConnectedApp = connect(
+const ConnectedContractorApp = connect(
   mapStateToProps,
   mapDispatchToProps
-  )(App);
+  )(newContractorForm);
 
 
 
-export default ConnectedApp;
-
+export default ConnectedContractorApp;
 

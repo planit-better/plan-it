@@ -9,8 +9,8 @@ import {
 import ReduxThunk from 'redux-thunk';
 import reducers  from './reducers';
 import App from './containers/App';
+import newContractorForm from './containers/App/newContractorForm';
 import './index.css';
-
 
 const store = createStore(
   reducers,
@@ -19,10 +19,11 @@ const store = createStore(
 
 
 ReactDOM.render(
-  <Provider store={store} >
-     <Router>
+  <Provider store={store} 
+    <Router>
       <div>
         <Route exact path="/" component={App}/>
+        <Route path="/newContractorForm" component={newContractorForm} />
       </div>
     </Router>
   </Provider>,
