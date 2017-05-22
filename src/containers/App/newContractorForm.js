@@ -26,6 +26,7 @@ class newContractorForm extends Component {
       event.preventDefault();
       this.addContractor(this.state)
       .then(this.clearState())
+      .then(this.updateStore())
 
     }
 
@@ -69,8 +70,20 @@ class newContractorForm extends Component {
       });
     }
 
+    updateStore(){
+     fetch('/api/Contractors', {
+      method: "GET"
+    }).then((response) =>{
+      return response.json()
+    }).then((contractors) =>{
+      this.props.loadContractors(contractors)
+    }).catch(err =>{
+      throw err;
+    })
+  }
+
+
     addContractor(contractor){
-      console.log(contractor)
       return fetch('/api/contractors',{
         method: "POST",
          headers:
@@ -81,11 +94,13 @@ class newContractorForm extends Component {
         body: JSON.stringify(contractor)
       }).then(response =>{
         return(response)
+      }).catch(err => {
+        throw err;
       })
     }
 
     render() {
-    console.log(this.props.contractors)
+      console.log(this.props.contractors)
     return (
       <div className="App">
         <div className="App-header">
