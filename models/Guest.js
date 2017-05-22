@@ -1,7 +1,7 @@
 /*jshint esversion: 6*/
 
 module.exports = function(sequelize, DataTypes) {
-  var GuestList = sequelize.define("GuestList", {
+  var Guest = sequelize.define("GuestList", {
     name: DataTypes.STRING,
     will_attend: DataTypes.BOOLEAN,
     accompanying_guests: DataTypes.INTEGER,
@@ -17,5 +17,5 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  return GuestList;
+  return Guest;
 };
