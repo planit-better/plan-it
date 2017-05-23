@@ -10,26 +10,7 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        Tasks.belongsTo(models.Users, {
-          foreginKey: {
-
-          }
-        });
-        Tasks.belongsTo(models.Contracters, {
-          foreignKey: {
-
-          }
-        });
-        Tasks.belongsTo(models.Menu, {
-          foreignKey: {
-
-          }
-        });
-        Tasks.belongsTo(models.EquipmentList, {
-          foreignKey: {
-
-          }
-        });
+        // Tasks.belongsTo(models.User);
       }
     }
   });

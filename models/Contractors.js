@@ -6,10 +6,10 @@ module.exports = function(sequelize, DataTypes) {
   var Contractors = sequelize.define("Contractors", {
 
     company_name: DataTypes.TEXT,
-    cost: DataTypes.DECIMAL,
+    cost: DataTypes.INTEGER,
     contact: DataTypes.INTEGER,
-    // date_hired: DataTypes.DATEONLY,
-    // deadline: DataTypes.DATEONLY
+    date_hired: DataTypes.DATE,
+    deadline: DataTypes.DATE
 
   }, {
     classMethods:  {
