@@ -1,19 +1,18 @@
 /*jshint esversion: 6*/
 
 module.exports = function(sequelize, DataTypes) {
-  var Tasks = sequelize.define("Tasks", {
+  var Equipment = sequelize.define("Equipment", {
     name: DataTypes.STRING,
     type: DataTypes.STRING,
-    assigned_to: DataTypes.STRING,
-    deadline: DataTypes.DATE
+    cost: DataTypes.DECIMAL
 
   }, {
     classMethods: {
       associate: function(models) {
-        // Tasks.belongsTo(models.User);
+        // EquipmentList.belongsTo(models.User);
       }
     }
   });
 
-  return Tasks;
+  return Equipment;
 };

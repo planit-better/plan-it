@@ -18,11 +18,13 @@ const groupText = num => {
     messagingServiceSid: 'MGbe98cfd9d65efc10205750828083e11f',
     to:  num,
     from: '+16152191888',
+
     body:
     ` you have been invited to ${what} ` +
     `at ${when}` +
     ` location ${where} ` +
     ' https://Facebook.com'
+
   }, function(err, message) {
     console.log(message);
   });
