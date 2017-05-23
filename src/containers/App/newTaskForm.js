@@ -5,9 +5,9 @@ import logo from './logo.svg';
 import './styles.css';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
-import { loadGuest } from '../../action';
+import { loadTask } from '../../action';
 
-class newGuestForm extends Component {
+class newTaskForm extends Component {
 
   constructor(props){
 
@@ -15,16 +15,15 @@ class newGuestForm extends Component {
 
     this.state = {
       name : "",
-      will_attend : false,
-      accompanying_guests : "",
-      can_drink : "",
-      diet_restriction : ""
+      type : "",
+      assigned_to : "",
+      deadline : ""
     };
   }
 
-    handleGuestSubmit = ( event ) => {
+    handleTaskSubmit = ( event ) => {
       event.preventDefault();
-      this.addGuest(this.state)
+      this.addTask(this.state)
       .then(this.clearState())
       .then(this.updateStore())
 
@@ -36,62 +35,55 @@ class newGuestForm extends Component {
       });
     }
 
-    handleChangeWillAttend = ( event ) => {
+    handleChangeType = ( event ) => {
       this.setState({
-        will_attend : event.target.value
+        type : event.target.value
       });
     }
 
-    handleChangeAccompanyingGuests = ( event ) => {
+    handleChangeAssignedTo = ( event ) => {
       this.setState({
-        accompanying_guests : event.target.value
+       assigned_to : event.target.value
       });
     }
 
-    handleChangeCanDrink = ( event ) => {
+    handleChangeDeadline = ( event ) => {
       this.setState({
-        can_drink : event.target.value
-      });
-    }
-
-    handleChangeDietRestriction = ( event ) => {
-      this.setState({
-        diet_restriction : event.target.value
+       deadline : event.target.value
       });
     }
 
     clearState(){
       this.setState({
         name : "",
-        will_attend : false,
-        accompanying_guests : "",
-        can_drink : "",
-        diet_restriction : ""
+        type : "",
+        assigned_to : "",
+        deadline : ""
       });
     }
 
     updateStore(){
-     fetch('/api/Guest', {
+     fetch('/api/Task', {
       method: "GET"
     }).then((response) =>{
       return response.json()
-    }).then((guest) =>{
-      this.props.loadGuest(guest)
+    }).then((task) =>{
+      this.props.loadTask(task)
     }).catch(err =>{
       throw err;
     })
   }
 
 
-    addGuest(guest){
-      return fetch('/api/guest',{
+    addTask(task){
+      return fetch('/api/task',{
         method: "POST",
          headers:
         {
           "Content-Type": "application/json",
           "Accept": "application/json"
         },
-        body: JSON.stringify(guest)
+        body: JSON.stringify(task)
       }).then(response =>{
         return(response)
       }).catch(err => {
@@ -109,29 +101,25 @@ class newGuestForm extends Component {
         <div id="navBar">
         <Link to="/"><button>Home</button></Link>
         </div>
-          <form onSubmit={this.handleGuestSubmit}>
+          <form onSubmit={this.handleTaskSubmit}>
             <div>
-             <span>Name</span>
-              <input type="text" placeholder="Name" value={this.state.name} onChange={this.handleChangeName} />
+             <span>name</span>
+              <input type="text" placeholder="task name" value={this.state.name} onChange={this.handleChangeName} />
             </div>
             <div>
-            <span>Will Attend</span>
-              <input type="text" placeholder="will attend" value={this.state.will_attend} onChange={this.handleChangeWillAttend} />
+            <span>type of task</span>
+              <input type="text"  value={this.state.type} onChange={this.handleChangeType} />
             </div>
             <div>
-              <span>accompanying guests Number</span>
-              <input type="number" value={this.state.accompanying_guests} onChange={this.handleChangeAccompanyingGuests} />
+              <span>assigned to Number</span>
+              <input type="text" value={this.state.assigned_to} onChange={this.handleChangeAssignedTo} />
             </div>
             <div>
-            <span>Can drink</span>
-              <input type="text" placeholder="can drink" value={this.state.can_drink} onChange={this.handleChangeCanDrink} />
+              <span>deadline Number</span>
+              <input type="date" value={this.state.deadline} onChange={this.handleChangeDeadline} />
             </div>
             <div>
-            <span>Diet Restrictions</span>
-              <input type="text" value={this.state.diet_restriction} onChange={this.handleChangeDietRestriction} />
-            </div>
-            <div>
-              <button name="Login" type="submit">New Guest </button>
+              <button name="Login" type="submit">New Menu </button>
             </div>
           </form>
 
@@ -143,24 +131,24 @@ class newGuestForm extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    guest : state.guest
+    task : state.task
   };
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    loadGuest: guest =>{
-      dispatch(loadGuest(guest))
+    loadTask: task =>{
+      dispatch(loadTask(task))
     }
   }
 }
 
-const ConnectedGuestApp = connect(
+const ConnectedTaskApp = connect(
   mapStateToProps,
   mapDispatchToProps
-  )(newGuestForm);
+  )(newTaskForm);
 
 
 
-export default ConnectedGuestApp;
+export default ConnectedTaskApp;
 
