@@ -17,7 +17,7 @@ class newGuestForm extends Component {
       name : "",
       will_attend : false,
       accompanying_guests : "",
-      can_drink : "",
+      can_drink : false,
       diet_restriction : ""
     };
   }
@@ -57,9 +57,16 @@ class newGuestForm extends Component {
     }
 
     handleChangeCanDrink = ( event ) => {
-      this.setState({
-        can_drink : event.target.value
-      });
+      if(this.state.can_drink === true){
+        this.setState({
+          can_drink : false
+        });
+      }
+      else if(this.state.can_drink === false){
+        this.setState({
+          can_drink : true
+        })
+      }
     }
 
     handleChangeDietRestriction = ( event ) => {
@@ -72,7 +79,6 @@ class newGuestForm extends Component {
       this.setState({
         name : "",
         accompanying_guests : "",
-        can_drink : "",
         diet_restriction : ""
       });
     }
@@ -131,8 +137,7 @@ class newGuestForm extends Component {
             </div>
             <div>
             <span>Can drink</span>
-              <span>False</span><input type="radio" name="status" value={false} onChange={this.handleChangeCanDrink}/>
-              <span>True</span><input type="radio" name="status" value={true} onChange={this.handleChangeCanDrink}/>
+              <span>Yes</span><input type="checkbox" name="attend" value={this.state.can_drink} onChange={this.handleChangeCanDrink}/>
             </div>
             <div>
             <span>Diet Restrictions</span>
