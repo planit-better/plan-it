@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './styles.css';
 import { connect } from 'react-redux';
-import { loadContractors, loadEquipment } from '../../action';
+import { loadContractors, loadEquipment, loadGuest, loadMenu, loadTask } from '../../action';
 import { Link } from 'react-router-dom';
 
 class App extends Component {
@@ -25,6 +25,7 @@ class App extends Component {
     }).catch(err =>{
       throw err;
     })
+
    fetch('/api/Contractors', {
       method: "GET"
     }).then((response) =>{
@@ -34,13 +35,46 @@ class App extends Component {
     }).catch(err =>{
       throw err;
     })
+
+     fetch('/api/Guest', {
+      method: "GET"
+    }).then((response) =>{
+      return response.json()
+    }).then((guest) =>{
+      this.props.loadGuest(guest)
+    }).catch(err =>{
+      throw err;
+    })
+
+       fetch('/api/Menu', {
+      method: "GET"
+    }).then((response) =>{
+      return response.json()
+    }).then((menu) =>{
+      this.props.loadMenu(menu)
+    }).catch(err =>{
+      throw err;
+    })
+
+        fetch('/api/Task', {
+      method: "GET"
+    }).then((response) =>{
+      return response.json()
+    }).then((task) =>{
+      this.props.loadTask(task)
+    }).catch(err =>{
+      throw err;
+    })
   }
 
 
 
   render() {
-    // console.log(this.props.equipment)
-    // console.log(this.props.contractors)
+    // console.log(this.props.equipment);
+    // console.log(this.props.contractors);
+    // console.log(this.props.guest);
+    // console.log(this.props.menu);
+    // console.log(this.props.task);
     return (
       <div className="App">
         <div className="App-header">
@@ -62,7 +96,10 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return {
     contractors : state.contractors,
-    equipment : state.equipment
+    equipment : state.equipment,
+    guest : state.guest,
+    menu : state.menu,
+    task : state.task
   };
 }
 
@@ -73,6 +110,15 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     },
     loadEquipment : equipment => {
       dispatch(loadEquipment(equipment))
+    },
+    loadGuest : guest => {
+      dispatch(loadGuest(guest))
+    },
+    loadMenu : menu => {
+      dispatch(loadMenu(menu))
+    },
+    loadTask : task => {
+      dispatch(loadTask(task))
     }
   }
 }
