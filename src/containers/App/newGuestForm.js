@@ -24,6 +24,7 @@ class newGuestForm extends Component {
 
     handleGuestSubmit = ( event ) => {
       event.preventDefault();
+      console.log(this.state)
       this.addGuest(this.state)
       .then(this.clearState())
       .then(this.updateStore())
@@ -37,9 +38,16 @@ class newGuestForm extends Component {
     }
 
     handleChangeWillAttend = ( event ) => {
-      this.setState({
-        will_attend : event.target.value
-      });
+      if(this.state.will_attend === true){
+        this.setState({
+          will_attend : false
+        });
+      }
+      else if(this.state.will_attend === false){
+        this.setState({
+          will_attend : true
+        })
+      }
     }
 
     handleChangeAccompanyingGuests = ( event ) => {
@@ -63,7 +71,6 @@ class newGuestForm extends Component {
     clearState(){
       this.setState({
         name : "",
-        will_attend : false,
         accompanying_guests : "",
         can_drink : "",
         diet_restriction : ""
@@ -116,7 +123,7 @@ class newGuestForm extends Component {
             </div>
             <div>
             <span>Will Attend</span>
-              <input type="text" placeholder="will attend" value={this.state.will_attend} onChange={this.handleChangeWillAttend} />
+              <span>Yes</span><input type="checkbox" name="attend" value={this.state.will_attend} onChange={this.handleChangeWillAttend}/>
             </div>
             <div>
               <span>accompanying guests Number</span>
@@ -124,7 +131,8 @@ class newGuestForm extends Component {
             </div>
             <div>
             <span>Can drink</span>
-              <input type="text" placeholder="can drink" value={this.state.can_drink} onChange={this.handleChangeCanDrink} />
+              <span>False</span><input type="radio" name="status" value={false} onChange={this.handleChangeCanDrink}/>
+              <span>True</span><input type="radio" name="status" value={true} onChange={this.handleChangeCanDrink}/>
             </div>
             <div>
             <span>Diet Restrictions</span>

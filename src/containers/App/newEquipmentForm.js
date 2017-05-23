@@ -92,9 +92,8 @@ class newEquipmentForm extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Planit-Better</h2>
         </div>
-        <Link to="/">Home</Link>
+        <Link to="/"><button>Home</button></Link>
         <div id="navBar">
-          <button>Home</button>
         </div>
           <form onSubmit={this.handleEquipmentSubmit}>
             <div>
