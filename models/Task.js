@@ -1,7 +1,7 @@
 /*jshint esversion: 6*/
 
 module.exports = function(sequelize, DataTypes) {
-  var Tasks = sequelize.define("Tasks", {
+  var Task = sequelize.define("Task", {
     name: DataTypes.STRING,
     type: DataTypes.STRING,
     assigned_to: DataTypes.STRING,
@@ -15,5 +15,5 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  return Tasks;
+  return Task;
 };
