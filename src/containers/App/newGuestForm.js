@@ -144,7 +144,7 @@ class newGuestForm extends Component {
               <input type="text" value={this.state.diet_restriction} onChange={this.handleChangeDietRestriction} />
             </div>
             <div>
-              <button name="Login" type="submit">New Guest </button>
+              <button name="Login" type="submit">Add Guest </button>
             </div>
           </form>
 

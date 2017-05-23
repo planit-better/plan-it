@@ -103,23 +103,23 @@ class newTaskForm extends Component {
         </div>
           <form onSubmit={this.handleTaskSubmit}>
             <div>
-             <span>name</span>
+             <span>Name</span>
               <input type="text" placeholder="task name" value={this.state.name} onChange={this.handleChangeName} />
             </div>
             <div>
-            <span>type of task</span>
+            <span>Type of task</span>
               <input type="text"  value={this.state.type} onChange={this.handleChangeType} />
             </div>
             <div>
-              <span>assigned to Number</span>
+              <span>Assigned to Number</span>
               <input type="text" value={this.state.assigned_to} onChange={this.handleChangeAssignedTo} />
             </div>
             <div>
-              <span>deadline Number</span>
+              <span>Deadline Number</span>
               <input type="date" value={this.state.deadline} onChange={this.handleChangeDeadline} />
             </div>
             <div>
-              <button name="Login" type="submit">New Menu </button>
+              <button name="Login" type="submit">Add Task </button>
             </div>
           </form>
 

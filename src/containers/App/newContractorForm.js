@@ -132,7 +132,7 @@ class newContractorForm extends Component {
               <input type="date" value={this.state.deadline} onChange={this.handleChangeDeadline} />
             </div>
             <div>
-              <button name="Login" type="submit">login </button>
+              <button name="Login" type="submit">Add Contractor </button>
             </div>
           </form>
 
