@@ -6,6 +6,7 @@ import './styles.css';
 import { connect } from 'react-redux';
 import { loadContractors } from '../../action';
 import { Link } from 'react-router-dom';
+
 class App extends Component {
 
   constructor(props){
@@ -14,8 +15,8 @@ class App extends Component {
   }
 
       //MOUNT EVENT
-    componentWillMount() {
-     fetch('/api/Contractors', {
+  componentWillMount() {
+   fetch('/api/Contractors', {
       method: "GET"
     }).then((response) =>{
       return response.json()
@@ -29,7 +30,6 @@ class App extends Component {
 
 
   render() {
-    console.log(this.props.contractors)
     return (
       <div className="App">
         <div className="App-header">

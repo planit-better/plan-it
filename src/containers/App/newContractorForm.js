@@ -24,7 +24,9 @@ class newContractorForm extends Component {
 
     handleContractorSubmit = ( event ) => {
       event.preventDefault();
-      this.addContractor(this.state);
+      this.addContractor(this.state)
+      .then(this.clearState())
+      .then(this.updateStore())
 
     }
 
@@ -58,8 +60,30 @@ class newContractorForm extends Component {
       });
     }
 
+    clearState(){
+      this.setState({
+      company_name : "",
+      cost : "",
+      contact : "",
+      date_hired : "",
+      deadline : ""
+      });
+    }
+
+    updateStore(){
+     fetch('/api/Contractors', {
+      method: "GET"
+    }).then((response) =>{
+      return response.json()
+    }).then((contractors) =>{
+      this.props.loadContractors(contractors)
+    }).catch(err =>{
+      throw err;
+    })
+  }
+
+
     addContractor(contractor){
-      console.log(contractor)
       return fetch('/api/contractors',{
         method: "POST",
          headers:
@@ -70,11 +94,13 @@ class newContractorForm extends Component {
         body: JSON.stringify(contractor)
       }).then(response =>{
         return(response)
+      }).catch(err => {
+        throw err;
       })
     }
 
     render() {
-    console.log(this.props.contractors)
+      console.log(this.props.contractors)
     return (
       <div className="App">
         <div className="App-header">
@@ -116,13 +142,6 @@ class newContractorForm extends Component {
   }
 
 }
-
-// company_name: DataTypes.TEXT,
-//     cost: DataTypes.DECIMAL,
-//     contact: DataTypes.INTEGER,
-//     // date_hired: DataTypes.DATEONLY,
-//     // deadline: DataTypes.DATEONLY
-
 
 const mapStateToProps = (state) => {
   return {
