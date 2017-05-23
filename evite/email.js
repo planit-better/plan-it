@@ -9,6 +9,7 @@ const emailList = ['faceme808@gmail.com', 'akonidavis@gmail.com', 'michaelanguay
 const PORT = process.env.PORT || 1994;
 const express = require('express');
 const mailgun = require("mailgun-js") ({apiKey: apiKey, domain: domain});
+const emailList = ['akonidavis@gmail.com', 'acdoyle630@gmail.com', 'michaelanguay@outlook.com', 'andrew.tram@yahoo.com'];
 
 const app = express();
 const bodyParser = require('body-parser');
@@ -20,6 +21,7 @@ app.post('/test', (req, res ) => {
 
   const evite = (email) => {
     const filePath = path.join('public','assets', 'test.png');
+
     const mail = mailComposer({
       from: '<planitbetterevite@gmail.com>',
       to: email,
@@ -52,10 +54,10 @@ app.post('/test', (req, res ) => {
     }
   };
   getEmails();
-
+  
   res.send('ok');
-});
 
+});
 
 app.listen(PORT, () => {
   console.log(`server is running on ${PORT}`);
