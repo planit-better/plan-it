@@ -1,8 +1,11 @@
+/*jshint esversion: 6*/
+
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './styles.css';
 import { connect } from 'react-redux';
 import { loadContractors } from '../../action';
+import { Link } from 'react-router-dom';
 
 class App extends Component {
 
@@ -12,8 +15,8 @@ class App extends Component {
   }
 
       //MOUNT EVENT
-    componentWillMount() {
-     fetch('/api/Contractors', {
+  componentWillMount() {
+   fetch('/api/Contractors', {
       method: "GET"
     }).then((response) =>{
       return response.json()
@@ -27,13 +30,13 @@ class App extends Component {
 
 
   render() {
-    console.log(this.props.contractors)
     return (
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Planit-Better</h2>
         </div>
+        <Link to="/newContractorForm">Home</Link>
         <div id="navBar">
           <button>Contractors</button>
         </div>
