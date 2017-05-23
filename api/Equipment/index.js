@@ -1,4 +1,3 @@
-
 const express = require('express');
 const equipment = express.Router();
 const { Equipment } = require('../../models');
