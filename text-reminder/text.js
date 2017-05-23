@@ -14,7 +14,7 @@ const groupText = num => {
     messagingServiceSid: 'MGbe98cfd9d65efc10205750828083e11f',
     to:  num,
     from: '+16152191888',
-    body: 'I GOT IT TO WORK FUCK YEAH!!!!!!!'
+    body: 'HELLO FROM THE OTHER SIDE'
   }, function(err, message) {
     console.log(message);
   });

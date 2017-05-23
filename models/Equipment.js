@@ -1,7 +1,7 @@
 /*jshint esversion: 6*/
 
 module.exports = function(sequelize, DataTypes) {
-  var EquipmentList = sequelize.define("EquipmentList", {
+  var Equipment = sequelize.define("Equipment", {
     name: DataTypes.STRING,
     type: DataTypes.STRING,
     cost: DataTypes.DECIMAL
@@ -14,5 +14,5 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  return EquipmentList;
+  return Equipment;
 };
