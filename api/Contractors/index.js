@@ -5,7 +5,6 @@ const contractors = express.Router();
 const { Contractors } = require('../../models');
 
 contractors.get('/', ( req, res) => {
-  console.log('hit contractor');
   Contractors.all()
   .then((guests)=>{
     res.json(guests);

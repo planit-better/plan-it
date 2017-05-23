@@ -10,6 +10,13 @@ import ReduxThunk from 'redux-thunk';
 import reducers  from './reducers';
 import App from './containers/App';
 import newContractorForm from './containers/App/newContractorForm';
+import newEquipmentForm from './containers/App/newEquipmentForm';
+import newGuestForm from './containers/App/newGuestForm';
+import newMenuForm from './containers/App/newMenuForm';
+import newTaskForm from './containers/App/newTaskForm';
+
+
+
 import './index.css';
 
 const store = createStore(
@@ -24,6 +31,10 @@ ReactDOM.render(
       <div>
         <Route exact path="/" component={App}/>
         <Route path="/newContractorForm" component={newContractorForm} />
+        <Route path="/newEquipmentForm" component={newEquipmentForm} />
+        <Route path="/newGuestForm" component={newGuestForm} />
+        <Route path="/newMenuForm" component={newMenuForm} />
+        <Route path="/newTaskForm" component={newTaskForm} />
       </div>
     </Router>
   </Provider>,
