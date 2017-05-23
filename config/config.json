@@ -21,23 +21,3 @@
     "dialect": "postgres"
   }
 }
-
-{
-  "type": "service_account",
-  "project_id": "planit-better",
-  "private_key_id": "d182c3379bd93a28c0921d5116411707ebbbd61e",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC+f0I6QcspOHPr\nOx6QQKD9q9WkTEdrLWQzLW5crsIICFpFqFFZbuZye5Pl/VvMMdtA0KIse1GjYjGq\n2fIYdpS4kxzaCP6mf72Itt0UDuQP6ify27WTshZbe7HZLwSGX/sj/si2J6+yFCOp\nzQgJ0+vn3Rc9itFMKWIMT2tHGMpypXppRGckSgNc9/uKqCe1N0KabpWxgPdDA5MZ\nPYvUteyoCWC0N5Heh/uui7j1FXl8t8TIRgE4s8CQwZ9WFAePpemkdJh0Hf6Vv2o7\n4d7FBo0e9uRb7dhDKLB3+WbzlN8h+DXmdSn/eJCUKGtfgh59dzCoTVMTs3ENCvXa\nDL13xYTNAgMBAAECggEACqp3aJzS2JqXkVeJc4w0apLN1UAls4nvSH15TQLGTGRw\nIXxPtoRi4YzeKaXQ5CyNpe7IiPMMQOvR87Epc+/+J1BDvXvjCvfiz2r/RkAH/VG5\nlBVAvZjebzE/mPU5kwiAUdifH+VpWfAn7jogaOR1TesigcidXvh/y+Haemv+uDWt\nwWwFQFoM0PqjUtn/xEONvkqleormpA2hZ3+sRtUKJYZAN91d39KO4FlzF2U7eP5v\nKb0/JFA2AzJMjUIMp8C1jM+FDPmN0CVXzL3PpId38hBxwSdA9fBAONyf/7NUNX5S\nbvCPWZzwv1aFhbite9lotnZQLcslGFMurlmk8szvRQKBgQDf9xE5B+/tkNty3qVQ\nMlZjc6znr4A/J6XnhdZB0HBt8q8kJvgIXvCJsoCmih9y2YJEtZ1bqq7lXKdUYBKW\nu3KlRir7/k9qSwAdpNae6tl30MxOrMX7Ypg8ru4qu0WPk3svwR/qHC05tzUK1ZHb\nt+tpgbykPTjVcSB5QviiUG7B1wKBgQDZvrF3OkZGFmF4OpAPrr0txlOTqjXh1Ixa\njeaHx8MafB3SscdgSAN6bsWcIhMdGbTTmUr5FOTsJ/vH2/8okKCRzOdnbmlSTNfj\neXLIlYvcwe/h08ElJDyVByyiknd5eHYGS4YChf8kuUDlplHEAvnCjhirF0TlSoyb\n4MVRuL1h+wKBgA/YrlpHqn03m59UC4RSG3Sr8Zbu/vb4+i8YdCFx+xJ8clHvg+sr\ntH85pwqhiToaE7KC2yBqQjeuR5Sbu5T4rFLvVQlBZCMULWzrhdf2q+5jUqFabiOs\nRTM9+VICsBhJihTF6FkrJzQHN3SNyeUu7TQo3s0MG+JWP8L0rxzk7gE/AoGAMOPj\nPu0DuFrwGam0jQDkEzITs/Uk0gcCWJbB6zzMLtctbxBhvtmMhmH21r7D4eXStywV\nLGYnnGrB2rcnzHjkxLfoQU4GMed1Fes//Y+ubqvQ67i7Blbjj2aj/AC8+LY2ceVl\nOo3RovJBgw7cDxHH+IolOc0ot/8MITfPtjCvvR8CgYBf7yY5D2tB3cek8Pcnu9of\na6dA0lBv1wIMc2rk9dRRtJTq+huxASzu/lTfgShp4MzLk6rlNPS5CGsPGKANPYVL\nG1kTReMeFhq9Lmv9NYv/qnDYoROBMh4VI3CB+DMoKRNW54DIdVq0e549CO+p/atM\nj9On/Lt+hbpiUpl78FkWKw==\n-----END PRIVATE KEY-----\n",
-  "client_email": "email-invites@planit-better.iam.gserviceaccount.com",
-  "client_id": "101422902579394214686",
-  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-  "token_uri": "https://accounts.google.com/o/oauth2/token",
-  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/email-invites%40planit-better.iam.gserviceaccount.com"
-}
-
-####Use this key in your application by passing it with the key=API_KEY parameter.
-
-Your API key
-AIzaSyAgxlmN2Zecqn7rmQYwYI2HREEKMpRMHZ4
-
-
