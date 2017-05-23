@@ -14,7 +14,7 @@ const groupText = num => {
     messagingServiceSid: 'MGbe98cfd9d65efc10205750828083e11f',
     to:  num,
     from: '+16152191888',
-    body: 'I GOT IT TO WORK FUCK YEAH!!!!!!!'
+    body: 'Welcome to Devleague!'
   }, function(err, message) {
     console.log(message);
   });
