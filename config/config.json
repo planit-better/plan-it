@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "planit_admin",
-    "password": "bears22",
+    "username": "kaleo",
+    "password": "INUYASHA808",
     "database": "planit_better",
     "host": "localhost",
     "dialect": "postgres"
