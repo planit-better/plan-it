@@ -107,7 +107,7 @@ class newMenuForm extends Component {
               <input type="text" value={this.state.restaurant_name} onChange={this.handleChangeRestaurantName} />
             </div>
             <div>
-              <button name="Login" type="submit">New Menu </button>
+              <button name="Login" type="submit">Add Menu </button>
             </div>
           </form>
 

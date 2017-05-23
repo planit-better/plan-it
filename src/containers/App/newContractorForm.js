@@ -107,9 +107,8 @@ class newContractorForm extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Planit-Better</h2>
         </div>
-        <Link to="/">Home</Link>
+        <Link to="/"><button>Home</button></Link>
         <div id="navBar">
-          <button>Home</button>
         </div>
           <form onSubmit={this.handleContractorSubmit}>
             <div>
@@ -133,7 +132,7 @@ class newContractorForm extends Component {
               <input type="date" value={this.state.deadline} onChange={this.handleChangeDeadline} />
             </div>
             <div>
-              <button name="Login" type="submit">login </button>
+              <button name="Login" type="submit">Add Contractor </button>
             </div>
           </form>
 

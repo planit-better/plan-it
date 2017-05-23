@@ -17,13 +17,14 @@ class newGuestForm extends Component {
       name : "",
       will_attend : false,
       accompanying_guests : "",
-      can_drink : "",
+      can_drink : false,
       diet_restriction : ""
     };
   }
 
     handleGuestSubmit = ( event ) => {
       event.preventDefault();
+      console.log(this.state)
       this.addGuest(this.state)
       .then(this.clearState())
       .then(this.updateStore())
@@ -37,9 +38,16 @@ class newGuestForm extends Component {
     }
 
     handleChangeWillAttend = ( event ) => {
-      this.setState({
-        will_attend : event.target.value
-      });
+      if(this.state.will_attend === true){
+        this.setState({
+          will_attend : false
+        });
+      }
+      else if(this.state.will_attend === false){
+        this.setState({
+          will_attend : true
+        })
+      }
     }
 
     handleChangeAccompanyingGuests = ( event ) => {
@@ -49,9 +57,16 @@ class newGuestForm extends Component {
     }
 
     handleChangeCanDrink = ( event ) => {
-      this.setState({
-        can_drink : event.target.value
-      });
+      if(this.state.can_drink === true){
+        this.setState({
+          can_drink : false
+        });
+      }
+      else if(this.state.can_drink === false){
+        this.setState({
+          can_drink : true
+        })
+      }
     }
 
     handleChangeDietRestriction = ( event ) => {
@@ -63,9 +78,7 @@ class newGuestForm extends Component {
     clearState(){
       this.setState({
         name : "",
-        will_attend : false,
         accompanying_guests : "",
-        can_drink : "",
         diet_restriction : ""
       });
     }
@@ -116,7 +129,7 @@ class newGuestForm extends Component {
             </div>
             <div>
             <span>Will Attend</span>
-              <input type="text" placeholder="will attend" value={this.state.will_attend} onChange={this.handleChangeWillAttend} />
+              <span>Yes</span><input type="checkbox" name="attend" value={this.state.will_attend} onChange={this.handleChangeWillAttend}/>
             </div>
             <div>
               <span>accompanying guests Number</span>
@@ -124,14 +137,14 @@ class newGuestForm extends Component {
             </div>
             <div>
             <span>Can drink</span>
-              <input type="text" placeholder="can drink" value={this.state.can_drink} onChange={this.handleChangeCanDrink} />
+              <span>Yes</span><input type="checkbox" name="attend" value={this.state.can_drink} onChange={this.handleChangeCanDrink}/>
             </div>
             <div>
             <span>Diet Restrictions</span>
               <input type="text" value={this.state.diet_restriction} onChange={this.handleChangeDietRestriction} />
             </div>
             <div>
-              <button name="Login" type="submit">New Guest </button>
+              <button name="Login" type="submit">Add Guest </button>
             </div>
           </form>
 
