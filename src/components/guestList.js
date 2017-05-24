@@ -37,7 +37,7 @@ class GuestList extends Component {
       <ul>
         {
           this.props.guest.map((name) =>
-            <li><h3>{name.name}</h3></li>
+            <li className="guests" key={name.id}><h3>{name.name}</h3></li>
             )
         }
 

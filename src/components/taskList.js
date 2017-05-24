@@ -37,7 +37,7 @@ class TaskList extends Component {
       <ul>
         {
           this.props.task.map((name) =>
-            <li><h3>{name.name}</h3></li>
+            <li className="tasks" key={name.id}><h3>{name.name}</h3></li>
             )
         }
 

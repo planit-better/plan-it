@@ -37,7 +37,7 @@ class ContractorList extends Component {
       <ul>
         {
           this.props.contractors.map((name) =>
-            <li><h3>{name.company_name}</h3></li>
+            <li className="contractors" key={name.id}><h3>{name.company_name}</h3></li>
             )
         }
 

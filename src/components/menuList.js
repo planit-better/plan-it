@@ -37,7 +37,7 @@ class MenuList extends Component {
       <ul>
         {
           this.props.menu.map((name) =>
-            <li><h3>{name.restaurant_name}</h3></li>
+            <li className="menu" key={name.id}><h3>{name.restaurant_name}</h3></li>
             )
         }
 
