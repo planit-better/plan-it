@@ -9,16 +9,7 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        EquipmentList.hasMany(models.Contractors, {
-          foreignKey: {
-
-          }
-        });
-        EquipmentList.belongsTo(models.Tasks, {
-          foreginKey: {
-
-          }
-        });
+        // EquipmentList.belongsTo(models.User);
       }
     }
   });
