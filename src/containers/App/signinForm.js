@@ -22,6 +22,7 @@ class signinForm extends Component{
   handleSigninSubmit = ( event ) => {
     event.preventDefault();
     console.log(this.state)
+    this.addUser(this.state)
   }
 
   handleChangeUsername = ( event ) => {
@@ -34,6 +35,22 @@ class signinForm extends Component{
     this.setState({
       password : event.target.value
     });
+  }
+
+  addUser(user){
+    return fetch('/api/User',{
+        method: "POST",
+         headers:
+        {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(user)
+      }).then(response =>{
+        return(response)
+      }).catch(err => {
+        throw err;
+      })
   }
 
   render() {
@@ -56,7 +73,7 @@ class signinForm extends Component{
                 <input type="password" placeholder="password"  value={this.state.password} onChange={this.handleChangePassword} />
             </div>
              <div>
-              <button name="Login" type="submit">Sign Up </button>
+              <button name="Signup" type="submit">Sign Up </button>
             </div>
           </form>
       </div>
