@@ -23,6 +23,7 @@ class signinForm extends Component{
     event.preventDefault();
     console.log(this.state)
     this.addUser(this.state)
+    .then(this.clearState())
   }
 
   handleChangeUsername = ( event ) => {
@@ -51,6 +52,13 @@ class signinForm extends Component{
       }).catch(err => {
         throw err;
       })
+  }
+
+  clearState(){
+    this.setState({
+      username : "",
+      password : ""
+    });
   }
 
   render() {
