@@ -16,6 +16,24 @@ class signinForm extends Component{
       password : ""
     };
 
+
+  }
+
+  handleSigninSubmit = ( event ) => {
+    event.preventDefault();
+    console.log(this.state)
+  }
+
+  handleChangeUsername = ( event ) => {
+    this.setState({
+      username : event.target.value
+    });
+  }
+
+  handleChangePassword = ( event ) => {
+    this.setState({
+      password : event.target.value
+    });
   }
 
   render() {
@@ -28,14 +46,17 @@ class signinForm extends Component{
         <div id="navBar">
         <Link to="/"><button>Home</button></Link>
         </div>
-        <form onSubmit={this.handleTaskSubmit}>
+        <form onSubmit={this.handleSigninSubmit}>
             <div>
-             <span>Username</span>
-              <input type="text" placeholder="username" value={this.state.username} onChange={this.handleChangeUsername} />
+              <span>Username</span>
+                <input type="text" placeholder="username" value={this.state.username} onChange={this.handleChangeUsername} />
             </div>
             <div>
-            <span>Password</span>
-              <input type="password" placeholder="password"  value={this.state.password} onChange={this.handleChangePassword} />
+              <span>Password</span>
+                <input type="password" placeholder="password"  value={this.state.password} onChange={this.handleChangePassword} />
+            </div>
+             <div>
+              <button name="Login" type="submit">Sign Up </button>
             </div>
           </form>
       </div>
