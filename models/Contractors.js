@@ -14,7 +14,7 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods:  {
       associate: function(models) {
-        // Contractors.belongsTo(models.User);
+        Contractors.belongsTo(models.Task);
       }
     }
   });
