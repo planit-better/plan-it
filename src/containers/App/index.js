@@ -71,7 +71,7 @@ class App extends Component {
 
   render() {
     // console.log(this.props.equipment);
-    console.log(this.props.contractors);
+    //console.log(this.props.contractors);
     // console.log(this.props.guest);
     // console.log(this.props.menu);
     // console.log(this.props.task);
@@ -102,6 +102,7 @@ const mapStateToProps = (state) => {
     task : state.task
   };
 }
+
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
