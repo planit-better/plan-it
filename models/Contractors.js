@@ -15,19 +15,6 @@ module.exports = function(sequelize, DataTypes) {
     classMethods:  {
       associate: function(models) {
         // Contractors.belongsTo(models.User);
-        Contractors.hasMany(models.EquipmentList, {
-          foreginKey: {
-            name: 'equpiment_id',
-            allowNull: false
-          }
-        });
-
-        Contractors.hasOne(models.Tasks, {
-          forignKey: {
-            name: 'tasks_id',
-            allowNull: false
-          }
-        });
       }
     }
   });
