@@ -6,6 +6,7 @@ import './styles.css';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { loadContractors } from '../../action';
+import ContractorList from '../../components/contractors/contractorList';
 
 class newContractorForm extends Component {
 
@@ -135,6 +136,8 @@ class newContractorForm extends Component {
               <button name="Login" type="submit">Add Contractor </button>
             </div>
           </form>
+          <ContractorList contractor={this.props.contractors}/>
+
 
       </div>
     );
