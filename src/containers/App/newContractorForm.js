@@ -6,7 +6,7 @@ import './styles.css';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { loadContractors } from '../../action';
-import ContractorList from '../../components/contractors/contractorList';
+import ContractorList from '../../components/contractorList';
 
 class newContractorForm extends Component {
 
@@ -101,7 +101,6 @@ class newContractorForm extends Component {
     }
 
     render() {
-      console.log(this.props.contractors)
     return (
       <div className="App">
         <div className="App-header">

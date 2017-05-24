@@ -3,7 +3,7 @@
 
 import React,{Component} from 'react';
 import { connect } from 'react-redux';
-import { loadContractors } from '../../action';
+import { loadContractors } from '../action';
 
 
 
@@ -15,16 +15,33 @@ class ContractorList extends Component {
 
   }
 
+  componentWillMount() {
+    fetch('/api/Contractors', {
+      method: "GET"
+    }).then((response) =>{
+      return response.json()
+    }).then((contractors) =>{
+      this.props.loadContractors(contractors)
+    }).catch(err =>{
+      throw err;
+    })
+  }
+
 
 
    render() {
-    console.log(this.props.contractors[0])
 
     return(
       <div>
       <h1>Hello Contractors</h1>
-      <h2>{this.props.contractors[0].company_name}</h2>
+      <ul>
+        {
+          this.props.contractors.map((name) =>
+            <li><h3>{name.company_name}</h3></li>
+            )
+        }
 
+      </ul>
       </div>
       )
 
