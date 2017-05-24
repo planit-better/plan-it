@@ -6,6 +6,7 @@ import './styles.css';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { loadGuest } from '../../action';
+import GuestList from '../../components/guestList'
 
 class newGuestForm extends Component {
 
@@ -147,7 +148,7 @@ class newGuestForm extends Component {
               <button name="Login" type="submit">Add Guest </button>
             </div>
           </form>
-
+          <GuestList guest={this.props.guest} />
       </div>
     );
   }

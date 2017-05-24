@@ -6,6 +6,7 @@ import './styles.css';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { loadMenu } from '../../action';
+import MenuList from '../../components/menuList';
 
 class newMenuForm extends Component {
 
@@ -110,7 +111,7 @@ class newMenuForm extends Component {
               <button name="Login" type="submit">Add Menu </button>
             </div>
           </form>
-
+          <MenuList menu={this.props.menu} />
       </div>
     );
   }

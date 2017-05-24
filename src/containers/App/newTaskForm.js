@@ -6,6 +6,7 @@ import './styles.css';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { loadTask } from '../../action';
+import TaskList from '../../components/taskList';
 
 class newTaskForm extends Component {
 
@@ -122,6 +123,7 @@ class newTaskForm extends Component {
               <button name="Login" type="submit">Add Task </button>
             </div>
           </form>
+          <TaskList task={this.props.task} />
 
       </div>
     );
