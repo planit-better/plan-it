@@ -6,8 +6,8 @@ module.exports = function(sequelize, DataTypes) {
   var Contractors = sequelize.define("Contractors", {
 
     company_name: DataTypes.TEXT,
-    cost: DataTypes.INTEGER,
-    contact: DataTypes.INTEGER,
+    cost: DataTypes.DECIMAL,
+    contact: DataTypes.BIGINT,
     date_hired: DataTypes.DATE,
     deadline: DataTypes.DATE
 
