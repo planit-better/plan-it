@@ -21,6 +21,7 @@ class loginForm extends Component{
     event.preventDefault();
     console.log(this.state)
     this.login(this.state)
+    .then(this.clearState())
   }
 
   handleChangeUsername = ( event ) => {
@@ -32,6 +33,13 @@ class loginForm extends Component{
   handleChangePassword = ( event ) => {
     this.setState({
       password : event.target.value
+    });
+  }
+
+  clearState(){
+    this.setState({
+      username : "",
+      password : ""
     });
   }
 

@@ -71,7 +71,7 @@ class App extends Component {
 
   render() {
     // console.log(this.props.equipment);
-    //console.log(this.props.contractors);
+    // console.log(this.props.contractors);
     // console.log(this.props.guest);
     // console.log(this.props.menu);
     // console.log(this.props.task);
@@ -80,8 +80,12 @@ class App extends Component {
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Planit-Better</h2>
-          <Link to="/signinForm"><button>Sign In</button></Link>
-          <Link to="/loginForm"><button>Log In</button></Link>
+          <Link to="/signinForm">
+            <button>Sign Up</button>
+          </Link>
+            <Link to="/loginForm">
+              <button>Login</button>
+          </Link>
         </div>
         <div id="postNavBar">
           <Link to="/newContractorForm"><button>New Contractor</button></Link>
