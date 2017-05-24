@@ -7,5 +7,6 @@ Router.use('/Equipment', require('./Equipment'));
 Router.use('/Guest', require('./Guest'));
 Router.use('/Menu', require('./Menu'));
 Router.use('/Task', require('./Task'));
+Router.use('/User', require('./User'));
 
 module.exports = Router;
