@@ -81,6 +81,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Planit-Better</h2>
           <Link to="/signinForm"><button>Sign In</button></Link>
+          <Link to="/loginForm"><button>Log In</button></Link>
         </div>
         <div id="postNavBar">
           <Link to="/newContractorForm"><button>New Contractor</button></Link>

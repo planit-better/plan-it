@@ -12,7 +12,7 @@ const session = require('express-session');
 const RedisStore = require('connect-redis')(session);
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-const { user } = db;
+const { User } = db;
 
 //password hashing
 const saltRounds = 10;
@@ -46,7 +46,7 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(user, done) {
   console.log('deserializing');
   // ^ ---------- given from serializeUser
-  User.findOne({
+  user.findOne({
     where: {
       id: user.id
     }
