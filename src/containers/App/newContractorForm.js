@@ -107,8 +107,8 @@ class newContractorForm extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Planit-Better</h2>
         </div>
-        <Link to="/"><button>Home</button></Link>
         <div id="navBar">
+        <Link to="/"><button>Home</button></Link>
         </div>
           <form onSubmit={this.handleContractorSubmit}>
             <div>
