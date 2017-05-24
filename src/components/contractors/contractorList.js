@@ -15,11 +15,17 @@ class ContractorList extends Component {
 
   }
 
+
+
    render() {
+    console.log(this.props.contractors[0])
 
     return(
+      <div>
+      <h1>Hello Contractors</h1>
+      <h2>{this.props.contractors[0].company_name}</h2>
 
-      <h1>Hello World</h1>
+      </div>
       )
 
    }
