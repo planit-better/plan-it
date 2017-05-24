@@ -5,6 +5,7 @@ import logo from './logo.svg';
 import './styles.css';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { loadUser } from '../../action';
 
 class signinForm extends Component{
   constructor(props) {
@@ -17,6 +18,18 @@ class signinForm extends Component{
     };
 
 
+  }
+
+  componentWillMount() {
+    fetch('/api/User', {
+      method : "GET"
+    }).then((response)=>{
+      return response.json()
+    }).then((user) =>{
+      this.props.loadUser(user)
+    }).catch(err =>{
+      throw err;
+    })
   }
 
   handleSigninSubmit = ( event ) => {
@@ -62,6 +75,7 @@ class signinForm extends Component{
   }
 
   render() {
+    console.log(this.props.user)
     return(
       <div className="App">
         <div className="App-header">
@@ -90,4 +104,24 @@ class signinForm extends Component{
 
 
 }
-export default signinForm;
+
+const mapStateToProps = (state) => {
+  return {
+    user : state.user
+  };
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    loadUser: user =>{
+      dispatch(loadUser(user))
+    }
+  }
+}
+
+const ConnectedUserApp = connect(
+  mapStateToProps,
+  mapDispatchToProps
+  )(signinForm);
+
+export default ConnectedUserApp;
