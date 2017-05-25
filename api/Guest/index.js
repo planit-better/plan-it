@@ -1,14 +1,19 @@
 /*jshint esversion: 6*/
+<<<<<<< HEAD
 
 const express = require('express');
 const { getNumber, groupText } = require('../../text-reminder/text.js');
 const { evite } = require('../../evite/email.js');
+=======
+const express = require('express');
+>>>>>>> 5b644e84a962356f582aeed71ccd76a92ffecfba
 const guest = express.Router();
 const { Guest } = require('../../models');
 
 // everytime hit Get route will send texts
 guest.get('/', ( req, res) => {
   console.log('hit guest');
+<<<<<<< HEAD
   Guest.findAll({raw: true})
   .then((allGuest)=>{
     console.log(allGuest);
@@ -20,6 +25,13 @@ guest.get('/', ( req, res) => {
   //   console.log('2 then is hit ', allGuest);
   })
   .catch(err => {
+=======
+  Guest.all()
+  .then((guest) =>{
+    console.log(guest);
+    res.json(guest);
+  }).catch(err =>{
+>>>>>>> 5b644e84a962356f582aeed71ccd76a92ffecfba
     res.send(err);
   });
 });

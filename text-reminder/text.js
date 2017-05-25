@@ -13,6 +13,7 @@ var client = require('twilio')(accountSid, authToken);
 // console.log(numbers);
 
 const groupText = num => {
+  console.log(num);
 
   client.messages.create({
     messagingServiceSid: twilioAccount.messaging,
@@ -31,12 +32,9 @@ const groupText = num => {
 };
 
 const getNumber = params  => {
-  for(let i = 0; i < params.length; i++) {
-    let plus = '+';
-    plus += params[i].number.concat(plus);
-    console.log(plus);
-    groupText(params[i].number);
-    console.log(params[i].number);
+ for(let i = 0; i < params.length; i++) {
+    console.log(params[i].dataValues.number);
+    groupText(params[i].dataValues.number);
   }
 };
 
