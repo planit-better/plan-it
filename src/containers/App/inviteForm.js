@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { loadGuest } from '../../action';
 import GuestList from '../../components/guestList';
+//import { groupText } from './text-reminder/text.js'
 
 
 class InviteForm extends Component {
@@ -32,10 +33,15 @@ class InviteForm extends Component {
   }
 
 
-
-
-
-
+  text(){
+    fetch('api/text', {
+      method : "GET"
+    }).then((response) =>{
+      return response.json()
+    }).catch(err => {
+      throw err;
+    })
+  }
 
     render() {
       console.log(this.props.guest)
@@ -52,6 +58,10 @@ class InviteForm extends Component {
         </div>
         <div id="navBar">
         <Link to="/"><button>Home</button></Link>
+        </div>
+
+        <div>
+          <button onClick={this.text}>text all guests</button>
         </div>
 
         <div>
