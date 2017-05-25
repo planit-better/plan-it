@@ -1,5 +1,5 @@
+/*jshint esversion: 6*/
 const express = require('express');
-const { getNumber, groupText } = require('../../text-reminder/text.js');
 const guest = express.Router();
 const { Guest } = require('../../models');
 
@@ -8,12 +8,12 @@ guest.get('/', ( req, res) => {
   console.log('hit guest');
   Guest.all()
   .then((guest) =>{
-    console.log(guest)
+    console.log(guest);
     res.json(guest);
   }).catch(err =>{
     res.send(err);
-  })
-})
+  });
+});
 
 guest.post('/', ( req, res ) => {
   console.log(req.body);

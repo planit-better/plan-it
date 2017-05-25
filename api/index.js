@@ -8,5 +8,6 @@ Router.use('/Guest', require('./Guest'));
 Router.use('/Menu', require('./Menu'));
 Router.use('/Task', require('./Task'));
 Router.use('/User', require('./User'));
+Router.use('/text', require('./text'));
 
 module.exports = Router;
