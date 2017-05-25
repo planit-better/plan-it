@@ -6,11 +6,44 @@ import './styles.css';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { loadGuest } from '../../action';
+import GuestList from '../../components/guestList';
+
 
 class InviteForm extends Component {
 
+  constructor(props) {
+    console.log(props)
+
+    super(props);
+
+  }
+
+
+  componentWillMount() {
+    fetch('/api/Guest', {
+      method: "GET"
+    }).then((response) =>{
+      return response.json()
+    }).then((guest) =>{
+      this.props.loadGuest(guest)
+    }).catch(err =>{
+      throw err;
+    })
+  }
+
+
+
+
+
+
 
     render() {
+      console.log(this.props.guest)
+
+
+
+
+
     return (
       <div className="App">
         <div className="App-header">
@@ -21,7 +54,9 @@ class InviteForm extends Component {
         <Link to="/"><button>Home</button></Link>
         </div>
 
-
+        <div>
+          <GuestList guest={this.props.guest}/>
+        </div>
 
       </div>
     );
@@ -31,14 +66,22 @@ class InviteForm extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    contractors : state.contractors
+    guest : state.guest
   };
 }
 
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    loadGuest: guest =>{
+      dispatch(loadGuest(guest))
+    }
+  }
+}
 
 
 const ConnectedContractorApp = connect(
   mapStateToProps,
+  mapDispatchToProps
   )(InviteForm);
 
 
