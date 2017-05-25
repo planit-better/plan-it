@@ -30,7 +30,9 @@
     "express-session": "^1.15.3",
     "gulp": "^3.9.1",
     "gulp-sass": "^3.1.0",
+    "mailcomposer": "^4.0.2",
     "mailgun-js": "^0.10.1",
+    "nodemailer": "^4.0.1",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "pg": "^6.2.2",
@@ -46,7 +48,8 @@
     "redux-router": "^1.0.0",
     "redux-thunk": "^2.2.0",
     "sass": "^0.5.0",
-    "sequelize": "^3.30.4"
+    "sequelize": "^3.30.4",
+    "yelp-fusion": "^1.0.3"
   },
   "devDependencies": {
     "react-scripts": "^1.0.1"

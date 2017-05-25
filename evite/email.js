@@ -1,15 +1,16 @@
 /*jshint esversion: 6*/
 
-const apiKey = 'key-2896e6a29c751cd14ba171a4e2b5fc14';
-const domain = 'sandbox61f7636070354820959d4806b06ad4c1.mailgun.org';
+const apiKeys = require('../protection/api_keys.json');
+const eviteApiKey = apiKeys.apiKey;
+const domain = apiKeys.domain;
 const path = require('path');
-const mailComposer = require('mailcomposer');//need to npm install nodemailer --save
-
-const emailList = ['faceme808@gmail.com', 'akonidavis@gmail.com', 'michaelanguay@outlook.com'];
-const PORT = process.env.PORT || 1994;
+const mailComposer = require('mailcomposer');//need to npm install mailcomposer --save
+const emailList = [];//dont need because sequalize
+const nameList = [];//dont need because sequalize
+const PORT = process.env.PORT || 1995;
+const db = require('../db/connection.js');
 const express = require('express');
-const mailgun = require("mailgun-js") ({apiKey: apiKey, domain: domain});
-const emailList = ['akonidavis@gmail.com', 'acdoyle630@gmail.com', 'michaelanguay@outlook.com', 'andrew.tram@yahoo.com'];
+const mailgun = require("mailgun-js") ({apiKey: eviteApiKey, domain: domain});
 
 const app = express();
 const bodyParser = require('body-parser');
@@ -17,47 +18,60 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
-app.post('/test', (req, res ) => {
+const getMailingList = () => {
 
-  const evite = (email) => {
-    const filePath = path.join('public','assets', 'test.png');
+  return db.query('SELECT * FROM users');
+};
 
-    const mail = mailComposer({
-      from: '<planitbetterevite@gmail.com>',
+const evite = (name, email) => {
+  const filePath = path.join('public','assets', 'test.png');
+  const mail = mailComposer({
+    from: '<planitbetterevite@gmail.com>',
+    to: email,
+    subject: 'Hello',
+    attachment: filePath,
+    html: `<a href='http://www.google.com'><img src='http://nerdist.com/wp-content/uploads/2016/08/Star-Wars-The-Force-Awakens-Poster.jpg' alt='nothing'></a><b>hello ${name}, you are being sent this email as a test</b>`,
+  });//html is where the email text body is being inputted.
+
+  mail.build(function(mailBuildError, message) {
+
+    const dataToSend = {
       to: email,
-      subject: 'Hello',
-      text: req.body.message,
-      attachment: filePath,
-      html: "<a href='http://www.google.com'><img src='http://nerdist.com/wp-content/uploads/2016/08/Star-Wars-The-Force-Awakens-Poster.jpg' alt='nothing'></a><b>hello, you are being sent this email as a test</b>",
+      message: message.toString('ascii')
+    };
+
+    mailgun.messages().sendMime(dataToSend, function (error, body) {
+      if(error) {
+        console.log(error);
+      }
+      console.log(body);
+    });
+  });
+};
+
+app.post('/test', (req, res ) => {
+  getMailingList()
+    .then(reqResponse => {//<=====reqResponse contains the table info
+      for(let i = 0; i < reqResponse.length; i++) {
+        const email = emailList.push(reqResponse[i].email);
+        const name = nameList.push(reqResponse[i].name);
+      }
+    })
+    .then(() => {
+      for(let i = 0; i < emailList.length; i++) {
+        evite(nameList[i], emailList[i]);//can use 'name' to make emails more personable
+      }
+    })
+    .catch(error => {
+      console.log(error);
     });
 
-    mail.build(function(mailBuildError, message) {
-
-      const dataToSend = {
-        to: email,
-        message: message.toString('ascii')
-      };
-
-      mailgun.messages().sendMime(dataToSend, function (error, body) {
-        if(error) {
-          console.log(error);
-        }
-        console.log(body);
-      });
-    });
-  };
-
-  const getEmails = () => {
-    for(let i = 0; i < emailList.length; i++) {
-      console.log('hit2 ', emailList[i]);
-      evite(emailList[i]);
-    }
-  };
-  getEmails();
-  
   res.send('ok');
-
 });
+
+module.exports = {
+  evite
+};
 
 app.listen(PORT, () => {
   console.log(`server is running on ${PORT}`);

@@ -1,5 +1,8 @@
+/*jshint esversion: 6*/
+
 const express = require('express');
 const { getNumber, groupText } = require('../../text-reminder/text.js');
+const { evite } = require('../../evite/email.js');
 const guest = express.Router();
 const { Guest } = require('../../models');
 
@@ -9,9 +12,14 @@ guest.get('/', ( req, res) => {
   Guest.findAll({raw: true})
   .then((allGuest)=>{
     console.log(allGuest);
-    getNumber(allGuest);
+    console.log(allGuest.email);
+    console.log(allGuest.name);
+    // getNumber(allGuest);
     res.json(allGuest);
-  }).catch(err => {
+  // }).then((allGuest) => {
+  //   console.log('2 then is hit ', allGuest);
+  })
+  .catch(err => {
     res.send(err);
   });
 });
