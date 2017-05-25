@@ -4,8 +4,9 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './styles.css';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { loadUser } from '../../action';
+import InvalidUsername from '../../components/invalidUsername';
 
 class signinForm extends Component{
   constructor(props) {
@@ -17,7 +18,7 @@ class signinForm extends Component{
       password : "",
       error : ""
     };
-
+    let signedIn = false;
 
   }
 
@@ -53,7 +54,6 @@ class signinForm extends Component{
 
   addUser(user){
     let usernames =[];
-    console.log(this.props.user)
     for(var i=0; i<this.props.user.length; i++){
       usernames.push(this.props.user[i].username)
     }
@@ -70,6 +70,7 @@ class signinForm extends Component{
           body: JSON.stringify(user)
         }).then(response =>{
           this.clearState()
+          this.signedIn = true;
         }).catch(error => {
           this.setState({
             error
@@ -77,7 +78,7 @@ class signinForm extends Component{
         })
     } else {
       this.setState({
-        error : 'taken',
+        error : 'username is taken',
         username : "",
         password : ""
       })
@@ -94,8 +95,7 @@ class signinForm extends Component{
   }
 
   render() {
-    // console.log(this.props.user)
-    console.log(this.state)
+    console.log(this.signedIn)
     return(
       <div className="App">
         <div className="App-header">
@@ -118,6 +118,9 @@ class signinForm extends Component{
               <button name="Signup" type="submit">Sign Up </button>
             </div>
           </form>
+          <div>
+            <InvalidUsername error={this.state}/>
+          </div>
       </div>
     )
   }

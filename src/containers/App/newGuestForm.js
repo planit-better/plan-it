@@ -147,6 +147,9 @@ class newGuestForm extends Component {
             <div>
               <button name="Login" type="submit">Add Guest </button>
             </div>
+            <div>
+              <Link to="/inviteForm"><button>Create Invite</button></Link>
+            </div>
           </form>
           <GuestList guest={this.props.guest} />
       </div>
