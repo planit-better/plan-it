@@ -6,6 +6,9 @@ export const LOAD_MENU = 'LOAD_MENU';
 export const LOAD_TASK = 'LOAD_TASK';
 export const LOAD_USER = 'LOAD_USER';
 
+export const AUTH_USER = 'AUTH_USER';
+
+
 export const loadContractors = contractors =>{
   return {
     type : LOAD_CONTRACTORS,
@@ -45,5 +48,12 @@ export const loadUser = user => {
   return {
     type : LOAD_USER,
     user
+  };
+};
+
+export const authUser = currentUser => {
+  return {
+    type : AUTH_USER,
+    currentUser
   };
 };
