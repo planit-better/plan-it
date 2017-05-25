@@ -4,8 +4,9 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './styles.css';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { loadUser } from '../../action';
+import InvalidUsername from '../../components/invalidUsername';
 
 class signinForm extends Component{
   constructor(props) {
@@ -94,8 +95,13 @@ class signinForm extends Component{
   }
 
   render() {
-    // console.log(this.props.user)
-    console.log(this.state)
+    // if(this.state.error){
+    //   return(
+    //   <Redirect to={{
+    //       pathname: '/',
+    //     }} />
+    //   )
+    // }
     return(
       <div className="App">
         <div className="App-header">
@@ -118,6 +124,9 @@ class signinForm extends Component{
               <button name="Signup" type="submit">Sign Up </button>
             </div>
           </form>
+          <div>
+            <InvalidUsername />
+          </div>
       </div>
     )
   }
