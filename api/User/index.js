@@ -17,7 +17,7 @@ user.post('/',(req, res) =>{
         password : hash
       })
       .then((user) =>{
-        res.json(user.username);
+        res.json(user);
       });
     });
   });

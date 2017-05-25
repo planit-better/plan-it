@@ -14,6 +14,8 @@ import newEquipmentForm from './containers/App/newEquipmentForm';
 import newGuestForm from './containers/App/newGuestForm';
 import newMenuForm from './containers/App/newMenuForm';
 import newTaskForm from './containers/App/newTaskForm';
+import signinForm from './containers/App/signinForm';
+import loginForm from './containers/App/loginForm';
 
 
 
@@ -35,6 +37,8 @@ ReactDOM.render(
         <Route path="/newGuestForm" component={newGuestForm} />
         <Route path="/newMenuForm" component={newMenuForm} />
         <Route path="/newTaskForm" component={newTaskForm} />
+        <Route path="/signinForm" component={signinForm} />
+        <Route path="/loginForm" component={loginForm} />
       </div>
     </Router>
   </Provider>,
