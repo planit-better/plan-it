@@ -14,7 +14,8 @@ class signinForm extends Component{
 
     this.state = {
       username : "",
-      password : ""
+      password : "",
+      error : ""
     };
 
 
@@ -35,7 +36,7 @@ class signinForm extends Component{
   handleSigninSubmit = ( event ) => {
     event.preventDefault();
     this.addUser(this.state)
-    .then(this.clearState())
+    //.then(this.clearState())
   }
 
   handleChangeUsername = ( event ) => {
@@ -51,30 +52,49 @@ class signinForm extends Component{
   }
 
   addUser(user){
-    return fetch('/api/User',{
-        method: "POST",
-         headers:
-        {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify(user)
-      }).then(response =>{
-        return(response)
-      }).catch(err => {
-        throw err;
+    let usernames =[];
+    console.log(this.props.user)
+    for(var i=0; i<this.props.user.length; i++){
+      usernames.push(this.props.user[i].username)
+    }
+    console.log(usernames)
+    console.log(user.username)
+    if(usernames.indexOf(user.username) === -1){
+      fetch('/api/User',{
+          method: "POST",
+           headers:
+          {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify(user)
+        }).then(response =>{
+          this.clearState()
+        }).catch(error => {
+          this.setState({
+            error
+          });
+        })
+    } else {
+      this.setState({
+        error : 'taken',
+        username : "",
+        password : ""
       })
+
+    }
   }
 
   clearState(){
     this.setState({
       username : "",
-      password : ""
+      password : "",
+      error : ""
     });
   }
 
   render() {
-    console.log(this.props.user)
+    // console.log(this.props.user)
     console.log(this.state)
     return(
       <div className="App">
@@ -101,8 +121,6 @@ class signinForm extends Component{
       </div>
     )
   }
-
-
 }
 
 const mapStateToProps = (state) => {
