@@ -16,6 +16,7 @@ class newGuestForm extends Component {
 
     this.state = {
       name : "",
+      number : "",
       will_attend : false,
       accompanying_guests : "",
       can_drink : false,
@@ -25,7 +26,6 @@ class newGuestForm extends Component {
 
     handleGuestSubmit = ( event ) => {
       event.preventDefault();
-      console.log(this.state)
       this.addGuest(this.state)
       .then(this.clearState())
       .then(this.updateStore())
@@ -76,6 +76,12 @@ class newGuestForm extends Component {
       });
     }
 
+      handleChangeNumber = ( event ) => {
+      this.setState({
+        number : event.target.value
+      });
+    }
+
     clearState(){
       this.setState({
         name : "",
@@ -88,8 +94,10 @@ class newGuestForm extends Component {
      fetch('/api/Guest', {
       method: "GET"
     }).then((response) =>{
+      console.log(response)
       return response.json()
     }).then((guest) =>{
+      console.log(guest)
       this.props.loadGuest(guest)
     }).catch(err =>{
       throw err;
@@ -114,6 +122,7 @@ class newGuestForm extends Component {
     }
 
     render() {
+      console.log(this.props.guest)
     return (
       <div className="App">
         <div className="App-header">
@@ -127,6 +136,10 @@ class newGuestForm extends Component {
             <div>
              <span>Name</span>
               <input type="text" placeholder="Name" value={this.state.name} onChange={this.handleChangeName} />
+            </div>
+            <div>
+             <span>Number</span>
+              <input type="text" placeholder="Number" value={this.state.number} onChange={this.handleChangeNumber} />
             </div>
             <div>
             <span>Will Attend</span>

@@ -6,15 +6,14 @@ const { Guest } = require('../../models');
 // everytime hit Get route will send texts
 guest.get('/', ( req, res) => {
   console.log('hit guest');
-  Guest.findAll({raw: true})
-  .then((allGuest)=>{
-    console.log(allGuest);
-    getNumber(allGuest);
-    res.json(allGuest);
-  }).catch(err => {
+  Guest.all()
+  .then((guest) =>{
+    console.log(guest)
+    res.json(guest);
+  }).catch(err =>{
     res.send(err);
-  });
-});
+  })
+})
 
 guest.post('/', ( req, res ) => {
   console.log(req.body);
