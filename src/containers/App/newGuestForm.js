@@ -6,7 +6,7 @@ import './styles.css';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { loadGuest } from '../../action';
-import GuestList from '../../components/guestList'
+import GuestList from '../../components/guestList';
 
 class newGuestForm extends Component {
 

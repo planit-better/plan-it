@@ -16,6 +16,7 @@ import newMenuForm from './containers/App/newMenuForm';
 import newTaskForm from './containers/App/newTaskForm';
 import signinForm from './containers/App/signinForm';
 import loginForm from './containers/App/loginForm';
+import inviteForm from './containers/App/inviteForm';
 
 
 
@@ -39,6 +40,7 @@ ReactDOM.render(
         <Route path="/newTaskForm" component={newTaskForm} />
         <Route path="/signinForm" component={signinForm} />
         <Route path="/loginForm" component={loginForm} />
+        <Route path="/inviteForm" component={inviteForm} />
       </div>
     </Router>
   </Provider>,
