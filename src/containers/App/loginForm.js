@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './styles.css';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { loadUser, authUser } from '../../action';
 
 class loginForm extends Component{
@@ -65,6 +65,13 @@ class loginForm extends Component{
 
   render(){
     console.log(this.props.currentUser)
+      if(this.props.currentUser.userLoggedIn === true){
+        return(
+        <Redirect to={{
+          pathname: '/',
+        }} />
+        )
+      }
     return(
       <div className="App">
         <div className="App-header">
