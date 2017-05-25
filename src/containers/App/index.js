@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './styles.css';
 import { connect } from 'react-redux';
-import { loadContractors, loadEquipment, loadGuest, loadMenu, loadTask } from '../../action';
+import { loadContractors, loadEquipment, loadGuest, loadMenu, loadTask, logOut } from '../../action';
 import { Link } from 'react-router-dom';
 
 class App extends Component {
@@ -67,6 +67,18 @@ class App extends Component {
     })
   }
 
+  signOut=()=>{
+    fetch('/logout', {
+      method: "GET"
+    }).then(data =>{
+      return(data.json())
+    }).then(response =>{
+      //sign out action
+      this.props.logOut(response)
+      console.log(response)
+    })
+  }
+
 
 
   render() {
@@ -75,7 +87,7 @@ class App extends Component {
     // console.log(this.props.guest);
     // console.log(this.props.menu);
     // console.log(this.props.task);
-    console.log(this.props.currentUser)
+    // console.log(this.props.currentUser)
 
     if(this.props.currentUser.userLoggedIn === true){
 
@@ -84,12 +96,7 @@ class App extends Component {
           <div className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <h2>Planit-Better</h2>
-            <Link to="/signinForm">
-              <button>Sign Up</button>
-            </Link>
-              <Link to="/loginForm">
-                <button>Login</button>
-            </Link>
+            <button id="signout" onClick={this.signOut}>Log Out</button>
           </div>
           <br></br>
           <div id="postNavBar">
@@ -149,6 +156,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     },
     loadTask : task => {
       dispatch(loadTask(task))
+    },
+    logOut : currentUser => {
+      dispatch(logOut(currentUser))
     }
   }
 }
