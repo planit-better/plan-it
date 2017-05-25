@@ -18,7 +18,7 @@ class signinForm extends Component{
       password : "",
       error : ""
     };
-
+    let signedIn = false;
 
   }
 
@@ -54,7 +54,6 @@ class signinForm extends Component{
 
   addUser(user){
     let usernames =[];
-    console.log(this.props.user)
     for(var i=0; i<this.props.user.length; i++){
       usernames.push(this.props.user[i].username)
     }
@@ -71,6 +70,7 @@ class signinForm extends Component{
           body: JSON.stringify(user)
         }).then(response =>{
           this.clearState()
+          this.signedIn = true;
         }).catch(error => {
           this.setState({
             error
@@ -78,7 +78,7 @@ class signinForm extends Component{
         })
     } else {
       this.setState({
-        error : 'taken',
+        error : 'username is taken',
         username : "",
         password : ""
       })
@@ -95,15 +95,7 @@ class signinForm extends Component{
   }
 
   render() {
-
-    console.log(this.state)
-    // if(this.state.error){
-    //   return(
-    //   <Redirect to={{
-    //       pathname: '/',
-    //     }} />
-    //   )
-    // }
+    console.log(this.signedIn)
     return(
       <div className="App">
         <div className="App-header">
