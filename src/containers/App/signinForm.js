@@ -95,6 +95,8 @@ class signinForm extends Component{
   }
 
   render() {
+
+    console.log(this.state)
     // if(this.state.error){
     //   return(
     //   <Redirect to={{
@@ -125,7 +127,7 @@ class signinForm extends Component{
             </div>
           </form>
           <div>
-            <InvalidUsername />
+            <InvalidUsername error={this.state}/>
           </div>
       </div>
     )

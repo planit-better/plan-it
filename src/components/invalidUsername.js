@@ -5,25 +5,12 @@ import { connect } from 'react-redux';
 
 class InvalidUsername extends Component {
 
-
-
-
-
   render(){
+    console.log(this.props.error.error)
     return(
-      <h1>{this.props.user.error}</h1>
+      <h1>{this.props.error.error}</h1>
     )
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    user : state.user
-  };
-}
-
-const ConnectedInvalidUsernameApp = connect(
-  mapStateToProps,
-  )(InvalidUsername);
-
-export default ConnectedInvalidUsernameApp;
+export default InvalidUsername;
