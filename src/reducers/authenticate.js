@@ -1,5 +1,6 @@
 import {
-  AUTH_USER
+  AUTH_USER,
+  LOGOUT_USER
 } from '../action';
 
 const initialState = {
@@ -10,13 +11,17 @@ const initialState = {
 const currentUser = (state = initialState, action) =>{
   switch(action.type){
     case AUTH_USER :
-      console.log(action)
-      console.log(state)
       return Object.assign({}, state, {
 
           username : action.currentUser.username,
           userLoggedIn : true
 
+      })
+
+    case LOGOUT_USER :
+      return Object.assign({}, state, {
+          username : "",
+          userLoggedIn : false
       })
 
       default: return state;

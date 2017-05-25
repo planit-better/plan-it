@@ -7,6 +7,7 @@ export const LOAD_TASK = 'LOAD_TASK';
 export const LOAD_USER = 'LOAD_USER';
 
 export const AUTH_USER = 'AUTH_USER';
+export const LOGOUT_USER = 'LOGOUT_USER';
 
 
 export const loadContractors = contractors =>{
@@ -54,6 +55,13 @@ export const loadUser = user => {
 export const authUser = currentUser => {
   return {
     type : AUTH_USER,
+    currentUser
+  };
+};
+
+export const logOut = currentUser => {
+  return {
+    type : LOGOUT_USER,
     currentUser
   };
 };
