@@ -61,7 +61,7 @@ class InviteForm extends Component {
         </div>
 
         <div>
-          <button onClick={this.text}>text</button>
+          <button onClick={this.text}>text all guests</button>
         </div>
 
         <div>
