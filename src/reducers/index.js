@@ -7,6 +7,7 @@ import guest from './guest';
 import menu from './menu';
 import task from './task';
 import user from './user';
+import authenticate from './authenticate';
 
 export default combineReducers({
   contractors,
@@ -14,6 +15,7 @@ export default combineReducers({
   guest,
   menu,
   task,
-  user
+  user,
+  authenticate
 });
 

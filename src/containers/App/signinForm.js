@@ -34,7 +34,6 @@ class signinForm extends Component{
 
   handleSigninSubmit = ( event ) => {
     event.preventDefault();
-    console.log(this.state)
     this.addUser(this.state)
     .then(this.clearState())
   }
@@ -76,6 +75,7 @@ class signinForm extends Component{
 
   render() {
     console.log(this.props.user)
+    console.log(this.state)
     return(
       <div className="App">
         <div className="App-header">

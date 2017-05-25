@@ -75,29 +75,51 @@ class App extends Component {
     // console.log(this.props.guest);
     // console.log(this.props.menu);
     // console.log(this.props.task);
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Planit-Better</h2>
-          <Link to="/signinForm">
-            <button>Sign Up</button>
-          </Link>
-            <Link to="/loginForm">
-              <button>Login</button>
-          </Link>
+    console.log(this.props.currentUser)
+
+    if(this.props.currentUser.userLoggedIn === true){
+
+      return (
+        <div className="App">
+          <div className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+            <h2>Planit-Better</h2>
+            <Link to="/signinForm">
+              <button>Sign Up</button>
+            </Link>
+              <Link to="/loginForm">
+                <button>Login</button>
+            </Link>
+          </div>
+          <br></br>
+          <div id="postNavBar">
+            <Link to="/newContractorForm"><button>New Contractor</button></Link>
+            <Link to="/newEquipmentForm"><button>New Equipment</button></Link>
+            <Link to="/newGuestForm"><button>New Guest</button></Link>
+            <Link to="/newMenuForm"><button>New Menu</button></Link>
+            <Link to="/newTaskForm"><button>New Task</button></Link>
+          </div>
         </div>
-        <div id="postNavBar">
-          <Link to="/newContractorForm"><button>New Contractor</button></Link>
-          <Link to="/newEquipmentForm"><button>New Equipment</button></Link>
-          <Link to="/newGuestForm"><button>New Guest</button></Link>
-          <Link to="/newMenuForm"><button>New Menu</button></Link>
-          <Link to="/newTaskForm"><button>New Task</button></Link>
-        </div>
-      </div>
-    );
+      );
+    } else {
+      return (
+        <div className="App">
+          <div className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+            <h2>Planit-Better</h2>
+            <Link to="/signinForm">
+              <button>Sign Up</button>
+            </Link>
+              <Link to="/loginForm">
+                <button>Login</button>
+            </Link>
+          </div>
+          </div>
+     )
+    }
   }
 }
+
 
 const mapStateToProps = (state) => {
   return {
@@ -105,7 +127,8 @@ const mapStateToProps = (state) => {
     equipment : state.equipment,
     guest : state.guest,
     menu : state.menu,
-    task : state.task
+    task : state.task,
+    currentUser : state.authenticate
   };
 }
 

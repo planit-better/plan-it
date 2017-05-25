@@ -4,7 +4,7 @@ import logo from './logo.svg';
 import './styles.css';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { loadUser } from '../../action';
+import { loadUser, authUser } from '../../action';
 
 class loginForm extends Component{
   constructor(props) {
@@ -19,7 +19,6 @@ class loginForm extends Component{
 
   handleLoginSubmit = ( event ) => {
     event.preventDefault();
-    console.log(this.state)
     this.login(this.state)
     .then(this.clearState())
   }
@@ -53,13 +52,19 @@ class loginForm extends Component{
         },
         body: JSON.stringify(user)
       }).then(response =>{
-        return(response)
+        if(response.status === 200){
+          this.props.authUser(user)
+        }
+        else {
+          console.log('nope')
+        }
       }).catch(err => {
         throw err;
       })
   }
 
   render(){
+    console.log(this.props.currentUser)
     return(
       <div className="App">
         <div className="App-header">
@@ -89,7 +94,8 @@ class loginForm extends Component{
 
 const mapStateToProps = (state) => {
   return {
-    user : state.user
+    user : state.user,
+    currentUser : state.authenticate
   };
 }
 
@@ -97,6 +103,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     loadUser: user =>{
       dispatch(loadUser(user))
+    },
+    authUser: currentUser => {
+      dispatch(authUser(currentUser))
     }
   }
 }
