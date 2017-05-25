@@ -3,19 +3,19 @@ var twilioAccount = require('../protection/twilioAccount.json');
 var accountSid = twilioAccount.accountSid;
 var authToken = twilioAccount.authToken;
 
-let what = 'Graduation party';
-let where = 'waikiki';
-let when = '05/04/2017';
+let what = 'Devleague full time';
+let where = '2800 Woodlawn dr';
+let when = 'Tomorrow';
 
 var client = require('twilio')(accountSid, authToken);
 
-var numbers = twilioAccount.numbers;
-console.log(numbers);
+// var numbers = twilioAccount.numbers;
+// console.log(numbers);
 
 const groupText = num => {
 
   client.messages.create({
-    messagingServiceSid: 'MGbe98cfd9d65efc10205750828083e11f',
+    messagingServiceSid: twilioAccount.messaging,
     to:  num,
     from: '+16152191888',
 
@@ -23,7 +23,7 @@ const groupText = num => {
     ` you have been invited to ${what} ` +
     `at ${when}` +
     ` location ${where} ` +
-    ' https://Facebook.com'
+    ' https://Devleague.com'
 
   }, function(err, message) {
     console.log(message);
@@ -32,7 +32,16 @@ const groupText = num => {
 
 const getNumber = params  => {
   for(let i = 0; i < params.length; i++) {
-    groupText(params[i]);
+    let plus = '+';
+    plus += params[i].number.concat(plus);
+    console.log(plus);
+    groupText(params[i].number);
+    console.log(params[i].number);
   }
 };
-getNumber(numbers);
+
+
+module.exports = {
+  groupText,
+  getNumber
+};
