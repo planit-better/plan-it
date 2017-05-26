@@ -9,6 +9,7 @@ Router.use('/Menu', require('./Menu'));
 Router.use('/Task', require('./Task'));
 Router.use('/User', require('./User'));
 Router.use('/text', require('./text'));
+Router.use('/email', require('./email'));
 Router.use('/Event', require('./Event'));
 
 
