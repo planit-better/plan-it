@@ -17,6 +17,7 @@ class newGuestForm extends Component {
     this.state = {
       name : "",
       number : "",
+      email: "",
       will_attend : false,
       accompanying_guests : "",
       can_drink : false,
@@ -76,7 +77,13 @@ class newGuestForm extends Component {
       });
     }
 
-      handleChangeNumber = ( event ) => {
+    handleChangeEmail = ( event ) => {
+      this.setState({
+        email : event.target.value
+      });
+    }
+
+    handleChangeNumber = ( event ) => {
       this.setState({
         number : event.target.value
       });
@@ -85,6 +92,8 @@ class newGuestForm extends Component {
     clearState(){
       this.setState({
         name : "",
+        number : "",
+        email : "",
         accompanying_guests : "",
         diet_restriction : ""
       });
@@ -140,6 +149,10 @@ class newGuestForm extends Component {
             <div>
              <span>Number</span>
               <input type="text" placeholder="Number" value={this.state.number} onChange={this.handleChangeNumber} />
+            </div>
+            <div>
+             <span>Email</span>
+              <input type="text" placeholder="Email" value={this.state.email} onChange={this.handleChangeEmail} />
             </div>
             <div>
             <span>Will Attend</span>

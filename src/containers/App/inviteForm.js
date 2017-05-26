@@ -18,7 +18,8 @@ class InviteForm extends Component {
     super(props);
 
     this.state = {
-      message : ""
+      message : "",
+      email : ""
     };
 
   }
@@ -39,7 +40,7 @@ class InviteForm extends Component {
     handleTextSubmit = ( event ) => {
       event.preventDefault();
       this.text()
-      .then(this.clearState())
+      .then(this.clearTextState())
 
 
     }
@@ -50,15 +51,54 @@ class InviteForm extends Component {
       });
     }
 
-    clearState(){
+
+    handleEmailSubmit = ( event ) => {
+      event.preventDefault();
+      this.email()
+      .then(this.clearEmailState())
+
+
+    }
+
+    handleChangeEmail = ( event ) => {
+      this.setState({
+        email : event.target.value
+      });
+    }
+
+    clearTextState(){
       this.setState({
         message : ""
+      });
+    }
+
+    clearEmailState(){
+      this.setState({
+        email : ""
       });
     }
 
     text(){
       console.log('sending text')
       return fetch('api/text', {
+        method : "POST",
+        headers:
+          {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+        body: JSON.stringify(this.state)
+      }).then((response) =>{
+        return response.json()
+      }).catch(err => {
+        throw err;
+      })
+    }
+
+
+    email(){
+      console.log('sending email')
+      return fetch('api/email', {
         method : "POST",
         headers:
           {
@@ -99,6 +139,17 @@ class InviteForm extends Component {
             <div>
               <button name="Text" type="submit"> Text All Guests </button>
             </div>
+
+        </form>
+
+       <form onSubmit={this.handleEmailSubmit}>
+        <div>
+           <span>Email Message</span>
+            <input type="textarea" placeholder="Your email here" value={this.state.email} onChange={this.handleChangeEmail} />
+          </div>
+          <div>
+            <button name="Email" type="submit"> Email All Guests </button>
+          </div>
 
         </form>
       <div>
