@@ -16,9 +16,9 @@ class signinForm extends Component{
     this.state = {
       username : "",
       password : "",
+      signedIn : false,
       error : ""
     };
-    let signedIn = false;
 
   }
 
@@ -60,6 +60,9 @@ class signinForm extends Component{
     console.log(usernames)
     console.log(user.username)
     if(usernames.indexOf(user.username) === -1){
+      this.setState({
+        signedIn : true
+      })
       fetch('/api/User',{
           method: "POST",
            headers:
@@ -95,7 +98,13 @@ class signinForm extends Component{
   }
 
   render() {
-    console.log(this.signedIn)
+    if(this.state.signedIn === true){
+      return(
+        <Redirect to={{
+          pathname : '/loginForm'
+        }} />
+        )
+    }
     return(
       <div className="App">
         <div className="App-header">
