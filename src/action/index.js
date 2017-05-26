@@ -12,6 +12,7 @@ export const AUTH_USER = 'AUTH_USER';
 export const LOGOUT_USER = 'LOGOUT_USER';
 
 export const LOAD_OWNED_EVENT = 'LOAD_OWNED_EVENT';
+export const CLEAR_EVENT = "CLEAR_EVENT";
 
 
 
@@ -86,3 +87,11 @@ export const loadOwnedEvent = ownedEvent => {
     ownedEvent
   };
 };
+
+export const clearEvent = currentEvent => {
+  console.log('clear event action');
+  return {
+    type : CLEAR_EVENT,
+    currentEvent
+  }
+}

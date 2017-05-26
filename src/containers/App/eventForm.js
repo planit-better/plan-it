@@ -5,7 +5,7 @@ import logo from './logo.svg';
 import './styles.css';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom'
-import { logOut, loadEvent, loadOwnedEvent } from '../../action';
+import { logOut, loadEvent, loadOwnedEvent, clearEvent } from '../../action';
 
 
 
@@ -118,7 +118,7 @@ class EventForm extends Component {
       return(data.json())
     }).then(response =>{
       //sign out action
-      this.props.logOut(response)
+      this.props.logOut(response);
       console.log(response)
     })
   }
@@ -211,6 +211,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     },
     loadOwnedEvent : ownedEvent => {
       dispatch(loadOwnedEvent(ownedEvent))
+    },
+    clearEvent: ownedEvent => {
+      dispatch(clearEvent(ownedEvent))
     }
   }
 }
