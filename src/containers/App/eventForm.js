@@ -31,22 +31,35 @@ class EventForm extends Component {
   }
 
     render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Planit-Better</h2>
-        </div>
-        <div id="navBar">
-        <button onClick={this.signOut}>Change User</button>
-        </div>
-
-
-
-      </div>
+      if(this.props.currentUser.userLoggedIn === true){
+        return (
+          <div className="App">
+            <div className="App-header">
+              <img src={logo} className="App-logo" alt="logo" />
+              <h2>Planit-Better</h2>
+            </div>
+            <div id="navBar">
+            <button onClick={this.signOut}>Change User</button>
+            </div>
+          </div>
     );
+  } else {
+        return (
+          <div className="App">
+            <div className="App-header">
+              <img src={logo} className="App-logo" alt="logo" />
+              <h2>Planit-Better</h2>
+              <Link to="/signinForm">
+                <button>Sign Up</button>
+              </Link>
+                <Link to="/loginForm">
+                  <button>Login</button>
+              </Link>
+            </div>
+            </div>
+       )
+    }
   }
-
 }
 
 const mapStateToProps = (state) => {
