@@ -1,5 +1,7 @@
 import {
-  LOAD_OWNED_EVENT
+  LOAD_OWNED_EVENT,
+  CLEAR_EVENT
+
 } from '../action';
 
 const initialState = {
@@ -12,6 +14,11 @@ const ownedEvent = (state = initialState, action) =>{
     case LOAD_OWNED_EVENT:
       return Object.assign({}, state, {
         currentEvent : action.ownedEvent
+      });
+
+    case CLEAR_EVENT :
+      return Object.assign({}, state, {
+        currentEvent : ""
       });
 
       default: return state;
