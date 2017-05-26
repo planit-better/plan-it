@@ -13,7 +13,10 @@ const evite = (name, email, message) => {
    to: email,
    subject: `Hello ${name}`,
    attachment: filePath,
-   html: `<a href='http://www.google.com'><img src='http://nerdist.com/wp-content/uploads/2016/08/Star-Wars-The-Force-Awakens-Poster.jpg' alt='nothing'></a><b>${message}</b>`,
+   html: `<a href='http://www.google.com'><img src='http://nerdist.com/wp-content/uploads/2016/08/Star-Wars-The-Force-Awakens-Poster.jpg' alt='nothing'></a><br><b>${message}</b>
+     <p>Sincerly,</p>
+     <p>Plan Better Events</p>
+     <p>planbetter.events</p>`,
   });//html is where the email text body is being inputted.
 
   mail.build(function(mailBuildError, message) {

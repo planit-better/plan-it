@@ -68,7 +68,7 @@ class loginForm extends Component{
       if(this.props.currentUser.userLoggedIn === true){
         return(
         <Redirect to={{
-          pathname: '/',
+          pathname: '/eventForm',
         }} />
         )
       }

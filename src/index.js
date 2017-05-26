@@ -17,7 +17,7 @@ import newTaskForm from './containers/App/newTaskForm';
 import signinForm from './containers/App/signinForm';
 import loginForm from './containers/App/loginForm';
 import inviteForm from './containers/App/inviteForm';
-
+import eventForm from './containers/App/eventForm';
 
 
 import './index.css';
@@ -41,6 +41,7 @@ ReactDOM.render(
         <Route path="/signinForm" component={signinForm} />
         <Route path="/loginForm" component={loginForm} />
         <Route path="/inviteForm" component={inviteForm} />
+        <Route path="/eventForm" component={eventForm} />
       </div>
     </Router>
   </Provider>,
