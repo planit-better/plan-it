@@ -139,7 +139,7 @@ class EventForm extends Component {
           }} />
           )
       }
-      if(this.props.currentUser.userLoggedIn === true){
+      if(this.props.currentUser.userLoggedIn === true && this.state.openForm === true){
         return (
           <div className="App">
             <div className="App-header">
@@ -178,8 +178,22 @@ class EventForm extends Component {
               </form>
             </div>
           </div>
-    );
-  } else {
+        );
+      } else if(this.props.currentUser.userLoggedIn === true && this.state.openForm === false){
+        return(
+          <div className="App">
+            <div className="App-header">
+              <img src={logo} className="App-logo" alt="logo" />
+              <h2>Planit-Better</h2>
+            </div>
+            <div id="navBar">
+            <button onClick={this.signOut}>Change User</button>
+            <button onClick={this.displayForm}> New Event Form</button>
+            </div>
+          </div>
+            );
+
+      } else {
         return (
           <div className="App">
             <div className="App-header">
@@ -193,7 +207,7 @@ class EventForm extends Component {
               </Link>
             </div>
             </div>
-       )
+       );
     }
   }
 }
