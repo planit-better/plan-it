@@ -136,10 +136,6 @@ class newGuestForm extends Component {
   }
 
     render() {
-      console.log(this.props.guest)
-      console.log(this.state)
-
-
       if(this.state.formOpen === true){
 
     return (

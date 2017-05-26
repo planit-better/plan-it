@@ -20,7 +20,8 @@ class EventForm extends Component {
       location_name : "",
       location_address : "",
       event_date : "",
-      event_time : ""
+      event_time : "",
+      openForm : false
     }
 
 
@@ -110,6 +111,12 @@ class EventForm extends Component {
     })
   }
 
+  displayForm = () => {
+    this.setState({
+      openForm : !this.state.openForm
+    })
+  }
+
 
   signOut=()=>{
     fetch('/logout', {
@@ -124,6 +131,7 @@ class EventForm extends Component {
   }
 
     render() {
+      console.log(this.state)
       if(this.props.eventStatus.currentEvent){
         return(
           <Redirect to={{
@@ -131,8 +139,6 @@ class EventForm extends Component {
           }} />
           )
       }
-      console.log(this.props.eventStatus)
-      console.log(this.props.currentEvent)
       if(this.props.currentUser.userLoggedIn === true){
         return (
           <div className="App">
@@ -142,6 +148,7 @@ class EventForm extends Component {
             </div>
             <div id="navBar">
             <button onClick={this.signOut}>Change User</button>
+            <button onClick={this.displayForm}> New Event Form</button>
             </div>
             <div>
               <form onSubmit={this.handleEventSubmit}>
