@@ -17,6 +17,10 @@ class InviteForm extends Component {
 
     super(props);
 
+    this.state = {
+      message : ""
+    };
+
   }
 
 
@@ -32,16 +36,42 @@ class InviteForm extends Component {
     })
   }
 
+    handleTextSubmit = ( event ) => {
+      event.preventDefault();
+      this.text()
+      .then(this.clearState())
 
-  text(){
-    fetch('api/text', {
-      method : "GET"
-    }).then((response) =>{
-      return response.json()
-    }).catch(err => {
-      throw err;
-    })
-  }
+
+    }
+
+    handleChangeMessage = ( event ) => {
+      this.setState({
+        message : event.target.value
+      });
+    }
+
+    clearState(){
+      this.setState({
+        message : ""
+      });
+    }
+
+    text(){
+      console.log('sending text')
+      return fetch('api/text', {
+        method : "POST",
+        headers:
+          {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+        body: JSON.stringify(this.state)
+      }).then((response) =>{
+        return response.json()
+      }).catch(err => {
+        throw err;
+      })
+    }
 
     render() {
       console.log(this.props.guest)
@@ -61,13 +91,21 @@ class InviteForm extends Component {
         </div>
 
         <div>
-          <button onClick={this.text}>text all guests</button>
-        </div>
+        <form onSubmit={this.handleTextSubmit}>
+          <div>
+             <span>Text Message</span>
+              <input type="text" placeholder="Your text here" value={this.state.message} onChange={this.handleChangeMessage} />
+            </div>
+            <div>
+              <button name="Text" type="submit"> Text All Guests </button>
+            </div>
 
-        <div>
-          <GuestList guest={this.props.guest}/>
-        </div>
+        </form>
+      <div>
+      </div>
 
+      </div>
+        <GuestList guest={this.props.guest}/>
       </div>
     );
   }
