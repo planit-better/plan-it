@@ -4,7 +4,7 @@ const { Task } = require('../../models');
 
 task.get('/', ( req, res) => {
   console.log('hit task');
-  Task.all()
+  Task.all({raw: true, where: {task_id: 2}})
   .then((task)=>{
     console.log(task)
     res.json(task);
