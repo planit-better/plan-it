@@ -3,7 +3,7 @@
 
 import React,{Component} from 'react';
 import { connect } from 'react-redux';
-import { loadEvent } from '../action';
+import { loadEvent, loadOwnedEvent } from '../action';
 
 
 
@@ -13,7 +13,9 @@ class EventList extends Component {
 
     super(props);
 
-
+    this.state = {
+      selectedEvent : ''
+    }
   }
 
   componentWillMount() {
@@ -28,9 +30,12 @@ class EventList extends Component {
     })
   }
 
-  eventRef = () => {
-    console.log(this.state)
+  eventRef ( event, e ) {
+    console.log(event)
+    this.props.loadOwnedEvent(event)
   }
+
+
 
 
 
@@ -40,8 +45,10 @@ class EventList extends Component {
       <h1>Hello Events</h1>
       <ul>
         {
-          this.props.event.map((name) =>
-            <li className="event" key={name.id}><h3 onClick={this.eventRef}>{name.name}</h3></li>
+          this.props.event.map((evt) =>
+            <li className="event" key={evt.id}>
+            <a onClick={this.eventRef.bind(this, evt)}>{evt.name}</a>
+            </li>
             )
         }
 
@@ -63,6 +70,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     loadEvent: event =>{
       dispatch(loadEvent(event))
+    },
+    loadOwnedEvent : ownedEvent => {
+      dispatch(loadOwnedEvent(ownedEvent))
     }
   }
 }
