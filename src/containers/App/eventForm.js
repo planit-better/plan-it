@@ -6,6 +6,7 @@ import './styles.css';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom'
 import { logOut, loadEvent, loadOwnedEvent, clearEvent } from '../../action';
+import EventList from '../../components/eventList';
 
 
 
@@ -20,53 +21,51 @@ class EventForm extends Component {
       location_name : "",
       location_address : "",
       event_date : "",
-      event_time : ""
+      event_time : "",
+      openForm : false
     }
-
 
   }
 
 
-    handleEventSubmit = ( event ) => {
-      event.preventDefault();
-      console.log(this.state)
-      this.addEvent(this.state)
-      .then(this.props.loadOwnedEvent(this.state.name))
-      .then(this.updateStore())
-      .then(this.clearState())
+  handleEventSubmit = ( event ) => {
+    event.preventDefault();
+    this.addEvent(this.state)
+    .then(this.props.loadOwnedEvent(this.state.name))
+    .then(this.updateStore())
+    .then(this.clearState())
 
-    }
+  }
 
-    handleChangeName = ( event ) => {
-      this.setState({
-        name : event.target.value
-      });
-    }
+  handleChangeName = ( event ) => {
+    this.setState({
+      name : event.target.value
+    });
+  }
 
-    handleChangelocationName = ( event ) => {
-      this.setState({
-        location_name : event.target.value
-      });
-    }
+  handleChangelocationName = ( event ) => {
+    this.setState({
+      location_name : event.target.value
+    });
+  }
 
-    handleChangelocationAddress = ( event ) => {
-      this.setState({
-        location_address : event.target.value
-      });
-    }
+  handleChangelocationAddress = ( event ) => {
+    this.setState({
+      location_address : event.target.value
+    });
+  }
 
-    handleChangeEventDate = ( event ) => {
-      this.setState({
-        event_date : event.target.value
-      });
-    }
+  handleChangeEventDate = ( event ) => {
+    this.setState({
+      event_date : event.target.value
+    });
+  }
 
-    handleChangeEventTime = ( event ) => {
-      this.setState({
-        event_time : event.target.value
-      });
-    }
-
+  handleChangeEventTime = ( event ) => {
+    this.setState({
+      event_time : event.target.value
+    });
+  }
 
 
 
@@ -110,6 +109,12 @@ class EventForm extends Component {
     })
   }
 
+  displayForm = () => {
+    this.setState({
+      openForm : !this.state.openForm
+    })
+  }
+
 
   signOut=()=>{
     fetch('/logout', {
@@ -117,23 +122,19 @@ class EventForm extends Component {
     }).then(data =>{
       return(data.json())
     }).then(response =>{
-      //sign out action
       this.props.logOut(response);
-      console.log(response)
     })
   }
 
-    render() {
-      if(this.props.eventStatus.currentEvent){
-        return(
-          <Redirect to={{
-            pathname: '/'
-          }} />
-          )
+  render() {
+    if(this.props.eventStatus.currentEvent){
+      return(
+        <Redirect to={{
+          pathname: '/'
+        }} />
+        )
       }
-      console.log(this.props.eventStatus)
-      console.log(this.props.currentEvent)
-      if(this.props.currentUser.userLoggedIn === true){
+      if(this.props.currentUser.userLoggedIn === true && this.state.openForm === true){
         return (
           <div className="App">
             <div className="App-header">
@@ -142,6 +143,7 @@ class EventForm extends Component {
             </div>
             <div id="navBar">
             <button onClick={this.signOut}>Change User</button>
+            <button onClick={this.displayForm}> New Event Form</button>
             </div>
             <div>
               <form onSubmit={this.handleEventSubmit}>
@@ -170,9 +172,26 @@ class EventForm extends Component {
                 </div>
               </form>
             </div>
+            <EventList event={this.props.currentEvent} />
           </div>
-    );
-  } else {
+        );
+      } else if(this.props.currentUser.userLoggedIn === true && this.state.openForm === false){
+        return(
+          <div className="App">
+            <div className="App-header">
+              <img src={logo} className="App-logo" alt="logo" />
+              <h2>Planit-Better</h2>
+            </div>
+            <div id="navBar">
+            <button onClick={this.signOut}>Change User</button>
+            <button onClick={this.displayForm}> New Event Form</button>
+            </div>
+            <EventList event={this.props.currentEvent} />
+          </div>
+
+            );
+
+      } else {
         return (
           <div className="App">
             <div className="App-header">
@@ -186,7 +205,7 @@ class EventForm extends Component {
               </Link>
             </div>
             </div>
-       )
+       );
     }
   }
 }
