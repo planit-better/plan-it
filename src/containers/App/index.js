@@ -89,7 +89,7 @@ class App extends Component {
     // console.log(this.props.menu);
     // console.log(this.props.task);
     // console.log(this.props.currentUser)
-    console.log(this.props.eventStatus)
+    console.log(this.props.currentUser)
 
     if(this.props.currentUser.userLoggedIn === true){
 
@@ -98,9 +98,11 @@ class App extends Component {
           <div className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <h2>Planit-Better</h2>
+            <h3>{this.props.eventStatus.currentEvent.name}</h3>
+            <h3>{this.props.currentUser.username}</h3>
             <button id="signout" onClick={this.signOut}>Log Out</button>
           </div>
-          <br></br>
+          <br></br><br></br>
           <div id="postNavBar">
             <Link to="/newContractorForm"><button>New Contractor</button></Link>
             <Link to="/newEquipmentForm"><button>New Equipment</button></Link>

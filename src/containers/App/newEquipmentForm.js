@@ -92,6 +92,8 @@ class newEquipmentForm extends Component {
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Planit-Better</h2>
+          <h3>{this.props.eventStatus.currentEvent.name}</h3>
+          <h3>{this.props.currentUser.username}</h3>
         </div>
         <Link to="/"><button>Home</button></Link>
         <div id="navBar">
@@ -123,7 +125,9 @@ class newEquipmentForm extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    equipment : state.equipment
+    equipment : state.equipment,
+    currentUser : state.authenticate,
+    eventStatus : state.eventStatus
   };
 }
 

@@ -106,6 +106,8 @@ class newContractorForm extends Component {
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Planit-Better</h2>
+          <h3>{this.props.eventStatus.currentEvent.name}</h3>
+          <h3>{this.props.currentUser.username}</h3>
         </div>
         <div id="navBar">
         <Link to="/"><button>Home</button></Link>
@@ -146,7 +148,9 @@ class newContractorForm extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    contractors : state.contractors
+    contractors : state.contractors,
+    currentUser : state.authenticate,
+    eventStatus : state.eventStatus
   };
 }
 

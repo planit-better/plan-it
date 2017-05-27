@@ -140,6 +140,7 @@ class EventForm extends Component {
             <div className="App-header">
               <img src={logo} className="App-logo" alt="logo" />
               <h2>Planit-Better</h2>
+              <h3>{this.props.currentUser.username}</h3>
             </div>
             <div id="navBar">
             <button onClick={this.signOut}>Change User</button>
@@ -181,6 +182,7 @@ class EventForm extends Component {
             <div className="App-header">
               <img src={logo} className="App-logo" alt="logo" />
               <h2>Planit-Better</h2>
+              <h3>{this.props.currentUser.username}</h3>
             </div>
             <div id="navBar">
             <button onClick={this.signOut}>Change User</button>
