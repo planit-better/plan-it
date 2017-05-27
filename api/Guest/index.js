@@ -6,7 +6,7 @@ const { Guest } = require('../../models');
 // everytime hit Get route will send texts
 guest.get('/', ( req, res) => {
   console.log('hit guest');
-  Guest.all()
+  Guest.all({raw: true, where: {event_id: 1}})
   .then((guest) =>{
     console.log(guest);
     res.json(guest);
