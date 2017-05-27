@@ -11,7 +11,42 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        // Event.belongsTo(models.User);
+        Event.belongsTo(models.User, {
+          foreignKey: {
+            name: 'user_id',
+            allowNull: true
+          }
+        });
+        Event.hasMany(models.Equipment, {
+          foreignKey: {
+            name: 'equipment_id',
+            allowNull: true
+          }
+        });
+        Event.hasMany(models.Guest, {
+          foreignKey: {
+            name: 'guest_id',
+            allowNull: true
+          }
+        });
+        Event.hasMany(models.Menu, {
+          foreignKey: {
+            name: 'menu_id',
+            allowNull: true
+          }
+        });
+        Event.hasMany(models.Task, {
+          foreignKey: {
+            name: 'task_id',
+            allowNull: true
+          }
+        });
+        Event.hasMany(models.Contractors, {
+          foreignKey: {
+            name: 'contractors_id',
+            allowNull: true
+          }
+        });
       }
     }
   });

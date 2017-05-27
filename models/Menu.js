@@ -9,7 +9,12 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        // Menu.belongsTo(models.User);
+        Menu.belongsTo(models.Event, {
+          foreignKey: {
+            name: 'event_id',
+            allowNull: true
+          }
+        });
       }
     }
   });
