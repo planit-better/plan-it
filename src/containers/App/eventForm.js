@@ -6,6 +6,7 @@ import './styles.css';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom'
 import { logOut, loadEvent, loadOwnedEvent, clearEvent } from '../../action';
+import EventList from '../../components/eventList';
 
 
 
@@ -24,50 +25,47 @@ class EventForm extends Component {
       openForm : false
     }
 
-
   }
 
 
-    handleEventSubmit = ( event ) => {
-      event.preventDefault();
-      console.log(this.state)
-      this.addEvent(this.state)
-      .then(this.props.loadOwnedEvent(this.state.name))
-      .then(this.updateStore())
-      .then(this.clearState())
+  handleEventSubmit = ( event ) => {
+    event.preventDefault();
+    this.addEvent(this.state)
+    .then(this.props.loadOwnedEvent(this.state.name))
+    .then(this.updateStore())
+    .then(this.clearState())
 
-    }
+  }
 
-    handleChangeName = ( event ) => {
-      this.setState({
-        name : event.target.value
-      });
-    }
+  handleChangeName = ( event ) => {
+    this.setState({
+      name : event.target.value
+    });
+  }
 
-    handleChangelocationName = ( event ) => {
-      this.setState({
-        location_name : event.target.value
-      });
-    }
+  handleChangelocationName = ( event ) => {
+    this.setState({
+      location_name : event.target.value
+    });
+  }
 
-    handleChangelocationAddress = ( event ) => {
-      this.setState({
-        location_address : event.target.value
-      });
-    }
+  handleChangelocationAddress = ( event ) => {
+    this.setState({
+      location_address : event.target.value
+    });
+  }
 
-    handleChangeEventDate = ( event ) => {
-      this.setState({
-        event_date : event.target.value
-      });
-    }
+  handleChangeEventDate = ( event ) => {
+    this.setState({
+      event_date : event.target.value
+    });
+  }
 
-    handleChangeEventTime = ( event ) => {
-      this.setState({
-        event_time : event.target.value
-      });
-    }
-
+  handleChangeEventTime = ( event ) => {
+    this.setState({
+      event_time : event.target.value
+    });
+  }
 
 
 
@@ -124,20 +122,17 @@ class EventForm extends Component {
     }).then(data =>{
       return(data.json())
     }).then(response =>{
-      //sign out action
       this.props.logOut(response);
-      console.log(response)
     })
   }
 
-    render() {
-      console.log(this.state)
-      if(this.props.eventStatus.currentEvent){
-        return(
-          <Redirect to={{
-            pathname: '/'
-          }} />
-          )
+  render() {
+    if(this.props.eventStatus.currentEvent){
+      return(
+        <Redirect to={{
+          pathname: '/'
+        }} />
+        )
       }
       if(this.props.currentUser.userLoggedIn === true && this.state.openForm === true){
         return (
@@ -177,6 +172,7 @@ class EventForm extends Component {
                 </div>
               </form>
             </div>
+            <EventList event={this.props.currentEvent} />
           </div>
         );
       } else if(this.props.currentUser.userLoggedIn === true && this.state.openForm === false){
@@ -190,7 +186,9 @@ class EventForm extends Component {
             <button onClick={this.signOut}>Change User</button>
             <button onClick={this.displayForm}> New Event Form</button>
             </div>
+            <EventList event={this.props.currentEvent} />
           </div>
+
             );
 
       } else {
