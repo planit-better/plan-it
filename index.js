@@ -34,7 +34,7 @@ app.use(passport.session());
 
 //passport local strategy
 passport.serializeUser(function(user, done) {
-  console.log('serializing');
+  console.log('SERIAL');
 // ^ ---------- given from authentication strategy
   // building the object to serialize to save
   return done(null, {
@@ -44,13 +44,14 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(user, done) {
-  console.log('deserializing');
+  console.log('DESERIAL');
   // ^ ---------- given from serializeUser
-  user.findOne({
+  User.findOne({
     where: {
       id: user.id
     }
   }).then(user => {
+    console.log("DESERIALIZEING USER", user);
     return done(null, user); // <------- inserts into the request object
   });
 });
@@ -85,9 +86,15 @@ passport.use(new LocalStrategy (
   }
 ));
 
-app.post('/login', passport.authenticate('local'),(req,res)=>{
-  console.log('logged in?');
-  res.json({success: true});
+app.post('/login', function(req, res, next){
+  passport.authenticate('local', function(err, user, info) {
+    req.login(user, function(err){
+      if(err){
+        res.send(err);
+      }
+      return res.send({"success" : true});
+    });
+  })(req,res,next);
 });
 
 app.get('/logout', function(req, res){

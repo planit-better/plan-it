@@ -45,7 +45,8 @@ class loginForm extends Component{
   login(user){
     return fetch('/logIn',{
         method: "POST",
-         headers:
+        credentials : "include",
+        headers:
         {
           "Content-Type": "application/json",
           "Accept": "application/json"
