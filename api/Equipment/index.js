@@ -4,7 +4,7 @@ const { Equipment } = require('../../models');
 
 equipment.get('/', ( req, res) => {
   console.log('hit equipment');
-  Equipment.all()
+  Equipment.all({raw: true, where: {event_id: 1}})
   .then((equipment)=>{
     res.json(equipment);
   }).catch(err => {

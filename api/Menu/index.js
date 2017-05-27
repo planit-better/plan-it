@@ -5,7 +5,7 @@ const { Menu } = require('../../models');
 
 menu.get('/', ( req, res) => {
   console.log('hit menu');
-  Menu.all()
+  Menu.all({raw: true, where: {event_id: 2}})
   .then((menu)=>{
     console.log(menu)
     res.json(menu);
