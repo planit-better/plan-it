@@ -137,42 +137,53 @@ class EventForm extends Component {
       if(this.props.currentUser.userLoggedIn === true && this.state.openForm === true){
         return (
           <div className="App">
-            <div className="App-header">
+
+            <div className="App-header field">
               <img src={logo} className="App-logo" alt="logo" />
               <h2>Planit-Better</h2>
               <h3>{this.props.currentUser.username}</h3>
             </div>
+
             <div id="navBar">
-            <button onClick={this.signOut}>Change User</button>
-            <button onClick={this.displayForm}> New Event Form</button>
+              <button onClick={this.signOut}>Change User</button>
+              <button onClick={this.displayForm}> New Event Form</button>
             </div>
+
             <div>
               <form onSubmit={this.handleEventSubmit}>
+
                 <div>
-                 <span>Event Name</span>
+                  <span>Event Name</span>
                   <input type="text" placeholder="Event Name" value={this.state.name} onChange={this.handleChangeName} />
                 </div>
+
                 <div>
-                <span>Location Name</span>
+                  <span>Location Name</span>
                   <input type="text" placeholder="Location name" value={this.state.location_name} onChange={this.handleChangelocationName} />
                 </div>
+
                 <div>
                   <span>location Adress Number</span>
                   <input type="text" placeholder="Adress" value={this.state.location_address} onChange={this.handleChangelocationAddress} />
                 </div>
+
                 <div>
-                <span>Event Date</span>
+                  <span>Event Date</span>
                   <input type="date" placeholder="Event Date" value={this.state.event_date} onChange={this.handleChangeEventDate} />
                 </div>
+
                 <div>
-                <span>Event Time</span>
+                  <span>Event Time</span>
                   <input type="time" value={this.state.event_time} onChange={this.handleChangeEventTime} />
                 </div>
+
                 <div>
                   <button name="Login" type="submit">Add Event </button>
                 </div>
+
               </form>
             </div>
+
             <EventList event={this.props.currentEvent} />
           </div>
         );

@@ -75,27 +75,34 @@ class loginForm extends Component{
       }
     return(
       <div className="App">
-        <div className="App-header">
+
+        <div className="App-header field">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Planit-Better</h2>
           <h3>{this.props.eventStatus.currentEvent.name}</h3>
           <h3>{this.props.currentUser.username}</h3>
         </div>
+
         <div id="navBar">
-        <Link to="/"><button>Home</button></Link>
+          <Link to="/"><button>Home</button></Link>
         </div>
+
         <form onSubmit={this.handleLoginSubmit}>
+
             <div>
-              <span>Username</span>
-                <input type="text" placeholder="username" value={this.state.username} onChange={this.handleChangeUsername} />
+              <label className="label">Username</label>
+              <input type="text" placeholder="username" value={this.state.username} onChange={this.handleChangeUsername} />
             </div>
+
             <div>
-              <span>Password</span>
-                <input type="password" placeholder="password"  value={this.state.password} onChange={this.handleChangePassword} />
+              <label className="label">Password</label>
+              <input type="password" placeholder="password"  value={this.state.password} onChange={this.handleChangePassword} />
             </div>
-             <div>
+
+            <div>
               <button name="Signup" type="submit">Log in </button>
             </div>
+
           </form>
         </div>
     )
