@@ -124,47 +124,92 @@ class newGuestForm extends Component {
     render() {
       console.log(this.props.guest)
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+
+      <div class="App columns">
+
+        <div class="App-header column">
+          <img src={logo} class="App-logo" alt="logo" />
           <h2>Planit-Better</h2>
         </div>
+
         <div id="navBar">
-        <Link to="/"><button>Home</button></Link>
+          <Link to="/"><button>Home</button></Link>
         </div>
-          <form onSubmit={this.handleGuestSubmit}>
-            <div>
-             <span>Name</span>
-              <input type="text" placeholder="Name" value={this.state.name} onChange={this.handleChangeName} />
-            </div>
-            <div>
-             <span>Number</span>
-              <input type="text" placeholder="Number" value={this.state.number} onChange={this.handleChangeNumber} />
-            </div>
-            <div>
-            <span>Will Attend</span>
-              <span>Yes</span><input type="checkbox" name="attend" value={this.state.will_attend} onChange={this.handleChangeWillAttend}/>
-            </div>
-            <div>
-              <span>accompanying guests Number</span>
-              <input type="number" value={this.state.accompanying_guests} onChange={this.handleChangeAccompanyingGuests} />
-            </div>
-            <div>
-            <span>Can drink</span>
-              <span>Yes</span><input type="checkbox" name="attend" value={this.state.can_drink} onChange={this.handleChangeCanDrink}/>
-            </div>
-            <div>
-            <span>Diet Restrictions</span>
-              <input type="text" value={this.state.diet_restriction} onChange={this.handleChangeDietRestriction} />
-            </div>
-            <div>
-              <button name="Login" type="submit">Add Guest </button>
-            </div>
-            <div>
-              <Link to="/inviteForm"><button>Create Invite</button></Link>
-            </div>
-          </form>
-          <GuestList guest={this.props.guest} />
+
+
+        <form class="field column" onSubmit={this.handleGuestSubmit}>
+          <div class="field">
+            <label class="label">Name</label>
+            <p class="control">
+              <input class="input" type="text" placeholder="Name" value={this.state.name} onChange={this.handleChangeName} />
+            </p>
+          </div>
+
+          <div class="field">
+            <label class="label">Number</label>
+            <p class="control">
+              <input class="input" type="text" placeholder="(555) 555-5555" value={this.state.number} onChange={this.handleChangeNumber} />
+            </p>
+          </div>
+
+          <div class="field">
+            <p class="control">
+              <label class="checkbox">
+                Will Attend
+                <input type="checkbox" name="attend" value={this.state.will_attend} onChange={this.handleChangeWillAttend}/>
+                <label class="label">
+                  Yes
+                </label>
+              </label>
+            </p>
+          </div>
+
+          <div class="field">
+            <label class="label">Number of accompanying guests</label>
+            <p class="control">
+              <input class="input" type="number" value={this.state.accompanying_guests} onChange={this.handleChangeAccompanyingGuests} />
+            </p>
+          </div>
+
+          <div class="field">
+            <p class="control">
+              <label class="checkbox">Can drink
+
+                <input type="checkbox" name="attend" value={this.state.can_drink} onChange={this.handleChangeCanDrink}/>
+                <span>
+                  Yes
+                </span>
+              </label>
+            </p>
+          </div>
+
+          <div class="field">
+            <label class="label">Diet Restrictions
+            </label>
+            <p class="control">
+              <input class="input" type="text" value={this.state.diet_restriction} onChange={this.handleChangeDietRestriction} />
+            </p>
+          </div>
+
+          <div class="field">
+            <p class="control">
+              <button class="button" name="Login" type="submit">Add Guest </button>
+            </p>
+          </div>
+
+          <div class="field">
+            <p class="control">
+              <Link to="/inviteForm">
+                <button>
+                  Create Invite
+                </button>
+              </Link>
+            </p>
+          </div>
+
+        </form>
+
+        <GuestList class="column" guest={this.props.guest} />
       </div>
     );
   }
