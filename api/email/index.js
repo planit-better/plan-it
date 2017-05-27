@@ -5,10 +5,11 @@ const { Guest } = require('../../models');
 const { getEmails } = require('../../evite/email.js');
 console.log(getEmails);
 
-email.get('/', (req, res) => {
+email.post('/', (req, res) => {
+  console.log(req.body);
   Guest.all({raw: true})
     .then((allGuest) => {
-      getEmails(allGuest);
+      getEmails(allGuest, req.body.email);
       res.json(allGuest);
     }).catch(err => {
       console.log(err);

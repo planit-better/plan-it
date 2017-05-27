@@ -1,3 +1,4 @@
+/*jshint esversion: 6*/
 
 export const LOAD_CONTRACTORS = 'LOAD_CONTRACTORS';
 export const LOAD_EQUIPMENT = 'LOAD_EQUIPMENT';
@@ -5,9 +6,15 @@ export const LOAD_GUEST = 'LOAD_GUEST';
 export const LOAD_MENU = 'LOAD_MENU';
 export const LOAD_TASK = 'LOAD_TASK';
 export const LOAD_USER = 'LOAD_USER';
+export const LOAD_EVENT = 'LOAD_EVENT';
 
 export const AUTH_USER = 'AUTH_USER';
 export const LOGOUT_USER = 'LOGOUT_USER';
+
+export const LOAD_OWNED_EVENT = 'LOAD_OWNED_EVENT';
+export const CLEAR_EVENT = "CLEAR_EVENT";
+
+
 
 
 export const loadContractors = contractors =>{
@@ -65,3 +72,26 @@ export const logOut = currentUser => {
     currentUser
   };
 };
+
+export const loadEvent = currentEvent => {
+  return {
+    type : LOAD_EVENT,
+    currentEvent
+  };
+};
+
+export const loadOwnedEvent = ownedEvent => {
+  console.log("hit owned event action")
+  return {
+    type : LOAD_OWNED_EVENT,
+    ownedEvent
+  };
+};
+
+export const clearEvent = currentEvent => {
+  console.log('clear event action');
+  return {
+    type : CLEAR_EVENT,
+    currentEvent
+  }
+}

@@ -45,7 +45,8 @@ class loginForm extends Component{
   login(user){
     return fetch('/logIn',{
         method: "POST",
-         headers:
+        credentials : "include",
+        headers:
         {
           "Content-Type": "application/json",
           "Accept": "application/json"
@@ -68,7 +69,7 @@ class loginForm extends Component{
       if(this.props.currentUser.userLoggedIn === true){
         return(
         <Redirect to={{
-          pathname: '/',
+          pathname: '/eventForm',
         }} />
         )
       }
@@ -77,6 +78,8 @@ class loginForm extends Component{
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Planit-Better</h2>
+          <h3>{this.props.eventStatus.currentEvent.name}</h3>
+          <h3>{this.props.currentUser.username}</h3>
         </div>
         <div id="navBar">
         <Link to="/"><button>Home</button></Link>
@@ -102,7 +105,8 @@ class loginForm extends Component{
 const mapStateToProps = (state) => {
   return {
     user : state.user,
-    currentUser : state.authenticate
+    currentUser : state.authenticate,
+    eventStatus : state.eventStatus
   };
 }
 

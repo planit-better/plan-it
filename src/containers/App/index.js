@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './styles.css';
 import { connect } from 'react-redux';
-import { loadContractors, loadEquipment, loadGuest, loadMenu, loadTask, logOut } from '../../action';
+import { loadContractors, loadEquipment, loadGuest, loadMenu, loadTask, logOut, clearEvent } from '../../action';
 import { Link } from 'react-router-dom';
 
 class App extends Component {
@@ -73,8 +73,9 @@ class App extends Component {
     }).then(data =>{
       return(data.json())
     }).then(response =>{
+      this.props.clearEvent();
       //sign out action
-      this.props.logOut(response)
+      this.props.logOut(response);
       console.log(response)
     })
   }
@@ -88,6 +89,7 @@ class App extends Component {
     // console.log(this.props.menu);
     // console.log(this.props.task);
     // console.log(this.props.currentUser)
+    console.log(this.props.currentUser)
 
     if(this.props.currentUser.userLoggedIn === true){
 
@@ -96,9 +98,11 @@ class App extends Component {
           <div className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <h2>Planit-Better</h2>
+            <h3>{this.props.eventStatus.currentEvent.name}</h3>
+            <h3>{this.props.currentUser.username}</h3>
             <button id="signout" onClick={this.signOut}>Log Out</button>
           </div>
-          <br></br>
+          <br></br><br></br>
           <div id="postNavBar">
             <Link to="/newContractorForm"><button>New Contractor</button></Link>
             <Link to="/newEquipmentForm"><button>New Equipment</button></Link>
@@ -135,7 +139,8 @@ const mapStateToProps = (state) => {
     guest : state.guest,
     menu : state.menu,
     task : state.task,
-    currentUser : state.authenticate
+    currentUser : state.authenticate,
+    eventStatus : state.eventStatus
   };
 }
 
@@ -159,6 +164,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     },
     logOut : currentUser => {
       dispatch(logOut(currentUser))
+    },
+    clearEvent: ownedEvent =>{
+      dispatch(clearEvent(ownedEvent))
     }
   }
 }

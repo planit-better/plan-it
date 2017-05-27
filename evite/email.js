@@ -6,14 +6,17 @@ const mailComposer = require('mailcomposer');//need to npm install nodemailer --
 const express = require('express');
 const mailgun = require("mailgun-js") ({apiKey: apiKey.apiKey, domain: apiKey.domain});
 
-const evite = (name, email) => {
+const evite = (name, email, message) => {
   const filePath = path.join('public','assets', 'test.png');
   const mail = mailComposer({
    from: '<planitbetterevite@gmail.com>',
    to: email,
-   subject: 'Hello',
+   subject: `Hello ${name}`,
    attachment: filePath,
-   html: `<a href='http://www.google.com'><img src='http://nerdist.com/wp-content/uploads/2016/08/Star-Wars-The-Force-Awakens-Poster.jpg' alt='nothing'></a><b>hello ${name}, you are being sent this email as a test</b>`,
+   html: `<a href='http://www.google.com'><img src='http://nerdist.com/wp-content/uploads/2016/08/Star-Wars-The-Force-Awakens-Poster.jpg' alt='nothing'></a><br><b>${message}</b>
+     <p>Sincerly,</p>
+     <p>Plan Better Events</p>
+     <p>planbetter.events</p>`,
   });//html is where the email text body is being inputted.
 
   mail.build(function(mailBuildError, message) {
@@ -30,9 +33,10 @@ const evite = (name, email) => {
   });
 };
 
-const getEmails = (emails) => {
+const getEmails = (emails, message) => {
+  console.log('hitting get emails?s');
   for(let i = 0; i < emails.length; i++) {
-    evite(emails[i].name, emails[i].diet_restriction);
+    evite(emails[i].name, emails[i].email, message);
   }
 };
 

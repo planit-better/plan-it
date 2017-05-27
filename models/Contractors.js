@@ -14,7 +14,12 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods:  {
       associate: function(models) {
-        Contractors.belongsTo(models.Task);
+        Contractors.belongsTo(models.Event, {
+          foreignKey: {
+            name: 'event_id',
+            allowNull: true
+          }
+        });
       }
     }
   });

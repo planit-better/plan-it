@@ -12,6 +12,17 @@ module.exports = function(sequelize, DataType){
     },
     password: DataType.TEXT,
 
+  }, {
+    classMethods: {
+      associate: function(models) {
+        User.hasMany(models.Event, {
+          foreignKey: {
+            name: "event_id",
+            allowNull: true
+          }
+        });
+      }
+    }
   });
   return User;
 };
