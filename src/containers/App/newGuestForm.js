@@ -139,6 +139,101 @@ class newGuestForm extends Component {
       if(this.state.formOpen === true){
 
     return (
+
+
+      <div className="App">
+
+        <div className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h2>Planit-Better</h2>
+        </div>
+
+        <div id="navBar">
+          <Link to="/"><button>Home</button></Link>
+        </div>
+
+        <div className="columns">
+
+          <form className="column is-offset-3" onSubmit={this.handleGuestSubmit}>
+
+            <div className="field">
+              <p className="control">
+                <label className="label">Name</label>
+                <input className="input" type="text" placeholder="Name" value={this.state.name} onChange={this.handleChangeName} />
+              </p>
+            </div>
+
+            <div className="field">
+              <p className="control">
+                <label className="label">Number</label>
+                <input className="input" type="text" placeholder="(555) 555-5555" value={this.state.number} onChange={this.handleChangeNumber} />
+              </p>
+            </div>
+
+            <div className="field">
+              <p className="control">
+                <label className="checkbox label">
+                  Will Attend
+                </label>
+                <label className="checkbox">
+                  Yes
+                  <input type="checkbox" className="checkbox" name="attend" value={this.state.will_attend} onChange={this.handleChangeWillAttend}/>
+                </label>
+              </p>
+            </div>
+
+            <div className="field">
+              <p className="control">
+                <label className="label">Number of accompanying guests</label>
+                <input className="input" type="number" value={this.state.accompanying_guests} onChange={this.handleChangeAccompanyingGuests} />
+              </p>
+            </div>
+
+            <div className="field">
+              <p className="control">
+                <label className="checkbox label">
+                  Can drink
+                </label>
+                <label className="checkbox">
+                  Yes
+                  <input type="checkbox" className="checkbox" name="attend" value={this.state.can_drink} onChange={this.handleChangeCanDrink}/>
+                </label>
+              </p>
+            </div>
+
+            <div className="field">
+              <p className="control">
+                <label className="label">
+                  Diet Restrictions
+                </label>
+                <input className="input" type="text" value={this.state.diet_restriction} onChange={this.handleChangeDietRestriction} />
+              </p>
+            </div>
+
+            <div className="field">
+              <p className="control">
+                <button className="button is-info" name="Login" type="submit">Add Guest </button>
+              </p>
+            </div>
+
+            <div className="field">
+              <p className="control">
+                <Link to="/inviteForm">
+                  <button>
+                    Create Invite
+                  </button>
+                </Link>
+              </p>
+            </div>
+
+          </form>
+
+          <GuestList class="column" guest={this.props.guest} />
+          <div className="column is-1"></div>
+        </div>
+      </div>
+    );
+
         <div className="App">
           <div className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
@@ -209,7 +304,7 @@ class newGuestForm extends Component {
           <GuestList guest={this.props.guest} />
         </div>
         );
-    }
+      }
   }
 }
 
