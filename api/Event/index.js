@@ -5,7 +5,7 @@ const { Event } = require('../../models');
 event.get('/', ( req, res) => {
   console.log('hit event');
   console.log(req.body);
-  Event.all({raw: true, where: {user_id: 1}})
+  Event.all({raw: true})
   .then((event)=>{
     console.log(event)
     res.json(event);
