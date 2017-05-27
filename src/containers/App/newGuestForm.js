@@ -125,10 +125,10 @@ class newGuestForm extends Component {
       console.log(this.props.guest)
     return (
 
-      <div class="App columns">
+      <div className="App">
 
-        <div class="App-header column">
-          <img src={logo} class="App-logo" alt="logo" />
+        <div className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
           <h2>Planit-Better</h2>
         </div>
 
@@ -136,80 +136,85 @@ class newGuestForm extends Component {
           <Link to="/"><button>Home</button></Link>
         </div>
 
+        <div className="columns">
 
-        <form class="field column" onSubmit={this.handleGuestSubmit}>
-          <div class="field">
-            <label class="label">Name</label>
-            <p class="control">
-              <input class="input" type="text" placeholder="Name" value={this.state.name} onChange={this.handleChangeName} />
-            </p>
-          </div>
+          <form className="column is-offset-3" onSubmit={this.handleGuestSubmit}>
 
-          <div class="field">
-            <label class="label">Number</label>
-            <p class="control">
-              <input class="input" type="text" placeholder="(555) 555-5555" value={this.state.number} onChange={this.handleChangeNumber} />
-            </p>
-          </div>
+            <div className="field">
+              <p className="control">
+                <label className="label">Name</label>
+                <input className="input" type="text" placeholder="Name" value={this.state.name} onChange={this.handleChangeName} />
+              </p>
+            </div>
 
-          <div class="field">
-            <p class="control">
-              <label class="checkbox">
-                Will Attend
-                <input type="checkbox" name="attend" value={this.state.will_attend} onChange={this.handleChangeWillAttend}/>
-                <label class="label">
-                  Yes
+            <div className="field">
+              <p className="control">
+                <label className="label">Number</label>
+                <input className="input" type="text" placeholder="(555) 555-5555" value={this.state.number} onChange={this.handleChangeNumber} />
+              </p>
+            </div>
+
+            <div className="field">
+              <p className="control">
+                <label className="checkbox label">
+                  Will Attend
                 </label>
-              </label>
-            </p>
-          </div>
-
-          <div class="field">
-            <label class="label">Number of accompanying guests</label>
-            <p class="control">
-              <input class="input" type="number" value={this.state.accompanying_guests} onChange={this.handleChangeAccompanyingGuests} />
-            </p>
-          </div>
-
-          <div class="field">
-            <p class="control">
-              <label class="checkbox">Can drink
-
-                <input type="checkbox" name="attend" value={this.state.can_drink} onChange={this.handleChangeCanDrink}/>
-                <span>
+                <label className="checkbox">
                   Yes
-                </span>
-              </label>
-            </p>
-          </div>
+                  <input type="checkbox" className="checkbox" name="attend" value={this.state.will_attend} onChange={this.handleChangeWillAttend}/>
+                </label>
+              </p>
+            </div>
 
-          <div class="field">
-            <label class="label">Diet Restrictions
-            </label>
-            <p class="control">
-              <input class="input" type="text" value={this.state.diet_restriction} onChange={this.handleChangeDietRestriction} />
-            </p>
-          </div>
+            <div className="field">
+              <p className="control">
+                <label className="label">Number of accompanying guests</label>
+                <input className="input" type="number" value={this.state.accompanying_guests} onChange={this.handleChangeAccompanyingGuests} />
+              </p>
+            </div>
 
-          <div class="field">
-            <p class="control">
-              <button class="button" name="Login" type="submit">Add Guest </button>
-            </p>
-          </div>
+            <div className="field">
+              <p className="control">
+                <label className="checkbox label">
+                  Can drink
+                </label>
+                <label className="checkbox">
+                  Yes
+                  <input type="checkbox" className="checkbox" name="attend" value={this.state.can_drink} onChange={this.handleChangeCanDrink}/>
+                </label>
+              </p>
+            </div>
 
-          <div class="field">
-            <p class="control">
-              <Link to="/inviteForm">
-                <button>
-                  Create Invite
-                </button>
-              </Link>
-            </p>
-          </div>
+            <div className="field">
+              <p className="control">
+                <label className="label">
+                  Diet Restrictions
+                </label>
+                <input className="input" type="text" value={this.state.diet_restriction} onChange={this.handleChangeDietRestriction} />
+              </p>
+            </div>
 
-        </form>
+            <div className="field">
+              <p className="control">
+                <button className="button is-info" name="Login" type="submit">Add Guest </button>
+              </p>
+            </div>
 
-        <GuestList class="column" guest={this.props.guest} />
+            <div className="field">
+              <p className="control">
+                <Link to="/inviteForm">
+                  <button>
+                    Create Invite
+                  </button>
+                </Link>
+              </p>
+            </div>
+
+          </form>
+
+          <GuestList class="column" guest={this.props.guest} />
+          <div className="column is-1"></div>
+        </div>
       </div>
     );
   }

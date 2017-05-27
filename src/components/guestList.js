@@ -32,16 +32,16 @@ class GuestList extends Component {
    render() {
 
     return(
-      <div>
-      <h1>Hello Guests</h1>
-      <ul>
-        {
-          this.props.guest.map((name) =>
-            <li className="guests" key={name.id}><h3>{name.name}</h3></li>
-            )
-        }
+      <div className="field">
+        <h1 className="label">Hello Guests</h1>
+        <ul>
+          {
+            this.props.guest.map((name) =>
+              <li className="guests" key={name.id}><h3>{name.name}</h3></li>
+              )
+          }
 
-      </ul>
+        </ul>
       </div>
       )
 
