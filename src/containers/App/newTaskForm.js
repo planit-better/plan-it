@@ -65,7 +65,8 @@ class newTaskForm extends Component {
 
     updateStore(){
      fetch('/api/Task', {
-      method: "GET"
+      method: "GET",
+      credentials: 'include'
     }).then((response) =>{
       return response.json()
     }).then((task) =>{
@@ -79,6 +80,7 @@ class newTaskForm extends Component {
     addTask(task){
       return fetch('/api/task',{
         method: "POST",
+        credentials: 'include',
          headers:
         {
           "Content-Type": "application/json",

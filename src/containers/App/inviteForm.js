@@ -27,7 +27,8 @@ class InviteForm extends Component {
 
   componentWillMount() {
     fetch('/api/Guest', {
-      method: "GET"
+      method: "GET",
+      credentials : 'include',
     }).then((response) =>{
       return response.json()
     }).then((guest) =>{
@@ -82,6 +83,7 @@ class InviteForm extends Component {
       console.log('sending text')
       return fetch('api/text', {
         method : "POST",
+        credentials : 'include',
         headers:
           {
             "Content-Type": "application/json",
@@ -100,6 +102,7 @@ class InviteForm extends Component {
       console.log('sending email')
       return fetch('api/email', {
         method : "POST",
+        credentials : 'include',
         headers:
           {
             "Content-Type": "application/json",

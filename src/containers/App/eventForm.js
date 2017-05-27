@@ -72,7 +72,8 @@ class EventForm extends Component {
   addEvent(newEvent){
       return fetch('/api/event',{
         method: "POST",
-         headers:
+        credentials: 'include',
+        headers:
         {
           "Content-Type": "application/json",
           "Accept": "application/json"
@@ -88,7 +89,8 @@ class EventForm extends Component {
 
   updateStore(){
       fetch('/api/event', {
-      method: "GET"
+      method: "GET",
+      credentials: 'include'
     }).then((response) =>{
       return response.json()
     }).then((newEvent) =>{
@@ -118,7 +120,8 @@ class EventForm extends Component {
 
   signOut=()=>{
     fetch('/logout', {
-      method: "GET"
+      method: "GET",
+      credentials: 'include'
     }).then(data =>{
       return(data.json())
     }).then(response =>{
