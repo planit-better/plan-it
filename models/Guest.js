@@ -13,7 +13,12 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        // GuestList.belongsTo(models.User);
+        Guest.belongsTo(models.Event, {
+          foreignKey: {
+            name: 'event_id',
+            allowNull: true
+          }
+        });
       }
     }
   });
