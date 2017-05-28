@@ -17,7 +17,8 @@ class ContractorList extends Component {
 
   componentWillMount() {
     fetch('/api/Contractors', {
-      method: "GET"
+      method: "GET",
+      credentials : 'include'
     }).then((response) =>{
       return response.json()
     }).then((contractors) =>{

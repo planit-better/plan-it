@@ -20,7 +20,8 @@ class EventList extends Component {
 
   componentWillMount() {
     fetch('/api/Event', {
-      method: "GET"
+      method: "GET",
+      credentials : 'include'
     }).then((response) =>{
       return response.json()
     }).then((currentEvent) =>{

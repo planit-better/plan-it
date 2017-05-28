@@ -32,7 +32,6 @@ class EventForm extends Component {
 
   handleEventSubmit = ( event ) => {
     event.preventDefault();
-    console.log(this.state)
     this.addEvent(this.state)
     .then(this.props.loadOwnedEvent(this.state.name))
     .then(this.updateStore())
@@ -135,9 +134,7 @@ class EventForm extends Component {
   }
 
   findUserId(username){
-    console.log(username)
     for(var i=0; i<this.props.user.length; i++){
-      console.log(this.props.user[i].username)
       if(this.props.user[i].username === username){
         this.setId(this.props.user[i].id)
       }

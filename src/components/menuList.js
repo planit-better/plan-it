@@ -17,7 +17,8 @@ class MenuList extends Component {
 
   componentWillMount() {
     fetch('/api/Menu', {
-      method: "GET"
+      method: "GET",
+      credentials : 'include'
     }).then((response) =>{
       return response.json()
     }).then((menu) =>{

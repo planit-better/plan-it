@@ -17,7 +17,8 @@ class TaskList extends Component {
 
   componentWillMount() {
     fetch('/api/Task', {
-      method: "GET"
+      method: "GET",
+      credentials : 'include'
     }).then((response) =>{
       return response.json()
     }).then((task) =>{

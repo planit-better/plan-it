@@ -1,13 +1,15 @@
+/*jshint esversion: 6*/
+
 const express = require('express');
 const event = express.Router();
 const { Event } = require('../../models');
 
 event.get('/', ( req, res) => {
   console.log('hit event');
-  console.log("REQ.USER", req.user)
-  Event.all({raw: true})
+  console.log("REQ.USER", req.user);
+  Event.all({raw: true, where: {user_id: req.user.id}})
   .then((event)=>{
-    console.log(event)
+    console.log(event);
     res.json(event);
   }).catch(err => {
     res.send(err);
