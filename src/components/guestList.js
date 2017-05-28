@@ -31,13 +31,18 @@ class GuestList extends Component {
 
 
    render() {
-
+    let allowedGuest = []
+     for(var i=0; i<this.props.guest.length; i++){
+      if(this.props.guest[i].event_id === this.props.eventStatus.currentEvent.id){
+        allowedGuest.push(this.props.guest[i])
+      }
+     }
     return(
       <div className="field">
         <h1 className="label">Hello Guests</h1>
         <ul>
           {
-            this.props.guest.map((name) =>
+            allowedGuest.map((name) =>
               <li className="guests" key={name.id}><h3>{name.name}</h3></li>
               )
           }
@@ -52,7 +57,8 @@ class GuestList extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    guest : state.guest
+    guest : state.guest,
+    eventStatus : state.eventStatus
   };
 }
 

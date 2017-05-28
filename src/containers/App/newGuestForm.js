@@ -22,6 +22,7 @@ class newGuestForm extends Component {
       accompanying_guests : "",
       can_drink : false,
       diet_restriction : "",
+      event_id : this.props.eventStatus.currentEvent.id,
       formOpen : false
     };
   }
@@ -138,6 +139,7 @@ class newGuestForm extends Component {
   }
 
     render() {
+      console.log(this.props.eventStatus)
       if(this.state.formOpen === true){
 
     return (
