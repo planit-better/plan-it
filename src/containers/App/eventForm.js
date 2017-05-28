@@ -137,6 +137,7 @@ class EventForm extends Component {
   findUserId(username){
     console.log(username)
     for(var i=0; i<this.props.user.length; i++){
+      console.log(this.props.user[i].username)
       if(this.props.user[i].username === username){
         this.setId(this.props.user[i].id)
       }
@@ -161,8 +162,8 @@ class EventForm extends Component {
   }
 
   render() {
-    console.log(this.props.currentUser)
-    console.log(this.props.user)
+    // console.log(this.props.currentUser)
+    // console.log(this.props.user)
     if(this.props.eventStatus.currentEvent){
       return(
         <Redirect to={{
