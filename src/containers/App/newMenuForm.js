@@ -17,7 +17,8 @@ class newMenuForm extends Component {
     this.state = {
       type_of_food : "",
       cost_per_person : "",
-      restaurant_name : ""
+      restaurant_name : "",
+      event_id : this.props.eventStatus.currentEvent.id
     };
   }
 
