@@ -31,7 +31,11 @@ class GuestList extends Component {
 
 
    render() {
-
+    let allowedGuest = []
+     for(var i=0; i<this.props.guest.length; i++){
+      console.log(this.props.guest[i])
+      console.log(allowedGuest)
+     }
     return(
       <div className="field">
         <h1 className="label">Hello Guests</h1>
