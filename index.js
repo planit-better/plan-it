@@ -49,7 +49,7 @@ app.post('/login', (req, res) => {
 });
 
 passport.serializeUser(function(user, done) {
-  console.log('SERIALIZE', user)
+  console.log('SERIALIZE', user);
   done(null, {
     id: user.id,
     username: user.username,

@@ -5,7 +5,7 @@ import logo from './logo.svg';
 import './styles.css';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom'
-import { logOut, loadEvent, loadOwnedEvent, clearEvent } from '../../action';
+import { logOut, loadEvent, loadOwnedEvent, clearEvent, loadUser } from '../../action';
 import EventList from '../../components/eventList';
 
 
@@ -22,14 +22,17 @@ class EventForm extends Component {
       location_address : "",
       event_date : "",
       event_time : "",
-      openForm : false
-    }
+      openForm : false,
+      user_id : this.props.currentUser.username
+    };
+
 
   }
 
 
   handleEventSubmit = ( event ) => {
     event.preventDefault();
+    console.log(this.state)
     this.addEvent(this.state)
     .then(this.props.loadOwnedEvent(this.state.name))
     .then(this.updateStore())
@@ -90,7 +93,7 @@ class EventForm extends Component {
   updateStore(){
       fetch('/api/event', {
       method: "GET",
-      credentials: 'include'
+      credentials:'include'
     }).then((response) =>{
       return response.json()
     }).then((newEvent) =>{
@@ -117,11 +120,28 @@ class EventForm extends Component {
     })
   }
 
+  componentWillMount() {
+    this.findUserId(this.props.currentUser.username)
+    fetch('/api/User', {
+      method : "GET",
+      credentials: 'include'
+    }).then((response)=>{
+      return response.json()
+    }).then((user) =>{
+      this.props.loadUser(user)
+    }).catch(err =>{
+      throw err;
+    })
+  }
+
+  findUserId(username){
+    console.log(username)
+  }
 
   signOut=()=>{
     fetch('/logout', {
       method: "GET",
-      credentials: 'include'
+      credentials:'include'
     }).then(data =>{
       return(data.json())
     }).then(response =>{
@@ -130,6 +150,8 @@ class EventForm extends Component {
   }
 
   render() {
+    console.log(this.props.currentUser)
+    console.log(this.props.user)
     if(this.props.eventStatus.currentEvent){
       return(
         <Redirect to={{
@@ -217,6 +239,7 @@ class EventForm extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    user : state.user,
     currentEvent : state.event,
     currentUser : state.authenticate,
     eventStatus : state.eventStatus
@@ -238,6 +261,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     },
     clearEvent: ownedEvent => {
       dispatch(clearEvent(ownedEvent))
+    },
+    loadUser : user =>{
+      dispatch(loadUser(user))
     }
   }
 }
