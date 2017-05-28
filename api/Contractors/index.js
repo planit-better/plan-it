@@ -5,7 +5,7 @@ const contractors = express.Router();
 const { Contractors } = require('../../models');
 
 contractors.get('/', ( req, res) => {
-  Contractors.all({raw: true, where: {event_id: 1}})
+  Contractors.all({raw: true})
   .then((guests)=>{
     res.json(guests);
   }).catch(err => {
