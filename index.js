@@ -32,33 +32,38 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-//passport local strategy
+app.use('/api', require('./api'));
+
+app.post('/login', (req, res) => {
+  passport.authenticate('local', (err, user) => {
+    if (err) return res.json({ err });
+
+    if (!user) return res.json({ message: 'invalid' });
+
+    req.logIn(user, (error) => {
+      if (err) return res.json({ error });
+
+      return res.json({ username: user.username });
+    });
+  })(req, res);
+});
+
 passport.serializeUser(function(user, done) {
-  console.log('SERIAL');
-// ^ ---------- given from authentication strategy
-  // building the object to serialize to save
-  return done(null, {
+  console.log('SERIALIZE', user);
+  done(null, {
     id: user.id,
-    username: user.username
+    username: user.username,
   });
 });
 
 passport.deserializeUser(function(user, done) {
-  console.log('DESERIAL');
-  // ^ ---------- given from serializeUser
-  User.findOne({
-    where: {
-      id: user.id
-    }
-  }).then(user => {
-    console.log("DESERIALIZEING USER", user);
-    return done(null, user); // <------- inserts into the request object
-  });
+  console.log('DESERIALIZE' , user);
+  done(null, user);
 });
 
 passport.use(new LocalStrategy (
   function(username, password, done) {
-    console.log('runs before serializing');
+    console.log('RUN BEFORE SERIALZING');
     User.findOne({
       where: {
         username: username
@@ -66,11 +71,10 @@ passport.use(new LocalStrategy (
     })
     .then ( user => {
       if (user === null) {
-        console.log('user failed');
+        console.log('USER AUTH FAILED');
         return done(null, false, {message: 'bad username'});
       }
       else {
-        console.log(user, user.password);
         bcrypt.compare(password, user.password)
         .then(res => {
           if (res) { return done(null, user); }
@@ -86,24 +90,11 @@ passport.use(new LocalStrategy (
   }
 ));
 
-app.post('/login', function(req, res, next){
-  passport.authenticate('local', function(err, user, info) {
-    req.login(user, function(err){
-      if(err){
-        res.send(err);
-      }
-      return res.send({"success" : true});
-    });
-  })(req,res,next);
-});
-
 app.get('/logout', function(req, res){
-  console.log('hit logout');
+  console.log('LOGOUT');
   req.logout();
   res.json({successLogOut: true});
 });
-
-app.use('/api', require('./api'));
 
 app.listen(6969, () =>{
   console.log(`server listening on port: ${PORT}`);

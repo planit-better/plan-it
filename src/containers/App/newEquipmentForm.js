@@ -58,7 +58,8 @@ class newEquipmentForm extends Component {
 
     updateStore(){
      fetch('/api/Equipment', {
-      method: "GET"
+      method: "GET",
+      credentials : 'include'
     }).then((response) =>{
       return response.json()
     }).then((equipment) =>{
@@ -72,6 +73,7 @@ class newEquipmentForm extends Component {
     addEquipment(equipment){
       return fetch('/api/equipment',{
         method: "POST",
+         credentials : 'include',
          headers:
         {
           "Content-Type": "application/json",

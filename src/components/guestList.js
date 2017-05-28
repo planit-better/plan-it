@@ -17,7 +17,8 @@ class GuestList extends Component {
 
   componentWillMount() {
     fetch('/api/Guest', {
-      method: "GET"
+      method: "GET",
+      credentials : 'include'
     }).then((response) =>{
       return response.json()
     }).then((guest) =>{

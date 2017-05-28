@@ -17,7 +17,8 @@ class EquipmentList extends Component {
 
   componentWillMount() {
     fetch('/api/Equipment', {
-      method: "GET"
+      method: "GET",
+      credentials : 'include'
     }).then((response) =>{
       return response.json()
     }).then((equipment) =>{

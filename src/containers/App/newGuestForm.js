@@ -102,7 +102,8 @@ class newGuestForm extends Component {
 
     updateStore(){
      fetch('/api/Guest', {
-      method: "GET"
+      method: "GET",
+      credentials: 'include'
     }).then((response) =>{
       return response.json()
     }).then((guest) =>{
@@ -122,6 +123,7 @@ class newGuestForm extends Component {
   addGuest(guest){
     return fetch('/api/guest',{
       method: "POST",
+      credentials: 'include',
        headers:
       {
         "Content-Type": "application/json",

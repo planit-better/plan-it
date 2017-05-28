@@ -57,7 +57,8 @@ class newMenuForm extends Component {
 
     updateStore(){
      fetch('/api/Menu', {
-      method: "GET"
+      method: "GET",
+      credentials: 'include'
     }).then((response) =>{
       return response.json()
     }).then((menu) =>{
@@ -71,6 +72,7 @@ class newMenuForm extends Component {
     addMenu(menu){
       return fetch('/api/menu',{
         method: "POST",
+        credentials: 'include',
          headers:
         {
           "Content-Type": "application/json",

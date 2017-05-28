@@ -73,7 +73,8 @@ class newContractorForm extends Component {
 
     updateStore(){
      fetch('/api/Contractors', {
-      method: "GET"
+      method: "GET",
+      credentials : 'include'
     }).then((response) =>{
       return response.json()
     }).then((contractors) =>{
@@ -87,6 +88,7 @@ class newContractorForm extends Component {
     addContractor(contractor){
       return fetch('/api/contractors',{
         method: "POST",
+         credentials : 'include',
          headers:
         {
           "Content-Type": "application/json",
