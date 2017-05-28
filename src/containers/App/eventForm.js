@@ -23,7 +23,7 @@ class EventForm extends Component {
       event_date : "",
       event_time : "",
       openForm : false,
-      user_id : this.props.currentUser.username
+      user_id : NaN
     };
 
 
@@ -136,6 +136,17 @@ class EventForm extends Component {
 
   findUserId(username){
     console.log(username)
+    for(var i=0; i<this.props.user.length; i++){
+      if(this.props.user[i].username === username){
+        this.setId(this.props.user[i].id)
+      }
+    }
+  }
+
+  setId(id){
+    this.setState({
+      user_id : id
+    })
   }
 
   signOut=()=>{
