@@ -31,13 +31,18 @@ class EquipmentList extends Component {
 
 
    render() {
-
+    let allowedEquipment = []
+    for(var i=0; i<this.props.equipment.length; i++){
+      if(this.props.equipment[i].event_id === this.props.eventStatus.currentEvent.id){
+        allowedEquipment.push(this.props.equipment[i])
+      }
+    }
     return(
       <div>
       <h1>Hello Equipment</h1>
       <ul>
         {
-          this.props.equipment.map((name) =>
+          allowedEquipment.map((name) =>
             <li className="equipment" key={name.id}><h3>{name.name}</h3></li>
             )
         }
@@ -52,7 +57,8 @@ class EquipmentList extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    equipment : state.equipment
+    equipment : state.equipment,
+    eventStatus : state.eventStatus
   };
 }
 
