@@ -18,6 +18,7 @@ import signinForm from './containers/App/signinForm';
 import loginForm from './containers/App/loginForm';
 import inviteForm from './containers/App/inviteForm';
 import eventForm from './containers/App/eventForm';
+import guestProfile from './containers/App/guestProfile';
 
 
 import './index.css';
@@ -42,6 +43,7 @@ ReactDOM.render(
         <Route path="/loginForm" component={loginForm} />
         <Route path="/inviteForm" component={inviteForm} />
         <Route path="/eventForm" component={eventForm} />
+        <Route path="/guestProfile" component={guestProfile} />
       </div>
     </Router>
   </Provider>,
