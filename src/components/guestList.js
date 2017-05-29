@@ -67,7 +67,7 @@ const mapStateToProps = (state) => {
   return {
     guest : state.guest,
     eventStatus : state.eventStatus,
-    currentGuest : state.currentGuest
+    currentGuest : state.authenticate
   };
 }
 

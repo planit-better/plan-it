@@ -1,10 +1,10 @@
-/*jshint esversion: 6*/
+
 
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './styles.css';
 import { connect } from 'react-redux';
-import { loadContractors, loadEquipment, loadGuest, loadMenu, loadTask, logOut, clearEvent } from '../../action';
+import { loadCurrentGuest, loadContractors, loadEquipment, loadGuest, loadMenu, loadTask, logOut, clearEvent } from '../../action';
 import { Link } from 'react-router-dom';
 
 
@@ -15,13 +15,110 @@ class GuestProfile extends Component {
 
     super(props);
 
+    this.state={
+      name : this.props.currentGuest.currentGuest.name,
+
+      number : this.props.currentGuest.currentGuest.number,
+
+      email: this.props.currentGuest.currentGuest.email,
+
+      will_attend : this.props.currentGuest.currentGuest.will_attend,
+
+      accompanying_guests : this.props.currentGuest.currentGuest.accompanying_guests,
+
+      can_drink : this.props.currentGuest.currentGuest.can_drink,
+
+      diet_restriction : this.props.currentGuest.currentGuest.diet_restriction,
+
+      event_id : this.props.eventStatus.currentEvent.id
+    }
+
+  }
+
+    handleGuestChangeSubmit = ( event ) => {
+      event.preventDefault();
+      this.updateGuest(this.state)
+      .then(this.props.loadCurrentGuest(this.state))
+    }
+
+    handleChangeName = ( event ) => {
+      this.setState({
+        name : event.target.value
+      });
+    }
+
+    handleChangeWillAttend = ( event ) => {
+      if(this.state.will_attend === true){
+        this.setState({
+          will_attend : false
+        });
+      }
+      else if(this.state.will_attend === false){
+        this.setState({
+          will_attend : true
+        })
+      }
+    }
+
+    handleChangeAccompanyingGuests = ( event ) => {
+      this.setState({
+        accompanying_guests : event.target.value
+      });
+    }
+
+    handleChangeCanDrink = ( event ) => {
+      if(this.state.can_drink === true){
+        this.setState({
+          can_drink : false
+        });
+      }
+      else if(this.state.can_drink === false){
+        this.setState({
+          can_drink : true
+        })
+      }
+    }
+
+    handleChangeDietRestriction = ( event ) => {
+      this.setState({
+        diet_restriction : event.target.value
+      });
+    }
+
+    handleChangeEmail = ( event ) => {
+      this.setState({
+        email : event.target.value
+      });
+    }
+
+    handleChangeNumber = ( event ) => {
+      this.setState({
+        number : event.target.value
+      });
+    }
+
+    updateGuest = ( guest ) => {
+      console.log(guest)
+      return fetch(`/api/guest/${this.props.currentGuest.currentGuest.id}`, {
+      method: "PUT",
+      credentials: 'include',
+       headers:
+      {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body : JSON.stringify(guest)
+    }).then((response) =>{
+      return response.json()
+    }).catch(err =>{
+      throw err;
+    })
   }
 
 
     render() {
-     console.log(this.props.currentGuest)
-     // console.log(this.props.user)
-     // console.log(this.state)
+      console.log(this.state)
+      console.log(this.props.currentGuest)
      if(this.props.currentGuest.currentGuest.will_attend === true){
 
      return(
@@ -37,13 +134,104 @@ class GuestProfile extends Component {
               <Link to="/"><button>Home</button></Link>
             </div>
 
-            <div id="GuestInfo">
-              <h1>Attending</h1>
-              <h1>{this.props.currentGuest.currentGuest.name}</h1>
-              <p>{this.props.currentGuest.currentGuest.number}</p>
-              <p>{this.props.currentGuest.currentGuest.email}</p>
-              <p>{this.props.currentGuest.currentGuest.accompanying_guests}</p>
-              <p>{this.props.currentGuest.currentGuest.diet_restriction}</p>
+
+            <div className="columns">
+              <form className="column is-offset-3" onSubmit={this.handleGuestChangeSubmit}>
+                <div className="field">
+                  <p className="control">
+                    <label className="label">Change Name</label>
+                    <input className="input" type="text" placeholder="Name" value={this.state.name} onChange={this.handleChangeName} />
+                  </p>
+                </div>
+
+                <div className="field">
+                  <p className="control">
+                    <label className="label">Change Number</label>
+                    <input className="input" type="text" placeholder="(555) 555-5555" value={this.state.number} onChange={this.handleChangeNumber} />
+                  </p>
+                </div>
+
+                <div className="field">
+                  <p className="control">
+                    <label className="label">Change Email</label>
+                    <input className="input" type="text" placeholder="email" value={this.state.email} onChange={this.handleChangeEmail} />
+                  </p>
+                </div>
+
+                <div className="field">
+                  <p className="control">
+                    <label className="checkbox label">
+                      Will Attend
+                    </label>
+                    <label className="checkbox">
+                      Yes
+                      <input type="checkbox" className="checkbox" name="attend" value={this.state.will_attend} onChange={this.handleChangeWillAttend}/>
+                    </label>
+                  </p>
+                </div>
+
+                <div className="field">
+                  <p className="control">
+                    <label className="label">Change Number of accompanying guests</label>
+                    <input className="input" type="number" value={this.state.accompanying_guests} onChange={this.handleChangeAccompanyingGuests} />
+                  </p>
+                </div>
+
+                <div className="field">
+                  <p className="control">
+                    <label className="checkbox label">
+                      Can drink
+                    </label>
+                    <label className="checkbox">
+                      Yes
+                      <input type="checkbox" className="checkbox" name="attend" value={this.state.can_drink} onChange={this.handleChangeCanDrink}/>
+                    </label>
+                  </p>
+                </div>
+
+                <div className="field">
+                  <p className="control">
+                    <label className="label">
+                      Change Diet Restrictions
+                    </label>
+                    <input className="input" type="text" value={this.state.diet_restriction} onChange={this.handleChangeDietRestriction} />
+                  </p>
+                </div>
+
+                <div className="field">
+                  <p className="control">
+                    <button className="button is-info" name="Login" type="submit">Update Guest </button>
+                  </p>
+                </div>
+
+              </form>
+
+              <div>
+                <p>Attending</p>
+                <p className="control">
+                  <label className="label">Name</label>
+                  <p>{this.props.currentGuest.currentGuest.name}</p>
+                </p>
+                <p className="control">
+                  <label className="label">Number</label>
+                  <span>{this.props.currentGuest.currentGuest.number}</span>
+                </p>
+                <p className="control">
+                  <label className="label">Email</label>
+                  <span>{this.props.currentGuest.currentGuest.email}</span>
+                </p>
+
+
+                <p className="control">
+                  <label className="label">accompanying guests</label>
+                  <span>{this.props.currentGuest.currentGuest.accompanying_guests}</span>
+                </p>
+
+                <p className="control">
+                  <label className="label">Diet Restrictions</label>
+                  <span>{this.props.currentGuest.currentGuest.diet_restriction}</span>
+                </p>
+              </div>
             </div>
 
 
@@ -62,14 +250,103 @@ class GuestProfile extends Component {
             <div id="navBar">
               <Link to="/"><button>Home</button></Link>
             </div>
+            <div className="columns">
+              <form className="column-is-offset-3" onSubmit={this.handleGuestChangeSubmit}>
+                <div className="field">
+                  <p className="control">
+                    <label className="label">Change Name</label>
+                    <input className="input" type="text" placeholder="Name" value={this.state.name} onChange={this.handleChangeName} />
+                  </p>
+                </div>
 
-            <div id="GuestInfo">
-            <h1>Not Attending</h1>
-              <h1>{this.props.currentGuest.currentGuest.name}</h1>
-              <p>{this.props.currentGuest.currentGuest.number}</p>
-              <p>{this.props.currentGuest.currentGuest.email}</p>
-              <p>{this.props.currentGuest.currentGuest.accompanying_guests}</p>
-              <p>{this.props.currentGuest.currentGuest.diet_restriction}</p>
+                <div className="field">
+                  <p className="control">
+                    <label className="label">Change Number</label>
+                    <input className="input" type="text" placeholder="(555) 555-5555" value={this.state.number} onChange={this.handleChangeNumber} />
+                  </p>
+                </div>
+
+                <div className="field">
+                  <p className="control">
+                    <label className="label">Change Email</label>
+                    <input className="input" type="text" placeholder="email" value={this.state.email} onChange={this.handleChangeEmail} />
+                  </p>
+                </div>
+
+                <div className="field">
+                  <p className="control">
+                    <label className="checkbox label">
+                      Will Attend
+                    </label>
+                    <label className="checkbox">
+                      Yes
+                      <input type="checkbox" className="checkbox" name="attend" value={this.state.will_attend} onChange={this.handleChangeWillAttend}/>
+                    </label>
+                  </p>
+                </div>
+
+                <div className="field">
+                  <p className="control">
+                    <label className="label">Change Number of accompanying guests</label>
+                    <input className="input" type="number" value={this.state.accompanying_guests} onChange={this.handleChangeAccompanyingGuests} />
+                  </p>
+                </div>
+
+                <div className="field">
+                  <p className="control">
+                    <label className="checkbox label">
+                      Can drink
+                    </label>
+                    <label className="checkbox">
+                      Yes
+                      <input type="checkbox" className="checkbox" name="attend" value={this.state.can_drink} onChange={this.handleChangeCanDrink}/>
+                    </label>
+                  </p>
+                </div>
+
+                <div className="field">
+                  <p className="control">
+                    <label className="label">
+                      Change Diet Restrictions
+                    </label>
+                    <input className="input" type="text" value={this.state.diet_restriction} onChange={this.handleChangeDietRestriction} />
+                  </p>
+                </div>
+
+                <div className="field">
+                  <p className="control">
+                    <button className="button is-info" name="Login" type="submit">Update Guest </button>
+                  </p>
+                </div>
+
+              </form>
+
+              <div>
+                <p>Not Attending</p>
+                <p className="control">
+                  <label className="label">Name</label>
+                  <p>{this.props.currentGuest.currentGuest.name}</p>
+                </p>
+                <p className="control">
+                  <label className="label">Number</label>
+                  <span>{this.props.currentGuest.currentGuest.number}</span>
+                </p>
+                <p className="control">
+                  <label className="label">Email</label>
+                  <span>{this.props.currentGuest.currentGuest.email}</span>
+                </p>
+
+
+                <p className="control">
+                  <label className="label">accompanying guests</label>
+                  <span>{this.props.currentGuest.currentGuest.accompanying_guests}</span>
+                </p>
+
+                <p className="control">
+                  <label className="label">Diet Restrictions</label>
+                  <span>{this.props.currentGuest.currentGuest.diet_restriction}</span>
+                </p>
+              </div>
             </div>
 
 
@@ -90,32 +367,20 @@ const mapStateToProps = (state) => {
 }
 
 
-// const mapDispatchToProps = (dispatch, ownProps) => {
-//   return {
-//     logOut : currentUser => {
-//       dispatch(logOut(currentUser))
-//     },
-//     loadEvent : currentEvent => {
-//       dispatch(loadEvent(currentEvent))
-//     },
-//     loadOwnedEvent : ownedEvent => {
-//       dispatch(loadOwnedEvent(ownedEvent))
-//     },
-//     clearEvent: ownedEvent => {
-//       dispatch(clearEvent(ownedEvent))
-//     },
-//     loadUser : user =>{
-//       dispatch(loadUser(user))
-//     }
-//   }
-// }
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    loadCurrentGuest : currentGuest => {
+      dispatch(loadCurrentGuest(currentGuest))
+   }
+  }
+}
 
 
 
 
 const ConnectedProfileApp = connect(
   mapStateToProps,
-  //mapDispatchToProps
+  mapDispatchToProps
   )(GuestProfile);
 
 
