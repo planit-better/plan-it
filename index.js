@@ -70,15 +70,19 @@ passport.use(new LocalStrategy (
       }
     })
     .then ( user => {
+      console.log('testing user')
       if (user === null) {
         console.log('USER AUTH FAILED');
         return done(null, false, {message: 'bad username'});
       }
       else {
+        console.log('username found')
         bcrypt.compare(password, user.password)
         .then(res => {
+          console.log('user name and pw okay')
           if (res) { return done(null, user); }
           else {
+            console.log('password bad')
             return done(null, false, {message: 'bad password'});
           }
         });
