@@ -96,6 +96,7 @@ class App extends Component {
     // console.log(this.props.task);
     // console.log(this.props.currentUser)
     console.log(this.props.currentUser)
+    console.log(this.props.eventStatus)
 
     if(this.props.currentUser.userLoggedIn === true){
 
