@@ -133,6 +133,7 @@ class InviteForm extends Component {
         </div>
         <div id="navBar">
         <Link to="/"><button>Home</button></Link>
+        <Link to="/newGuestForm"><button>Cancel</button></Link>
         </div>
 
         <div>
