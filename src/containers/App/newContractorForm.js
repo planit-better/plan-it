@@ -19,7 +19,8 @@ class newContractorForm extends Component {
       cost : "",
       contact : "",
       date_hired : "",
-      deadline : ""
+      deadline : "",
+      event_id : this.props.eventStatus.currentEvent.id
     };
   }
 
@@ -68,6 +69,8 @@ class newContractorForm extends Component {
       contact : "",
       date_hired : "",
       deadline : ""
+
+
       });
     }
 
@@ -103,6 +106,7 @@ class newContractorForm extends Component {
     }
 
     render() {
+      console.log(this.props.eventStatus)
     return (
       <div className="App">
         <div className="App-header">

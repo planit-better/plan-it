@@ -17,7 +17,8 @@ class newEquipmentForm extends Component {
     this.state = {
       name : "",
       cost : "",
-      type : ""
+      type : "",
+      event_id : this.props.eventStatus.currentEvent.id
     };
   }
 

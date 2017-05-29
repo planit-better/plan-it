@@ -18,7 +18,8 @@ class newTaskForm extends Component {
       name : "",
       type : "",
       assigned_to : "",
-      deadline : ""
+      deadline : "",
+      event_id : this.props.eventStatus.currentEvent.id
     };
   }
 
