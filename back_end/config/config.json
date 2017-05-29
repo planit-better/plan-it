@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "planit_admin",
+    "password": "bears22",
+    "database": "planit_better",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "admin",
+    "password": null,
+    "database": "planit_better",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "admin",
+    "password": null,
+    "database": "planit_better",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
