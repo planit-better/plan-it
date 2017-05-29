@@ -1,6 +1,7 @@
 const express = require('express');
 const task = express.Router();
-const { Task } = require('../../models/Task');
+const db = require('../../models');
+const { Task } = db;
 
 task.get('/', ( req, res) => {
   console.log('hit task');

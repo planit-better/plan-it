@@ -2,7 +2,9 @@
 
 const express = require('express');
 const event = express.Router();
-const { Event } = require('../../models/Event');
+const db = require('../../models');
+const { Event } = db;
+
 
 event.get('/', ( req, res) => {
   console.log('hit event');

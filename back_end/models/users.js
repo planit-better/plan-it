@@ -3,6 +3,7 @@
 const express = require('express');
 const router = express.Router();
 
+
 module.exports = function(sequelize, DataType){
   var User = sequelize.define("User", {
     username:

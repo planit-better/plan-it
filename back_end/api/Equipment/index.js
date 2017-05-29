@@ -1,6 +1,8 @@
 const express = require('express');
 const equipment = express.Router();
-const { Equipment } = require('../../models/Equipment');
+const db = require('../../models');
+const { Equipment } = db;
+
 
 equipment.get('/', ( req, res) => {
   console.log('hit equipment');

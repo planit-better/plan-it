@@ -1,7 +1,9 @@
 /*jshint esversion: 6 */
 const express = require('express');
 const menu = express.Router();
-const { Menu } = require('../../models/Menu');
+const db = require('../../models');
+const { Menu } = db;
+
 
 menu.get('/', ( req, res) => {
   console.log('hit menu');

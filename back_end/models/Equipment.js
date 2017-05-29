@@ -1,6 +1,5 @@
 /*jshint esversion: 6*/
 
-const sequelize = require('sequelize');
 
 module.exports = function(sequelize, DataTypes) {
   var Equipment = sequelize.define("Equipment", {

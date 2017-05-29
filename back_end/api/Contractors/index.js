@@ -2,7 +2,9 @@
 
 const express = require('express');
 const contractors = express.Router();
-const { Contractors } = require('../../models/Contractors');
+const db = require('../../models');
+const { Contractors } = db;
+
 
 contractors.get('/', ( req, res) => {
   Contractors.all({raw: true, where: {event_id: 1}})

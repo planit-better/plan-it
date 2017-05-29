@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 
+
 module.exports = function(sequelize, DataTypes) {
   var Contractors = sequelize.define("Contractors", {
 

@@ -1,7 +1,9 @@
 /*jshint esversion: 6*/
 const express = require('express');
 const guest = express.Router();
-const { Guest } = require('../../models/Guest');
+const db = require('../../models');
+const { Guest } = db;
+
 
 // everytime hit Get route will send texts
 guest.get('/', ( req, res) => {

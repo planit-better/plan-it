@@ -1,7 +1,8 @@
 const path = require('path');
 const express = require('express');
 const user = express.Router();
-const { User } = require('../../models/users.js');
+const db = require('../../models');
+const { User } = db;
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const passportLocal = require('passport-local');

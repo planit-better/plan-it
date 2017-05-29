@@ -3,7 +3,6 @@
 const express = require('express');
 const text = express.Router();
 const { groupText, getNumber } = require('../../text-reminder/text.js');
-const { Guest } = require('../../models');
 
 text.post('/', (req,res) =>{
   console.log(req.body);
