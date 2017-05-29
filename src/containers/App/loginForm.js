@@ -53,14 +53,16 @@ class loginForm extends Component{
         },
         body: JSON.stringify(user)
       }).then(response =>{
-        if(response.status === 200){
-          this.props.authUser(user)
+          return(response.json())
+
+
+      }).then(data => {
+        if(data.message === 'invalid'){
+          console.log('wrong username /pw')
         }
         else {
-          console.log('nope')
+          this.props.authUser(user)
         }
-      }).catch(err => {
-        throw err;
       })
   }
 
