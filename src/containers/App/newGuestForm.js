@@ -158,6 +158,10 @@ class newGuestForm extends Component {
           <Link to="/"><button>Home</button></Link>
         </div>
 
+        <div>
+            <button onClick={this.openForm}>New Guest Form</button>
+        </div>
+
         <div className="columns">
 
           <form className="column is-offset-3" onSubmit={this.handleGuestSubmit}>
@@ -173,6 +177,13 @@ class newGuestForm extends Component {
               <p className="control">
                 <label className="label">Number</label>
                 <input className="input" type="text" placeholder="(555) 555-5555" value={this.state.number} onChange={this.handleChangeNumber} />
+              </p>
+            </div>
+
+            <div className="field">
+              <p className="control">
+                <label className="label">Email</label>
+                <input className="input" type="text" placeholder="email" value={this.state.email} onChange={this.handleChangeEmail} />
               </p>
             </div>
 
