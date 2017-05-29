@@ -22,11 +22,11 @@ class GuestProfile extends Component {
 
       email: this.props.currentGuest.currentGuest.email,
 
-      will_attend : this.props.currentGuest.currentGuest.will_attend,
+      will_attend : false,
 
       accompanying_guests : this.props.currentGuest.currentGuest.accompanying_guests,
 
-      can_drink : this.props.currentGuest.currentGuest.can_drink,
+      can_drink : false,
 
       diet_restriction : this.props.currentGuest.currentGuest.diet_restriction,
 
@@ -250,8 +250,10 @@ class GuestProfile extends Component {
             <div id="navBar">
               <Link to="/"><button>Home</button></Link>
             </div>
+
+
             <div className="columns">
-              <form className="column-is-offset-3" onSubmit={this.handleGuestChangeSubmit}>
+              <form className="column is-offset-3" onSubmit={this.handleGuestChangeSubmit}>
                 <div className="field">
                   <p className="control">
                     <label className="label">Change Name</label>
