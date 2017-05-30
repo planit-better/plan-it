@@ -18,7 +18,9 @@ class newTaskForm extends Component {
       name : "",
       type : "",
       assigned_to : "",
-      deadline : ""
+      deadline : "",
+      event_id : this.props.eventStatus.currentEvent.id,
+      formOpen : false
     };
   }
 
@@ -94,7 +96,15 @@ class newTaskForm extends Component {
       })
     }
 
+    openForm = () => {
+        this.setState({
+          formOpen : !this.state.formOpen
+        })
+      }
+
     render() {
+      if(this.state.formOpen === true){
+
     return (
       <div className="App">
         <div className="App-header">
@@ -106,6 +116,11 @@ class newTaskForm extends Component {
         <div id="navBar">
         <Link to="/"><button>Home</button></Link>
         </div>
+
+         <div>
+            <button onClick={this.openForm}>Hide Task Form</button>
+        </div>
+
           <form onSubmit={this.handleTaskSubmit}>
             <div>
              <span>Name</span>
@@ -131,6 +146,28 @@ class newTaskForm extends Component {
 
       </div>
     );
+      }else {
+        return(
+            <div className="App">
+        <div className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h2>Planit-Better</h2>
+          <h3>{this.props.eventStatus.currentEvent.name}</h3>
+          <h3>{this.props.currentUser.username}</h3>
+        </div>
+        <div id="navBar">
+        <Link to="/"><button>Home</button></Link>
+        </div>
+
+         <div>
+            <button onClick={this.openForm}>New Task Form</button>
+        </div>
+        <TaskList task={this.props.task} />
+
+      </div>
+
+          )
+      }
   }
 
 }
@@ -159,4 +196,3 @@ const ConnectedTaskApp = connect(
 
 
 export default ConnectedTaskApp;
-

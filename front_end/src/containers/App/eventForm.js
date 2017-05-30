@@ -23,7 +23,8 @@ class EventForm extends Component {
       event_date : "",
       event_time : "",
       openForm : false,
-      user_id : NaN
+      user_id : 0,
+      formOpen : false
     };
 
 
@@ -33,7 +34,7 @@ class EventForm extends Component {
   handleEventSubmit = ( event ) => {
     event.preventDefault();
     this.addEvent(this.state)
-    .then(this.props.loadOwnedEvent(this.state.name))
+    .then(this.props.loadOwnedEvent(this.state))
     .then(this.updateStore())
     .then(this.clearState())
 
@@ -159,8 +160,9 @@ class EventForm extends Component {
   }
 
   render() {
-    // console.log(this.props.currentUser)
-    // console.log(this.props.user)
+     console.log(this.props.currentUser)
+     console.log(this.props.user)
+     console.log(this.state)
     if(this.props.eventStatus.currentEvent){
       return(
         <Redirect to={{
@@ -175,6 +177,7 @@ class EventForm extends Component {
               <img src={logo} className="App-logo" alt="logo" />
               <h2>Planit-Better</h2>
               <h3>{this.props.currentUser.username}</h3>
+              <h3>{this.props.eventStatus.currentEvent.name}</h3>
             </div>
             <div id="navBar">
             <button onClick={this.signOut}>Change User</button>
@@ -217,6 +220,7 @@ class EventForm extends Component {
               <img src={logo} className="App-logo" alt="logo" />
               <h2>Planit-Better</h2>
               <h3>{this.props.currentUser.username}</h3>
+              <h3>{this.props.eventStatus.currentEvent.name}</h3>
             </div>
             <div id="navBar">
             <button onClick={this.signOut}>Change User</button>
@@ -288,4 +292,3 @@ const ConnectedEventApp = connect(
 
 
 export default ConnectedEventApp;
-

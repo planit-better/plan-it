@@ -86,5 +86,3 @@ const ConnectedEventListApp = connect(
 
 
 export default ConnectedEventListApp;
-
-

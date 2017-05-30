@@ -31,13 +31,18 @@ class TaskList extends Component {
 
 
    render() {
-
+    let allowedTasks = []
+    for(var i=0; i<this.props.task.length; i++){
+      if(this.props.task[i].event_id === this.props.eventStatus.currentEvent.id){
+        allowedTasks.push(this.props.task[i])
+      }
+    }
     return(
       <div>
       <h1>Hello Tasks</h1>
       <ul>
         {
-          this.props.task.map((name) =>
+          allowedTasks.map((name) =>
             <li className="tasks" key={name.id}><h3>{name.name}</h3></li>
             )
         }
@@ -52,7 +57,8 @@ class TaskList extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    tast : state.tast
+    task : state.task,
+    eventStatus : state.eventStatus
   };
 }
 
@@ -72,5 +78,3 @@ const ConnectedTaskListApp = connect(
 
 
 export default ConnectedTaskListApp;
-
-

@@ -1,3 +1,4 @@
+/*jshint esversion: 6*/
 
 import {combineReducers} from 'redux';
 
@@ -10,6 +11,7 @@ import user from './user';
 import authenticate from './authenticate';
 import event from './event';
 import eventStatus from './eventStatus';
+import currentGuest from './currentGuest';
 
 export default combineReducers({
   contractors,
@@ -20,6 +22,6 @@ export default combineReducers({
   user,
   authenticate,
   event,
-  eventStatus
+  eventStatus,
+  currentGuest
 });
-

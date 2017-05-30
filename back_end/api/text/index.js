@@ -3,6 +3,9 @@
 const express = require('express');
 const text = express.Router();
 const { groupText, getNumber } = require('../../text-reminder/text.js');
+const db = require('../../models');
+const { Guest } = db;
+
 
 text.post('/', (req,res) =>{
   console.log(req.body);

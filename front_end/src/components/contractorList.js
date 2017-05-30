@@ -31,13 +31,18 @@ class ContractorList extends Component {
 
 
    render() {
-
+    let allowedContractors = []
+    for(var i=0; i<this.props.contractors.length; i++){
+      if(this.props.contractors[i].event_id === this.props.eventStatus.currentEvent.id){
+        allowedContractors.push(this.props.contractors[i])
+      }
+    }
     return(
       <div>
       <h1>Hello Contractors</h1>
       <ul>
         {
-          this.props.contractors.map((name) =>
+          allowedContractors.map((name) =>
             <li className="contractors" key={name.id}><h3>{name.company_name}</h3></li>
             )
         }
@@ -52,7 +57,8 @@ class ContractorList extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    contractors : state.contractors
+    contractors : state.contractors,
+    eventStatus : state.eventStatus
   };
 }
 
@@ -72,5 +78,3 @@ const ConnectedContractorListApp = connect(
 
 
 export default ConnectedContractorListApp;
-
-

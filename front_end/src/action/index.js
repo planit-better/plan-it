@@ -7,6 +7,7 @@ export const LOAD_MENU = 'LOAD_MENU';
 export const LOAD_TASK = 'LOAD_TASK';
 export const LOAD_USER = 'LOAD_USER';
 export const LOAD_EVENT = 'LOAD_EVENT';
+export const LOAD_CURRENT_GUEST = 'LOAD_CURRENT_GUEST';
 
 export const AUTH_USER = 'AUTH_USER';
 export const LOGOUT_USER = 'LOGOUT_USER';
@@ -81,7 +82,6 @@ export const loadEvent = currentEvent => {
 };
 
 export const loadOwnedEvent = ownedEvent => {
-  console.log("hit owned event action")
   return {
     type : LOAD_OWNED_EVENT,
     ownedEvent
@@ -89,9 +89,16 @@ export const loadOwnedEvent = ownedEvent => {
 };
 
 export const clearEvent = currentEvent => {
-  console.log('clear event action');
   return {
     type : CLEAR_EVENT,
     currentEvent
-  }
-}
+  };
+};
+
+export const loadCurrentGuest = currentGuest => {
+  console.log('hit load current guest action');
+  return {
+    type : LOAD_CURRENT_GUEST,
+    currentGuest
+  };
+};
