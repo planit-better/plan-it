@@ -45,7 +45,7 @@ ReactDOM.render(
         <Route path="/inviteForm" component={inviteForm} />
         <Route path="/eventForm" component={eventForm} />
         <Route path="/guestProfile" component={guestProfile} />
-        <Route path="/budgetForm" componenet={budgetForm} />
+        <Route path="/budgetForm" component={budgetForm} />
       </div>
     </Router>
   </Provider>,

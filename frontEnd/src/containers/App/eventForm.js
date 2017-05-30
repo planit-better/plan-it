@@ -160,9 +160,6 @@ class EventForm extends Component {
   }
 
   render() {
-     console.log(this.props.currentUser)
-     console.log(this.props.user)
-     console.log(this.state)
     if(this.props.eventStatus.currentEvent){
       return(
         <Redirect to={{

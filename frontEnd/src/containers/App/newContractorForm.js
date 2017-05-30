@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './styles.css';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import { loadContractors } from '../../action';
 import ContractorList from '../../components/contractorList';
 
@@ -114,8 +114,6 @@ class newContractorForm extends Component {
     }
 
     addContractorBudget(){
-      console.log('hit cont but=g')
-      console.log(this.state.cost)
       return fetch('/api/budget', {
         method: "POST",
         credentials: 'include',
@@ -144,7 +142,6 @@ class newContractorForm extends Component {
         // })
 
     render() {
-      console.log(this.props.eventStatus)
       if(this.state.formOpen === true){
 
     return (
@@ -275,4 +272,3 @@ const ConnectedContractorApp = connect(
 
 
 export default ConnectedContractorApp;
-

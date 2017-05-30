@@ -98,7 +98,6 @@ class GuestProfile extends Component {
     }
 
     updateGuest = ( guest ) => {
-      console.log(guest)
       return fetch(`/api/guest/${this.props.currentGuest.currentGuest.id}`, {
       method: "PUT",
       credentials: 'include',
@@ -117,8 +116,6 @@ class GuestProfile extends Component {
 
 
     render() {
-      console.log(this.state)
-      console.log(this.props.currentGuest)
      if(this.props.currentGuest.currentGuest.will_attend === true){
 
      return(

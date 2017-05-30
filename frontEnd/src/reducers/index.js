@@ -12,6 +12,7 @@ import authenticate from './authenticate';
 import event from './event';
 import eventStatus from './eventStatus';
 import currentGuest from './currentGuest';
+import budget from './budget';
 
 export default combineReducers({
   contractors,
@@ -23,6 +24,7 @@ export default combineReducers({
   authenticate,
   event,
   eventStatus,
-  currentGuest
+  currentGuest,
+  budget
 });
 

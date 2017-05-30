@@ -13,7 +13,6 @@ import GuestList from '../../components/guestList';
 class InviteForm extends Component {
 
   constructor(props) {
-    console.log(props)
 
     super(props);
 
@@ -81,7 +80,6 @@ class InviteForm extends Component {
 
 
     text(){
-      console.log('sending text')
       return fetch('api/text', {
         method : "POST",
         credentials : 'include',
@@ -100,7 +98,6 @@ class InviteForm extends Component {
 
 
     email(){
-      console.log('sending email')
       return fetch('api/email', {
         method : "POST",
         credentials : 'include',
@@ -118,7 +115,6 @@ class InviteForm extends Component {
     }
 
     render() {
-      console.log(this.props.guest)
 
 
 
