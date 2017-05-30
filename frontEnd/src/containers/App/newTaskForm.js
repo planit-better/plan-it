@@ -113,14 +113,10 @@ class newTaskForm extends Component {
           <h2>Planit-Better</h2>
           <h3>{this.props.eventStatus.currentEvent.name}</h3>
           <h3>{this.props.currentUser.username}</h3>
+        </div>
           <div id="navBar">
             <Link to="/"><button className="button is-outlined is-small">Home</button></Link>
           </div>
-        </div>
-
-        <div id="navBar">
-        <Link to="/"><button>Home</button></Link>
-        </div>
 
          <div>
             <button onClick={this.openForm}>Hide Task Form</button>
@@ -226,6 +222,7 @@ class newTaskForm extends Component {
          <div>
             <button onClick={this.openForm}>New Task Form</button>
         </div>
+
         <TaskList task={this.props.task} />
 
       </div>

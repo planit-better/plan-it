@@ -155,17 +155,15 @@ class newContractorForm extends Component {
           <h2>Planit-Better</h2>
           <h3>{this.props.eventStatus.currentEvent.name}</h3>
           <h3>{this.props.currentUser.username}</h3>
+        </div>
           <div id="navBar">
             <Link to="/"><button id="contractorHome" className="button is-outlined is-small">Home</button></Link>
           </div>
-        </div>
 
-        <div id="navBar">
-        <Link to="/"><button>Hoe</button></Link>
-        </div>
+
 
         <div>
-            <button onClick={this.openForm}>Hide Contractor Form</button>
+            <button className="button is-outlined is-small" onClick={this.openForm}>Hide Contractor Form</button>
         </div>
 
           <form onSubmit={this.handleContractorSubmit}>
@@ -238,13 +236,12 @@ class newContractorForm extends Component {
           <h3>{this.props.eventStatus.currentEvent.name}</h3>
           <h3>{this.props.currentUser.username}</h3>
         </div>
+
         <div id="navBar">
-        <Link to="/"><button>Home</button></Link>
+          <Link to="/"><button className="button formsHome is-outlined is-small">Home</button></Link>
+          <button className="button formsHOme is-outlined is-small" onClick={this.openForm}>New Contractor Form</button>
         </div>
 
-        <div>
-            <button onClick={this.openForm}>New Contractor Form</button>
-        </div>
         <ContractorList contractor={this.props.contractors}/>
 
       </div>

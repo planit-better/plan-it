@@ -106,18 +106,15 @@ class newMenuForm extends Component {
           <h2>Planit-Better</h2>
           <h3>{this.props.eventStatus.currentEvent.name}</h3>
           <h3>{this.props.currentUser.username}</h3>
-          <div id="navBar">
-            <Link to="/"><button className="button formsHome is-outlined is-small">Home</button></Link>
-          </div>
+        </div>
+        <div>
+          <Link to="/"><button className="button formsHome is-outlined is-small">Home</button></Link>
         </div>
 
-        <div id="navBar">
-        <Link to="/"><button>Home</button></Link>
+        <div>
+          <button className="button formsHome is-outlined is-small" onClick={this.openForm}>Hide Menu Form</button>
         </div>
 
-         <div>
-            <button onClick={this.openForm}>Hide Menu Form</button>
-        </div>
 
           <form onSubmit={this.handleMenuSubmit}>
             <div>
@@ -149,13 +146,13 @@ class newMenuForm extends Component {
           <h3>{this.props.eventStatus.currentEvent.name}</h3>
           <h3>{this.props.currentUser.username}</h3>
         </div>
-        <div id="navBar">
-        <Link to="/"><button>Home</button></Link>
+        <div>
+          <Link className=" formsHome is-outlined is-small" to="/"><button>Home</button></Link>
+        </div>
+        <div>
+          <button className=" formsHome is-outlined is-small"  onClick={this.openForm}>Hide Menu Form</button>
         </div>
 
-         <div>
-            <button onClick={this.openForm}>Hide Menu Form</button>
-        </div>
         <MenuList menu={this.props.menu} />
       </div>
       )

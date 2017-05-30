@@ -185,7 +185,7 @@ class EventForm extends Component {
                 <button className="button is-outlined" onClick={this.displayForm}> New Event Form</button>
               </div>
 
-        
+
 
             </div>
 
@@ -256,13 +256,6 @@ class EventForm extends Component {
                 <button className="button is-outlined is-small" onClick={this.signOut}>Change User</button>
                 <button className="button is-outlined is-small" onClick={this.displayForm}> New Event Form</button>
               </div>
-
-              
-            </div>
-            <div id="navBar">
-            <button onClick={this.signOut}>Change User</button>
-            <button onClick={this.displayForm}> New Event Form</button>
-
             </div>
             <EventList event={this.props.currentEvent} />
           </div>

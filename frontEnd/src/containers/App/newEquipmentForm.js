@@ -109,17 +109,13 @@ class newEquipmentForm extends Component {
           <h2>Planit-Better</h2>
           <h3>{this.props.eventStatus.currentEvent.name}</h3>
           <h3>{this.props.currentUser.username}</h3>
-          <div id="navBar">
+        </div>
+          <div>
             <Link to="/"><button className="button formsHome is-outlined is-small">Home</button></Link>
           </div>
-        </div>
-
-        <Link to="/"><button>Home</button></Link>
-        <div id="navBar">
-        </div>
 
         <div>
-            <button onClick={this.openForm}>Hide Equipment Form</button>
+          <button className="button is-outlined is-small" onClick={this.openForm}>Hide Equipment Form</button>
         </div>
 
           <form onSubmit={this.handleEquipmentSubmit}>
@@ -152,13 +148,12 @@ class newEquipmentForm extends Component {
         <h3>{this.props.eventStatus.currentEvent.name}</h3>
         <h3>{this.props.currentUser.username}</h3>
       </div>
-      <Link to="/"><button>Home</button></Link>
-      <div id="navBar">
-      </div>
-
-      <div>
-          <button onClick={this.openForm}>New Equipment Form</button>
-      </div>
+        <div>
+          <Link to="/"><button className="button is-outlined is-small">Home</button></Link>
+        </div>
+        <div>
+          <button className="button is-outlined is-small" onClick={this.openForm}>New Equipment Form</button>
+        </div>
       <EquipmentList equipment={this.props.equipment} />
     </div>
     )
