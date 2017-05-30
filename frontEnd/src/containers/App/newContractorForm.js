@@ -126,7 +126,7 @@ class newContractorForm extends Component {
         body: JSON.stringify({
           "type": "Contractor",
           "amount": this.state.cost,
-          "type_id": this.state.id
+          "event_id": this.props.eventStatus.currentEvent.id
         })
       }).then(response =>{
         return response

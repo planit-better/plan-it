@@ -28,6 +28,7 @@ class newMenuForm extends Component {
       this.addMenu(this.state)
       .then(this.clearState())
       .then(this.updateStore())
+      .then(this.addMenuBudget())
 
     }
 
@@ -90,6 +91,28 @@ class newMenuForm extends Component {
       }).then(response =>{
         return(response)
       }).catch(err => {
+        throw err;
+      })
+    }
+
+    addMenuBudget(){
+      console.log('hit cont but=g')
+      console.log(this.state.cost)
+      return fetch('/api/budget', {
+        method: "POST",
+        credentials: 'include',
+        headers:
+        {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          "type": "Menu",
+          "amount": this.state.cost_per_person,
+          "event_id": this.props.eventStatus.currentEvent.id
+        })
+      }).then(response =>{
+        return response
+      }).catch(err =>{
         throw err;
       })
     }

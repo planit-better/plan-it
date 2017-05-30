@@ -129,8 +129,11 @@ class App extends Component {
             <div>
               <Link to="/newTaskForm"><button className="button bottomButton is-outlined">New Task</button></Link>
             </div>
-          </div>
+            <div>
+              <Link to="/budgetForm"><button classname="button bottomButton is-outlined">Budget</button></Link>
+            </div>
 
+          </div>
         </div>
       );
     } else {
