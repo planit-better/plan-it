@@ -70,8 +70,14 @@ class newMenuForm extends Component {
     })
   }
 
+  openForm = () => {
+        this.setState({
+          formOpen : !this.state.formOpen
+        })
+      }
 
-    addMenu(menu){
+
+  addMenu(menu){
       return fetch('/api/menu',{
         method: "POST",
         credentials: 'include',
@@ -88,7 +94,10 @@ class newMenuForm extends Component {
       })
     }
 
-    render() {
+     render() {
+      console.log(this.props.eventStatus)
+      if(this.state.formOpen === true){
+
     return (
       <div className="App">
         <div className="App-header">
@@ -100,6 +109,11 @@ class newMenuForm extends Component {
         <div id="navBar">
         <Link to="/"><button>Home</button></Link>
         </div>
+
+         <div>
+            <button onClick={this.openForm}>Hide Menu Form</button>
+        </div>
+
           <form onSubmit={this.handleMenuSubmit}>
             <div>
              <span>type of food</span>
@@ -120,6 +134,26 @@ class newMenuForm extends Component {
           <MenuList menu={this.props.menu} />
       </div>
     );
+  }else {
+    return(
+      <div className="App">
+        <div className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h2>Planit-Better</h2>
+          <h3>{this.props.eventStatus.currentEvent.name}</h3>
+          <h3>{this.props.currentUser.username}</h3>
+        </div>
+        <div id="navBar">
+        <Link to="/"><button>Home</button></Link>
+        </div>
+
+         <div>
+            <button onClick={this.openForm}>Hide Menu Form</button>
+        </div>
+        <MenuList menu={this.props.menu} />
+      </div>
+      )
+  }
   }
 
 }

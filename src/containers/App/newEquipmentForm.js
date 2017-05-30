@@ -89,8 +89,18 @@ class newEquipmentForm extends Component {
       })
     }
 
+
+    openForm = () => {
+      this.setState({
+        formOpen : !this.state.formOpen
+      })
+    }
+
+
     render() {
       console.log(this.props.equipment)
+      if(this.state.formOpen === true){
+
     return (
       <div className="App">
         <div className="App-header">
@@ -102,6 +112,11 @@ class newEquipmentForm extends Component {
         <Link to="/"><button>Home</button></Link>
         <div id="navBar">
         </div>
+
+        <div>
+            <button onClick={this.openForm}>Hide Equipment Form</button>
+        </div>
+
           <form onSubmit={this.handleEquipmentSubmit}>
             <div>
              <span>Name</span>
@@ -123,6 +138,26 @@ class newEquipmentForm extends Component {
 
       </div>
     );
+  }else{
+    return(
+    <div className="App">
+      <div className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <h2>Planit-Better</h2>
+        <h3>{this.props.eventStatus.currentEvent.name}</h3>
+        <h3>{this.props.currentUser.username}</h3>
+      </div>
+      <Link to="/"><button>Home</button></Link>
+      <div id="navBar">
+      </div>
+
+      <div>
+          <button onClick={this.openForm}>New Equipment Form</button>
+      </div>
+      <EquipmentList equipment={this.props.equipment} />
+    </div>
+    )
+   }
   }
 
 }
