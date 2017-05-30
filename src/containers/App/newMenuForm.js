@@ -18,7 +18,8 @@ class newMenuForm extends Component {
       type_of_food : "",
       cost_per_person : "",
       restaurant_name : "",
-      event_id : this.props.eventStatus.currentEvent.id
+      event_id : this.props.eventStatus.currentEvent.id,
+      formOpen : false
     };
   }
 

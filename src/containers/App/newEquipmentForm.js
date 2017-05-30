@@ -18,7 +18,8 @@ class newEquipmentForm extends Component {
       name : "",
       cost : "",
       type : "",
-      event_id : this.props.eventStatus.currentEvent.id
+      event_id : this.props.eventStatus.currentEvent.id,
+      formOpen : false
     };
   }
 

@@ -19,7 +19,7 @@ class InviteForm extends Component {
 
     this.state = {
       message : "",
-      email : ""
+      email : "",
     };
 
   }
@@ -78,6 +78,7 @@ class InviteForm extends Component {
         email : ""
       });
     }
+
 
     text(){
       console.log('sending text')

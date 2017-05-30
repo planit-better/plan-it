@@ -23,7 +23,8 @@ class EventForm extends Component {
       event_date : "",
       event_time : "",
       openForm : false,
-      user_id : 0
+      user_id : 0,
+      formOpen : false
     };
 
 
