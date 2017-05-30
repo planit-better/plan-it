@@ -17,7 +17,8 @@ class ContractorList extends Component {
 
   componentWillMount() {
     fetch('/api/Contractors', {
-      method: "GET"
+      method: "GET",
+      credentials : 'include'
     }).then((response) =>{
       return response.json()
     }).then((contractors) =>{
@@ -30,17 +31,25 @@ class ContractorList extends Component {
 
 
    render() {
-
+    let allowedContractors = []
+    for(var i=0; i<this.props.contractors.length; i++){
+      if(this.props.contractors[i].event_id === this.props.eventStatus.currentEvent.id){
+        allowedContractors.push(this.props.contractors[i])
+      }
+    }
     return(
       <div>
-        <h1>Hello Contractors</h1>
-        <ul>
-          {
-            this.props.contractors.map((name) =>
-              <li className="contractors" key={name.id}><h3>{name.company_name}</h3></li>
-              )
-          }
-        </ul>
+
+      <h1>Hello Contractors</h1>
+      <ul>
+        {
+          allowedContractors.map((name) =>
+            <li className="contractors" key={name.id}><h3>{name.company_name}</h3></li>
+            )
+        }
+
+      </ul>
+
       </div>
       )
 
@@ -50,7 +59,8 @@ class ContractorList extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    contractors : state.contractors
+    contractors : state.contractors,
+    eventStatus : state.eventStatus
   };
 }
 

@@ -24,7 +24,8 @@ class signinForm extends Component{
 
   componentWillMount() {
     fetch('/api/User', {
-      method : "GET"
+      method : "GET",
+      credentials: 'include'
     }).then((response)=>{
       return response.json()
     }).then((user) =>{

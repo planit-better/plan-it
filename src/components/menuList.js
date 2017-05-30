@@ -17,7 +17,8 @@ class MenuList extends Component {
 
   componentWillMount() {
     fetch('/api/Menu', {
-      method: "GET"
+      method: "GET",
+      credentials : 'include'
     }).then((response) =>{
       return response.json()
     }).then((menu) =>{
@@ -30,17 +31,25 @@ class MenuList extends Component {
 
 
    render() {
-
+    let allowedMenu = []
+    for(var i=0; i<this.props.menu.length; i++){
+      if(this.props.menu[i].event_id === this.props.eventStatus.currentEvent.id){
+        allowedMenu.push(this.props.menu[i])
+      }
+    }
     return(
       <div>
-        <h1>Hello Menu</h1>
-        <ul>
-          {
-            this.props.menu.map((name) =>
-              <li className="menu" key={name.id}><h3>{name.restaurant_name}</h3></li>
-              )
-          }
-        </ul>
+
+      <h1>Hello Menu</h1>
+      <ul>
+        {
+          allowedMenu.map((name) =>
+            <li className="menu" key={name.id}><h3>{name.restaurant_name}</h3></li>
+            )
+        }
+
+      </ul>
+
       </div>
       )
 
@@ -50,7 +59,8 @@ class MenuList extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    menu : state.menu
+    menu : state.menu,
+    eventStatus : state.eventStatus
   };
 }
 

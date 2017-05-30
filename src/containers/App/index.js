@@ -17,7 +17,8 @@ class App extends Component {
       //MOUNT EVENT
   componentWillMount() {
     fetch('/api/Equipment', {
-      method : "GET"
+      method : "GET",
+      credentials: 'include'
     }).then((response)=>{
       return response.json()
     }).then((equipment) =>{
@@ -27,7 +28,8 @@ class App extends Component {
     })
 
    fetch('/api/Contractors', {
-      method: "GET"
+      method: "GET",
+      credentials: 'include'
     }).then((response) =>{
       return response.json()
     }).then((contractors) =>{
@@ -37,7 +39,8 @@ class App extends Component {
     })
 
      fetch('/api/Guest', {
-      method: "GET"
+      method: "GET",
+      credentials: 'include'
     }).then((response) =>{
       return response.json()
     }).then((guest) =>{
@@ -47,7 +50,8 @@ class App extends Component {
     })
 
        fetch('/api/Menu', {
-      method: "GET"
+      method: "GET",
+      credentials: 'include'
     }).then((response) =>{
       return response.json()
     }).then((menu) =>{
@@ -56,8 +60,9 @@ class App extends Component {
       throw err;
     })
 
-        fetch('/api/Task', {
-      method: "GET"
+      fetch('/api/Task', {
+      method: "GET",
+      credentials: 'include'
     }).then((response) =>{
       return response.json()
     }).then((task) =>{
@@ -69,7 +74,8 @@ class App extends Component {
 
   signOut=()=>{
     fetch('/logout', {
-      method: "GET"
+      method: "GET",
+      credentials: 'include'
     }).then(data =>{
       return(data.json())
     }).then(response =>{
@@ -90,6 +96,7 @@ class App extends Component {
     // console.log(this.props.task);
     // console.log(this.props.currentUser)
     console.log(this.props.currentUser)
+    console.log(this.props.eventStatus)
 
     if(this.props.currentUser.userLoggedIn === true){
 

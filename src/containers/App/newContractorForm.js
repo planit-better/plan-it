@@ -19,7 +19,9 @@ class newContractorForm extends Component {
       cost : "",
       contact : "",
       date_hired : "",
-      deadline : ""
+      deadline : "",
+      event_id : this.props.eventStatus.currentEvent.id,
+      formOpen : false
     };
   }
 
@@ -68,12 +70,15 @@ class newContractorForm extends Component {
       contact : "",
       date_hired : "",
       deadline : ""
+
+
       });
     }
 
     updateStore(){
      fetch('/api/Contractors', {
-      method: "GET"
+      method: "GET",
+      credentials : 'include'
     }).then((response) =>{
       return response.json()
     }).then((contractors) =>{
@@ -87,6 +92,7 @@ class newContractorForm extends Component {
     addContractor(contractor){
       return fetch('/api/contractors',{
         method: "POST",
+         credentials : 'include',
          headers:
         {
           "Content-Type": "application/json",
@@ -100,7 +106,18 @@ class newContractorForm extends Component {
       })
     }
 
+     openForm = () => {
+        this.setState({
+          formOpen : !this.state.formOpen
+        })
+      }
+
+
+
     render() {
+      console.log(this.props.eventStatus)
+      if(this.state.formOpen === true){
+
     return (
       <div className="App">
 
@@ -114,12 +131,19 @@ class newContractorForm extends Component {
           </div>
         </div>
 
+        <div id="navBar">
+        <Link to="/"><button>Home</button></Link>
+        </div>
 
-        <form onSubmit={this.handleContractorSubmit}>
+        <div>
+            <button onClick={this.openForm}>Hide Contractor Form</button>
+        </div>
 
-          <div className="field">
+          <form onSubmit={this.handleContractorSubmit}>
+            <div className="field">
             <label className="label">Company Name</label>
             <p className="has-icons-left">
+
               <input type="text" placeholder="Company Name" value={this.state.company_name} onChange={this.handleChangeComanyName} />
               <span className="icon is-small is-left">
                 <i className="fa fa-building"></i>
@@ -176,8 +200,29 @@ class newContractorForm extends Component {
         <ContractorList contractor={this.props.contractors}/>
       </div>
     );
-  }
+  } else {
+    return(
+      <div className="App">
+        <div className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h2>Planit-Better</h2>
+          <h3>{this.props.eventStatus.currentEvent.name}</h3>
+          <h3>{this.props.currentUser.username}</h3>
+        </div>
+        <div id="navBar">
+        <Link to="/"><button>Home</button></Link>
+        </div>
 
+        <div>
+            <button onClick={this.openForm}>New Contractor Form</button>
+        </div>
+        <ContractorList contractor={this.props.contractors}/>
+
+      </div>
+
+        )
+    }
+  }
 }
 
 const mapStateToProps = (state) => {

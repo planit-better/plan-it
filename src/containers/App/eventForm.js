@@ -5,7 +5,7 @@ import logo from './logo.svg';
 import './styles.css';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom'
-import { logOut, loadEvent, loadOwnedEvent, clearEvent } from '../../action';
+import { logOut, loadEvent, loadOwnedEvent, clearEvent, loadUser } from '../../action';
 import EventList from '../../components/eventList';
 
 
@@ -22,8 +22,11 @@ class EventForm extends Component {
       location_address : "",
       event_date : "",
       event_time : "",
-      openForm : false
-    }
+      openForm : false,
+      user_id : 0,
+      formOpen : false
+    };
+
 
   }
 
@@ -31,7 +34,7 @@ class EventForm extends Component {
   handleEventSubmit = ( event ) => {
     event.preventDefault();
     this.addEvent(this.state)
-    .then(this.props.loadOwnedEvent(this.state.name))
+    .then(this.props.loadOwnedEvent(this.state))
     .then(this.updateStore())
     .then(this.clearState())
 
@@ -72,7 +75,8 @@ class EventForm extends Component {
   addEvent(newEvent){
       return fetch('/api/event',{
         method: "POST",
-         headers:
+        credentials: 'include',
+        headers:
         {
           "Content-Type": "application/json",
           "Accept": "application/json"
@@ -88,7 +92,8 @@ class EventForm extends Component {
 
   updateStore(){
       fetch('/api/event', {
-      method: "GET"
+      method: "GET",
+      credentials:'include'
     }).then((response) =>{
       return response.json()
     }).then((newEvent) =>{
@@ -115,10 +120,38 @@ class EventForm extends Component {
     })
   }
 
+  componentWillMount() {
+    this.findUserId(this.props.currentUser.username)
+    fetch('/api/User', {
+      method : "GET",
+      credentials: 'include'
+    }).then((response)=>{
+      return response.json()
+    }).then((user) =>{
+      this.props.loadUser(user)
+    }).catch(err =>{
+      throw err;
+    })
+  }
+
+  findUserId(username){
+    for(var i=0; i<this.props.user.length; i++){
+      if(this.props.user[i].username === username){
+        this.setId(this.props.user[i].id)
+      }
+    }
+  }
+
+  setId(id){
+    this.setState({
+      user_id : id
+    })
+  }
 
   signOut=()=>{
     fetch('/logout', {
-      method: "GET"
+      method: "GET",
+      credentials:'include'
     }).then(data =>{
       return(data.json())
     }).then(response =>{
@@ -127,6 +160,9 @@ class EventForm extends Component {
   }
 
   render() {
+     console.log(this.props.currentUser)
+     console.log(this.props.user)
+     console.log(this.state)
     if(this.props.eventStatus.currentEvent){
       return(
         <Redirect to={{
@@ -142,10 +178,15 @@ class EventForm extends Component {
               <img src={logo} className="App-logo" alt="logo" />
               <h2>Planit-Better</h2>
               <h3>{this.props.currentUser.username}</h3>
+              <h3>{this.props.eventStatus.currentEvent.name}</h3>
+
               <div id="navBar" className="level">
                 <button className="button is-outlined" onClick={this.signOut}>Change User</button>
                 <button className="button is-outlined" onClick={this.displayForm}> New Event Form</button>
               </div>
+
+        
+
             </div>
 
 
@@ -209,10 +250,19 @@ class EventForm extends Component {
               <img src={logo} className="App-logo" alt="logo" />
               <h2>Planit-Better</h2>
               <h3>{this.props.currentUser.username}</h3>
+              <h3>{this.props.eventStatus.currentEvent.name}</h3>
+
               <div id="navBar" classNam="nav is-grouped">
                 <button className="button is-outlined is-small" onClick={this.signOut}>Change User</button>
                 <button className="button is-outlined is-small" onClick={this.displayForm}> New Event Form</button>
               </div>
+
+              
+            </div>
+            <div id="navBar">
+            <button onClick={this.signOut}>Change User</button>
+            <button onClick={this.displayForm}> New Event Form</button>
+
             </div>
             <EventList event={this.props.currentEvent} />
           </div>
@@ -240,6 +290,7 @@ class EventForm extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    user : state.user,
     currentEvent : state.event,
     currentUser : state.authenticate,
     eventStatus : state.eventStatus
@@ -261,6 +312,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     },
     clearEvent: ownedEvent => {
       dispatch(clearEvent(ownedEvent))
+    },
+    loadUser : user =>{
+      dispatch(loadUser(user))
     }
   }
 }

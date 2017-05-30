@@ -22,6 +22,7 @@ class newGuestForm extends Component {
       accompanying_guests : "",
       can_drink : false,
       diet_restriction : "",
+      event_id : this.props.eventStatus.currentEvent.id,
       formOpen : false
     };
   }
@@ -102,7 +103,8 @@ class newGuestForm extends Component {
 
     updateStore(){
      fetch('/api/Guest', {
-      method: "GET"
+      method: "GET",
+      credentials: 'include'
     }).then((response) =>{
       return response.json()
     }).then((guest) =>{
@@ -122,6 +124,7 @@ class newGuestForm extends Component {
   addGuest(guest){
     return fetch('/api/guest',{
       method: "POST",
+      credentials: 'include',
        headers:
       {
         "Content-Type": "application/json",
@@ -136,6 +139,7 @@ class newGuestForm extends Component {
   }
 
     render() {
+      console.log(this.props.eventStatus)
       if(this.state.formOpen === true){
 
     return (
@@ -153,6 +157,10 @@ class newGuestForm extends Component {
           </div>
         </div>
 
+
+        <div>
+            <button onClick={this.openForm}>New Guest Form</button>
+        </div>
 
         <div className="columns">
 
@@ -179,6 +187,13 @@ class newGuestForm extends Component {
                 <span className="icon is-small is-left">
                   <i className="fa fa-phone"></i>
                 </span>
+              </p>
+            </div>
+
+            <div className="field">
+              <p className="control">
+                <label className="label">Email</label>
+                <input className="input" type="text" placeholder="email" value={this.state.email} onChange={this.handleChangeEmail} />
               </p>
             </div>
 
