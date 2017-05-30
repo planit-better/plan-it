@@ -42,17 +42,16 @@ class EventList extends Component {
    render() {
     return(
       <div>
-      <h1>Hello Events</h1>
-      <ul>
-        {
-          this.props.event.map((evt) =>
-            <li className="event" key={evt.id}>
-            <a onClick={this.eventRef.bind(this, evt)}>{evt.name}</a>
-            </li>
-            )
-        }
-
-      </ul>
+        <h1>Hello Events</h1>
+        <ul>
+          {
+            this.props.event.map((evt) =>
+              <li className="event" key={evt.id}>
+              <a onClick={this.eventRef.bind(this, evt)}>{evt.name}</a>
+              </li>
+              )
+          }
+        </ul>
       </div>
       )
 

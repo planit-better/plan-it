@@ -33,15 +33,14 @@ class EquipmentList extends Component {
 
     return(
       <div>
-      <h1>Hello Equipment</h1>
-      <ul>
-        {
-          this.props.equipment.map((name) =>
-            <li className="equipment" key={name.id}><h3>{name.name}</h3></li>
-            )
-        }
-
-      </ul>
+        <h1>Hello Equipment</h1>
+        <ul>
+          {
+            this.props.equipment.map((name) =>
+              <li className="equipment" key={name.id}><h3>{name.name}</h3></li>
+              )
+          }
+        </ul>
       </div>
       )
 

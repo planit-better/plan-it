@@ -103,43 +103,77 @@ class newContractorForm extends Component {
     render() {
     return (
       <div className="App">
+
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Planit-Better</h2>
           <h3>{this.props.eventStatus.currentEvent.name}</h3>
           <h3>{this.props.currentUser.username}</h3>
+          <div id="navBar">
+            <Link to="/"><button id="contractorHome" className="button is-outlined is-small">Home</button></Link>
+          </div>
         </div>
-        <div id="navBar">
-        <Link to="/"><button>Home</button></Link>
-        </div>
-          <form onSubmit={this.handleContractorSubmit}>
-            <div>
-             <span>Company Name</span>
+
+
+        <form onSubmit={this.handleContractorSubmit}>
+
+          <div className="field">
+            <label className="label">Company Name</label>
+            <p className="has-icons-left">
               <input type="text" placeholder="Company Name" value={this.state.company_name} onChange={this.handleChangeComanyName} />
-            </div>
-            <div>
-            <span>Cost</span>
+              <span className="icon is-small is-left">
+                <i className="fa fa-building"></i>
+              </span>
+            </p>
+          </div>
+
+          <div className="field">
+            <label className="label">Cost</label>
+            <p className="has-icons-left">
               <input type="integer" placeholder="cost" value={this.state.cost} onChange={this.handleChangeCost} />
-            </div>
-            <div>
-              <span>Contact Number</span>
+              <span className="icon is-small is-left">
+                <i className="fa fa-usd"></i>
+              </span>
+            </p>
+          </div>
+
+          <div className="field">
+            <label className="label">Contact Number</label>
+            <p className="has-icons-left">
               <input type="integer" placeholder="contact number" value={this.state.contact} onChange={this.handleChangeContact} />
-            </div>
-            <div>
-            <span>Hire Date</span>
+              <span className="icon is-small is-left">
+                <i className="fa fa-phone"></i>
+              </span>
+            </p>
+          </div>
+
+          <div className="field">
+            <label className="label">Hire Date</label>
+            <p className="has-icons-left">
               <input type="date" placeholder="Hire Date" value={this.state.date_hired} onChange={this.handleChangeDateHired} />
-            </div>
-            <div>
-            <span>Deadline</span>
+              <span className="icon is-small is-left">
+                <i className="fa fa-calendar-plus-o"></i>
+              </span>
+            </p>
+          </div>
+
+          <div className="field">
+            <label className="label">Deadline</label>
+            <p className="has-icons-left">
               <input type="date" value={this.state.deadline} onChange={this.handleChangeDeadline} />
-            </div>
-            <div>
-              <button name="Login" type="submit">Add Contractor </button>
-            </div>
-          </form>
-          <ContractorList contractor={this.props.contractors}/>
+              <span className="icon is-small is-left">
+                <i className="fa fa-calendar-times-o"></i>
+              </span>
+            </p>
+          </div>
 
+          <div className="field">
+            <button className="button bottomButton is-outlined" name="Login" type="submit">Add Contractor </button>
+          </div>
 
+        </form>
+
+        <ContractorList contractor={this.props.contractors}/>
       </div>
     );
   }

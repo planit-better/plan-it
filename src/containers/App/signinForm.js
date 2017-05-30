@@ -108,29 +108,50 @@ class signinForm extends Component{
     }
     return(
       <div className="App">
+
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Planit-Better</h2>
-        </div>
-        <div id="navBar">
-        <Link to="/"><button>Home</button></Link>
-        </div>
-        <form onSubmit={this.handleSigninSubmit}>
-            <div>
-              <span>Username</span>
-                <input type="text" placeholder="username" value={this.state.username} onChange={this.handleChangeUsername} />
-            </div>
-            <div>
-              <span>Password</span>
-                <input type="password" placeholder="password"  value={this.state.password} onChange={this.handleChangePassword} />
-            </div>
-             <div>
-              <button name="Signup" type="submit">Sign Up </button>
-            </div>
-          </form>
-          <div>
-            <InvalidUsername error={this.state}/>
+          <div id="navBar">
+            <Link to="/"><button className="button is-outlined is-small">Home</button></Link>
           </div>
+        </div>
+
+
+        <form onSubmit={this.handleSigninSubmit}>
+          <div className="field centerInput">
+            <p className="control">
+              <label className="label">Username</label>
+            </p>
+            <p className="control has-icons-left">
+              <input className="input" type="text" placeholder="username" value={this.state.username} onChange={this.handleChangeUsername} />
+              <span className="icon is-small is-left">
+                <i className="fa fa-user"></i>
+              </span>
+            </p>
+          </div>
+
+          <div className="field centerInput">
+            <p className="control">
+              <label className="label">Password</label>
+            </p>
+            <p className="control has-icons-left">
+              <input className="input" type="password" placeholder="password"  value={this.state.password} onChange={this.handleChangePassword} />
+              <span className="icon is-small is-left">
+                <i className="fa fa-key"></i>
+              </span>
+            </p>
+          </div>
+
+          <div>
+            <button className="button bottomButton is-outlined" name="Signup" type="submit">Sign Up </button>
+          </div>
+        </form>
+
+        <div>
+          <InvalidUsername error={this.state}/>
+        </div>
+
       </div>
     )
   }

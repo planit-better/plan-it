@@ -33,15 +33,14 @@ class TaskList extends Component {
 
     return(
       <div>
-      <h1>Hello Tasks</h1>
-      <ul>
-        {
-          this.props.task.map((name) =>
-            <li className="tasks" key={name.id}><h3>{name.name}</h3></li>
-            )
-        }
-
-      </ul>
+        <h1>Hello Tasks</h1>
+        <ul>
+          {
+            this.props.task.map((name) =>
+              <li className="tasks" key={name.id}><h3>{name.name}</h3></li>
+              )
+          }
+        </ul>
       </div>
       )
 

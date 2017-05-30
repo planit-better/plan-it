@@ -33,15 +33,14 @@ class ContractorList extends Component {
 
     return(
       <div>
-      <h1>Hello Contractors</h1>
-      <ul>
-        {
-          this.props.contractors.map((name) =>
-            <li className="contractors" key={name.id}><h3>{name.company_name}</h3></li>
-            )
-        }
-
-      </ul>
+        <h1>Hello Contractors</h1>
+        <ul>
+          {
+            this.props.contractors.map((name) =>
+              <li className="contractors" key={name.id}><h3>{name.company_name}</h3></li>
+              )
+          }
+        </ul>
       </div>
       )
 

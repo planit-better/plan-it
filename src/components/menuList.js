@@ -33,15 +33,14 @@ class MenuList extends Component {
 
     return(
       <div>
-      <h1>Hello Menu</h1>
-      <ul>
-        {
-          this.props.menu.map((name) =>
-            <li className="menu" key={name.id}><h3>{name.restaurant_name}</h3></li>
-            )
-        }
-
-      </ul>
+        <h1>Hello Menu</h1>
+        <ul>
+          {
+            this.props.menu.map((name) =>
+              <li className="menu" key={name.id}><h3>{name.restaurant_name}</h3></li>
+              )
+          }
+        </ul>
       </div>
       )
 

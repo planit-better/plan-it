@@ -87,33 +87,63 @@ class newMenuForm extends Component {
     render() {
     return (
       <div className="App">
+
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Planit-Better</h2>
           <h3>{this.props.eventStatus.currentEvent.name}</h3>
           <h3>{this.props.currentUser.username}</h3>
+          <div id="navBar">
+            <Link to="/"><button className="button formsHome is-outlined is-small">Home</button></Link>
+          </div>
         </div>
-        <div id="navBar">
-        <Link to="/"><button>Home</button></Link>
-        </div>
-          <form onSubmit={this.handleMenuSubmit}>
-            <div>
-             <span>type of food</span>
-              <input type="text" placeholder="type of food" value={this.state.type_of_food} onChange={this.handleChangeTypeOfFood} />
-            </div>
-            <div>
-            <span>price per person</span>
-              <input type="number"  value={this.state.cost_per_person} onChange={this.handleChangeCostPerPerson} />
-            </div>
-            <div>
-              <span>restaurant name Number</span>
-              <input type="text" value={this.state.restaurant_name} onChange={this.handleChangeRestaurantName} />
-            </div>
-            <div>
-              <button name="Login" type="submit">Add Menu </button>
-            </div>
-          </form>
-          <MenuList menu={this.props.menu} />
+
+        <form onSubmit={this.handleMenuSubmit}>
+
+          <div className="field centerInput">
+            <p className="control">
+              <label className="label">type of food</label>
+            </p>
+            <p className="control has-icons-left">
+              <input className="input" type="text" placeholder="type of food" value={this.state.type_of_food} onChange={this.handleChangeTypeOfFood} />
+              <span className="icon is-left is-small">
+                <i className="fa fa-spoon"></i>
+              </span>
+            </p>
+          </div>
+
+          <div className="field centerInput">
+            <p className="control">
+              <label className="label">price per person</label>
+            </p>
+            <p className="control has-icons-left">
+              <input className="input" type="number"  value={this.state.cost_per_person} onChange={this.handleChangeCostPerPerson} />
+              <span className="icon is-small is-left">
+                <i className="fa fa-usd"></i>
+              </span>
+            </p>
+          </div>
+
+          <div className="field centerInput">
+            <p className="control">
+              <label className="label">restaurant name Number</label>
+            </p>
+            <p className="control has-icons-left">
+              <input className="input" type="text" value={this.state.restaurant_name} onChange={this.handleChangeRestaurantName} />
+              <span className="icon is-small is-left">
+                <i className="fa fa-phone"></i>
+              </span>
+            </p>
+          </div>
+
+          <div>
+            <button className="button bottomButton is-outlined" name="Login" type="submit">Add Menu </button>
+          </div>
+
+        </form>
+
+
+        <MenuList menu={this.props.menu} />
       </div>
     );
   }

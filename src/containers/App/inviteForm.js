@@ -122,43 +122,49 @@ class InviteForm extends Component {
 
     return (
       <div className="App">
+
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Planit-Better</h2>
           <h3>{this.props.eventStatus.currentEvent.name}</h3>
           <h3>{this.props.currentUser.username}</h3>
         </div>
+
         <div id="navBar">
-        <Link to="/"><button>Home</button></Link>
+          <Link to="/"><button>Home</button></Link>
         </div>
 
         <div>
-        <form onSubmit={this.handleTextSubmit}>
-          <div>
-             <span>Text Message</span>
-              <input type="text" placeholder="Your text here" value={this.state.message} onChange={this.handleChangeMessage} />
-            </div>
+          <form onSubmit={this.handleTextSubmit}>
             <div>
-              <button name="Text" type="submit"> Text All Guests </button>
+               <span>Text Message</span>
+                <input type="text" placeholder="Your text here" value={this.state.message} onChange={this.handleChangeMessage} />
+              </div>
+              <div>
+                <button name="Text" type="submit"> Text All Guests </button>
+              </div>
+
+          </form>
+
+          <form onSubmit={this.handleEmailSubmit}>
+
+            <div>
+              <span>Email Message</span>
+              <input type="textarea" placeholder="Your email here" value={this.state.email} onChange={this.handleChangeEmail} />
             </div>
 
-        </form>
+            <div>
+              <button name="Email" type="submit"> Email All Guests </button>
+            </div>
 
-       <form onSubmit={this.handleEmailSubmit}>
+          </form>
+
+        </div>
+
         <div>
-           <span>Email Message</span>
-            <input type="textarea" placeholder="Your email here" value={this.state.email} onChange={this.handleChangeEmail} />
-          </div>
-          <div>
-            <button name="Email" type="submit"> Email All Guests </button>
-          </div>
+          <GuestList guest={this.props.guest}/>
+        </div>
 
-        </form>
-      <div>
-      </div>
-
-      </div>
-        <GuestList guest={this.props.guest}/>
       </div>
     );
   }

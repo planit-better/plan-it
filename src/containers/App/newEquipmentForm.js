@@ -89,33 +89,56 @@ class newEquipmentForm extends Component {
       console.log(this.props.equipment)
     return (
       <div className="App">
+
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Planit-Better</h2>
           <h3>{this.props.eventStatus.currentEvent.name}</h3>
           <h3>{this.props.currentUser.username}</h3>
+          <div id="navBar">
+            <Link to="/"><button className="button formsHome is-outlined is-small">Home</button></Link>
+          </div>
         </div>
-        <Link to="/"><button>Home</button></Link>
-        <div id="navBar">
-        </div>
-          <form onSubmit={this.handleEquipmentSubmit}>
-            <div>
-             <span>Name</span>
-              <input type="text" placeholder="Name" value={this.state.name} onChange={this.handleChangeName} />
-            </div>
-            <div>
-            <span>Cost</span>
-              <input type="integer" placeholder="cost" value={this.state.cost} onChange={this.handleChangeCost} />
-            </div>
-            <div>
-              <span>Type of equipment</span>
-              <input type="text" placeholder="type" value={this.state.type} onChange={this.handleChangeType} />
-            </div>
-            <div>
-              <button name="Login" type="submit">Add Equipment </button>
-            </div>
-          </form>
-          <EquipmentList equipment={this.props.equipment} />
+
+
+        <form onSubmit={this.handleEquipmentSubmit}>
+          <div className="field">
+            <label classname="label">Name</label>
+            <p className="has-icons-left">
+              <span className="icon is-small is-left">
+                <i className="fa fa-wrench"></i>
+                <input type="text" placeholder="Name" value={this.state.name} onChange={this.handleChangeName} />
+              </span>
+            </p>
+          </div>
+
+          <div className="field">
+            <label classname="label">Cost</label>
+            <p className="has-icons-left">
+              <span className="icon is-small is-left">
+                <i className="fa fa-usd"></i>
+                <input type="integer" placeholder="cost" value={this.state.cost} onChange={this.handleChangeCost} />
+              </span>
+            </p>
+          </div>
+
+          <div className="field">
+            <label classname="label">Type of equipment</label>
+            <p className="has-icons-left">
+              <span className="icon is-small is-left">
+                <i className="fa fa-question"></i>
+                <input type="text" placeholder="type" value={this.state.type} onChange={this.handleChangeType} />
+              </span>
+            </p>
+          </div>
+
+          <div className="field">
+            <button className="button bottomButton is-outlined" name="Login" type="submit">Add Equipment </button>
+          </div>
+
+        </form>
+
+        <EquipmentList equipment={this.props.equipment} />
 
       </div>
     );

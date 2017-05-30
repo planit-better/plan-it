@@ -148,27 +148,37 @@ class newGuestForm extends Component {
           <h2>Planit-Better</h2>
           <h3>{this.props.eventStatus.currentEvent.name}</h3>
           <h3>{this.props.currentUser.username}</h3>
+          <div id="navBar">
+            <Link to="/"><button className="button formsHome is-outlined is-small">Home</button></Link>
+          </div>
         </div>
 
-        <div id="navBar">
-          <Link to="/"><button>Home</button></Link>
-        </div>
 
         <div className="columns">
 
-          <form className="column is-offset-3" onSubmit={this.handleGuestSubmit}>
+          <form className="column is-offset-2" onSubmit={this.handleGuestSubmit}>
 
             <div className="field">
               <p className="control">
                 <label className="label">Name</label>
-                <input className="input" type="text" placeholder="Name" value={this.state.name} onChange={this.handleChangeName} />
+              </p>
+              <p className="control has-icons-left">
+                <input className="input is-small" type="text" placeholder="Name" value={this.state.name} onChange={this.handleChangeName} />
+                <span className="icon is-small is-left">
+                  <i className="fa fa-user"></i>
+                </span>
               </p>
             </div>
 
             <div className="field">
               <p className="control">
                 <label className="label">Number</label>
-                <input className="input" type="text" placeholder="(555) 555-5555" value={this.state.number} onChange={this.handleChangeNumber} />
+              </p>
+              <p className="control has-icons-left">
+                <input className="input is-small" type="text" placeholder="(555) 555-5555" value={this.state.number} onChange={this.handleChangeNumber} />
+                <span className="icon is-small is-left">
+                  <i className="fa fa-phone"></i>
+                </span>
               </p>
             </div>
 
@@ -187,7 +197,7 @@ class newGuestForm extends Component {
             <div className="field">
               <p className="control">
                 <label className="label">Number of accompanying guests</label>
-                <input className="input" type="number" value={this.state.accompanying_guests} onChange={this.handleChangeAccompanyingGuests} />
+                <input id="numberGuests" className="input is-small" type="number" value={this.state.accompanying_guests} onChange={this.handleChangeAccompanyingGuests} />
               </p>
             </div>
 
@@ -208,20 +218,20 @@ class newGuestForm extends Component {
                 <label className="label">
                   Diet Restrictions
                 </label>
-                <input className="input" type="text" value={this.state.diet_restriction} onChange={this.handleChangeDietRestriction} />
+              </p>
+              <p className="control has-icons-left">
+                <input className="input is-small" type="text" value={this.state.diet_restriction} onChange={this.handleChangeDietRestriction} />
+                <span className="icon is-small is-left">
+                  <i className="fa fa-spoon"></i>
+                </span>
               </p>
             </div>
 
             <div className="field">
               <p className="control">
-                <button className="button is-info" name="Login" type="submit">Add Guest </button>
-              </p>
-            </div>
-
-            <div className="field">
-              <p className="control">
+                <button className="button bottomButton is-outlined is-small" name="Login" type="submit">Add Guest </button>
                 <Link to="/inviteForm">
-                  <button>
+                  <button className="button bottomButton is-outlined is-small">
                     Create Invite
                   </button>
                 </Link>
@@ -230,7 +240,9 @@ class newGuestForm extends Component {
 
           </form>
 
-          <GuestList class="column" guest={this.props.guest} />
+          <GuestList guest={this.props.guest} />
+
+
           <div className="column is-1"></div>
         </div>
       </div>
@@ -239,18 +251,22 @@ class newGuestForm extends Component {
       } else {
       return (
         <div className="App">
-          <div className="App-header">
+
+          <div className="App-header field">
             <img src={logo} className="App-logo" alt="logo" />
             <h2>Planit-Better</h2>
             <h3>{this.props.eventStatus.currentEvent.name}</h3>
             <h3>{this.props.currentUser.username}</h3>
+            <div id="navBar">
+              <Link to="/"><button className="button formsHome is-outlined is-small">Home</button></Link>
+            </div>
           </div>
-          <div id="navBar">
-            <Link to="/"><button>Home</button></Link>
+
+
+          <div className="field">
+            <button className="button bottomButton is-outlined" onClick={this.openForm}>New Guest Form</button>
           </div>
-          <div>
-            <button onClick={this.openForm}>New Guest Form</button>
-          </div>
+
           <GuestList guest={this.props.guest} />
         </div>
         );
