@@ -6,6 +6,7 @@ import './styles.css';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { loadBudget } from '../../action';
+import PieChart from 'react-simple-pie-chart';
 
 class Budget extends Component {
   constructor(props) {
@@ -32,6 +33,7 @@ class Budget extends Component {
 
 
   render(){
+    let x=1000;
     console.log(this.props.budget)
     return(
       <div className="App">
@@ -47,8 +49,22 @@ class Budget extends Component {
           <Link to="/"><button className="button is-outlined is-small">Home</button></Link>
         </div>
 
-
-
+          <PieChart
+            slices={[
+                {
+                  color: 'red',
+                  value: this.props.budget.budgetTotal.contractor,
+                },
+                {
+                  color: 'blue',
+                  value: this.props.budget.budgetTotal.equipment,
+                },
+                {
+                  color: 'green',
+                  value: this.props.budget.budgetTotal.menu,
+                },
+              ]}
+              />
 
 
       </div>
