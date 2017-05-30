@@ -30,7 +30,7 @@ class newContractorForm extends Component {
       this.addContractor(this.state)
       .then(this.clearState())
       .then(this.updateStore())
-      .then(this.addContractorBudget())
+      //.then(this.addContractorBudget())
 
     }
 
@@ -113,27 +113,27 @@ class newContractorForm extends Component {
       })
     }
 
-    addContractorBudget(){
-      console.log('hit cont but=g')
-      console.log(this.state.cost)
-      return fetch('/api/budget', {
-        method: "POST",
-        credentials: 'include',
-        headers:
-        {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          "type": "Contractor",
-          "amount": this.state.cost,
-          "type_id": this.state.id
-        })
-      }).then(response =>{
-        return response
-      }).catch(err =>{
-        throw err;
-      })
-    }
+    // addContractorBudget(){
+    //   console.log('hit cont but=g')
+    //   console.log(this.state.cost)
+    //   return fetch('/api/budget', {
+    //     method: "POST",
+    //     credentials: 'include',
+    //     headers:
+    //     {
+    //       "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify({
+    //       "type": "Contractor",
+    //       "amount": this.state.cost,
+    //       "type_id": this.state.id
+    //     })
+    //   }).then(response =>{
+    //     return response
+    //   }).catch(err =>{
+    //     throw err;
+    //   })
+    // }
 
 
         // body: JSON.stringify({
