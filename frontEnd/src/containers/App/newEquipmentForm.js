@@ -28,6 +28,7 @@ class newEquipmentForm extends Component {
       this.addEquipment(this.state)
       .then(this.clearState())
       .then(this.updateStore())
+      .then(this.addEquipBudget())
 
     }
 
@@ -93,6 +94,28 @@ class newEquipmentForm extends Component {
     openForm = () => {
       this.setState({
         formOpen : !this.state.formOpen
+      })
+    }
+
+    addEquipBudget(){
+      console.log('hit cont but=g')
+      console.log(this.state.cost)
+      return fetch('/api/budget', {
+        method: "POST",
+        credentials: 'include',
+        headers:
+        {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          "type": "Equipment",
+          "amount": this.state.cost,
+          "event_id": this.props.eventStatus.currentEvent.id
+        })
+      }).then(response =>{
+        return response
+      }).catch(err =>{
+        throw err;
       })
     }
 
