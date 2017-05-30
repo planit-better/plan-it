@@ -7,7 +7,7 @@ const { Menu } = db;
 
 menu.get('/', ( req, res) => {
   console.log('hit menu');
-  Menu.all({raw: true, where: {event_id: 2}})
+  Menu.all({raw: true})
   .then((menu)=>{
     console.log(menu)
     res.json(menu);

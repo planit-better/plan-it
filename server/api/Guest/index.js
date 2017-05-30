@@ -51,9 +51,13 @@ guest.delete('/:id', ( req, res ) => {
 });
 
 guest.put('/:id', (req,res) => {
+  console.log('hit put guest by id');
+  console.log(req.body);
   let path = req.path.split('/')[1];
   Guest.update({
     name: req.body.name,
+    number: req.body.number,
+    email: req.body.email,
     will_attend: req.body.will_attend,
     accompanying_guests: req.body.accompanying_guests,
     can_drink: req.body.can_drink,

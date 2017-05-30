@@ -5,7 +5,7 @@ const { Task } = db;
 
 task.get('/', ( req, res) => {
   console.log('hit task');
-  Task.all({raw: true, where: {task_id: 2}})
+  Task.all({raw: true})
   .then((task)=>{
     console.log(task)
     res.json(task);

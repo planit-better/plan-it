@@ -6,7 +6,7 @@ const { Equipment } = db;
 
 equipment.get('/', ( req, res) => {
   console.log('hit equipment');
-  Equipment.all({raw: true, where: {event_id: 1}})
+  Equipment.all({raw: true})
   .then((equipment)=>{
     res.json(equipment);
   }).catch(err => {
