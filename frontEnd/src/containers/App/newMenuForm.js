@@ -96,8 +96,6 @@ class newMenuForm extends Component {
     }
 
     addMenuBudget(){
-      console.log('hit cont but=g')
-      console.log(this.state.cost)
       return fetch('/api/budget', {
         method: "POST",
         credentials: 'include',
@@ -118,7 +116,6 @@ class newMenuForm extends Component {
     }
 
      render() {
-      console.log(this.props.eventStatus)
       if(this.state.formOpen === true){
 
     return (
@@ -145,7 +142,7 @@ class newMenuForm extends Component {
               <input type="text" placeholder="type of food" value={this.state.type_of_food} onChange={this.handleChangeTypeOfFood} />
             </div>
             <div>
-            <span>price per person</span>
+            <span> Price </span>
               <input type="number"  value={this.state.cost_per_person} onChange={this.handleChangeCostPerPerson} />
             </div>
             <div>

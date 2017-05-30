@@ -59,7 +59,6 @@ class loginForm extends Component{
 
       }).then(data => {
         if(data.message === 'invalid'){
-          console.log('wrong username /pw')
         }
         else {
           this.props.authUser(user)
@@ -68,7 +67,6 @@ class loginForm extends Component{
   }
 
   render(){
-    console.log(this.props.currentUser)
       if(this.props.currentUser.userLoggedIn === true){
         return(
         <Redirect to={{

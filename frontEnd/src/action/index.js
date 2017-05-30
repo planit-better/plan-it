@@ -8,6 +8,7 @@ export const LOAD_TASK = 'LOAD_TASK';
 export const LOAD_USER = 'LOAD_USER';
 export const LOAD_EVENT = 'LOAD_EVENT';
 export const LOAD_CURRENT_GUEST = 'LOAD_CURRENT_GUEST';
+export const LOAD_BUDGET = 'LOAD_BUDGET';
 
 export const AUTH_USER = 'AUTH_USER';
 export const LOGOUT_USER = 'LOGOUT_USER';
@@ -96,9 +97,16 @@ export const clearEvent = currentEvent => {
 };
 
 export const loadCurrentGuest = currentGuest => {
-  console.log('hit load current guest action');
   return {
     type : LOAD_CURRENT_GUEST,
     currentGuest
+  };
+};
+
+export const loadBudget = budgetTotals => {
+  console.log('hit load budget action');
+  return{
+    type : LOAD_BUDGET,
+    budgetTotals
   };
 };

@@ -82,7 +82,6 @@ class App extends Component {
       this.props.clearEvent();
       //sign out action
       this.props.logOut(response);
-      console.log(response)
     })
   }
 
@@ -95,8 +94,8 @@ class App extends Component {
     // console.log(this.props.menu);
     // console.log(this.props.task);
     // console.log(this.props.currentUser)
-    console.log(this.props.currentUser)
-    console.log(this.props.eventStatus)
+    // console.log(this.props.currentUser)
+    // console.log(this.props.eventStatus)
 
     if(this.props.currentUser.userLoggedIn === true){
 

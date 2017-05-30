@@ -98,8 +98,6 @@ class newEquipmentForm extends Component {
     }
 
     addEquipBudget(){
-      console.log('hit cont but=g')
-      console.log(this.state.cost)
       return fetch('/api/budget', {
         method: "POST",
         credentials: 'include',
@@ -121,7 +119,6 @@ class newEquipmentForm extends Component {
 
 
     render() {
-      console.log(this.props.equipment)
       if(this.state.formOpen === true){
 
     return (
