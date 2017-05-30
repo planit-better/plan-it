@@ -173,43 +173,73 @@ class EventForm extends Component {
       if(this.props.currentUser.userLoggedIn === true && this.state.openForm === true){
         return (
           <div className="App">
-            <div className="App-header">
+
+            <div className="App-header field">
               <img src={logo} className="App-logo" alt="logo" />
               <h2>Planit-Better</h2>
               <h3>{this.props.currentUser.username}</h3>
               <h3>{this.props.eventStatus.currentEvent.name}</h3>
+
+              <div id="navBar" className="level">
+                <button className="button is-outlined" onClick={this.signOut}>Change User</button>
+                <button className="button is-outlined" onClick={this.displayForm}> New Event Form</button>
+              </div>
+
+        
+
             </div>
-            <div id="navBar">
-            <button onClick={this.signOut}>Change User</button>
-            <button onClick={this.displayForm}> New Event Form</button>
-            </div>
+
+
             <div>
               <form onSubmit={this.handleEventSubmit}>
-                <div>
-                 <span>Event Name</span>
-                  <input type="text" placeholder="Event Name" value={this.state.name} onChange={this.handleChangeName} />
+
+                <div className="field">
+                  <label className="label">Event Name</label>
+                  <p className="has-icons-left">
+                    <input type="text" placeholder="Event Name" value={this.state.name} onChange={this.handleChangeName} />
+                    <i className="fa fa-calendar"></i>
+                  </p>
                 </div>
-                <div>
-                <span>Location Name</span>
-                  <input type="text" placeholder="Location name" value={this.state.location_name} onChange={this.handleChangelocationName} />
+
+                <div className="field">
+                  <label className="label">Location Name</label>
+                  <p className="has-icons-left">
+                    <input type="text" placeholder="Location name" value={this.state.location_name} onChange={this.handleChangelocationName} />
+                    <i className="fa fa-compass"></i>
+                  </p>
                 </div>
-                <div>
-                  <span>location Adress Number</span>
-                  <input type="text" placeholder="Adress" value={this.state.location_address} onChange={this.handleChangelocationAddress} />
+
+                <div className="field">
+                  <label className="label">location Address Number</label>
+                  <p className="has-icons-left">
+                    <input type="text" placeholder="Adress" value={this.state.location_address} onChange={this.handleChangelocationAddress} />
+                    <i className="fa fa-home"></i>
+                  </p>
                 </div>
-                <div>
-                <span>Event Date</span>
-                  <input type="date" placeholder="Event Date" value={this.state.event_date} onChange={this.handleChangeEventDate} />
+
+                <div className="field">
+                  <label className="label">Event Date</label>
+                  <p className="has-icons-left">
+                    <input type="date" placeholder="Event Date" value={this.state.event_date} onChange={this.handleChangeEventDate} />
+                    <i className="fa fa-calendar-plus-o"></i>
+                  </p>
                 </div>
-                <div>
-                <span>Event Time</span>
-                  <input type="time" value={this.state.event_time} onChange={this.handleChangeEventTime} />
+
+                <div className="field">
+                  <label className="label">Event Time</label>
+                  <p className="has-icons-left">
+                    <input type="time" value={this.state.event_time} onChange={this.handleChangeEventTime} />
+                    <i className="fa fa-clock-o"></i>
+                  </p>
                 </div>
-                <div>
-                  <button name="Login" type="submit">Add Event </button>
+
+                <div className="field">
+                  <button className="button bottomButton is-outlined" name="Login" type="submit">Add Event </button>
                 </div>
+
               </form>
             </div>
+
             <EventList event={this.props.currentEvent} />
           </div>
         );
@@ -221,10 +251,18 @@ class EventForm extends Component {
               <h2>Planit-Better</h2>
               <h3>{this.props.currentUser.username}</h3>
               <h3>{this.props.eventStatus.currentEvent.name}</h3>
+
+              <div id="navBar" classNam="nav is-grouped">
+                <button className="button is-outlined is-small" onClick={this.signOut}>Change User</button>
+                <button className="button is-outlined is-small" onClick={this.displayForm}> New Event Form</button>
+              </div>
+
+              
             </div>
             <div id="navBar">
             <button onClick={this.signOut}>Change User</button>
             <button onClick={this.displayForm}> New Event Form</button>
+
             </div>
             <EventList event={this.props.currentEvent} />
           </div>
@@ -238,10 +276,10 @@ class EventForm extends Component {
               <img src={logo} className="App-logo" alt="logo" />
               <h2>Planit-Better</h2>
               <Link to="/signinForm">
-                <button>Sign Up</button>
+                <button className="button formsHome is-outlined is-small">Sign Up</button>
               </Link>
                 <Link to="/loginForm">
-                  <button>Login</button>
+                  <button className="button formsHome is-outlined is-small">Login</button>
               </Link>
             </div>
             </div>

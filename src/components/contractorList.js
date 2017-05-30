@@ -39,6 +39,7 @@ class ContractorList extends Component {
     }
     return(
       <div>
+
       <h1>Hello Contractors</h1>
       <ul>
         {
@@ -48,6 +49,7 @@ class ContractorList extends Component {
         }
 
       </ul>
+
       </div>
       )
 

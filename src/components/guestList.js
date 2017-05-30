@@ -42,7 +42,10 @@ class GuestList extends Component {
       }
      }
     return(
+
+
       <div className="field">
+
         <h1 className="label">Hello Guests</h1>
         <ul>
           {
@@ -56,6 +59,7 @@ class GuestList extends Component {
           }
 
         </ul>
+
       </div>
       )
 

@@ -77,29 +77,49 @@ class loginForm extends Component{
       }
     return(
       <div className="App">
-        <div className="App-header">
+
+        <div className="App-header field">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Planit-Better</h2>
-          <h3>{this.props.eventStatus.currentEvent.name}</h3>
-          <h3>{this.props.currentUser.username}</h3>
+          <p>
+            <h2>Planit-Better</h2>
+          </p>
+          <div id="navBar" className="level-item">
+            <h3>{this.props.eventStatus.currentEvent.name}</h3>
+            <h3>{this.props.currentUser.username}</h3>
+              <Link to="/"><button className="button formsHome is-outlined is-small">Home</button></Link>
+          </div>
+
         </div>
-        <div id="navBar">
-        <Link to="/"><button>Home</button></Link>
-        </div>
+
+
         <form onSubmit={this.handleLoginSubmit}>
-            <div>
-              <span>Username</span>
-                <input type="text" placeholder="username" value={this.state.username} onChange={this.handleChangeUsername} />
-            </div>
-            <div>
-              <span>Password</span>
-                <input type="password" placeholder="password"  value={this.state.password} onChange={this.handleChangePassword} />
-            </div>
-             <div>
-              <button name="Signup" type="submit">Log in </button>
-            </div>
-          </form>
-        </div>
+
+          <div className="field">
+            <label className="label">Username</label>
+            <p className="has-icons-left">
+              <input type="text" placeholder="username" value={this.state.username} onChange={this.handleChangeUsername} />
+              <span className="icon is-small is-left">
+                <i className="fa fa-user"></i>
+              </span>
+            </p>
+          </div>
+
+          <div className="field">
+            <label className="label">Password</label>
+            <p className="has-icons-left">
+              <input type="password" placeholder="password"  value={this.state.password} onChange={this.handleChangePassword} />
+              <span className="icon is-small is-left">
+                <i className="fa fa-key"></i>
+              </span>
+            </p>
+          </div>
+
+          <div>
+            <button className="button bottomButton is-outlined" name="Signup" type="submit">Log in </button>
+          </div>
+
+        </form>
+      </div>
     )
   }
 }

@@ -39,6 +39,7 @@ class EquipmentList extends Component {
     }
     return(
       <div>
+
       <h1>Hello Equipment</h1>
       <ul>
         {
@@ -48,6 +49,7 @@ class EquipmentList extends Component {
         }
 
       </ul>
+
       </div>
       )
 

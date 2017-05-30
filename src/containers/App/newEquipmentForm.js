@@ -103,12 +103,17 @@ class newEquipmentForm extends Component {
 
     return (
       <div className="App">
+
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Planit-Better</h2>
           <h3>{this.props.eventStatus.currentEvent.name}</h3>
           <h3>{this.props.currentUser.username}</h3>
+          <div id="navBar">
+            <Link to="/"><button className="button formsHome is-outlined is-small">Home</button></Link>
+          </div>
         </div>
+
         <Link to="/"><button>Home</button></Link>
         <div id="navBar">
         </div>

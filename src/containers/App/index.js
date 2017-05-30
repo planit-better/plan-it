@@ -102,37 +102,65 @@ class App extends Component {
 
       return (
         <div className="App">
+
           <div className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <h2>Planit-Better</h2>
             <h3>{this.props.eventStatus.currentEvent.name}</h3>
             <h3>{this.props.currentUser.username}</h3>
-            <button id="signout" onClick={this.signOut}>Log Out</button>
+            <button id="signout" className="button is-outlined" onClick={this.signOut}>Log Out</button>
           </div>
+
           <br></br><br></br>
+
           <div id="postNavBar">
-            <Link to="/newContractorForm"><button>New Contractor</button></Link>
-            <Link to="/newEquipmentForm"><button>New Equipment</button></Link>
-            <Link to="/newGuestForm"><button>New Guest</button></Link>
-            <Link to="/newMenuForm"><button>New Menu</button></Link>
-            <Link to="/newTaskForm"><button>New Task</button></Link>
+            <div>
+              <Link to="/newContractorForm"><button className="button bottomButton is-outlined">New Contractor</button></Link>
+            </div>
+            <div>
+              <Link to="/newEquipmentForm"><button className="button bottomButton is-outlined">New Equipment</button></Link>
+            </div>
+            <div>
+              <Link to="/newGuestForm"><button className="button bottomButton is-outlined">New Guest</button></Link>
+            </div>
+            <div>
+              <Link to="/newMenuForm"><button className="button bottomButton is-outlined">New Menu</button></Link>
+            </div>
+            <div>
+              <Link to="/newTaskForm"><button className="button bottomButton is-outlined">New Task</button></Link>
+            </div>
           </div>
+
         </div>
       );
     } else {
       return (
         <div className="App">
-          <div className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h2>Planit-Better</h2>
-            <Link to="/signinForm">
-              <button>Sign Up</button>
-            </Link>
+
+          <div className="App-header level">
+
+            <div className="field level-item has-text-centered">
+              <Link to="/signinForm">
+                <button className="button is-outlined is-small">Sign Up</button>
+              </Link>
+            </div>
+
+            <div className="field has-text-centered">
+              <img src={logo} className="App-logo" alt="logo" />
+              <p>
+                <h2>Planit-Better</h2>
+              </p>
+            </div>
+
+            <div className="field level-item has-text-centered">
               <Link to="/loginForm">
-                <button>Login</button>
-            </Link>
+              <button className="button is-outlined is-small">Login</button>
+              </Link>
+            </div>
+
           </div>
-          </div>
+
+        </div>
      )
     }
   }
