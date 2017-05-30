@@ -30,6 +30,7 @@ class newContractorForm extends Component {
       this.addContractor(this.state)
       .then(this.clearState())
       .then(this.updateStore())
+      .then(this.addContractorBudget())
 
     }
 
@@ -106,13 +107,41 @@ class newContractorForm extends Component {
       })
     }
 
-     openForm = () => {
-        this.setState({
-          formOpen : !this.state.formOpen
+   openForm = () => {
+      this.setState({
+        formOpen : !this.state.formOpen
+      })
+    }
+
+    addContractorBudget(){
+      console.log('hit cont but=g')
+      console.log(this.state.cost)
+      return fetch('/api/budget', {
+        method: "POST",
+        credentials: 'include',
+        headers:
+        {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          "type": "Contractor",
+          "amount": this.state.cost,
+          "type_id": this.state.id
         })
-      }
+      }).then(response =>{
+        return response
+      }).catch(err =>{
+        throw err;
+      })
+    }
 
 
+        // body: JSON.stringify({
+        //   "type": "contractor",
+        //   "amount": this.state.cost,
+        //   "type_id": this.state.id,
+        //   "event_id": this.props.eventStatus.currentEvent.id
+        // })
 
     render() {
       console.log(this.props.eventStatus)
@@ -127,7 +156,7 @@ class newContractorForm extends Component {
           <h3>{this.props.currentUser.username}</h3>
         </div>
         <div id="navBar">
-        <Link to="/"><button>Home</button></Link>
+        <Link to="/"><button>Hoe</button></Link>
         </div>
 
         <div>
@@ -213,3 +242,4 @@ const ConnectedContractorApp = connect(
 
 
 export default ConnectedContractorApp;
+
