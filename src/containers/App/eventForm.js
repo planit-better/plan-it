@@ -178,37 +178,69 @@ class EventForm extends Component {
               <h3>{this.props.currentUser.username}</h3>
               <h3>{this.props.eventStatus.currentEvent.name}</h3>
             </div>
+
             <div id="navBar">
-            <button onClick={this.signOut}>Change User</button>
-            <button onClick={this.displayForm}> New Event Form</button>
+                <button onClick={this.signOut}>Change User</button>
+                <button onClick={this.displayForm}> New Event Form</button>
+
             </div>
             <div>
               <form onSubmit={this.handleEventSubmit}>
-                <div>
-                 <span>Event Name</span>
-                  <input type="text" placeholder="Event Name" value={this.state.name} onChange={this.handleChangeName} />
+
+              <div id="eventSheet">
+
+                <div className="event">
+                    <p className="control has-icons-left">
+                      <input className="input is-info is-small" type="text" placeholder="Event Name" value={this.state.name} onChange={this.handleChangeName} />
+                      <span className="icon is-small is-left">
+                        <i className="fa fa-anchor"></i>
+                      </span>
+                    </p>
                 </div>
-                <div>
-                <span>Location Name</span>
-                  <input type="text" placeholder="Location name" value={this.state.location_name} onChange={this.handleChangelocationName} />
+
+                <br></br>
+
+                <div className="location">
+                  <p className="control has-icons-left">
+                    <input className="input is-info is-small" type="text" placeholder="Location name" value={this.state.location_name} onChange={this.handleChangelocationName} />
+                    <span className="icon is-small is-left">
+                      <i className="fa fa-location-arrow"></i>
+                    </span>
+                  </p>
                 </div>
-                <div>
-                  <span>location Adress Number</span>
-                  <input type="text" placeholder="Adress" value={this.state.location_address} onChange={this.handleChangelocationAddress} />
+
+                <br></br>
+
+                <div className="address">
+                  <p className="control has-icons-left">
+                    <input className="input is-info is-small" type="text" placeholder="Adress" value={this.state.location_address} onChange={this.handleChangelocationAddress} />
+                    <span className="icon is-small is-left">
+                      <i className="fa fa-map-marker"></i>
+                    </span>
+                  </p>
                 </div>
-                <div>
-                <span>Event Date</span>
-                  <input type="date" placeholder="Event Date" value={this.state.event_date} onChange={this.handleChangeEventDate} />
+              </div>
+
+                <div className="date">
+                    <input type="date" placeholder="Event Date" value={this.state.event_date} onChange={this.handleChangeEventDate} />
+                    <span className="icon is-small">
+                      <i className="fa fa-calendar-check-o"></i>
+                    </span>
                 </div>
-                <div>
-                <span>Event Time</span>
+
+                <div className="time">
                   <input type="time" value={this.state.event_time} onChange={this.handleChangeEventTime} />
+                  <span className="icon is-small">
+                    <i className="fa fa-clock-o"></i>
+                  </span>
                 </div>
+
                 <div>
                   <button name="Login" type="submit">Add Event </button>
                 </div>
               </form>
             </div>
+
             <EventList event={this.props.currentEvent} />
           </div>
         );

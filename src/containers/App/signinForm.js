@@ -117,15 +117,27 @@ class signinForm extends Component{
         <Link to="/"><button>Home</button></Link>
         </div>
         <form onSubmit={this.handleSigninSubmit}>
-            <div>
-              <span>Username</span>
-                <input type="text" placeholder="username" value={this.state.username} onChange={this.handleChangeUsername} />
+
+            <div className='username'>
+              <p className="control has-icons-left">
+                <input className="input is-success is-small" type="text" placeholder="username" value={this.state.username} onChange={this.handleChangeUsername} />
+                <span className="icon is-small is-left">
+                <i className="fa fa-user"></i>
+                </span>
+              </p>
             </div>
-            <div>
-              <span>Password</span>
-                <input type="password" placeholder="password"  value={this.state.password} onChange={this.handleChangePassword} />
+
+            <div className="password">
+              <p className="control has-icons-left">
+                <input className="input is-danger is-small" type="password" placeholder="password"  value={this.state.password} onChange={this.handleChangePassword} />
+                <span className="icon is-small is-left">
+                <i className="fa fa-cog"></i>
+                </span>
+              </p>
             </div>
-             <div>
+
+
+             <div id="submit">
               <button name="Signup" type="submit">Sign Up </button>
             </div>
           </form>
