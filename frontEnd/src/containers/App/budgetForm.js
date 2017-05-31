@@ -32,8 +32,27 @@ class Budget extends Component {
 
 
 
+
   render(){
-    let x=1000;
+    let contractorBudget = 0;
+    let menuBudget = 0;
+    let taskBudget = 0;
+    let equipmentBudget = 0;
+    console.log(this.props.eventStatus.currentEvent.id)
+    for(var i=0; i<this.props.budget.length; i++){
+      if(this.props.budget[i].event_id === this.props.eventStatus.currentEvent.id && this.props.budget[i].type === "Contractor"){
+        contractorBudget += this.props.budget[i].amount
+      }
+      if(this.props.budget[i].event_id === this.props.eventStatus.currentEvent.id && this.props.budget[i].type === "Menu"){
+        menuBudget += this.props.budget[i].amount
+      }
+      if(this.props.budget[i].event_id === this.props.eventStatus.currentEvent.id && this.props.budget[i].type === "Equipment"){
+        equipmentBudget += this.props.budget[i].amount
+      }
+    }
+    console.log(contractorBudget)
+    console.log(menuBudget)
+    console.log(equipmentBudget)
     console.log(this.props.budget)
     return(
       <div className="App">
@@ -53,15 +72,15 @@ class Budget extends Component {
             slices={[
                 {
                   color: 'red',
-                  value: this.props.budget.budgetTotal.contractor,
+                  value: contractorBudget,
                 },
                 {
                   color: 'blue',
-                  value: this.props.budget.budgetTotal.equipment,
+                  value: menuBudget,
                 },
                 {
                   color: 'green',
-                  value: this.props.budget.budgetTotal.menu,
+                  value: equipmentBudget,
                 },
               ]}
               />
