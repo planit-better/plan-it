@@ -63,6 +63,9 @@
   background-color: rgb(0, 0, 225);
 }
 
+.menuEvent {
+  margin-top: 15px;
+  
 #contractorBudget {
   color: red;
 }
