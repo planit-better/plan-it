@@ -129,33 +129,50 @@ class newEquipmentForm extends Component {
           <h2>Planit-Better</h2>
           <h3>{this.props.eventStatus.currentEvent.name}</h3>
           <h3>{this.props.currentUser.username}</h3>
-        </div>
           <div>
-            <Link to="/"><button className="button formsHome is-outlined is-small">Home</button></Link>
+            <Link to="/"><button className="button is-outlined is-small">Home</button></Link>
+            <button className="button is-outlined is-small" onClick={this.openForm}>Hide Equipment Form</button>
           </div>
-
-        <div>
-          <button className="button is-outlined is-small" onClick={this.openForm}>Hide Equipment Form</button>
         </div>
 
-          <form onSubmit={this.handleEquipmentSubmit}>
-            <div>
-             <span>Name</span>
-              <input type="text" placeholder="Name" value={this.state.name} onChange={this.handleChangeName} />
-            </div>
-            <div>
-            <span>Cost</span>
-              <input type="integer" placeholder="cost" value={this.state.cost} onChange={this.handleChangeCost} />
-            </div>
-            <div>
-              <span>Type of equipment</span>
-              <input type="text" placeholder="type" value={this.state.type} onChange={this.handleChangeType} />
-            </div>
-            <div>
-              <button name="Login" type="submit">Add Equipment </button>
-            </div>
-          </form>
-          <EquipmentList equipment={this.props.equipment} />
+        <div className="columns">
+          <div className="column">
+
+            <form onSubmit={this.handleEquipmentSubmit}>
+              <div className="field">
+                <label className="label">Name</label>
+                <p className="has-icons-left">
+                  <input type="text" placeholder="Name" value={this.state.name} onChange={this.handleChangeName} />
+                  <i className="fa fa-calendar"></i>
+                </p>
+              </div>
+
+              <div className="field">
+                <label className="label">Cost</label>
+                <p className="has-icons-left">
+                  <input type="text" placeholder="Cost" value={this.state.cost} onChange={this.handleChangeCost} />
+                  <i className="fa fa-calendar"></i>
+                </p>
+              </div>
+
+              <div className="field">
+                <label className="label">Type</label>
+                <p className="has-icons-left">
+                  <input type="text" placeholder="Name" value={this.state.type} onChange={this.handleChangeType} />
+                  <i className="fa fa-calendar"></i>
+                </p>
+              </div>
+
+
+              <div>
+                <button name="Login" type="submit">Add Equipment </button>
+              </div>
+            </form>
+          </div>
+          <div className="column">
+            <EquipmentList equipment={this.props.equipment} />
+          </div>
+        </div>
 
       </div>
     );
@@ -167,13 +184,11 @@ class newEquipmentForm extends Component {
         <h2>Planit-Better</h2>
         <h3>{this.props.eventStatus.currentEvent.name}</h3>
         <h3>{this.props.currentUser.username}</h3>
-      </div>
         <div>
           <Link to="/"><button className="button is-outlined is-small">Home</button></Link>
-        </div>
-        <div>
           <button className="button is-outlined is-small" onClick={this.openForm}>New Equipment Form</button>
         </div>
+      </div>
       <EquipmentList equipment={this.props.equipment} />
     </div>
     )

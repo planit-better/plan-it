@@ -98,21 +98,25 @@ class GuestProfile extends Component {
     }
 
     updateGuest = ( guest ) => {
-      return fetch(`/api/guest/${this.props.currentGuest.currentGuest.id}`, {
-      method: "PUT",
-      credentials: 'include',
-       headers:
-      {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body : JSON.stringify(guest)
-    }).then((response) =>{
-      return response.json()
-    }).catch(err =>{
-      throw err;
-    })
-  }
+        return fetch(`/api/guest/${this.props.currentGuest.currentGuest.id}`, {
+        method: "PUT",
+        credentials: 'include',
+         headers:
+        {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body : JSON.stringify(guest)
+      }).then((response) =>{
+        return response.json()
+      }).catch(err =>{
+        throw err;
+      })
+    }
+
+    deleteGuest
+
+
 
 
     render() {
@@ -200,6 +204,10 @@ class GuestProfile extends Component {
                     <button className="button is-info" name="Login" type="submit">Update Guest </button>
                   </p>
                 </div>
+
+              </form>
+
+              <form className="column is-offset-3" onSubmit={this.handleGuestChangeSubmit}>
 
               </form>
 
