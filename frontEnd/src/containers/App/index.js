@@ -85,6 +85,10 @@ class App extends Component {
     })
   }
 
+  newEvent(){
+    console.log('hit new event')
+  }
+
 
 
   render() {
@@ -108,6 +112,7 @@ class App extends Component {
             <h3>{this.props.eventStatus.currentEvent.name}</h3>
             <h3>{this.props.currentUser.username}</h3>
             <button id="signout" className="button is-outlined" onClick={this.signOut}>Log Out</button>
+            <button id="eventHome" className="button is-outlined is-small" onClick={this.newEvent}>Choose New Event</button>
           </div>
 
           <br></br><br></br>
