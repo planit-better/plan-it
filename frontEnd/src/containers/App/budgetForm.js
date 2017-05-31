@@ -63,33 +63,57 @@ class Budget extends Component {
           <h2>Planit-Better</h2>
           <h3>{this.props.eventStatus.currentEvent.name}</h3>
           <h3>{this.props.currentUser.username}</h3>
+          <div id="navBar">
+            <Link to="/"><button className="button is-outlined is-small">Home</button></Link>
+          </div>
+
         </div>
-
-        <div id="navBar">
-          <Link to="/"><button className="button is-outlined is-small">Home</button></Link>
-        </div>
-
-          <PieChart
-            slices={[
-                {
-                  color: 'red',
-                  value: contractorBudget,
-                },
-                {
-                  color: 'blue',
-                  value: menuBudget,
-                },
-                {
-                  color: 'green',
-                  value: equipmentBudget,
-                },
-                {
-                  color: "white",
-                  value: 0,
-                },
-              ]}
-              />
-
+        <div className="columns">
+              <div className="column">
+                <table>
+                  <tr>
+                    <th>Category</th>
+                    <th>Total Cost</th>
+                  </tr>
+                  <tr>
+                    <td>Contractor</td>
+                    <td>{contractorBudget}</td>
+                  </tr>
+                  <tr>
+                    <td>Menu</td>
+                    <td>{menuBudget}</td>
+                  </tr>
+                  <tr>
+                    <td>Equipment</td>
+                    <td>{equipmentBudget}</td>
+                  </tr>
+                </table>
+              </div>
+          <div className="column">
+            <PieChart
+              size={50}
+              slices={[
+                  {
+                    color: 'red',
+                    value: contractorBudget,
+                  },
+                  {
+                    color: 'blue',
+                    value: menuBudget,
+                  },
+                  {
+                    key: 'C',
+                    color: 'green',
+                    value: equipmentBudget,
+                  },
+                  {
+                    color: "white",
+                    value: 0,
+                  },
+                ]}
+                />
+              </div>
+            </div>
 
       </div>
       )
