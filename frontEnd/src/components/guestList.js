@@ -46,7 +46,7 @@ class GuestList extends Component {
 
       <div className="field">
 
-        <h1 className="label">Hello Guests</h1>
+        <h1 className="label guestList">Hello Guests</h1>
         <ul>
           {
             allowedGuest.map((guest) =>

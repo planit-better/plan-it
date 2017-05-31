@@ -161,15 +161,11 @@ class newGuestForm extends Component {
           <h2>Planit-Better</h2>
           <h3>{this.props.eventStatus.currentEvent.name}</h3>
           <h3>{this.props.currentUser.username}</h3>
-          <div>
-            <Link to="/"><button className="button is-outlined is-small">Home</button></Link>
-          </div>
+          <Link to="/"><button className="button is-outlined is-small">Home</button></Link>
+          <button className="button is-outlined is-small" onClick={this.openForm}>New Guest Form</button>
         </div>
 
 
-        <div>
-            <button className="button bottomButton is-outlined is-small" onClick={this.openForm}>New Guest Form</button>
-        </div>
 
         <div className="columns">
 
@@ -286,13 +282,8 @@ class newGuestForm extends Component {
             <h2>Planit-Better</h2>
             <h3>{this.props.eventStatus.currentEvent.name}</h3>
             <h3>{this.props.currentUser.username}</h3>
-            <div>
-              <Link to="/"><button className="button is-outlined is-small">Home</button></Link>
-            </div>
-          </div>
-
-          <div>
-              <button className="button bottomButton is-outlined is-small" onClick={this.openForm}>New Guest Form</button>
+            <Link to="/"><button className="button is-outlined is-small">Home</button></Link>
+            <button className="button is-outlined is-small" onClick={this.openForm}>New Guest Form</button>
           </div>
 
           <GuestList guest={this.props.guest} />
