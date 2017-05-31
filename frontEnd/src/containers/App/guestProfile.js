@@ -5,7 +5,7 @@ import logo from './logo.svg';
 import './styles.css';
 import { connect } from 'react-redux';
 import { loadCurrentGuest, loadContractors, loadEquipment, loadGuest, loadMenu, loadTask, logOut, clearEvent } from '../../action';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 
 
@@ -120,6 +120,13 @@ class GuestProfile extends Component {
 
 
     render() {
+    if(this.props.currentUser.userLoggedIn === false){
+    return(
+      <Redirect to={{
+        pathname : '/'
+      }} />
+      )
+    }
      if(this.props.currentGuest.currentGuest.will_attend === true){
 
      return(

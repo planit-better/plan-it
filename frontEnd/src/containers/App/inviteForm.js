@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './styles.css';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { loadGuest } from '../../action';
 import GuestList from '../../components/guestList';
 //import { groupText } from './text-reminder/text.js'
@@ -115,10 +115,13 @@ class InviteForm extends Component {
     }
 
     render() {
-
-
-
-
+      if(this.props.currentUser.userLoggedIn === false){
+      return(
+        <Redirect to={{
+          pathname : '/'
+        }} />
+        )
+    }
 
     return (
       <div className="App">

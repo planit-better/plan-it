@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './styles.css';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { loadTask } from '../../action';
 import TaskList from '../../components/taskList';
 
@@ -103,6 +103,15 @@ class newTaskForm extends Component {
       }
 
     render() {
+
+       if(this.props.currentUser.userLoggedIn === false){
+          return(
+            <Redirect to={{
+              pathname : '/'
+            }} />
+            )
+        }
+
       if(this.state.formOpen === true){
 
     return (
@@ -176,14 +185,17 @@ class newTaskForm extends Component {
             </div>
 
             <div>
-              <button className="addTask button is-large is-success" name="Login" type="submit">Add Task </button>
+              <button className="addTask button bottomButton is-outlined" name="Login" type="submit">Add Task </button>
             </div>
           </form>
         </div>
 
-        <div className="column is-three-quarters">
+        <div className="column">
           <TaskList task={this.props.task} />
         </div>
+
+        <div className="column is-offset-1"></div>
+
       </div>
     </div>
     );

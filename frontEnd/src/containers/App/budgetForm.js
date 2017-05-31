@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './styles.css';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { loadBudget } from '../../action';
 import PieChart from 'react-simple-pie-chart';
 
@@ -34,12 +34,17 @@ class Budget extends Component {
 
 
   render(){
+    if(this.props.currentUser.userLoggedIn === false){
+      return(
+        <Redirect to={{
+          pathname : '/'
+        }} />
+        )
+    }
     let contractorBudget = 0;
     let menuBudget = 0;
     let taskBudget = 0;
     let equipmentBudget = 0;
-    console.log(this.props.eventStatus.currentEvent.id)
-    console.log(this.props.budget[0])
     for(var i=0; i<this.props.budget.length; i++){
       if(this.props.budget[i].event_id === this.props.eventStatus.currentEvent.id && this.props.budget[i].type === "Contractor"){
         contractorBudget += Number(this.props.budget[i].amount)
@@ -63,33 +68,60 @@ class Budget extends Component {
           <h2>Planit-Better</h2>
           <h3>{this.props.eventStatus.currentEvent.name}</h3>
           <h3>{this.props.currentUser.username}</h3>
+          <div id="navBar">
+            <Link to="/"><button className="button is-outlined is-small">Home</button></Link>
+          </div>
+
         </div>
-
-        <div id="navBar">
-          <Link to="/"><button className="button is-outlined is-small">Home</button></Link>
-        </div>
-
-          <PieChart
-            slices={[
-                {
-                  color: 'red',
-                  value: contractorBudget,
-                },
-                {
-                  color: 'blue',
-                  value: menuBudget,
-                },
-                {
-                  color: 'green',
-                  value: equipmentBudget,
-                },
-                {
-                  color: "white",
-                  value: 0,
-                },
-              ]}
-              />
-
+        <div className="columns">
+              <div className="column">
+                <table>
+                  <tr>
+                    <th id="categoryBudget">Category</th>
+                    <th>Total Cost</th>
+                    <th>Percentage</th>
+                  </tr>
+                  <tr id="contractorBudget">
+                    <td >Contractor</td>
+                    <td>{contractorBudget}</td>
+                    <td>{contractorBudget / (contractorBudget + menuBudget + equipmentBudget)}</td>
+                  </tr>
+                  <tr id="menuBudget">
+                    <td>Menu</td>
+                    <td>{menuBudget}</td>
+                    <td>{menuBudget / (contractorBudget + menuBudget + equipmentBudget)}</td>
+                  </tr>
+                  <tr id="equipmentBudget">
+                    <td >Equipment</td>
+                    <td>{equipmentBudget}</td>
+                    <td>{Number(equipmentBudget / (contractorBudget + menuBudget + equipmentBudget).toFixed(2))}</td>
+                  </tr>
+                </table>
+              </div>
+          <div className="column">
+            <PieChart
+              slices={[
+                  {
+                    color: 'red',
+                    value: contractorBudget,
+                  },
+                  {
+                    color: 'blue',
+                    value: menuBudget,
+                  },
+                  {
+                    key: 'C',
+                    color: 'green',
+                    value: equipmentBudget,
+                  },
+                  {
+                    color: "white",
+                    value: 0,
+                  },
+                ]}
+                />
+              </div>
+            </div>
 
       </div>
       )
