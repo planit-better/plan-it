@@ -158,65 +158,80 @@ class newContractorForm extends Component {
           </div>
         </div>
 
-          <form onSubmit={this.handleContractorSubmit}>
+        <div className="columns">
+
+          <form className="column is-offset-2" onSubmit={this.handleContractorSubmit}>
+
             <div className="field">
-            <label className="label">Company Name</label>
-            <p className="has-icons-left">
+              <p className="control">
+                <label className="label">Company Name</label>
+              </p>
+              <p className="control has-icons-left">
+                <input className="input" type="text" placeholder="Company Name" value={this.state.company_name} onChange={this.handleChangeComanyName} />
+                <span className="icon is-small is-left">
+                  <i className="fa fa-building"></i>
+                </span>
+              </p>
+            </div>
 
-              <input type="text" placeholder="Company Name" value={this.state.company_name} onChange={this.handleChangeComanyName} />
-              <span className="icon is-small is-left">
-                <i className="fa fa-building"></i>
-              </span>
-            </p>
-          </div>
+            <div className="field">
+              <p className="control">
+                <label className="label">Cost</label>
+              </p>
+              <p className="control has-icons-left">
+                <input className="input" type="integer" placeholder="cost" value={this.state.cost} onChange={this.handleChangeCost} />
+                <span className="icon is-small is-left">
+                  <i className="fa fa-usd"></i>
+                </span>
+              </p>
+            </div>
 
-          <div className="field">
-            <label className="label">Cost</label>
-            <p className="has-icons-left">
-              <input type="integer" placeholder="cost" value={this.state.cost} onChange={this.handleChangeCost} />
-              <span className="icon is-small is-left">
-                <i className="fa fa-usd"></i>
-              </span>
-            </p>
-          </div>
+            <div className="field">
+              <p className="control">
+                <label className="label">Contact Number</label>
+              </p>
+              <p className="control has-icons-left">
+                <input className="input" type="integer" placeholder="contact number" value={this.state.contact} onChange={this.handleChangeContact} />
+                <span className="icon is-small is-left">
+                  <i className="fa fa-phone"></i>
+                </span>
+              </p>
+            </div>
 
-          <div className="field">
-            <label className="label">Contact Number</label>
-            <p className="has-icons-left">
-              <input type="integer" placeholder="contact number" value={this.state.contact} onChange={this.handleChangeContact} />
-              <span className="icon is-small is-left">
-                <i className="fa fa-phone"></i>
-              </span>
-            </p>
-          </div>
+            <div className="field">
+              <p className="control">
+                <label className="label">Hire Date</label>
+              </p>
+              <p className="control has-icons-left">
+                <input className="input" type="date" placeholder="Hire Date" value={this.state.date_hired} onChange={this.handleChangeDateHired} />
+                <span className="icon is-small is-left">
+                  <i className="fa fa-calendar-plus-o"></i>
+                </span>
+              </p>
+            </div>
 
-          <div className="field">
-            <label className="label">Hire Date</label>
-            <p className="has-icons-left">
-              <input type="date" placeholder="Hire Date" value={this.state.date_hired} onChange={this.handleChangeDateHired} />
-              <span className="icon is-small is-left">
-                <i className="fa fa-calendar-plus-o"></i>
-              </span>
-            </p>
-          </div>
+            <div className="field">
+              <p className="control">
+                <label className="label">Deadline</label>
+              </p>
+              <p className="control has-icons-left">
+                <input className="input" type="date" value={this.state.deadline} onChange={this.handleChangeDeadline} />
+                <span className="icon is-small is-left">
+                  <i className="fa fa-calendar-times-o"></i>
+                </span>
+              </p>
+            </div>
 
-          <div className="field">
-            <label className="label">Deadline</label>
-            <p className="has-icons-left">
-              <input type="date" value={this.state.deadline} onChange={this.handleChangeDeadline} />
-              <span className="icon is-small is-left">
-                <i className="fa fa-calendar-times-o"></i>
-              </span>
-            </p>
-          </div>
+            <div className="field control">
+              <button className="button bottomButton is-outlined" name="Login" type="submit">Add Contractor </button>
+            </div>
 
-          <div className="field">
-            <button className="button bottomButton is-outlined" name="Login" type="submit">Add Contractor </button>
-          </div>
+          </form>
 
-        </form>
+          <ContractorList contractor={this.props.contractors}/>
 
-        <ContractorList contractor={this.props.contractors}/>
+          <div className="column is-1"></div>
+        </div>
       </div>
     );
   } else {
