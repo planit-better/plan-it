@@ -40,7 +40,7 @@ class EquipmentList extends Component {
     return(
       <div>
 
-      <h1>Hello Equipment</h1>
+      <h1 className="label">Hello Equipment</h1>
       <ul>
         {
           allowedEquipment.map((name) =>
