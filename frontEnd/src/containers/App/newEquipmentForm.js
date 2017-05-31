@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './styles.css';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { loadEquipment } from '../../action';
 import EquipmentList from '../../components/equipmentList'
 
@@ -119,6 +119,15 @@ class newEquipmentForm extends Component {
 
 
     render() {
+
+       if(this.props.currentUser.userLoggedIn === false){
+            return(
+              <Redirect to={{
+                pathname : '/'
+              }} />
+              )
+          }
+
       if(this.state.formOpen === true){
 
     return (
@@ -136,42 +145,56 @@ class newEquipmentForm extends Component {
         </div>
 
         <div className="columns">
-          <div className="column">
+          <div className="column is-offset-2">
 
             <form onSubmit={this.handleEquipmentSubmit}>
               <div className="field">
-                <label className="label">Name</label>
-                <p className="has-icons-left">
-                  <input type="text" placeholder="Name" value={this.state.name} onChange={this.handleChangeName} />
-                  <i className="fa fa-calendar"></i>
+                <p className="control">
+                  <label className="label">Name</label>
+                </p>
+                <p className="control has-icons-left">
+                  <input className="input" type="text" placeholder="Name" value={this.state.name} onChange={this.handleChangeName} />
+                  <span className="icon is-left is-small">
+                    <i className="fa fa-address-card-o"></i>
+                  </span>
                 </p>
               </div>
 
               <div className="field">
-                <label className="label">Cost</label>
-                <p className="has-icons-left">
-                  <input type="text" placeholder="Cost" value={this.state.cost} onChange={this.handleChangeCost} />
-                  <i className="fa fa-calendar"></i>
+                <p className="control">
+                  <label className="label">Cost</label>
+                </p>
+                <p className="control has-icons-left">
+                  <input className="input" type="text" placeholder="Cost" value={this.state.cost} onChange={this.handleChangeCost} />
+                  <span className="icon is-left is-small">
+                    <i className="fa fa-usd"></i>
+                  </span>
                 </p>
               </div>
 
               <div className="field">
-                <label className="label">Type</label>
-                <p className="has-icons-left">
-                  <input type="text" placeholder="Name" value={this.state.type} onChange={this.handleChangeType} />
-                  <i className="fa fa-calendar"></i>
+                <p className="control">
+                  <label className="label">Type</label>
+                </p>
+                <p className="control has-icons-left">
+                  <input className="input" type="text" placeholder="Name" value={this.state.type} onChange={this.handleChangeType} />
+                  <span className="icon is-left is-small">
+                    <i className="fa fa-wrench"></i>
+                  </span>
                 </p>
               </div>
 
-
-              <div>
-                <button name="Login" type="submit">Add Equipment </button>
+              <div className="control">
+                <button className="button bottomButton is-outlined" name="Login" type="submit">Add Equipment </button>
               </div>
+
             </form>
           </div>
+
           <div className="column">
             <EquipmentList equipment={this.props.equipment} />
           </div>
+
         </div>
 
       </div>
