@@ -107,7 +107,7 @@ class App extends Component {
             <h2>Planit-Better</h2>
             <h3>{this.props.eventStatus.currentEvent.name}</h3>
             <h3>{this.props.currentUser.username}</h3>
-            <button id="signout" className="button is-outlined" onClick={this.signOut}>Log Out</button>
+            <button id="signout" className="button is-outlined is-small" onClick={this.signOut}>Log Out</button>
           </div>
 
           <br></br><br></br>
@@ -129,7 +129,7 @@ class App extends Component {
               <Link to="/newTaskForm"><button className="button bottomButton is-outlined">New Task</button></Link>
             </div>
             <div>
-              <Link to="/budgetForm"><button classname="button bottomButton is-outlined">Budget</button></Link>
+              <Link to="/budgetForm"><button className="button bottomButton is-outlined">Budget</button></Link>
             </div>
 
           </div>
