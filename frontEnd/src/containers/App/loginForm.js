@@ -92,21 +92,24 @@ class loginForm extends Component{
 
 
         <form onSubmit={this.handleLoginSubmit}>
-
-          <div className="field">
-            <label className="label">Username</label>
-            <p className="has-icons-left">
-              <input type="text" placeholder="username" value={this.state.username} onChange={this.handleChangeUsername} />
+          <div className="field centerInput">
+            <p className="control">
+              <label className="label">Username</label>
+            </p>
+            <p className="control has-icons-left">
+              <input className="input" type="text" placeholder="username" value={this.state.username} onChange={this.handleChangeUsername} />
               <span className="icon is-small is-left">
                 <i className="fa fa-user"></i>
               </span>
             </p>
           </div>
 
-          <div className="field">
-            <label className="label">Password</label>
-            <p className="has-icons-left">
-              <input type="password" placeholder="password"  value={this.state.password} onChange={this.handleChangePassword} />
+          <div className="field centerInput">
+            <p className="control">
+              <label className="label">Password</label>
+            </p>
+            <p className="control has-icons-left">
+              <input className="input" type="password" placeholder="password"  value={this.state.password} onChange={this.handleChangePassword} />
               <span className="icon is-small is-left">
                 <i className="fa fa-key"></i>
               </span>
@@ -114,10 +117,11 @@ class loginForm extends Component{
           </div>
 
           <div>
-            <button className="button bottomButton is-outlined" name="Signup" type="submit">Log in </button>
+            <button className="button bottomButton is-outlined" name="Signup" type="submit"> Login </button>
           </div>
-
         </form>
+
+
       </div>
     )
   }
