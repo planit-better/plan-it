@@ -39,21 +39,22 @@ class Budget extends Component {
     let taskBudget = 0;
     let equipmentBudget = 0;
     console.log(this.props.eventStatus.currentEvent.id)
+    console.log(this.props.budget[0])
     for(var i=0; i<this.props.budget.length; i++){
       if(this.props.budget[i].event_id === this.props.eventStatus.currentEvent.id && this.props.budget[i].type === "Contractor"){
-        contractorBudget += this.props.budget[i].amount
+        contractorBudget += Number(this.props.budget[i].amount)
       }
       if(this.props.budget[i].event_id === this.props.eventStatus.currentEvent.id && this.props.budget[i].type === "Menu"){
-        menuBudget += this.props.budget[i].amount
+        menuBudget += Number(this.props.budget[i].amount)
       }
       if(this.props.budget[i].event_id === this.props.eventStatus.currentEvent.id && this.props.budget[i].type === "Equipment"){
-        equipmentBudget += this.props.budget[i].amount
+        equipmentBudget += Number(this.props.budget[i].amount)
       }
     }
+
     console.log(contractorBudget)
     console.log(menuBudget)
     console.log(equipmentBudget)
-    console.log(this.props.budget)
     return(
       <div className="App">
 
@@ -81,6 +82,10 @@ class Budget extends Component {
                 {
                   color: 'green',
                   value: equipmentBudget,
+                },
+                {
+                  color: "white",
+                  value: 0,
                 },
               ]}
               />
