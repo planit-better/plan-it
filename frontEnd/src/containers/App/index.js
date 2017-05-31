@@ -85,6 +85,11 @@ class App extends Component {
     })
   }
 
+  newEvent = () => {
+    this.props.clearEvent();
+    console.log('hit new event')
+  }
+
 
 
   render() {
@@ -108,6 +113,8 @@ class App extends Component {
             <h3>{this.props.eventStatus.currentEvent.name}</h3>
             <h3>{this.props.currentUser.username}</h3>
             <button id="signout" className="button is-outlined is-small" onClick={this.signOut}>Log Out</button>
+            <Link to="/eventForm"><button onClick={this.newEvent} className="button is-outlined is-small">New Event</button></Link>
+
           </div>
 
           <br></br><br></br>
