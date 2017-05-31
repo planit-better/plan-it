@@ -119,43 +119,75 @@ class newMenuForm extends Component {
       if(this.state.formOpen === true){
 
     return (
-      <div className="App">
+          <div className="App">
+            <div className="nav">
+              <div className="nav-left">
+                <a className="nav-item">
+                  <img src={logo} className="App-logo" alt="logo" />
+                  <h1>Planit-Better</h1>
+                </a>
+              </div>
+                  <h3>{this.props.eventStatus.currentEvent.name}</h3>
+                  <h3>{this.props.currentUser.username}</h3>
 
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Planit-Better</h2>
-          <h3>{this.props.eventStatus.currentEvent.name}</h3>
-          <h3>{this.props.currentUser.username}</h3>
-        </div>
-        <div>
-          <Link to="/"><button className="button formsHome is-outlined is-small">Home</button></Link>
-        </div>
+                  <div id="nav">
+                    <Link to="/"><button className="button is-outlined is-small">Home</button></Link>
+                    <button className="button is-outlined is-small" onClick={this.openForm}>Hide Menu Form</button>
+                  </div>
 
-        <div>
-          <button className="button formsHome is-outlined is-small" onClick={this.openForm}>Hide Menu Form</button>
-        </div>
-
-
-          <form onSubmit={this.handleMenuSubmit}>
-            <div>
-             <span>type of food</span>
-              <input type="text" placeholder="type of food" value={this.state.type_of_food} onChange={this.handleChangeTypeOfFood} />
             </div>
-            <div>
-            <span> Price </span>
-              <input type="number"  value={this.state.cost_per_person} onChange={this.handleChangeCostPerPerson} />
-            </div>
-            <div>
-              <span>restaurant name Number</span>
-              <input type="text" value={this.state.restaurant_name} onChange={this.handleChangeRestaurantName} />
-            </div>
-            <div>
-              <button name="Login" type="submit">Add Menu </button>
-            </div>
-          </form>
-          <MenuList menu={this.props.menu} />
 
-      </div>
+            <div className="columns">
+              <div className="column">
+                <form onSubmit={this.handleMenuSubmit}>
+
+                  <div className="field centerInput">
+                    <p className="control">
+                      <label className="label">type of food</label>
+                    </p>
+                    <p className="control has-icons-left">
+                      <input className="input" type="text" placeholder="type of food" value={this.state.type_of_food} onChange={this.handleChangeTypeOfFood} />
+                      <span className="icon is-left is-small">
+                        <i className="fa fa-cutlery"></i>
+                      </span>
+                    </p>
+                  </div>
+
+                  <div className="field centerInput">
+                    <p className="control">
+                      <label className="label"> Price </label>
+                    </p>
+                    <p className="control has-icons-left">
+                        <input className="input" type="number"  value={this.state.cost_per_person} onChange={this.handleChangeCostPerPerson} />
+                      <span className="icon is-left is-small">
+                        <i className="fa fa-usd"></i>
+                      </span>
+                    </p>
+                  </div>
+
+                  <div className="field centerInput">
+                    <p className="control">
+                        <label className="label">restaurant name Number</label>
+                    </p>
+                    <p className="control has-icons-left">
+                        <input className="input" type="text" value={this.state.restaurant_name} onChange={this.handleChangeRestaurantName} />
+                      <span className="icon is-left is-small">
+                        <i className="fa fa-sort-numeric-asc"></i>
+                      </span>
+                    </p>
+                  </div>
+
+                  <div>
+                    <button className=" addTask button is-large is-success" name="Login" type="submit">Add Menu </button>
+                  </div>
+                </form>
+              </div>
+
+              <div className="column is-three-quarters">
+                <MenuList menu={this.props.menu} />
+              </div>
+            </div>
+          </div>
     );
   }else {
     return(
@@ -165,15 +197,16 @@ class newMenuForm extends Component {
           <h2>Planit-Better</h2>
           <h3>{this.props.eventStatus.currentEvent.name}</h3>
           <h3>{this.props.currentUser.username}</h3>
-        </div>
-        <div>
-          <Link className=" formsHome is-outlined is-small" to="/"><button>Home</button></Link>
-        </div>
-        <div>
-          <button className=" formsHome is-outlined is-small"  onClick={this.openForm}>Hide Menu Form</button>
+          <div>
+            <Link to="/"><button className=" button is-outlined is-small">Home</button></Link>
+            <button className=" button is-outlined is-small"  onClick={this.openForm}>New Menu Form</button>
+          </div>
         </div>
 
-        <MenuList menu={this.props.menu} />
+        <br></br>
+        <div>
+          <MenuList menu={this.props.menu} />
+        </div>
       </div>
       )
   }
