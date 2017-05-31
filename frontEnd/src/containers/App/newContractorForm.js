@@ -133,14 +133,6 @@ class newContractorForm extends Component {
       })
     }
 
-
-        // body: JSON.stringify({
-        //   "type": "contractor",
-        //   "amount": this.state.cost,
-        //   "type_id": this.state.id,
-        //   "event_id": this.props.eventStatus.currentEvent.id
-        // })
-
     render() {
       if(this.state.formOpen === true){
 
@@ -152,15 +144,10 @@ class newContractorForm extends Component {
           <h2>Planit-Better</h2>
           <h3>{this.props.eventStatus.currentEvent.name}</h3>
           <h3>{this.props.currentUser.username}</h3>
-        </div>
           <div id="navBar">
-            <Link to="/"><button id="contractorHome" className="button is-outlined is-small">Home</button></Link>
-          </div>
-
-
-
-        <div>
+            <Link to="/"><button className="button is-outlined is-small">Home</button></Link>
             <button className="button is-outlined is-small" onClick={this.openForm}>Hide Contractor Form</button>
+          </div>
         </div>
 
           <form onSubmit={this.handleContractorSubmit}>
@@ -232,11 +219,10 @@ class newContractorForm extends Component {
           <h2>Planit-Better</h2>
           <h3>{this.props.eventStatus.currentEvent.name}</h3>
           <h3>{this.props.currentUser.username}</h3>
-        </div>
-
-        <div id="navBar">
-          <Link to="/"><button className="button formsHome is-outlined is-small">Home</button></Link>
-          <button className="button formsHOme is-outlined is-small" onClick={this.openForm}>New Contractor Form</button>
+          <div id="navBar">
+            <Link to="/"><button className="button is-outlined is-small">Home</button></Link>
+            <button className="button is-outlined is-small" onClick={this.openForm}>New Contractor Form</button>
+          </div>
         </div>
 
         <ContractorList contractor={this.props.contractors}/>

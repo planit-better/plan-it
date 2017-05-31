@@ -177,9 +177,9 @@ class EventForm extends Component {
               <h3>{this.props.currentUser.username}</h3>
               <h3>{this.props.eventStatus.currentEvent.name}</h3>
 
-              <div id="navBar" className="level">
-                <button className="button is-outlined" onClick={this.signOut}>Change User</button>
-                <button className="button is-outlined" onClick={this.displayForm}> Hide Event Form</button>
+              <div id="navBar" className="level-center">
+                <button className="button is-outlined is-small" onClick={this.signOut}>Change User</button>
+                <button className="button is-outlined is-small" onClick={this.displayForm}> Hide Event Form</button>
               </div>
 
 
@@ -251,7 +251,7 @@ class EventForm extends Component {
               <h3>{this.props.currentUser.username}</h3>
               <h3>{this.props.eventStatus.currentEvent.name}</h3>
 
-              <div id="navBar" classNam="nav is-grouped">
+              <div id="navBar" className="level-center">
                 <button className="button is-outlined is-small" onClick={this.signOut}>Change User</button>
                 <button className="button is-outlined is-small" onClick={this.displayForm}> New Event Form</button>
               </div>
