@@ -120,22 +120,31 @@ class newMenuForm extends Component {
 
     return (
           <div className="App">
-            <div className="nav">
+            <div className="nav has-shadow">
               <div className="nav-left">
-                <a className="nav-item">
+                <div className="nav-item">
                   <img src={logo} className="App-logo" alt="logo" />
-                  <h1>Planit-Better</h1>
-                </a>
+
+                  <h1 className="title is-3">Planit-Better</h1>
+                </div>
+                  <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
               </div>
-                  <h3>{this.props.eventStatus.currentEvent.name}</h3>
+
+              <div className="nav-center">
+                <div className="nav-item">
                   <h3>{this.props.currentUser.username}</h3>
+                </div>
+              </div>
 
-                  <div id="nav">
-                    <Link to="/"><button className="button is-outlined is-small">Home</button></Link>
-                    <button className="button is-outlined is-small" onClick={this.openForm}>Hide Menu Form</button>
-                  </div>
-
+              <div className="nav-right">
+                <div className="nav-item">
+                  <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
+                  <a className="nav-item is-tab is-hidden-mobile" onClick={this.openForm}>Hide Menu Form</a>
+                </div>
+              </div>
             </div>
+
+            <br></br>
 
             <div className="columns">
               <div className="column">
