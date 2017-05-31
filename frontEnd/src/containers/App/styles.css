@@ -62,3 +62,15 @@
   margin-left: 100px;
   background-color: rgb(0, 0, 225);
 }
+
+#contractorBudget {
+  color: red;
+}
+
+#menuBudget{
+  color: blue;
+}
+
+#equipmentBudget{
+  color: green;
+}

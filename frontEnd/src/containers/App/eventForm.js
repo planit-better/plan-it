@@ -160,6 +160,13 @@ class EventForm extends Component {
   }
 
   render() {
+    if(this.props.currentUser.userLoggedIn === false){
+      return(
+        <Redirect to={{
+          pathname : '/'
+        }} />
+        )
+    }
     if(this.props.eventStatus.currentEvent){
       return(
         <Redirect to={{

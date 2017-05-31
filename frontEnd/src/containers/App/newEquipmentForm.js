@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './styles.css';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { loadEquipment } from '../../action';
 import EquipmentList from '../../components/equipmentList'
 
@@ -119,6 +119,15 @@ class newEquipmentForm extends Component {
 
 
     render() {
+
+       if(this.props.currentUser.userLoggedIn === false){
+            return(
+              <Redirect to={{
+                pathname : '/'
+              }} />
+              )
+          }
+
       if(this.state.formOpen === true){
 
     return (
