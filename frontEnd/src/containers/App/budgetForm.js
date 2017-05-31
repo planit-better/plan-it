@@ -32,7 +32,27 @@ class Budget extends Component {
 
 
 
+
   render(){
+    let contractorBudget = 0;
+    let menuBudget = 0;
+    let taskBudget = 0;
+    let equipmentBudget = 0;
+    console.log(this.props.eventStatus.currentEvent.id)
+    for(var i=0; i<this.props.budget.length; i++){
+      if(this.props.budget[i].event_id === this.props.eventStatus.currentEvent.id && this.props.budget[i].type === "Contractor"){
+        contractorBudget += this.props.budget[i].amount
+      }
+      if(this.props.budget[i].event_id === this.props.eventStatus.currentEvent.id && this.props.budget[i].type === "Menu"){
+        menuBudget += this.props.budget[i].amount
+      }
+      if(this.props.budget[i].event_id === this.props.eventStatus.currentEvent.id && this.props.budget[i].type === "Equipment"){
+        equipmentBudget += this.props.budget[i].amount
+      }
+    }
+    console.log(contractorBudget)
+    console.log(menuBudget)
+    console.log(equipmentBudget)
     console.log(this.props.budget)
     return(
       <div className="App">
@@ -48,28 +68,28 @@ class Budget extends Component {
           <Link to="/"><button className="button is-outlined is-small">Home</button></Link>
         </div>
 
+          <PieChart
+            slices={[
+                {
+                  color: 'red',
+                  value: contractorBudget,
+                },
+                {
+                  color: 'blue',
+                  value: menuBudget,
+                },
+                {
+                  color: 'green',
+                  value: equipmentBudget,
+                },
+              ]}
+              />
 
 
       </div>
       )
   }
 }
-          // <PieChart
-          //   slices={[
-          //       {
-          //         color: 'red',
-          //         value: this.props.budget.budgetTotal.contractor,
-          //       },
-          //       {
-          //         color: 'blue',
-          //         value: this.props.budget.budgetTotal.equipment,
-          //       },
-          //       {
-          //         color: 'green',
-          //         value: this.props.budget.budgetTotal.menu,
-          //       },
-          //     ]}
-          //     />
 
 const mapStateToProps = (state) => {
   return {
