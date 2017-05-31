@@ -179,65 +179,67 @@ class EventForm extends Component {
 
               <div id="navBar" className="level">
                 <button className="button is-outlined" onClick={this.signOut}>Change User</button>
-                <button className="button is-outlined" onClick={this.displayForm}> New Event Form</button>
+                <button className="button is-outlined" onClick={this.displayForm}> Hide Event Form</button>
               </div>
 
 
 
             </div>
 
+              <div className="columns">
+                <div className="column">
+                  <form onSubmit={this.handleEventSubmit}>
 
-            <div>
-              <form onSubmit={this.handleEventSubmit}>
+                    <div className="field">
+                      <label className="label">Event Name</label>
+                      <p className="has-icons-left">
+                        <input type="text" placeholder="Event Name" value={this.state.name} onChange={this.handleChangeName} />
+                        <i className="fa fa-calendar"></i>
+                      </p>
+                    </div>
 
-                <div className="field">
-                  <label className="label">Event Name</label>
-                  <p className="has-icons-left">
-                    <input type="text" placeholder="Event Name" value={this.state.name} onChange={this.handleChangeName} />
-                    <i className="fa fa-calendar"></i>
-                  </p>
+                    <div className="field">
+                      <label className="label">Location Name</label>
+                      <p className="has-icons-left">
+                        <input type="text" placeholder="Location name" value={this.state.location_name} onChange={this.handleChangelocationName} />
+                        <i className="fa fa-compass"></i>
+                      </p>
+                    </div>
+
+                    <div className="field">
+                      <label className="label">location Address Number</label>
+                      <p className="has-icons-left">
+                        <input type="text" placeholder="Adress" value={this.state.location_address} onChange={this.handleChangelocationAddress} />
+                        <i className="fa fa-home"></i>
+                      </p>
+                    </div>
+
+                    <div className="field">
+                      <label className="label">Event Date</label>
+                      <p className="has-icons-left">
+                        <input type="date" placeholder="Event Date" value={this.state.event_date} onChange={this.handleChangeEventDate} />
+                        <i className="fa fa-calendar-plus-o"></i>
+                      </p>
+                    </div>
+
+                    <div className="field">
+                      <label className="label">Event Time</label>
+                      <p className="has-icons-left">
+                        <input type="time" value={this.state.event_time} onChange={this.handleChangeEventTime} />
+                        <i className="fa fa-clock-o"></i>
+                      </p>
+                    </div>
+
+                    <div className="field">
+                      <button className="button bottomButton is-outlined" name="Login" type="submit">Add Event </button>
+                    </div>
+
+                  </form>
                 </div>
-
-                <div className="field">
-                  <label className="label">Location Name</label>
-                  <p className="has-icons-left">
-                    <input type="text" placeholder="Location name" value={this.state.location_name} onChange={this.handleChangelocationName} />
-                    <i className="fa fa-compass"></i>
-                  </p>
-                </div>
-
-                <div className="field">
-                  <label className="label">location Address Number</label>
-                  <p className="has-icons-left">
-                    <input type="text" placeholder="Adress" value={this.state.location_address} onChange={this.handleChangelocationAddress} />
-                    <i className="fa fa-home"></i>
-                  </p>
-                </div>
-
-                <div className="field">
-                  <label className="label">Event Date</label>
-                  <p className="has-icons-left">
-                    <input type="date" placeholder="Event Date" value={this.state.event_date} onChange={this.handleChangeEventDate} />
-                    <i className="fa fa-calendar-plus-o"></i>
-                  </p>
-                </div>
-
-                <div className="field">
-                  <label className="label">Event Time</label>
-                  <p className="has-icons-left">
-                    <input type="time" value={this.state.event_time} onChange={this.handleChangeEventTime} />
-                    <i className="fa fa-clock-o"></i>
-                  </p>
-                </div>
-
-                <div className="field">
-                  <button className="button bottomButton is-outlined" name="Login" type="submit">Add Event </button>
-                </div>
-
-              </form>
+              <div className="column">
+                <EventList event={this.props.currentEvent} />
+              </div>
             </div>
-
-            <EventList event={this.props.currentEvent} />
           </div>
         );
       } else if(this.props.currentUser.userLoggedIn === true && this.state.openForm === false){
