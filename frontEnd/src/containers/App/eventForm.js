@@ -193,7 +193,7 @@ class EventForm extends Component {
                     <div className="field">
                       <label className="label">Event Name</label>
                       <p className="has-icons-left">
-                        <input type="text" placeholder="Event Name" value={this.state.name} onChange={this.handleChangeName} />
+                        <input className="input" type="text" placeholder="Event Name" value={this.state.name} onChange={this.handleChangeName} />
                         <i className="fa fa-calendar"></i>
                       </p>
                     </div>
