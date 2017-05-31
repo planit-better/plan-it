@@ -40,7 +40,7 @@ class TaskList extends Component {
     return(
       <div>
 
-      <h1>Hello Tasks</h1>
+      <h1 className="label">Hello Tasks</h1>
       <ul>
         {
           allowedTasks.map((name) =>

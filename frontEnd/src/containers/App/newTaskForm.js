@@ -185,14 +185,17 @@ class newTaskForm extends Component {
             </div>
 
             <div>
-              <button className="addTask button is-large is-success" name="Login" type="submit">Add Task </button>
+              <button className="addTask button bottomButton is-outlined" name="Login" type="submit">Add Task </button>
             </div>
           </form>
         </div>
 
-        <div className="column is-three-quarters">
+        <div className="column">
           <TaskList task={this.props.task} />
         </div>
+
+        <div className="column is-offset-1"></div>
+
       </div>
     </div>
     );

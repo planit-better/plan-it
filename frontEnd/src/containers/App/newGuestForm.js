@@ -161,15 +161,11 @@ class newGuestForm extends Component {
           <h2>Planit-Better</h2>
           <h3>{this.props.eventStatus.currentEvent.name}</h3>
           <h3>{this.props.currentUser.username}</h3>
+          <Link to="/"><button className="button is-outlined is-small">Home</button></Link>
+          <button className="button is-outlined is-small" onClick={this.openForm}>New Guest Form</button>
         </div>
 
-          <div>
-            <Link to="/"><button className="button formsHome is-outlined is-small">Home</button></Link>
-          </div>
 
-        <div>
-            <button className="button formsHome is-outlined is-small" onClick={this.openForm}>New Guest Form1</button>
-        </div>
 
         <div className="columns">
 
@@ -202,7 +198,12 @@ class newGuestForm extends Component {
             <div className="field">
               <p className="control">
                 <label className="label">Email</label>
+              </p>
+              <p className="control has-icons-left">
                 <input className="input" type="text" placeholder="email" value={this.state.email} onChange={this.handleChangeEmail} />
+                <span className="icon is-small is-left">
+                  <i className="fa fa-envelope"></i>
+                </span>
               </p>
             </div>
 
@@ -281,13 +282,8 @@ class newGuestForm extends Component {
             <h2>Planit-Better</h2>
             <h3>{this.props.eventStatus.currentEvent.name}</h3>
             <h3>{this.props.currentUser.username}</h3>
-          </div>
-            <div>
-              <Link to="/"><button className="button is-outlined is-small">Home</button></Link>
-            </div>
-
-          <div>
-              <button className="button bottomButton is-outlined is-small" onClick={this.openForm}>New Guest Form</button>
+            <Link to="/"><button className="button is-outlined is-small">Home</button></Link>
+            <button className="button is-outlined is-small" onClick={this.openForm}>New Guest Form</button>
           </div>
 
           <GuestList guest={this.props.guest} />

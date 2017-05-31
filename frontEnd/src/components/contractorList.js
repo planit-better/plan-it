@@ -40,7 +40,7 @@ class ContractorList extends Component {
     return(
       <div>
 
-      <h1>Hello Contractors</h1>
+      <h1 className="label guestList">Hello Contractors</h1>
       <ul>
         {
           allowedContractors.map((name) =>
