@@ -113,98 +113,79 @@ class newTaskForm extends Component {
           <h2>Planit-Better</h2>
           <h3>{this.props.eventStatus.currentEvent.name}</h3>
           <h3>{this.props.currentUser.username}</h3>
-        </div>
-          <div id="navBar">
+
+          <div id="nav">
             <Link to="/"><button className="button is-outlined is-small">Home</button></Link>
+            <button className="button is-outlined is-small" onClick={this.openForm}>Hide Task Form</button>
           </div>
 
-         <div>
-            <button onClick={this.openForm}>Hide Task Form</button>
         </div>
 
+        <br></br>
+
+      <div className="columns">
+        <div className="column">
           <form onSubmit={this.handleTaskSubmit}>
-            <div>
-             <span>Name</span>
-              <input type="text" placeholder="task name" value={this.state.name} onChange={this.handleChangeName} />
+
+            <div className="field centerInput">
+              <p className="control">
+                <label className="label">Name</label>
+              </p>
+              <p className="control has-icons-left">
+                <input className="input" type="text" placeholder="task name" value={this.state.name} onChange={this.handleChangeName} />
+                <span className="icon is-left is-small">
+                  <i className="fa fa-dashboard"></i>
+                </span>
+              </p>
             </div>
-            <div>
-            <span>Type of task</span>
-              <input type="text"  value={this.state.type} onChange={this.handleChangeType} />
+
+            <div className="field centerInput">
+              <p className="control">
+                <label className="label">Type of task</label>
+              </p>
+              <p className="control has-icons-left">
+                <input className="input" type="text"  value={this.state.type} onChange={this.handleChangeType} />
+                <span className="icon is-left is-small">
+                  <i className="fa fa-eye"></i>
+                </span>
+              </p>
             </div>
-            <div>
-              <span>Assigned to Number</span>
-              <input type="text" value={this.state.assigned_to} onChange={this.handleChangeAssignedTo} />
+
+            <div className="field centerInput">
+              <p className="control">
+                <label className="label">Assigned to Number</label>
+              </p>
+              <p className="control has-icons-left">
+                <input className="input" type="text" value={this.state.assigned_to} onChange={this.handleChangeAssignedTo} />
+                <span className="icon is-left is-small">
+                  <i className="fa fa-user"></i>
+                </span>
+              </p>
             </div>
-            <div>
-              <span>Deadline Number</span>
-              <input type="date" value={this.state.deadline} onChange={this.handleChangeDeadline} />
+
+            <div className="field centerInput">
+              <p className="control">
+                <label className="label">Deadline Number</label>
+              </p>
+              <p className="control has-icons-left">
+                <input className="input" type="date" value={this.state.deadline} onChange={this.handleChangeDeadline} />
+                <span className="icon is-left is-small">
+                  <i className="fa fa-calendar"></i>
+                </span>
+              </p>
             </div>
+
             <div>
-              <button name="Login" type="submit">Add Task </button>
+              <button className="addTask button is-large is-success" name="Login" type="submit">Add Task </button>
             </div>
           </form>
+        </div>
+
+        <div className="column is-three-quarters">
           <TaskList task={this.props.task} />
-
-
-
-        <form onSubmit={this.handleTaskSubmit}>
-
-          <div className="field centerInput">
-            <p className="control">
-              <label className="label">Name</label>
-            </p>
-            <p className="control has-icons-left">
-              <input className="input" type="text" placeholder="task name" value={this.state.name} onChange={this.handleChangeName} />
-              <span className="icon is-left is-small">
-                <i className="fa fa-dashboard"></i>
-              </span>
-            </p>
-          </div>
-
-          <div className="field centerInput">
-            <p className="control">
-              <label className="label">Type of task</label>
-            </p>
-            <p className="control has-icons-left">
-              <input className="input" type="text"  value={this.state.type} onChange={this.handleChangeType} />
-              <span className="icon is-left is-small">
-                <i className="fa fa-eye"></i>
-              </span>
-            </p>
-          </div>
-
-          <div className="field centerInput">
-            <p className="control">
-              <label className="label">Assigned to Number</label>
-            </p>
-            <p className="control has-icons-left">
-              <input className="input" type="text" value={this.state.assigned_to} onChange={this.handleChangeAssignedTo} />
-              <span className="icon is-left is-small">
-                <i className="fa fa-user"></i>
-              </span>
-            </p>
-          </div>
-
-          <div className="field centerInput">
-            <p className="control">
-              <label className="label">Deadline Number</label>
-            </p>
-            <p className="control has-icons-left">
-              <input className="input" type="date" value={this.state.deadline} onChange={this.handleChangeDeadline} />
-              <span className="icon is-left is-small">
-                <i className="fa fa-calendar"></i>
-              </span>
-            </p>
-          </div>
-
-          <div>
-            <button className="button is-outlined bottomButton" name="Login" type="submit">Add Task </button>
-          </div>
-
-        </form>
-
-        <TaskList task={this.props.task} />
+        </div>
       </div>
+    </div>
     );
       }else {
         return(
@@ -214,16 +195,17 @@ class newTaskForm extends Component {
           <h2>Planit-Better</h2>
           <h3>{this.props.eventStatus.currentEvent.name}</h3>
           <h3>{this.props.currentUser.username}</h3>
-        </div>
-        <div id="navBar">
-        <Link to="/"><button>Home</button></Link>
-        </div>
-
-         <div>
-            <button onClick={this.openForm}>New Task Form</button>
+          <div id="navBar">
+            <Link to="/"><button className="button is-outlined is-small">Home</button></Link>
+            <button className="button is-small is-outlined" onClick={this.openForm}>New Task Form</button>
+          </div>
         </div>
 
-        <TaskList task={this.props.task} />
+        <br></br>
+        <div>
+          <TaskList task={this.props.task} />
+        </div>
+
 
       </div>
 
