@@ -118,18 +118,17 @@ class Budget extends Component {
                     value: menuBudget,
                   },
                   {
-                    key: 'C',
                     color: 'green',
                     value: equipmentBudget,
+                  },
+                  {
+                    color: "yellow",
+                    value: taskBudget,
                   },
                   {
                     color: "white",
                     value: 0,
                   },
-                  {
-                    color: "yellow",
-                    value: taskBudget,
-                  }
                 ]}
                 />
               </div>
