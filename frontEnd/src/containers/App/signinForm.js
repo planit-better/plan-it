@@ -111,7 +111,7 @@ class signinForm extends Component{
       <div className="App">
 
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
           <h2>Planit-Better</h2>
           <div id="navBar">
             <Link to="/"><button className="button is-outlined is-small">Home</button></Link>
