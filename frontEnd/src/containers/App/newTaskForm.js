@@ -17,7 +17,8 @@ class newTaskForm extends Component {
     this.state = {
       name : "",
       type : "",
-      assigned_to : "",
+      cost : "",
+      complete : false,
       deadline : "",
       event_id : this.props.eventStatus.currentEvent.id,
       formOpen : false
@@ -29,6 +30,7 @@ class newTaskForm extends Component {
       this.addTask(this.state)
       .then(this.clearState())
       .then(this.updateStore())
+      .then(this.addTaskBudget())
 
     }
 
@@ -44,9 +46,15 @@ class newTaskForm extends Component {
       });
     }
 
-    handleChangeAssignedTo = ( event ) => {
+    handleChangeCost = ( event ) => {
       this.setState({
-       assigned_to : event.target.value
+       cost : event.target.value
+      });
+    }
+
+    handleChageComplete = ( event ) => {
+      this.setState({
+        complete : event.target.value
       });
     }
 
@@ -60,8 +68,8 @@ class newTaskForm extends Component {
       this.setState({
         name : "",
         type : "",
-        assigned_to : "",
-        deadline : ""
+        cost : "",
+        deadline : "",
       });
     }
 
@@ -77,6 +85,27 @@ class newTaskForm extends Component {
       throw err;
     })
   }
+
+
+  addTaskBudget(){
+      return fetch('/api/budget', {
+        method: "POST",
+        credentials: 'include',
+        headers:
+        {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          "type": "Task",
+          "amount": this.state.cost,
+          "event_id": this.props.eventStatus.currentEvent.id
+        })
+      }).then(response =>{
+        return response
+      }).catch(err =>{
+        throw err;
+      })
+    }
 
 
     addTask(task){
@@ -162,10 +191,10 @@ class newTaskForm extends Component {
 
             <div className="field centerInput">
               <p className="control">
-                <label className="label">Assigned to Number</label>
+                <label className="label"> Cost </label>
               </p>
               <p className="control has-icons-left">
-                <input className="input" type="text" value={this.state.assigned_to} onChange={this.handleChangeAssignedTo} />
+                <input className="input" type="number" value={this.state.cost} onChange={this.handleChangeCost} />
                 <span className="icon is-left is-small">
                   <i className="fa fa-user"></i>
                 </span>

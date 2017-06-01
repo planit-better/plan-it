@@ -252,17 +252,6 @@ class newGuestForm extends Component {
               </p>
             </div>
 
-            <div className="field">
-              <p className="control">
-                <button className="button bottomButton is-outlined is-small" name="Login" type="submit">Add Guest </button>
-                <Link to="/inviteForm">
-                  <button className="button bottomButton is-outlined is-small">
-                    Create Invite
-                  </button>
-                </Link>
-              </p>
-            </div>
-
           </form>
 
           <GuestList guest={this.props.guest} />
@@ -284,8 +273,8 @@ class newGuestForm extends Component {
             <h3>{this.props.currentUser.username}</h3>
             <Link to="/"><button className="button is-outlined is-small">Home</button></Link>
             <button className="button is-outlined is-small" onClick={this.openForm}>New Guest Form</button>
+             <Link to="/inviteForm"><button className="button is-outlined is-small">Create Message</button></Link>
           </div>
-
           <GuestList guest={this.props.guest} />
         </div>
         );

@@ -14,7 +14,8 @@ class loginForm extends Component{
 
     this.state = {
       username : "",
-      password : ""
+      password : "",
+      error: ""
     };
   }
 
@@ -59,6 +60,9 @@ class loginForm extends Component{
 
       }).then(data => {
         if(data.message === 'invalid'){
+          this.setState({
+            error: "invalid username password"
+          })
         }
         else {
           this.props.authUser(user)
@@ -120,6 +124,9 @@ class loginForm extends Component{
             <button className="button bottomButton is-outlined" name="Signup" type="submit"> Login </button>
           </div>
         </form>
+          <div>
+            <p>{this.state.error}</p>
+          </div>
 
 
       </div>
