@@ -17,6 +17,8 @@ export const LOGOUT_USER = 'LOGOUT_USER';
 export const LOAD_OWNED_EVENT = 'LOAD_OWNED_EVENT';
 export const CLEAR_EVENT = "CLEAR_EVENT";
 
+export const ADD_USER_REDUX = 'ADD_USER_REDUX';
+
 
 
 
@@ -117,3 +119,4 @@ export const loadBudget = budgetTotals => {
     budgetTotals
   };
 };
+
