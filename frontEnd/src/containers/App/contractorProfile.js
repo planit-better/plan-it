@@ -90,6 +90,7 @@ class ContractorProfile extends Component {
 
 
     render() {
+      console.log(this.props.currentContractor)
     if(this.props.currentUser.userLoggedIn === false){
     return(
       <Redirect to={{
@@ -164,12 +165,12 @@ class ContractorProfile extends Component {
 
               </form>
 
-              <div>
+              <div className="column">
                 <p>Contractors</p>
 
                   <p className="control">
                     <label className="label">Company Name</label>
-
+                  <p>{this.props.currentContractor}</p>
                 </p>
 
                 <p className="control">
