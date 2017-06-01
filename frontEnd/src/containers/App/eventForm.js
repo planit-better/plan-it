@@ -23,7 +23,7 @@ class EventForm extends Component {
       event_date : "",
       event_time : "",
       openForm : false,
-      user_id : null,
+      user_id : 0,
       formOpen : false
     };
 
@@ -120,7 +120,7 @@ class EventForm extends Component {
     })
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.findUserId(this.props.currentUser.username)
     fetch('/api/User', {
       method : "GET",
@@ -135,6 +135,8 @@ class EventForm extends Component {
   }
 
   findUserId(username){
+    console.log(username)
+    console.log(this.props.user)
     for(var i=0; i<this.props.user.length; i++){
       if(this.props.user[i].username === username){
         this.setId(this.props.user[i].id)
@@ -143,6 +145,7 @@ class EventForm extends Component {
   }
 
   setId(id){
+    console.log(id)
     this.setState({
       user_id : id
     })
@@ -160,7 +163,6 @@ class EventForm extends Component {
   }
 
   render() {
-    console.log(this.props.currentUser)
     if(this.props.currentUser.userLoggedIn === false){
       return(
         <Redirect to={{

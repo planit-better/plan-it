@@ -19,7 +19,7 @@ class newGuestForm extends Component {
       number : "",
       email: "",
       will_attend : false,
-      accompanying_guests : "",
+      accompanying_guests : 0,
       can_drink : false,
       diet_restriction : "",
       event_id : this.props.eventStatus.currentEvent.id,
@@ -96,7 +96,7 @@ class newGuestForm extends Component {
         name : "",
         number : "",
         email : "",
-        accompanying_guests : "",
+        accompanying_guests : 0,
         diet_restriction : ""
       });
     }
@@ -250,6 +250,10 @@ class newGuestForm extends Component {
                   <i className="fa fa-spoon"></i>
                 </span>
               </p>
+            </div>
+
+            <div className="field control">
+              <button className="button bottomButton is-outlined" name="Login" type="submit">Add Guest </button>
             </div>
 
           </form>
