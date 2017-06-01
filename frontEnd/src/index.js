@@ -20,6 +20,7 @@ import inviteForm from './containers/App/inviteForm';
 import eventForm from './containers/App/eventForm';
 import guestProfile from './containers/App/guestProfile';
 import budgetForm from './containers/App/budgetForm';
+import contractorProfile from './containers/App/contractorProfile';
 
 
 import './index.css';
@@ -46,6 +47,7 @@ ReactDOM.render(
         <Route path="/eventForm" component={eventForm} />
         <Route path="/guestProfile" component={guestProfile} />
         <Route path="/budgetForm" component={budgetForm} />
+        <Route path="/contractorProfile" component={contractorProfile} />
       </div>
     </Router>
   </Provider>,

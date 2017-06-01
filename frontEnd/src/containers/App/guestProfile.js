@@ -114,7 +114,7 @@ class GuestProfile extends Component {
       })
     }
 
-    deleteGuest
+
 
 
 

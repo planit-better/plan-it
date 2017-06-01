@@ -30,6 +30,7 @@ class ContractorList extends Component {
   }
 
   contractorRef( contractors ) {
+    console.log('hit contractor ref')
     this.props.loadCurrentContractor( contractors )
   }
 
@@ -75,6 +76,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     loadContractors: contractors =>{
       dispatch(loadContractors(contractors))
+    },
+    loadCurrentContractor : contractor =>{
+      dispatch(loadCurrentContractor(contractor))
     }
   }
 }

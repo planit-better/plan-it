@@ -16,7 +16,7 @@ class ContractorProfile extends Component {
     super(props);
 
     this.state={
-      company_name : this.props.currentContractor.currentContractor.company_name,
+      company_name :this.props.currentContractor.currentContractor.company_name,
 
       cost : this.props.currentContractor.currentContractor.cost,
 
@@ -27,13 +27,14 @@ class ContractorProfile extends Component {
       deadline : this.props.currentContractor.currentContractor.deadline,
 
       event_id : this.props.eventStatus.currentEvent.id
-    }
+    };
 
   }
 
     handleContractorChangeSubmit = ( event ) => {
       event.preventDefault();
       this.updateContractor(this.state)
+      .then(this.updateBudget(this.state))
       .then(this.props.loadCurrentContractor(this.state))
     }
 
@@ -84,12 +85,29 @@ class ContractorProfile extends Component {
       })
     }
 
-    deleteContractor
+   updateBudget = ( contractor ) => {
+        console.log('hit update budget')
+        return fetch(`/api/budget/${this.props.currentContractor.currentContractor.id}`, {
+        method: "PUT",
+        credentials: 'include',
+         headers:
+        {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body : JSON.stringify({"amount": this.state.cost})
+      }).then((response) =>{
+        return response.json()
+      }).catch(err =>{
+        throw err;
+      })
+   }
 
 
 
 
     render() {
+      console.log(this.props.currentContractor.currentContractor.id)
     if(this.props.currentUser.userLoggedIn === false){
     return(
       <Redirect to={{
@@ -97,7 +115,6 @@ class ContractorProfile extends Component {
       }} />
       )
     }
-     if(this.props.currentContractor.currentContractor.company_name){
 
      return(
 
@@ -165,108 +182,43 @@ class ContractorProfile extends Component {
 
               </form>
 
-              <div>
+              <div className="column">
                 <p>Contractors</p>
 
-                  <p className="control">
+                  <div className="control">
                     <label className="label">Company Name</label>
                   <p>{this.props.currentContractor.currentContractor.company_name}</p>
+                </div>
 
-                </p>
-
-                <p className="control">
+                <div className="control">
                   <label className="label">Cost</label>
-                  <span>{this.props.currentContractor.currentContractor.cost}</span>
-                </p>
+                  <p>{this.props.currentContractor.currentContractor.cost} </p>
+                </div>
 
-                <p className="control">
+                <div className="control">
                   <label className="label">Contact</label>
-                  <span>{this.props.currentContractor.currentContractor.contact}</span>
-                </p>
+                  <p>{this.props.currentContractor.currentContractor.contact} </p>
+                </div>
 
 
-                <p className="control">
+                <div className="control">
                   <label className="label">Date Hired</label>
-                  <span>{this.props.currentContractor.currentContractor.date_hired}</span>
-                </p>
+                  <p>{this.props.currentContractor.currentContractor.date_hired} </p>
+                </div>
 
-                <p className="control">
+                <div className="control">
                   <label className="label">Dealine</label>
-                  <span>{this.props.currentContractor.currentContractor.deadline}</span>
-                </p>
+                  <p>{this.props.currentContractor.currentContractor.deadline} </p>
+                </div>
               </div>
             </div>
 
 
           </div>
 
-        )
-   } else {
-      return(
-          <div className="App">
-            <div className="App-header">
-              <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-              <h2>Planit-Better</h2>
-              <h3>{this.props.currentUser.username}</h3>
-              <h3>{this.props.eventStatus.currentEvent.company_name}</h3>
-              <div id="navBar">
-                <Link to="/"><button className="button is-outlined is-small">Home</button></Link>
-              </div>
-            </div>
-
-
-            <div className="columns">
-              <form className="column is-offset-3" onSubmit={this.handleContractorChangeSubmit}>
-                <div className="field">
-                  <p className="control">
-                    <label className="label">Change Company Name</label>
-                    <input className="input" type="text" placeholder="Company Name" value={this.state.company_name} onChange={this.handleChangeName} />
-                  </p>
-                </div>
-
-                <div className="field">
-                  <p className="control">
-                    <label className="label">Change Cost</label>
-                    <input className="input" type="number" value={this.state.number} onChange={this.handleChangeCost} />
-                  </p>
-                </div>
-
-                <div className="field">
-                  <p className="control">
-                    <label className="label">Change Contact</label>
-                    <input className="input" type="number" placeholder="Contact" value={this.state.contact} onChange={this.handleChangeContact} />
-                  </p>
-                </div>
-
-                <div className="field">
-                  <p className="control">
-                    <label className="label">
-                      Date Hired
-                    </label>
-                    <input className="input" type="date" value={this.state.date_hired} onChange={this.handleChangeDateHired}/>
-                  </p>
-                </div>
-
-                <div className="field">
-                  <p className="control">
-                    <label className="label">Change Deadline</label>
-                    <input className="input" type="date" value={this.state.deadline} onChange={this.handleChangeDeadline} />
-                  </p>
-                </div>
-
-                <div className="field">
-                  <p className="control">
-                    <button className="button is-outlined bottomButton" name="Login" type="submit">Update Contractor </button>
-                  </p>
-                </div>
-
-              </form>
-            </div>
-
-          </div>
-          )
+        );
    }
-  }
+
 }
 
 const mapStateToProps = (state) => {
@@ -291,12 +243,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 
 
-const ConnectedProfileApp = connect(
+const ConnectedContractorProfileApp = connect(
   mapStateToProps,
   mapDispatchToProps
   )(ContractorProfile);
 
 
 
-export default ConnectedProfileApp;
+export default ConnectedContractorProfileApp;
 

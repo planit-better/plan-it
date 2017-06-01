@@ -46,19 +46,20 @@ budget.delete('/:id', ( req, res ) => {
 });
 
 budget.put('/:id', (req,res) => {
+  console.log(req.body)
+  console.log('hit put budget path');
   let path = req.path.split('/')[1];
   Budget.update({
-    name: req.body.name,
     type: req.body.type,
-    assigned_to: req.body.assigned_to,
-    deadline: req.body.deadline
+    amount: req.body.amount,
+    type_id: req.body.type_id,
+    event_id: req.body.event_id
   },  {
       where: {
         id: path
       }
     })
     .then(data => {
-      //console.log('wat'+data);
       res.send('posted');
     });
 });
