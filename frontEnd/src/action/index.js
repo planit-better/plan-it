@@ -107,6 +107,7 @@ export const loadCurrentGuest = currentGuest => {
 };
 
 export const loadCurrentContractor = currentContractor => {
+  console.log('hit cur cont action')
   return {
     type : LOAD_CURRENT_CONTRACTOR,
     currentContractor

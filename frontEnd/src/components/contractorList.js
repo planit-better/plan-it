@@ -30,6 +30,7 @@ class ContractorList extends Component {
   }
 
   contractorRef( contractors ) {
+    console.log('hit contractor ref')
     this.props.loadCurrentContractor( contractors )
   }
 

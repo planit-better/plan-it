@@ -16,17 +16,17 @@ class ContractorProfile extends Component {
     super(props);
 
     this.state={
-      company_name :"",
+      company_name :this.props.currentContractor.currentContractor.company_name,
 
-      cost : "",
+      cost : this.props.currentContractor.currentContractor.cost,
 
-      contact: "",
+      contact: this.props.currentContractor.currentContractor.contact,
 
-      date_hired : "",
+      date_hired : this.props.currentContractor.currentContractor.date_hired,
 
-      deadline : "",
+      deadline : this.props.currentContractor.currentContractor.deadline,
 
-      event_id : "",
+      event_id : this.props.eventStatus.currentEvent.id
     };
 
   }
@@ -67,22 +67,22 @@ class ContractorProfile extends Component {
       });
     }
 
-    // updateContractor = ( company_name ) => {
-    //     return fetch(`/api/contractors/${this.props.currentContractor.currentContractor.id}`, {
-    //     method: "PUT",
-    //     credentials: 'include',
-    //      headers:
-    //     {
-    //       "Content-Type": "application/json",
-    //       "Accept": "application/json"
-    //     },
-    //     body : JSON.stringify(company_name)
-    //   }).then((response) =>{
-    //     return response.json()
-    //   }).catch(err =>{
-    //     throw err;
-    //   })
-    // }
+    updateContractor = ( company_name ) => {
+        return fetch(`/api/contractors/${this.props.currentContractor.currentContractor.id}`, {
+        method: "PUT",
+        credentials: 'include',
+         headers:
+        {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body : JSON.stringify(company_name)
+      }).then((response) =>{
+        return response.json()
+      }).catch(err =>{
+        throw err;
+      })
+    }
 
     // deleteContractor
 
@@ -90,7 +90,7 @@ class ContractorProfile extends Component {
 
 
     render() {
-      console.log(this.props.currentContractor)
+      console.log(this.props.currentContractor.currentContractor.id)
     if(this.props.currentUser.userLoggedIn === false){
     return(
       <Redirect to={{
@@ -168,27 +168,31 @@ class ContractorProfile extends Component {
               <div className="column">
                 <p>Contractors</p>
 
-                  <p className="control">
+                  <div className="control">
                     <label className="label">Company Name</label>
-                  <p>{this.props.currentContractor}</p>
-                </p>
+                  <p>{this.props.currentContractor.currentContractor.company_name}</p>
+                </div>
 
-                <p className="control">
+                <div className="control">
                   <label className="label">Cost</label>
-                </p>
+                  <p>{this.props.currentContractor.currentContractor.cost} </p>
+                </div>
 
-                <p className="control">
+                <div className="control">
                   <label className="label">Contact</label>
-                </p>
+                  <p>{this.props.currentContractor.currentContractor.contact} </p>
+                </div>
 
 
-                <p className="control">
+                <div className="control">
                   <label className="label">Date Hired</label>
-                </p>
+                  <p>{this.props.currentContractor.currentContractor.date_hired} </p>
+                </div>
 
-                <p className="control">
+                <div className="control">
                   <label className="label">Dealine</label>
-                </p>
+                  <p>{this.props.currentContractor.currentContractor.deadline} </p>
+                </div>
               </div>
             </div>
 
