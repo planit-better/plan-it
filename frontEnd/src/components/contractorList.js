@@ -3,7 +3,8 @@
 
 import React,{Component} from 'react';
 import { connect } from 'react-redux';
-import { loadContractors } from '../action';
+import { loadContractors, loadCurrentContractor } from '../action';
+import { Link } from 'react-router-dom';
 
 
 
@@ -28,7 +29,9 @@ class ContractorList extends Component {
     })
   }
 
-
+  contractorRef( contractors ) {
+    this.props.loadCurrentContractor( contractors )
+  }
 
    render() {
     let allowedContractors = []
@@ -38,13 +41,17 @@ class ContractorList extends Component {
       }
     }
     return(
-      <div>
+      <div className="field">
 
       <h1 className="label guestList">Hello Contractors</h1>
       <ul>
         {
-          allowedContractors.map((name) =>
-            <li className="contractors" key={name.id}><h3>{name.company_name}</h3></li>
+          allowedContractors.map((contractorName) =>
+            <Link to="/contractorProfile">
+              <li className="contractors" key={contractorName.id} onClick={this.contractorRef.bind(this, contractorName)}>
+                <h3>{contractorName.company_name}</h3>
+              </li>
+            </Link>
             )
         }
 
