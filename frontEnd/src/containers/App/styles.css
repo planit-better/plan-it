@@ -79,6 +79,17 @@
   color: green;
 }
 
+.columnButton {
+  width: 90%;
+  height: 150px;
+}
+
+.home {
+  background-image: url("http://s1.picswalls.com/wallpapers/2016/06/16/planet-background_115145186_310.jpg");
+  height: 949px;
+}
+
 #taskBudget{
   color: yellow;
+
 }

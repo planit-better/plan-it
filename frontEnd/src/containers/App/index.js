@@ -105,40 +105,94 @@ class App extends Component {
     if(this.props.currentUser.userLoggedIn === true){
 
       return (
-        <div className="App">
+        <div className="App home">
+          <div className="nav has-shadow">
+            <div className="nav-left">
+              <div className="nav-item">
+                <img src={logo} className="App-logo" alt="logo" />
 
-          <div className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h2>Planit-Better</h2>
-            <h3>{this.props.eventStatus.currentEvent.name}</h3>
-            <h3>{this.props.currentUser.username}</h3>
-            <button id="signout" className="button is-outlined is-small" onClick={this.signOut}>Log Out</button>
-            <Link to="/eventForm"><button onClick={this.newEvent} className="button is-outlined is-small">New Event</button></Link>
+                <h2 className="title is-3">Planit-Better</h2>
+              </div>
 
+                <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
+            </div>
+
+            <div className="nav-center">
+              <div className="nav-item">
+                <h3>{this.props.currentUser.username}</h3>
+              </div>
+            </div>
+
+            <div className="nav-right">
+              <div className="nav-item">
+                  <a id="signout" className="nav-item is-tab is-hidden-mobile is-active" onClick={this.signOut}>Log Out</a>
+                  <a className="nav-item is-tab is-hidden-mobile"><Link to="/eventForm" onClick={this.newEvent}>New Event</Link></a>
+              </div>
+            </div>
           </div>
 
           <br></br><br></br>
 
-          <div id="postNavBar">
-            <div>
-              <Link to="/newContractorForm"><button className="button bottomButton is-outlined">New Contractor</button></Link>
-            </div>
-            <div>
-              <Link to="/newEquipmentForm"><button className="button bottomButton is-outlined">New Equipment</button></Link>
-            </div>
-            <div>
-              <Link to="/newGuestForm"><button className="button bottomButton is-outlined">New Guest</button></Link>
-            </div>
-            <div>
-              <Link to="/newMenuForm"><button className="button bottomButton is-outlined">New Menu</button></Link>
-            </div>
-            <div>
-              <Link to="/newTaskForm"><button className="button bottomButton is-outlined">New Task</button></Link>
-            </div>
-            <div>
-              <Link to="/budgetForm"><button className="button bottomButton is-outlined">Budget</button></Link>
+          <div id="postNavBar" className="columns">
+
+            <div className="column">
+              <p className="has-icons-left">
+                <span className="icon is-left is-large">
+                  <i className="fa fa-briefcase"></i>
+                </span>
+              </p>
+                <Link to="/newContractorForm"><button className="button columnButton is-large is-info is-outlined">New Contractor</button></Link>
             </div>
 
+            <div className="column">
+              <p className="has-icons-left">
+                <span className="icon is-left is-large">
+                  <i className="fa fa-gavel"></i>
+                </span>
+              </p>
+                <Link to="/newEquipmentForm"><button className="button columnButton is-large is-success is-outlined">New Equipment</button></Link>
+            </div>
+
+            <div className="column">
+              <p className="has-icons-left">
+                <span className="icon is-left is-large">
+                  <i className="fa fa-user-plus"></i>
+                </span>
+              </p>
+                <Link to="/newGuestForm"><button className="button columnButton is-large is-warning is-outlined">New Guest</button></Link>
+            </div>
+          </div>
+
+          <br></br><br></br><br></br><br></br>
+
+          <div className="columns">
+
+            <div className="column">
+              <p className="has-icons-left">
+                <span className="icon is-left is-large">
+                  <i className="fa fa-cutlery"></i>
+                </span>
+              </p>
+                <Link to="/newMenuForm"><button className="button columnButton is-large is-primary is-outlined">New Menu</button></Link>
+            </div>
+
+            <div className="column">
+              <p className="has-icons-left">
+                <span className="icon is-left is-large">
+                  <i className="fa fa-pencil-square-o"></i>
+                </span>
+              </p>
+                <Link to="/newTaskForm"><button className="button columnButton is-large is-danger  is-outlined">New Task</button></Link>
+            </div>
+
+            <div className="column">
+              <p className="has-icons-left">
+                <span className="icon is-left is-large">
+                  <i className="fa fa-usd"></i>
+                </span>
+              </p>
+              <Link to="/budgetForm"><button className="button columnButton is-large is-black is-outlined">Budget</button></Link>
+            </div>
           </div>
         </div>
       );
