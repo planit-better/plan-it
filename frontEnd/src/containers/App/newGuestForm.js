@@ -156,13 +156,28 @@ class newGuestForm extends Component {
 
       <div className="App">
 
-        <div className="App-header">
-          <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-          <h2>Planit-Better</h2>
-          <h3>{this.props.eventStatus.currentEvent.name}</h3>
-          <h3>{this.props.currentUser.username}</h3>
-          <Link to="/"><button className="button is-outlined is-small">Home</button></Link>
-          <button className="button is-outlined is-small" onClick={this.openForm}>New Guest Form</button>
+        <div className="nav has-shadow">
+          <div className="nav-left">
+            <div className="nav-item">
+              <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
+              <h1 className="title is-3">Planit-Better</h1>
+            </div>
+
+            <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
+          </div>
+
+          <div className="nav-center">
+            <div className="nav-item">
+              <h3>{this.props.currentUser.username}</h3>
+            </div>
+          </div>
+
+          <div className="nav-right">
+            <div className="nav-item">
+              <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
+              <a className="nav-item is-tab is-hidden-mobile" onClick={this.openForm}>New Guest Form</a>
+            </div>
+          </div>
         </div>
 
 
@@ -270,15 +285,31 @@ class newGuestForm extends Component {
       return (
         <div className="App">
 
-          <div className="App-header field">
-            <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-            <h2>Planit-Better</h2>
-            <h3>{this.props.eventStatus.currentEvent.name}</h3>
-            <h3>{this.props.currentUser.username}</h3>
-            <Link to="/"><button className="button is-outlined is-small">Home</button></Link>
-            <button className="button is-outlined is-small" onClick={this.openForm}>New Guest Form</button>
-             <Link to="/inviteForm"><button className="button is-outlined is-small">Create Message</button></Link>
-          </div>
+          <div className="nav has-shadow">
+              <div className="nav-left">
+                <div className="nav-item">
+                  <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
+                  <h1 className="title is-3">Planit-Better</h1>
+                </div>
+
+                  <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
+              </div>
+
+              <div className="nav-center">
+                <div className="nav-item">
+                  <h3>{this.props.currentUser.username}</h3>
+                </div>
+              </div>
+
+              <div className="nav-right">
+                <div className="nav-item">
+                  <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
+                  <a className="nav-item is-tab is-hidden-mobile" onClick={this.openForm}>New Guest Form</a>
+                  <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/inviteForm">Create Message</Link></a>
+                </div>
+              </div>
+            </div>
+
           <GuestList guest={this.props.guest} />
         </div>
         );
