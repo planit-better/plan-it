@@ -51,9 +51,9 @@ class GuestList extends Component {
           {
             allowedGuest.map((guest) =>
               <Link to="/guestProfile">
-              <li className="guests" key={guest.id} onClick={this.guestRef.bind(this, guest)}>
-              <h3>{guest.name}</h3>
-              </li>
+                <li className="guests" key={guest.id} onClick={this.guestRef.bind(this, guest)}>
+                  <h3>{guest.name}</h3>
+                </li>
               </Link>
               )
           }

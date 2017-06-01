@@ -9,7 +9,7 @@ const initialState = {
     id: null,
     name : "",
     number : "",
-    emamil : "",
+    email : "",
     will_attend : false,
     can_drink : false,
     accompanying_guests : null,
