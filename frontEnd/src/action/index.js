@@ -104,7 +104,6 @@ export const loadCurrentGuest = currentGuest => {
 };
 
 export const loadBudget = budgetTotals => {
-  console.log('hit load budget action');
   return{
     type : LOAD_BUDGET,
     budgetTotals
