@@ -82,7 +82,7 @@ class loginForm extends Component{
       <div className="App">
 
         <div className="App-header field">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
           <p>
             <h2>Planit-Better</h2>
           </p>
