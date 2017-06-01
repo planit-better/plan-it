@@ -220,7 +220,7 @@ class newEquipmentForm extends Component {
       <div className="nav has-shadow">
         <div className="nav-left">
           <div className="nav-item">
-            <img src={logo} className="App-logo" alt="logo" />
+            <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
             <h1>Planit-Better</h1>
           </div>
 

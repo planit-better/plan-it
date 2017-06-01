@@ -205,7 +205,7 @@ class ContractorProfile extends Component {
       return(
           <div className="App">
             <div className="App-header">
-              <img src={logo} className="App-logo" alt="logo" />
+              <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
               <h2>Planit-Better</h2>
               <h3>{this.props.currentUser.username}</h3>
               <h3>{this.props.eventStatus.currentEvent.company_name}</h3>
