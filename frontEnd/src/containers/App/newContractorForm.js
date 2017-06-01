@@ -115,7 +115,6 @@ class newContractorForm extends Component {
     }
 
     addContractorBudget = (id) => {
-      console.log(this.state.cost)
       return fetch('/api/budget', {
         method: "POST",
         credentials: 'include',
@@ -130,14 +129,13 @@ class newContractorForm extends Component {
           "type_id": id
         })
       }).then(response =>{
-        return response
+        this.clearState()
       }).catch(err =>{
         throw err;
       })
     }
 
     render() {
-      console.log(this.state.cost)
        if(this.props.currentUser.userLoggedIn === false){
           return(
             <Redirect to={{
