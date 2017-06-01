@@ -34,6 +34,7 @@ class ContractorProfile extends Component {
     handleContractorChangeSubmit = ( event ) => {
       event.preventDefault();
       this.updateContractor(this.state)
+      .then(this.updateBudget(this.state))
       .then(this.props.loadCurrentContractor(this.state))
     }
 
@@ -84,7 +85,23 @@ class ContractorProfile extends Component {
       })
     }
 
-    // deleteContractor
+   updateBudget = ( contractor ) => {
+        console.log('hit update budget')
+        return fetch(`/api/budget/${this.props.currentContractor.currentContractor.id}`, {
+        method: "PUT",
+        credentials: 'include',
+         headers:
+        {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body : JSON.stringify({"amount": this.state.cost})
+      }).then((response) =>{
+        return response.json()
+      }).catch(err =>{
+        throw err;
+      })
+   }
 
 
 
