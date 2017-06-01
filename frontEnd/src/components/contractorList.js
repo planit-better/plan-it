@@ -75,6 +75,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     loadContractors: contractors =>{
       dispatch(loadContractors(contractors))
+    },
+    loadCurrentContractor : contractor =>{
+      dispatch(loadCurrentContractor(contractor))
     }
   }
 }
