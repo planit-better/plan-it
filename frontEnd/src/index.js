@@ -21,6 +21,7 @@ import eventForm from './containers/App/eventForm';
 import guestProfile from './containers/App/guestProfile';
 import budgetForm from './containers/App/budgetForm';
 import contractorProfile from './containers/App/contractorProfile';
+import taskProfile from './containers/App/taskProfile';
 
 
 import './index.css';
@@ -48,6 +49,7 @@ ReactDOM.render(
         <Route path="/guestProfile" component={guestProfile} />
         <Route path="/budgetForm" component={budgetForm} />
         <Route path="/contractorProfile" component={contractorProfile} />
+        <Route path="/taskProfile" component={taskProfile} />
       </div>
     </Router>
   </Provider>,

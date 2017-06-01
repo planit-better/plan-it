@@ -14,6 +14,7 @@ import eventStatus from './eventStatus';
 import currentGuest from './currentGuest';
 import budget from './budget';
 import currentContractor from './currentContractor';
+import currentTask from './currentTask';
 
 export default combineReducers({
   contractors,
@@ -27,6 +28,7 @@ export default combineReducers({
   eventStatus,
   currentGuest,
   budget,
-  currentContractor
+  currentContractor,
+  currentTask
 });
 
