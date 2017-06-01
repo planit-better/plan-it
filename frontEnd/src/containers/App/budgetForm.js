@@ -55,6 +55,9 @@ class Budget extends Component {
       if(this.props.budget[i].event_id === this.props.eventStatus.currentEvent.id && this.props.budget[i].type === "Equipment"){
         equipmentBudget += Number(this.props.budget[i].amount)
       }
+       if(this.props.budget[i].event_id === this.props.eventStatus.currentEvent.id && this.props.budget[i].type === "Task"){
+         taskBudget += Number(this.props.budget[i].amount)
+      }
     }
 
     console.log(contractorBudget)
@@ -84,17 +87,22 @@ class Budget extends Component {
                   <tr id="contractorBudget">
                     <td >Contractor</td>
                     <td>{contractorBudget}</td>
-                    <td>{contractorBudget / (contractorBudget + menuBudget + equipmentBudget)}</td>
+                    <td>{contractorBudget / (contractorBudget + menuBudget + equipmentBudget + taskBudget)}</td>
                   </tr>
                   <tr id="menuBudget">
                     <td>Menu</td>
                     <td>{menuBudget}</td>
-                    <td>{menuBudget / (contractorBudget + menuBudget + equipmentBudget)}</td>
+                    <td>{menuBudget / (contractorBudget + menuBudget + equipmentBudget + taskBudget)}</td>
                   </tr>
                   <tr id="equipmentBudget">
                     <td >Equipment</td>
                     <td>{equipmentBudget}</td>
-                    <td>{Number(equipmentBudget / (contractorBudget + menuBudget + equipmentBudget).toFixed(2))}</td>
+                    <td>{Number(equipmentBudget / (contractorBudget + menuBudget + equipmentBudget + taskBudget).toFixed(2))}</td>
+                  </tr>
+                  <tr id="taskBudget">
+                    <td >Task</td>
+                    <td>{taskBudget}</td>
+                    <td>{Number(taskBudget / (contractorBudget + menuBudget + equipmentBudget + taskBudget).toFixed(2))}</td>
                   </tr>
                 </table>
               </div>
@@ -118,6 +126,10 @@ class Budget extends Component {
                     color: "white",
                     value: 0,
                   },
+                  {
+                    color: "yellow",
+                    value: taskBudget,
+                  }
                 ]}
                 />
               </div>
