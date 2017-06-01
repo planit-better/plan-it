@@ -23,7 +23,7 @@ class EventForm extends Component {
       event_date : "",
       event_time : "",
       openForm : false,
-      user_id : 0,
+      user_id : null,
       formOpen : false
     };
 
@@ -120,7 +120,7 @@ class EventForm extends Component {
     })
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.findUserId(this.props.currentUser.username)
     fetch('/api/User', {
       method : "GET",
@@ -160,6 +160,7 @@ class EventForm extends Component {
   }
 
   render() {
+    console.log(this.props.currentUser)
     if(this.props.currentUser.userLoggedIn === false){
       return(
         <Redirect to={{
