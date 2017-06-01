@@ -216,12 +216,12 @@ class newMenuForm extends Component {
 
               <h2 className="title is-3">Planit-Better</h2>
             </div>
-              <h3 className="menuEvent">{this.props.currentUser.username}</h3>
+              <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
           </div>
 
           <div className="nav-center">
             <div className="nav-item">
-              <h3>{this.props.eventStatus.currentEvent.name}</h3>
+              <h3>{this.props.currentUser.username}</h3>
             </div>
           </div>
 
