@@ -4,8 +4,9 @@ module.exports = function(sequelize, DataTypes) {
   var Task = sequelize.define("Task", {
     name: DataTypes.STRING,
     type: DataTypes.STRING,
-    assigned_to: DataTypes.STRING,
-    deadline: DataTypes.DATE
+    cost: DataTypes.DECIMAL,
+    deadline: DataTypes.DATE,
+    complete: DataTypes.BOOLEAN
 
   }, {
     classMethods: {
