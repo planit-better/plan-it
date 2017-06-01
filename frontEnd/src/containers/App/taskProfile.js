@@ -16,6 +16,7 @@ class TaskProfile extends Component {
     super(props);
 
     this.state={
+
       name :this.props.currentTask.currentTask.name,
 
       type : this.props.currentTask.currentTask.type,
@@ -27,6 +28,7 @@ class TaskProfile extends Component {
       complete : this.props.currentTask.currentTask.complete,
 
       event_id : this.props.eventStatus.currentEvent.id
+
     };
 
   }

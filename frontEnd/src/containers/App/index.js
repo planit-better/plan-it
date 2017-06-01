@@ -87,7 +87,6 @@ class App extends Component {
 
   newEvent = () => {
     this.props.clearEvent();
-    console.log('hit new event')
   }
 
 

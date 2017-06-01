@@ -29,8 +29,6 @@ class newContractorForm extends Component {
       event.preventDefault();
       this.addContractor(this.state)
       .then(this.updateStore())
-      //.then(this.clearState())
-
     }
 
     handleChangeComanyName = ( event ) => {

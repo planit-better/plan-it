@@ -46,7 +46,7 @@ budget.put('/:id', (req,res) => {
     event_id: req.body.event_id
   },  {
       where: {
-        id: path
+        type_id: path
       }
     })
     .then(data => {
