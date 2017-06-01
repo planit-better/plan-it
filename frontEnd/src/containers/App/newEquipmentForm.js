@@ -142,22 +142,51 @@ class EventForm extends Component {
     }
   }
 
-  setId(id){
-    this.setState({
-      user_id : id
-    })
-  }
+    return (
+      <div className="App">
+        <div className="nav has-shadow">
+          <div className="nav-left">
+            <div className="nav-item">
+              <img src={logo} className="App-logo" alt="logo" />
+              <h1>Planit-Better</h1>
+            </div>
 
-  signOut=()=>{
-    fetch('/logout', {
-      method: "GET",
-      credentials:'include'
-    }).then(data =>{
-      return(data.json())
-    }).then(response =>{
-      this.props.logOut(response);
-    })
-  }
+            <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
+          </div>
+
+          <div className="nav-center">
+            <div className="nav-item">
+              <h3>{this.props.currentUser.username}</h3>
+            </div>
+          </div>
+
+          <div className="nav-right">
+            <div className="nav-item">
+              <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
+              <a className="nav-item is-tab is-hidden-mobile" onClick={this.openForm}>Hide Equipment Form</a>
+            </div>
+          </div>
+
+        </div>
+
+        <br></br>
+
+        <div className="columns">
+          <div className="column is-offset-2">
+
+            <form onSubmit={this.handleEquipmentSubmit}>
+              <div className="field">
+                <p className="control">
+                  <label className="label">Name</label>
+                </p>
+                <p className="control has-icons-left">
+                  <input className="input" type="text" placeholder="Name" value={this.state.name} onChange={this.handleChangeName} />
+                  <span className="icon is-left is-small">
+                    <i className="fa fa-address-card-o"></i>
+                  </span>
+                </p>
+              </div>
+
 
   render() {
     if(this.props.currentUser.userLoggedIn === false){
@@ -286,24 +315,43 @@ class EventForm extends Component {
             <EventList event={this.props.currentEvent} />
           </div>
 
-            );
 
-      } else {
-        return (
-          <div className="App">
-            <div className="App-header">
-              <img src={logo} className="App-logo" alt="logo" />
-              <h2>Planit-Better</h2>
-              <Link to="/signinForm">
-                <button className="button formsHome is-outlined is-small">Sign Up</button>
-              </Link>
-                <Link to="/loginForm">
-                  <button className="button formsHome is-outlined is-small">Login</button>
-              </Link>
-            </div>
-            </div>
-       );
-    }
+        </div>
+
+      </div>
+    );
+  }else{
+    return(
+    <div className="App">
+      <div className="nav has-shadow">
+        <div className="nav-left">
+          <div className="nav-item">
+            <img src={logo} className="App-logo" alt="logo" />
+            <h1>Planit-Better</h1>
+          </div>
+
+          <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
+        </div>
+
+        <div className="nav-center">
+          <div className="nav-item">
+            <h3>{this.props.currentUser.username}</h3>
+          </div>
+        </div>
+
+        <div className="nav-right">
+          <div className="nav-item">
+            <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
+            <a className="nav-item is-tab is-hidden-mobile" onClick={this.openForm}>New Equipment Form</a>
+          </div>
+        </div>
+
+      </div>
+      <EquipmentList equipment={this.props.equipment} />
+    </div>
+    )
+   }
+
   }
 }
 

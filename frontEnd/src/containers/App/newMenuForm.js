@@ -132,9 +132,9 @@ class newMenuForm extends Component {
               <div className="nav-left">
                 <div className="nav-item">
                   <img src={logo} className="App-logo" alt="logo" />
-
                   <h1 className="title is-3">Planit-Better</h1>
                 </div>
+
                   <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
               </div>
 

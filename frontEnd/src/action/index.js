@@ -8,6 +8,7 @@ export const LOAD_TASK = 'LOAD_TASK';
 export const LOAD_USER = 'LOAD_USER';
 export const LOAD_EVENT = 'LOAD_EVENT';
 export const LOAD_CURRENT_GUEST = 'LOAD_CURRENT_GUEST';
+export const LOAD_CURRENT_CONTRACTOR = 'LOAD_CURRENT_CONTRACTOR';
 export const LOAD_BUDGET = 'LOAD_BUDGET';
 
 export const AUTH_USER = 'AUTH_USER';
@@ -102,6 +103,13 @@ export const loadCurrentGuest = currentGuest => {
   return {
     type : LOAD_CURRENT_GUEST,
     currentGuest
+  };
+};
+
+export const loadCurrentContractor = currentContractor => {
+  return {
+    type : LOAD_CURRENT_CONTRACTOR,
+    currentContractor
   };
 };
 
