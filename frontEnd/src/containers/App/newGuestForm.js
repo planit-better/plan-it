@@ -279,7 +279,7 @@ class newGuestForm extends Component {
 
           <br></br>
 
-          <div className="list column">
+          <div className="list column control">
             <GuestList guest={this.props.guest} />
           </div>
 
@@ -330,9 +330,9 @@ class newGuestForm extends Component {
               <div className="notePad has-text-centered">
                 <GuestList guest={this.props.guest} />
               </div>
-              </div>
-            <div className="column">
             </div>
+
+            <div className="column"></div>
           </div>
         </div>
         );

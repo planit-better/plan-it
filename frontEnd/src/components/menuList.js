@@ -44,7 +44,7 @@ class MenuList extends Component {
     return(
       <div className="field">
 
-      <h1>Hello Menu</h1>
+      <h1 className="label">Hello Menu</h1>
       <ul>
         {
           allowedMenu.map((menu) =>
