@@ -11,6 +11,7 @@ export const LOAD_CURRENT_GUEST = 'LOAD_CURRENT_GUEST';
 export const LOAD_CURRENT_CONTRACTOR = 'LOAD_CURRENT_CONTRACTOR';
 export const LOAD_BUDGET = 'LOAD_BUDGET';
 export const LOAD_CURRENT_TASK = 'LOAD_CURRENT_TASK';
+export const LOAD_CURRENT_MENU = 'LOAD_CURRENT_MENU';
 
 export const AUTH_USER = 'AUTH_USER';
 export const LOGOUT_USER = 'LOGOUT_USER';
@@ -125,6 +126,14 @@ export const loadBudget = budgetTotals => {
   return{
     type : LOAD_BUDGET,
     budgetTotals
+  };
+};
+
+export const loadCurrentMenu = currentMenu => {
+  console.log('hit load current menu action')
+  return{
+    type : LOAD_CURRENT_MENU,
+    currentMenu
   };
 };
 

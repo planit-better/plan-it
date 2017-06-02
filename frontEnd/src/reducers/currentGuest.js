@@ -6,13 +6,13 @@ import {
 
 const initialState = {
   currentGuest: {
-    id: null,
+    id: "",
     name : "",
     number : "",
     email : "",
     will_attend : false,
     can_drink : false,
-    accompanying_guests : null,
+    accompanying_guests : "",
     diet_restriction : ""
   }
 };

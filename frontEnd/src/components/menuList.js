@@ -3,7 +3,8 @@
 
 import React,{Component} from 'react';
 import { connect } from 'react-redux';
-import { loadMenu } from '../action';
+import { loadMenu, loadCurrentMenu } from '../action';
+import { Link } from 'react-router-dom';
 
 
 
@@ -28,6 +29,9 @@ class MenuList extends Component {
     })
   }
 
+  menuRef( menu ){
+    this.props.loadCurrentMenu( menu )
+  }
 
 
    render() {
@@ -38,14 +42,17 @@ class MenuList extends Component {
       }
     }
     return(
-      <div>
+      <div className="field">
 
       <h1>Hello Menu</h1>
       <ul>
         {
-          allowedMenu.map((name) =>
-            <li className="menu" key={name.id}><h3>{name.restaurant_name}</h3></li>
-            )
+          allowedMenu.map((menu) =>
+          <Link to="/menuProfile">
+            <li className="menu" key={menu.id} onClick={this.menuRef.bind(this, menu)}><h3>{menu.restaurant_name}</h3>
+            </li>
+          </Link>
+          )
         }
 
       </ul>
@@ -68,6 +75,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     loadMenu: menu =>{
       dispatch(loadMenu(menu))
+    },
+    loadCurrentMenu : menu => {
+      dispatch(loadCurrentMenu(menu))
     }
   }
 }
