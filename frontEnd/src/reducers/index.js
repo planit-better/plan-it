@@ -15,6 +15,8 @@ import currentGuest from './currentGuest';
 import budget from './budget';
 import currentContractor from './currentContractor';
 import currentTask from './currentTask';
+import currentMenu from './currentMenu';
+import currentEquipment from './currentEquipment';
 
 export default combineReducers({
   contractors,
@@ -29,6 +31,8 @@ export default combineReducers({
   currentGuest,
   budget,
   currentContractor,
-  currentTask
+  currentTask,
+  currentMenu,
+  currentEquipment
 });
 
