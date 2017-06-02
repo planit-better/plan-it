@@ -12,6 +12,7 @@ export const LOAD_CURRENT_CONTRACTOR = 'LOAD_CURRENT_CONTRACTOR';
 export const LOAD_BUDGET = 'LOAD_BUDGET';
 export const LOAD_CURRENT_TASK = 'LOAD_CURRENT_TASK';
 export const LOAD_CURRENT_MENU = 'LOAD_CURRENT_MENU';
+export const LOAD_CURRENT_EQUIPMENT = 'LOAD_CURRENT_EQUIPMENT';
 
 export const AUTH_USER = 'AUTH_USER';
 export const LOGOUT_USER = 'LOGOUT_USER';
@@ -130,10 +131,16 @@ export const loadBudget = budgetTotals => {
 };
 
 export const loadCurrentMenu = currentMenu => {
-  console.log('hit load current menu action')
   return{
     type : LOAD_CURRENT_MENU,
     currentMenu
+  };
+};
+
+export const loadCurrentEquipment = currentEquipment => {
+  return{
+    type : LOAD_CURRENT_EQUIPMENT,
+    currentEquipment
   };
 };
 
