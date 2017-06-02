@@ -131,6 +131,7 @@ class EquipmentProfile extends Component {
               </div>
             </div>
 
+            <br></br><br></br>
 
             <div className="columns">
               <form className="column is-offset-3" onSubmit={this.handleEquipmentChangeSubmit}>
@@ -165,9 +166,7 @@ class EquipmentProfile extends Component {
 
               </form>
 
-              <form className="column is-offset-3" onSubmit={this.handleEquipmentChangeSubmit}>
-
-              </form>
+              <br></br><br></br>
 
               <div className="column">
                 <p>Equipment</p>

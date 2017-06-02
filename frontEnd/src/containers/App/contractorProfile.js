@@ -142,6 +142,7 @@ class ContractorProfile extends Component {
             </div>
 
 
+            <br></br><br></br>
             <div className="columns">
               <form className="column is-offset-3" onSubmit={this.handleContractorChangeSubmit}>
 

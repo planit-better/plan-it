@@ -156,6 +156,7 @@ class newEquipmentForm extends Component {
             </div>
             </div>
         </div>
+
         <br></br>
         <div className="columns">
           <div className="column is-offset-2">
@@ -204,6 +205,8 @@ class newEquipmentForm extends Component {
             </form>
           </div>
 
+          <br></br><br></br>
+
           <div className="column">
             <EquipmentList equipment={this.props.equipment} />
           </div>
@@ -233,12 +236,13 @@ class newEquipmentForm extends Component {
          </div>
 
          <div className="nav-right">
-           <div className="nav-item">
-             <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
-             <a className="nav-item is-tab is-hidden-mobile" onClick={this.openForm}>New Equipment Form</a>
-           </div>
+            <div className="nav-item">
+              <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
+              <a className="nav-item is-tab is-hidden-mobile" onClick={this.openForm}>New Equipment Form</a>
+            </div>
+          </div>
          </div>
-         </div>
+         <br></br><br></br>
       <EquipmentList equipment={this.props.equipment} />
     </div>
     )

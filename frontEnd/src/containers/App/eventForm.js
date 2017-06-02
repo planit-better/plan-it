@@ -198,7 +198,7 @@ class EventForm extends Component {
               <div className="nav-right">
                 <div className="nav-item">
                   <a className="nav-item is-tab is-hidden-mobile is-active" onClick={this.signOut}>Change User</a>
-                  <a className="nav-item is-tab is-hidden-mobile is-active" onClick={this.displayForm}> Hide Event Form</a>
+                  <a className="nav-item is-tab is-hidden-mobile" onClick={this.displayForm}> Hide Event Form</a>
                 </div>
               </div>
             </div>
@@ -301,7 +301,7 @@ class EventForm extends Component {
               <div className="nav-right">
                 <div className="nav-item">
                   <a className="nav-item is-tab is-hidden-mobile is-active" onClick={this.signOut}>Change User</a>
-                  <a className="nav-item is-tab is-hidden-mobile is-active" onClick={this.displayForm}> New Event Form</a>
+                  <a className="nav-item is-tab is-hidden-mobile " onClick={this.displayForm}> New Event Form</a>
                 </div>
               </div>
             </div>
