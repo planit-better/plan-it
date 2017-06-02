@@ -47,8 +47,8 @@ class ContractorList extends Component {
       <ul>
         {
           allowedContractors.map((contractorName) =>
-            <Link to="/contractorProfile">
-              <li className="contractors" key={contractorName.id} onClick={this.contractorRef.bind(this, contractorName)}>
+            <Link to="/contractorProfile" key={contractorName.id} >
+              <li className="contractors" onClick={this.contractorRef.bind(this, contractorName)}>
                 <h3>{contractorName.company_name}</h3>
               </li>
             </Link>
