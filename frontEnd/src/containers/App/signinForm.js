@@ -22,7 +22,7 @@ class signinForm extends Component{
 
   }
 
-  componentWillMount() {
+  componentDidMount() {
     fetch('/api/User', {
       method : "GET",
       credentials: 'include'
@@ -58,8 +58,6 @@ class signinForm extends Component{
     for(var i=0; i<this.props.user.length; i++){
       usernames.push(this.props.user[i].username)
     }
-    console.log(usernames)
-    console.log(user.username)
     if(usernames.indexOf(user.username) === -1){
       this.setState({
         signedIn : true
@@ -78,7 +76,7 @@ class signinForm extends Component{
           this.signedIn = true;
         }).catch(error => {
           this.setState({
-            error
+            error : error
           });
         })
     } else {

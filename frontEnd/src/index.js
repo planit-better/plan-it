@@ -23,6 +23,7 @@ import budgetForm from './containers/App/budgetForm';
 import contractorProfile from './containers/App/contractorProfile';
 import taskProfile from './containers/App/taskProfile';
 import menuProfile from './containers/App/menuProfile';
+import equipmentProfile from './containers/App/equipmentProfile';
 
 
 import './index.css';
@@ -52,6 +53,7 @@ ReactDOM.render(
         <Route path="/contractorProfile" component={contractorProfile} />
         <Route path="/taskProfile" component={taskProfile} />
         <Route path="/menuProfile" component={menuProfile} />
+        <Route path="/equipmentProfile" component={equipmentProfile} />
       </div>
     </Router>
   </Provider>,

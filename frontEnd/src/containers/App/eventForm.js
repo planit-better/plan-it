@@ -47,6 +47,7 @@ class EventForm extends Component {
   }
 
   handleChangelocationName = ( event ) => {
+    this.findUserId(this.props.currentUser.username)
     this.setState({
       location_name : event.target.value
     });
@@ -121,7 +122,7 @@ class EventForm extends Component {
   }
 
   componentWillMount() {
-    this.findUserId(this.props.currentUser.username)
+    //this.findUserId(this.props.currentUser.username)
     fetch('/api/User', {
       method : "GET",
       credentials: 'include'
@@ -135,8 +136,6 @@ class EventForm extends Component {
   }
 
   findUserId(username){
-    console.log(username)
-    console.log(this.props.user)
     for(var i=0; i<this.props.user.length; i++){
       if(this.props.user[i].username === username){
         this.setId(this.props.user[i].id)
@@ -145,7 +144,6 @@ class EventForm extends Component {
   }
 
   setId(id){
-    console.log(id)
     this.setState({
       user_id : id
     })

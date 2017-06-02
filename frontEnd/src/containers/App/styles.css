@@ -131,3 +131,11 @@
   background-size: cover;
   height: 973px;
 }
+  
+.emailInput {
+  width: 90%;
+}
+
+.smallInput {
+  width: 20%;
+}

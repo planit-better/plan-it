@@ -132,19 +132,32 @@ class GuestProfile extends Component {
      return(
 
           <div className="App">
-            <div className="App-header">
-              <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-              <h2>Planit-Better</h2>
-              <h3>{this.props.currentUser.username}</h3>
-              <h3>{this.props.eventStatus.currentEvent.name}</h3>
-            </div>
-            <div id="navBar">
-              <Link to="/"><button>Home</button></Link>
+            <div className="nav has-shadow">
+              <div className="nav-left">
+                <div className="nav-item">
+                  <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
+                  <h1 className="title is-3">Planit-Better</h1>
+                </div>
+
+                <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
+              </div>
+
+              <div className="nav-center">
+                <div className="nav-item">
+                  <h3>{this.props.currentUser.username}</h3>
+                </div>
+              </div>
+
+              <div className="nav-right">
+                <div className="nav-item">
+                  <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
+                </div>
+              </div>
             </div>
 
 
             <div className="columns">
-              <form className="column is-offset-3" onSubmit={this.handleGuestChangeSubmit}>
+              <form className="column is-offset-2 is-4" onSubmit={this.handleGuestChangeSubmit}>
                 <div className="field">
                   <p className="control">
                     <label className="label">Change Name</label>
@@ -162,7 +175,7 @@ class GuestProfile extends Component {
                 <div className="field">
                   <p className="control">
                     <label className="label">Change Email</label>
-                    <input className="input" type="text" placeholder="email" value={this.state.email} onChange={this.handleChangeEmail} />
+                    <input className="input emailInput" type="text" placeholder="email" value={this.state.email} onChange={this.handleChangeEmail} />
                   </p>
                 </div>
 
@@ -181,7 +194,7 @@ class GuestProfile extends Component {
                 <div className="field">
                   <p className="control">
                     <label className="label">Change Number of accompanying guests</label>
-                    <input className="input" type="number" value={this.state.accompanying_guests} onChange={this.handleChangeAccompanyingGuests} />
+                    <input className="input smallInput" type="number" value={this.state.accompanying_guests} onChange={this.handleChangeAccompanyingGuests} />
                   </p>
                 </div>
 
@@ -214,12 +227,10 @@ class GuestProfile extends Component {
 
               </form>
 
-              <form className="column is-offset-3" onSubmit={this.handleGuestChangeSubmit}>
+              <form className="column is-2" onSubmit={this.handleGuestChangeSubmit}></form>
 
-              </form>
-
-              <div>
-                <p>Attending</p>
+              <div className="column">
+                <label className="label">Attending</label>
                 <p className="control">
                   <label className="label">Name</label>
                   <p>{this.props.currentGuest.currentGuest.name}</p>
@@ -244,6 +255,8 @@ class GuestProfile extends Component {
                   <span>{this.props.currentGuest.currentGuest.diet_restriction}</span>
                 </p>
               </div>
+
+              <div className="column is-3 is-offset-4"></div>
             </div>
 
 
@@ -253,19 +266,32 @@ class GuestProfile extends Component {
    } else {
       return(
           <div className="App">
-            <div className="App-header">
-              <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-              <h2>Planit-Better</h2>
-              <h3>{this.props.currentUser.username}</h3>
-              <h3>{this.props.eventStatus.currentEvent.name}</h3>
-            </div>
-            <div id="navBar">
-              <Link to="/"><button>Home</button></Link>
+            <div className="nav has-shadow">
+              <div className="nav-left">
+                <div className="nav-item">
+                  <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
+                  <h1 className="title is-3">Planit-Better</h1>
+                </div>
+
+                <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
+              </div>
+
+              <div className="nav-center">
+                <div className="nav-item">
+                  <h3>{this.props.currentUser.username}</h3>
+                </div>
+              </div>
+
+              <div className="nav-right">
+                <div className="nav-item">
+                  <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
+                </div>
+              </div>
             </div>
 
 
             <div className="columns">
-              <form className="column is-offset-3" onSubmit={this.handleGuestChangeSubmit}>
+              <form className="column is-offset-2 is-4" onSubmit={this.handleGuestChangeSubmit}>
                 <div className="field">
                   <p className="control">
                     <label className="label">Change Name</label>
@@ -283,7 +309,7 @@ class GuestProfile extends Component {
                 <div className="field">
                   <p className="control">
                     <label className="label">Change Email</label>
-                    <input className="input" type="text" placeholder="email" value={this.state.email} onChange={this.handleChangeEmail} />
+                    <input className="input emailInput" type="text" placeholder="email" value={this.state.email} onChange={this.handleChangeEmail} />
                   </p>
                 </div>
 
@@ -302,7 +328,7 @@ class GuestProfile extends Component {
                 <div className="field">
                   <p className="control">
                     <label className="label">Change Number of accompanying guests</label>
-                    <input className="input" type="number" value={this.state.accompanying_guests} onChange={this.handleChangeAccompanyingGuests} />
+                    <input className="input smallInput" type="number" value={this.state.accompanying_guests} onChange={this.handleChangeAccompanyingGuests} />
                   </p>
                 </div>
 
@@ -335,8 +361,10 @@ class GuestProfile extends Component {
 
               </form>
 
-              <div>
-                <p>Not Attending</p>
+              <form className="column is-2" onSubmit={this.handleGuestChangeSubmit}></form>
+
+              <div className="column">
+                <p className="label">Not Attending</p>
                 <p className="control">
                   <label className="label">Name</label>
                   <p>{this.props.currentGuest.currentGuest.name}</p>
@@ -361,6 +389,8 @@ class GuestProfile extends Component {
                   <span>{this.props.currentGuest.currentGuest.diet_restriction}</span>
                 </p>
               </div>
+
+              <div className="column is-3 is-offset-4"></div>
             </div>
 
 

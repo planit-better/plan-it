@@ -14,7 +14,6 @@ const initialState = {
 };
 
 const menu = (state = initialState, action) =>{
-  console.log(action.currentMenu);
   switch(action.type){
     case LOAD_CURRENT_MENU:
       return Object.assign({}, state, {
