@@ -46,6 +46,7 @@ equipment.delete('/:id', ( req, res ) => {
 });
 
 equipment.put('/:id', (req,res) => {
+  console.log(req.path)
   let path = req.path.split('/')[1];
   Equipment.update({
     name: req.body.name,

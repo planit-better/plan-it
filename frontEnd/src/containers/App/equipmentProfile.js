@@ -22,10 +22,16 @@ class EquipmentProfile extends Component {
 
       cost: this.props.currentEquipment.currentEquipment.cost,
 
+      id: this.props.currentEquipment.currentEquipment.id,
+
       event_id : this.props.eventStatus.currentEvent.id
     };
 
   }
+
+    componentWillMount() {
+      this.props.loadCurrentEquipment(this.state)
+    }
 
     handleEquipmentChangeSubmit = ( event ) => {
       event.preventDefault();
@@ -53,7 +59,8 @@ class EquipmentProfile extends Component {
     }
 
     updateEquipment = ( equipment ) => {
-        return fetch(`/api/equipment/${this.props.currentEquipment.currentEquipment.id}`, {
+      console.log(equipment)
+        return fetch(`/api/equipment/${this.state.id}`, {
         method: "PUT",
         credentials: 'include',
          headers:
@@ -91,7 +98,7 @@ class EquipmentProfile extends Component {
 
 
     render() {
-      console.log(this.props.currentEquipment.currentEquipment.id)
+      console.log(this.state)
     if(this.props.currentUser.userLoggedIn === false){
     return(
       <Redirect to={{
