@@ -114,6 +114,10 @@ class GuestProfile extends Component {
       })
     }
 
+    removeGuest(){
+      console.log('hit remove guest')
+    }
+
 
 
 
@@ -221,7 +225,8 @@ class GuestProfile extends Component {
 
                 <div className="field">
                   <p className="control">
-                    <button className="button is-info" name="Login" type="submit">Update Guest </button>
+                    <button className="button is-info" name="Login" type="submit"> Update Guest </button>
+                    <button className="button is-info" name="Remove" onClick={this.removeGuest}> Remove Guest </button>
                   </p>
                 </div>
 
