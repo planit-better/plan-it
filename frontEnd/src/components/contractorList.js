@@ -30,7 +30,6 @@ class ContractorList extends Component {
   }
 
   contractorRef( contractors ) {
-    console.log('hit contractor ref')
     this.props.loadCurrentContractor( contractors )
   }
 
@@ -44,7 +43,7 @@ class ContractorList extends Component {
     return(
       <div className="field">
 
-      <h1 className="label guestList">Hello Contractors</h1>
+      <h1 className="label guestList">All Contractors</h1>
       <ul>
         {
           allowedContractors.map((contractorName) =>

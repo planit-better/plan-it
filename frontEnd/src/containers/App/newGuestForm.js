@@ -178,6 +178,7 @@ class newGuestForm extends Component {
                   <a className="nav-item is-tab is-hidden-mobile" onClick={this.openForm}>Hide Guest Form</a>
                 </div>
               </div>
+
             </div>
 
             <br></br>
@@ -296,7 +297,7 @@ class newGuestForm extends Component {
           <div className="nav-left">
             <div className="nav-item">
               <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-
+        
               <h2 className="title is-3">Planit-Better</h2>
             </div>
               <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>

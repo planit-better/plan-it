@@ -16,22 +16,19 @@ class newContractorForm extends Component {
 
     this.state = {
       company_name : "",
-      cost : "",
+      cost : 0,
       contact : "",
       date_hired : "",
       deadline : "",
       event_id : this.props.eventStatus.currentEvent.id,
-      formOpen : false
+      formOpen : false,
     };
   }
 
     handleContractorSubmit = ( event ) => {
       event.preventDefault();
       this.addContractor(this.state)
-      .then(this.clearState())
       .then(this.updateStore())
-      .then(this.addContractorBudget())
-
     }
 
     handleChangeComanyName = ( event ) => {
@@ -42,7 +39,7 @@ class newContractorForm extends Component {
 
     handleChangeCost = ( event ) => {
       this.setState({
-        cost : event.target.value
+        cost : Number(event.target.value)
       });
     }
 
@@ -101,7 +98,9 @@ class newContractorForm extends Component {
         },
         body: JSON.stringify(contractor)
       }).then(response =>{
-        return(response)
+        return(response.json())
+      }).then(data => {
+        this.addContractorBudget(data.id)
       }).catch(err => {
         throw err;
       })
@@ -113,7 +112,7 @@ class newContractorForm extends Component {
       })
     }
 
-    addContractorBudget(){
+    addContractorBudget = (id) => {
       return fetch('/api/budget', {
         method: "POST",
         credentials: 'include',
@@ -124,10 +123,11 @@ class newContractorForm extends Component {
         body: JSON.stringify({
           "type": "Contractor",
           "amount": this.state.cost,
-          "event_id": this.props.eventStatus.currentEvent.id
+          "event_id": this.props.eventStatus.currentEvent.id,
+          "type_id": id
         })
       }).then(response =>{
-        return response
+        this.clearState()
       }).catch(err =>{
         throw err;
       })

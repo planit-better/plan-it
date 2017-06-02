@@ -259,7 +259,7 @@ class newTaskForm extends Component {
               <div className="nav-right">
                 <div className="nav-item">
                   <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
-                  <a className="nav-item is-tab is-hidden-mobile" onClick={this.openForm}>Hide Menu Form</a>
+                  <a className="nav-item is-tab is-hidden-mobile" onClick={this.openForm}>Hide Task Form</a>
                 </div>
               </div>
 

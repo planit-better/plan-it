@@ -46,12 +46,14 @@ task.delete('/:id', ( req, res ) => {
 });
 
 task.put('/:id', (req,res) => {
+  console.log(req.path)
   let path = req.path.split('/')[1];
   Task.update({
     name: req.body.name,
     type: req.body.type,
-    assigned_to: req.body.assigned_to,
-    deadline: req.body.deadline
+    cost: req.body.cost,
+    deadline: req.body.deadline,
+    complete : req.body.complete,
   },  {
       where: {
         id: path

@@ -10,6 +10,7 @@ export const LOAD_EVENT = 'LOAD_EVENT';
 export const LOAD_CURRENT_GUEST = 'LOAD_CURRENT_GUEST';
 export const LOAD_CURRENT_CONTRACTOR = 'LOAD_CURRENT_CONTRACTOR';
 export const LOAD_BUDGET = 'LOAD_BUDGET';
+export const LOAD_CURRENT_TASK = 'LOAD_CURRENT_TASK';
 
 export const AUTH_USER = 'AUTH_USER';
 export const LOGOUT_USER = 'LOGOUT_USER';
@@ -107,10 +108,16 @@ export const loadCurrentGuest = currentGuest => {
 };
 
 export const loadCurrentContractor = currentContractor => {
-  console.log('hit cur cont action')
   return {
     type : LOAD_CURRENT_CONTRACTOR,
     currentContractor
+  };
+};
+
+export const loadCurrentTask = currentTask => {
+  return {
+    type : LOAD_CURRENT_TASK,
+    currentTask
   };
 };
 

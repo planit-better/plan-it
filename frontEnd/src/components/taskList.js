@@ -3,7 +3,9 @@
 
 import React,{Component} from 'react';
 import { connect } from 'react-redux';
-import { loadTask } from '../action';
+import { loadTask, loadCurrentTask } from '../action';
+import { Link } from 'react-router-dom';
+
 
 
 
@@ -28,7 +30,9 @@ class TaskList extends Component {
     })
   }
 
-
+  taskRef( task ) {
+    this.props.loadCurrentTask(task)
+  }
 
    render() {
     let allowedTasks = []
@@ -38,13 +42,16 @@ class TaskList extends Component {
       }
     }
     return(
-      <div>
+      <div className="field">
 
-      <h1 className="label">Hello Tasks</h1>
+      <h1 className="label">All Tasks</h1>
       <ul>
         {
-          allowedTasks.map((name) =>
-            <li className="tasks" key={name.id}><h3>{name.name}</h3></li>
+          allowedTasks.map((task) =>
+            <Link to="/taskProfile">
+              <li className="tasks" key={task.id} onClick={this.taskRef.bind(this, task)}><h3>{task.name}</h3>
+              </li>
+            </Link>
             )
         }
 
@@ -68,6 +75,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     loadTask: task =>{
       dispatch(loadTask(task))
+    },
+    loadCurrentTask: task =>{
+      dispatch(loadCurrentTask(task))
     }
   }
 }
