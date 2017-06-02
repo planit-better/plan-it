@@ -72,7 +72,6 @@ class TaskProfile extends Component {
 
     updateTask = ( task ) => {
 
-        console.log(this.props.currentTask.currentTask.id)
         return fetch(`/api/task/${this.props.currentTask.currentTask.id}`, {
         method: "PUT",
         credentials: 'include',

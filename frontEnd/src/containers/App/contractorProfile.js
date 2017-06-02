@@ -107,7 +107,6 @@ class ContractorProfile extends Component {
 
 
     render() {
-      console.log(this.props.currentContractor.currentContractor.id)
     if(this.props.currentUser.userLoggedIn === false){
     return(
       <Redirect to={{

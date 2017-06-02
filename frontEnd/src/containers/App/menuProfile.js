@@ -91,7 +91,6 @@ class MenuProfile extends Component {
 
 
     render() {
-      console.log(this.props.currentMenu)
     if(this.props.currentUser.userLoggedIn === false){
     return(
       <Redirect to={{

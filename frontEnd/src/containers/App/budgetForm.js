@@ -60,9 +60,6 @@ class Budget extends Component {
       }
     }
 
-    console.log(contractorBudget)
-    console.log(menuBudget)
-    console.log(equipmentBudget)
     return(
       <div className="App">
 

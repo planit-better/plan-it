@@ -32,7 +32,6 @@ class EventList extends Component {
   }
 
   eventRef ( event, e ) {
-    console.log(event)
     this.props.loadOwnedEvent(event)
   }
 
