@@ -92,14 +92,6 @@ class App extends Component {
 
 
   render() {
-    // console.log(this.props.equipment);
-    // console.log(this.props.contractors);
-    // console.log(this.props.guest);
-    // console.log(this.props.menu);
-    // console.log(this.props.task);
-    // console.log(this.props.currentUser)
-    // console.log(this.props.currentUser)
-    // console.log(this.props.eventStatus)
 
     if(this.props.currentUser.userLoggedIn === true){
 

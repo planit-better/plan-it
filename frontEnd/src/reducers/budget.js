@@ -10,7 +10,6 @@ const initialState = [];
 const budget = (state = initialState, action) =>{
   switch(action.type){
     case LOAD_BUDGET:
-    console.log(action)
       return [...action.budgetTotals];
 
       default: return state;

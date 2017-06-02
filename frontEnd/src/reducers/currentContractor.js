@@ -16,7 +16,6 @@ const initialState = {
 };
 
 const contractors = (state = initialState, action) =>{
-  console.log(action.currentContractor);
   switch(action.type){
     case LOAD_CURRENT_CONTRACTOR:
       return Object.assign({}, state, {

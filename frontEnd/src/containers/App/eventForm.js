@@ -129,7 +129,6 @@ class EventForm extends Component {
     }).then((response)=>{
       return response.json()
     }).then((user) =>{
-      console.log(user)
       this.props.loadUser(user)
     }).catch(err =>{
       throw err;
@@ -137,19 +136,14 @@ class EventForm extends Component {
   }
 
   findUserId(username){
-    console.log(username)
-    console.log(this.props.user)
     for(var i=0; i<this.props.user.length; i++){
       if(this.props.user[i].username === username){
         this.setId(this.props.user[i].id)
       }
-      console.log('true')
     }
-    console.log(this.user_id)
   }
 
   setId(id){
-    console.log(id)
     this.setState({
       user_id : id
     })
@@ -167,8 +161,6 @@ class EventForm extends Component {
   }
 
   render() {
-    console.log(this.state)
-    console.log(this.props.currentUser)
     if(this.props.currentUser.userLoggedIn === false){
       return(
         <Redirect to={{

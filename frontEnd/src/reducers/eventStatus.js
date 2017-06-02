@@ -9,7 +9,6 @@ const initialState = {
 };
 
 const ownedEvent = (state = initialState, action) =>{
-  console.log(action)
   switch(action.type){
     case LOAD_OWNED_EVENT:
       return Object.assign({}, state, {
