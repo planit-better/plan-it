@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './styles.css';
 import { connect } from 'react-redux';
-import { loadCurrentGuest, loadCurrentContractor, loadContractors, loadEquipment, loadGuest, loadMenu, loadTask, logOut, clearEvent } from '../../action';
+import { loadCurrentGuest, updateCurrentGuest, loadContractors, loadEquipment, loadGuest, loadMenu, loadTask, logOut, clearEvent } from '../../action';
 import { Link, Redirect } from 'react-router-dom';
 
 
@@ -29,6 +29,8 @@ class GuestProfile extends Component {
       can_drink : false,
 
       diet_restriction : this.props.currentGuest.currentGuest.diet_restriction,
+
+      id: this.props.currentGuest.currentGuest.id,
 
       event_id : this.props.eventStatus.currentEvent.id
     }
@@ -114,8 +116,21 @@ class GuestProfile extends Component {
       })
     }
 
-    removeGuest(){
-      console.log('hit remove guest')
+    removeGuest = ( event ) => {
+      event.preventDefault()
+        return fetch(`/api/guest/${this.props.currentGuest.currentGuest.id}`, {
+          method: "DELETE",
+          credentials : "include",
+          headers:
+          {
+            "Content-Type" : "application/json",
+            "Accept" : "application/json"
+          }
+        }).then((response) =>{
+          return response.json()
+        }).catch(err =>{
+          throw err;
+        })
     }
 
 
@@ -124,6 +139,8 @@ class GuestProfile extends Component {
 
 
     render() {
+      console.log(this.props.currentGuest.currentGuest.id)
+      console.log(this.state.id)
     if(this.props.currentUser.userLoggedIn === false){
     return(
       <Redirect to={{
@@ -161,7 +178,7 @@ class GuestProfile extends Component {
 
 
             <div className="columns">
-              <form className="column is-offset-2 is-4" onSubmit={this.handleGuestChangeSubmit}>
+              <form className="column is-offset-2 is-4" >
                 <div className="field">
                   <p className="control">
                     <label className="label">Change Name</label>
@@ -225,7 +242,7 @@ class GuestProfile extends Component {
 
                 <div className="field">
                   <p className="control">
-                    <button className="button is-info" name="Login" type="submit"> Update Guest </button>
+                    <button className="button is-info" name="Login" onClick={this.handleGuestChangeSubmit}> Update Guest </button>
                     <button className="button is-info" name="Remove" onClick={this.removeGuest}> Remove Guest </button>
                   </p>
                 </div>
@@ -420,7 +437,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     loadCurrentGuest : currentGuest => {
       dispatch(loadCurrentGuest(currentGuest))
-   }
+   },
+    updateCurrentGuest : currentGuest => {
+      dispatch(updateCurrentGuest(currentGuest))
+    }
   }
 }
 
