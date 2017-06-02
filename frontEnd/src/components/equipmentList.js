@@ -50,7 +50,7 @@ class EquipmentList extends Component {
         {
           allowedEquipment.map((equipment) =>
             <Link to="/equipmentProfile" key={equipment.id}>
-              <li className="equipment" key={equipment.id} onClick={this.equipmentRef.bind(this, equipment)}>
+              <li className="equipment" onClick={this.equipmentRef.bind(this, equipment)}>
                 <h3>{equipment.name}</h3>
               </li>
             </Link>
