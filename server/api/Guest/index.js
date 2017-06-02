@@ -33,6 +33,7 @@ guest.post('/', ( req, res ) => {
 });
 
 guest.delete('/:id', ( req, res ) => {
+  console.log('hit guestt delete')
   let path = req.path.split('/')[1];
   //console.log(req.body);
   Guest.destroy({
@@ -51,8 +52,6 @@ guest.delete('/:id', ( req, res ) => {
 });
 
 guest.put('/:id', (req,res) => {
-  console.log('hit put guest by id');
-  console.log(req.body);
   let path = req.path.split('/')[1];
   Guest.update({
     name: req.body.name,
