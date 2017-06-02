@@ -132,7 +132,10 @@ class App extends Component {
                   <i className="fa fa-briefcase"></i>
                 </span>
               </p>
-                <Link to="/newContractorForm"><button className="button columnButton is-large is-info is-outlined">New Contractor</button></Link>
+                <Link to="/newContractorForm">
+                  <button className="button columnButton is-large is-info is-outlined">New Contractor
+                  </button>
+                </Link>
             </div>
 
             <div className="column">

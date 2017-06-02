@@ -127,11 +127,17 @@ class GuestProfile extends Component {
             "Accept" : "application/json"
           }
         }).then((response) =>{
-          return response.json()
+          this.redirectGuestList()
         }).catch(err =>{
           throw err;
         })
+
     }
+
+    redirectGuestList(){
+       this.props.history.push("/newGuestForm")
+      }
+
 
 
 
@@ -242,8 +248,10 @@ class GuestProfile extends Component {
 
                 <div className="field">
                   <p className="control">
-                    <button className="button is-info" name="Login" onClick={this.handleGuestChangeSubmit}> Update Guest </button>
-                    <button className="button is-info" name="Remove" onClick={this.removeGuest}> Remove Guest </button>
+                      <button className="button is-info" name="Login" onClick={this.handleGuestChangeSubmit}> Update Guest
+                      </button>
+                      <button className="button is-info" name="Remove" onClick={this.removeGuest}> Remove Guest
+                      </button>
                   </p>
                 </div>
 
