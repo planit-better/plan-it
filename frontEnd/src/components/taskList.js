@@ -48,8 +48,8 @@ class TaskList extends Component {
       <ul>
         {
           allowedTasks.map((task) =>
-            <Link to="/taskProfile">
-              <li className="tasks" key={task.id} onClick={this.taskRef.bind(this, task)}><h3>{task.name}</h3>
+            <Link to="/taskProfile" key={task.id}>
+              <li className="tasks" onClick={this.taskRef.bind(this, task)}><h3>{task.name}</h3>
               </li>
             </Link>
             )
