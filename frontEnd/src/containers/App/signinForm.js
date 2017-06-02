@@ -22,7 +22,7 @@ class signinForm extends Component{
 
   }
 
-  componentWillMount() {
+  componentDidMount() {
     fetch('/api/User', {
       method : "GET",
       credentials: 'include'
@@ -78,7 +78,7 @@ class signinForm extends Component{
           this.signedIn = true;
         }).catch(error => {
           this.setState({
-            error
+            error : error
           });
         })
     } else {

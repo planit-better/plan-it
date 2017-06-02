@@ -47,6 +47,7 @@ class EventForm extends Component {
   }
 
   handleChangelocationName = ( event ) => {
+    this.findUserId(this.props.currentUser.username)
     this.setState({
       location_name : event.target.value
     });
@@ -121,13 +122,14 @@ class EventForm extends Component {
   }
 
   componentWillMount() {
-    this.findUserId(this.props.currentUser.username)
+    //this.findUserId(this.props.currentUser.username)
     fetch('/api/User', {
       method : "GET",
       credentials: 'include'
     }).then((response)=>{
       return response.json()
     }).then((user) =>{
+      console.log(user)
       this.props.loadUser(user)
     }).catch(err =>{
       throw err;
@@ -141,7 +143,9 @@ class EventForm extends Component {
       if(this.props.user[i].username === username){
         this.setId(this.props.user[i].id)
       }
+      console.log('true')
     }
+    console.log(this.user_id)
   }
 
   setId(id){
@@ -163,6 +167,8 @@ class EventForm extends Component {
   }
 
   render() {
+    console.log(this.state)
+    console.log(this.props.currentUser)
     if(this.props.currentUser.userLoggedIn === false){
       return(
         <Redirect to={{
