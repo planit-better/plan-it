@@ -18,7 +18,6 @@ const initialState = {
 };
 
 const guest = (state = initialState, action) =>{
-  console.log(action.currentGuest);
   switch(action.type){
     case LOAD_CURRENT_GUEST:
       return Object.assign({}, state, {

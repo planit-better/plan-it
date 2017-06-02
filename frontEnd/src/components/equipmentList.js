@@ -3,7 +3,8 @@
 
 import React,{Component} from 'react';
 import { connect } from 'react-redux';
-import { loadEquipment } from '../action';
+import { loadEquipment, loadCurrentEquipment } from '../action';
+import { Link } from 'react-router-dom';
 
 
 
@@ -29,6 +30,10 @@ class EquipmentList extends Component {
   }
 
 
+  equipmentRef( equpiment ){
+    this.props.loadCurrentEquipment( equpiment )
+  }
+
 
    render() {
     let allowedEquipment = []
@@ -38,13 +43,17 @@ class EquipmentList extends Component {
       }
     }
     return(
-      <div>
+      <div className="field">
 
-      <h1 className="label">Hello Equipment</h1>
+      <h1 className="label">All Equipment</h1>
       <ul>
         {
-          allowedEquipment.map((name) =>
-            <li className="equipment" key={name.id}><h3>{name.name}</h3></li>
+          allowedEquipment.map((equipment) =>
+            <Link to="/equipmentProfile">
+              <li className="equipment" key={equipment.id} onClick={this.equipmentRef.bind(this, equipment)}>
+                <h3>{equipment.name}</h3>
+              </li>
+            </Link>
             )
         }
 
@@ -68,6 +77,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     loadEquipment: equipment =>{
       dispatch(loadEquipment(equipment))
+    },
+    loadCurrentEquipment : equipment => {
+      dispatch(loadCurrentEquipment(equipment))
     }
   }
 }
