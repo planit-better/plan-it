@@ -48,8 +48,8 @@ class MenuList extends Component {
       <ul>
         {
           allowedMenu.map((menu) =>
-          <Link to="/menuProfile">
-            <li className="menu" key={menu.id} onClick={this.menuRef.bind(this, menu)}><h3>{menu.restaurant_name}</h3>
+          <Link to="/menuProfile" key={menu.id}>
+            <li className="menu" onClick={this.menuRef.bind(this, menu)}><h3>{menu.restaurant_name}</h3>
             </li>
           </Link>
           )
