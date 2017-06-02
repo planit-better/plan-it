@@ -145,8 +145,8 @@ class newContractorForm extends Component {
       if(this.state.formOpen === true){
 
     return (
-      <div className="App">
-        <div className="nav has-shadow">
+      <div className="App contractor">
+        <div className="nav has-shadow contractorHome">
           <div className="nav-left">
             <div className="nav-item">
               <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
@@ -168,90 +168,107 @@ class newContractorForm extends Component {
               <a className="nav-item is-tab is-hidden-mobile" onClick={this.openForm}>Hide Contractor Form</a>
             </div>
           </div>
-
         </div>
 
         <br></br>
 
         <div className="columns">
-          <form className="column is-offset-2" onSubmit={this.handleContractorSubmit}>
 
-            <div className="field">
-              <p className="control">
-                <label className="label">Company Name</label>
-              </p>
-              <p className="control has-icons-left">
-                <input className="input" type="text" placeholder="Company Name" value={this.state.company_name} onChange={this.handleChangeComanyName} />
-                <span className="icon is-small is-left">
-                  <i className="fa fa-building"></i>
-                </span>
-              </p>
+          <div className="column">
+          </div>
+          <div className="list guestHome column is-4">
+            <form className="column is-offset-4" onSubmit={this.handleContractorSubmit}>
+
+              <label><h1>Enter your new contractor</h1></label>
+
+              <div className="field">
+                <p className="control">
+                  <label className="label">Company Name</label>
+                </p>
+                <p className="control has-icons-left">
+                  <input className="input" type="text" placeholder="Company Name" value={this.state.company_name} onChange={this.handleChangeComanyName} />
+                  <span className="icon is-small is-left">
+                    <i className="fa fa-building"></i>
+                  </span>
+                </p>
+              </div>
+
+              <div className="field">
+                <p className="control">
+                  <label className="label">Cost</label>
+                </p>
+                <p className="control has-icons-left">
+                  <input className="input" type="integer" placeholder="cost" value={this.state.cost} onChange={this.handleChangeCost} />
+                  <span className="icon is-small is-left">
+                    <i className="fa fa-usd"></i>
+                  </span>
+                </p>
+              </div>
+
+              <div className="field">
+                <p className="control">
+                  <label className="label">Contact Number</label>
+                </p>
+                <p className="control has-icons-left">
+                  <input className="input" type="integer" placeholder="contact number" value={this.state.contact} onChange={this.handleChangeContact} />
+                  <span className="icon is-small is-left">
+                    <i className="fa fa-phone"></i>
+                  </span>
+                </p>
+              </div>
+
+              <div className="field">
+                <p className="control">
+                  <label className="label">Hire Date</label>
+                </p>
+                <p className="control has-icons-left">
+                  <input className="input" type="date" placeholder="Hire Date" value={this.state.date_hired} onChange={this.handleChangeDateHired} />
+                  <span className="icon is-small is-left">
+                    <i className="fa fa-calendar-plus-o"></i>
+                  </span>
+                </p>
+              </div>
+
+              <div className="field">
+                <p className="control">
+                  <label className="label">Deadline</label>
+                </p>
+                <p className="control has-icons-left">
+                  <input className="input" type="date" value={this.state.deadline} onChange={this.handleChangeDeadline} />
+                  <span className="icon is-small is-left">
+                    <i className="fa fa-calendar-times-o"></i>
+                  </span>
+                </p>
+              </div>
+
+              <div className="field control">
+                <button className="button bottomButton is-outlined" name="Login" type="submit">Add Contractor </button>
+              </div>
+
+            </form>
+          </div>
+
+          <div className="column is-3">
+          </div>
+
+          <br></br>
+
+            <div className="list column is-4">
+              <ContractorList contractor={this.props.contractors}/>
+
             </div>
 
-            <div className="field">
-              <p className="control">
-                <label className="label">Cost</label>
-              </p>
-              <p className="control has-icons-left">
-                <input className="input" type="integer" placeholder="cost" value={this.state.cost} onChange={this.handleChangeCost} />
-                <span className="icon is-small is-left">
-                  <i className="fa fa-usd"></i>
-                </span>
-              </p>
+            <div className="column">
             </div>
 
-            <div className="field">
-              <p className="control">
-                <label className="label">Contact Number</label>
-              </p>
-              <p className="control has-icons-left">
-                <input className="input" type="integer" placeholder="contact number" value={this.state.contact} onChange={this.handleChangeContact} />
-                <span className="icon is-small is-left">
-                  <i className="fa fa-phone"></i>
-                </span>
-              </p>
-            </div>
-
-            <div className="field">
-              <p className="control">
-                <label className="label">Hire Date</label>
-              </p>
-              <p className="control has-icons-left">
-                <input className="input" type="date" placeholder="Hire Date" value={this.state.date_hired} onChange={this.handleChangeDateHired} />
-                <span className="icon is-small is-left">
-                  <i className="fa fa-calendar-plus-o"></i>
-                </span>
-              </p>
-            </div>
-
-            <div className="field">
-              <p className="control">
-                <label className="label">Deadline</label>
-              </p>
-              <p className="control has-icons-left">
-                <input className="input" type="date" value={this.state.deadline} onChange={this.handleChangeDeadline} />
-                <span className="icon is-small is-left">
-                  <i className="fa fa-calendar-times-o"></i>
-                </span>
-              </p>
-            </div>
-
-            <div className="field control">
-              <button className="button bottomButton is-outlined" name="Login" type="submit">Add Contractor </button>
-            </div>
-
-          </form>
-
-          <ContractorList contractor={this.props.contractors}/>
-
-          <div className="column is-1"></div>
+          </div>
         </div>
-      </div>
+
     );
   } else {
     return(
-      <div className="App">
-        <div className="nav has-shadow">
+      <div className="App contractor">
+        <div className=" contractorHome nav has-shadow">
           <div className="nav-left">
             <div className="nav-item">
               <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
@@ -273,12 +290,19 @@ class newContractorForm extends Component {
               <a className="nav-item is-tab is-hidden-mobile" onClick={this.openForm}>New Contractor Form</a>
             </div>
           </div>
-
         </div>
 
+        <br></br>
+        <div className="columns">
+          <div className="column">
+          </div>
 
-        <ContractorList contractor={this.props.contractors}/>
-
+          <div className="list column guestHome is-4">
+            <ContractorList contractor={this.props.contractors}/>
+          </div>
+          <div className="column">
+          </div>
+        </div>
       </div>
 
         )

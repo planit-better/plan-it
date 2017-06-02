@@ -91,9 +91,6 @@
   height: 989px;
 }
 
-.guest {
-  background-color: yellow;
-}
 
 .nav-left {
   height: 55px;
@@ -106,9 +103,18 @@
   border: 1px solid #333;
 }
 
-.guestHome {
+.guest {
+  background-color: yellow;
+}
 
-  width: 600px;
+.guestBackground {
+  background: url("http://images.clipartpanda.com/clipart-people-nTBX8zkgc.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 973px;
+}
+
+.guestHome {
   height: 600px;
 }
 
@@ -116,6 +122,16 @@
   margin-right: 25px;
 }
 
+.contractorHome {
+  background-color: #3399FF;
+}
+
+.contractor {
+  background: url("https://assets.entrepreneur.com/content/3x2/1300/20160201183859-plumber-plumbing-water-union-sink-tools.jpeg");
+  background-size: cover;
+  height: 973px;
+}
+  
 .emailInput {
   width: 90%;
 }
