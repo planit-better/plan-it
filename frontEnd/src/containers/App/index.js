@@ -199,28 +199,27 @@ class App extends Component {
       return (
         <div className="App">
 
-          <div className="App-header level">
+          <div className="nav has-shadow">
+              <div className="nav-left">
+                <div className="nav-item">
+                  <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
+                  <h1 className="title is-3">Planit-Better</h1>
+                </div>
+              </div>
 
-            <div className="field level-item has-text-centered">
-              <Link to="/signinForm">
-                <button className="button is-outlined is-small">Sign Up</button>
-              </Link>
+              <div className="nav-center">
+                <div className="nav-item">
+
+                </div>
+              </div>
+
+              <div className="nav-right">
+                <div className="nav-item">
+                  <a className="nav-item is-tab is-hidden-mobile"><Link to="/signinForm">Sign Up</Link></a>
+                  <a className="nav-item is-tab is-hidden-mobile"><Link to="/loginForm">Login</Link></a>
+                </div>
+              </div>
             </div>
-
-            <div className="field has-text-centered">
-              <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-              <p>
-                <h2>Planit-Better</h2>
-              </p>
-            </div>
-
-            <div className="field level-item has-text-centered">
-              <Link to="/loginForm">
-              <button className="button is-outlined is-small">Login</button>
-              </Link>
-            </div>
-
-          </div>
 
         </div>
      )
