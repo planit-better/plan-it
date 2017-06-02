@@ -154,7 +154,7 @@ class newGuestForm extends Component {
     return (
 
 
-      <div className="App">
+      <div className="App guestBackground">
 
             <div className="guest nav has-shadow">
               <div className="nav-left">
@@ -178,7 +178,6 @@ class newGuestForm extends Component {
                   <a className="nav-item is-tab is-hidden-mobile" onClick={this.openForm}>Hide Guest Form</a>
                 </div>
               </div>
-
             </div>
 
             <br></br>
@@ -292,12 +291,12 @@ class newGuestForm extends Component {
 
       } else {
       return (
-        <div className="App">
+        <div className="App guestBackground">
         <div className="nav has-shadow guest">
           <div className="nav-left">
             <div className="nav-item">
               <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-        
+
               <h2 className="title is-3">Planit-Better</h2>
             </div>
               <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
@@ -319,12 +318,15 @@ class newGuestForm extends Component {
 
         <br></br>
         <div className="columns">
+
           <div className="column">
           </div>
-            <div className="list guestHome column is-three-quarters">
+
+            <div className="list guestHome column is-4">
               <div>
                 <Link to="/inviteForm"><button className="button is-outlined is-small is-pulled-left">Create Message</button></Link>
               </div>
+
               <div className="notePad has-text-centered">
                 <GuestList guest={this.props.guest} />
               </div>
