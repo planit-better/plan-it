@@ -157,25 +157,26 @@ class GuestProfile extends Component {
 
 
             <div className="columns">
-              <form className="column is-offset-2 is-4" onSubmit={this.handleGuestChangeSubmit}>
+              <form className="list column is-4" onSubmit={this.handleGuestChangeSubmit}>
+
                 <div className="field">
                   <p className="control">
                     <label className="label">Change Name</label>
-                    <input className="input" type="text" placeholder="Name" value={this.state.name} onChange={this.handleChangeName} />
+                    <input className="input is-small" type="text" placeholder="Name" value={this.state.name} onChange={this.handleChangeName} />
                   </p>
                 </div>
 
                 <div className="field">
                   <p className="control">
                     <label className="label">Change Number</label>
-                    <input className="input" type="text" placeholder="(555) 555-5555" value={this.state.number} onChange={this.handleChangeNumber} />
+                    <input className="input is-small" type="text" placeholder="(555) 555-5555" value={this.state.number} onChange={this.handleChangeNumber} />
                   </p>
                 </div>
 
                 <div className="field">
                   <p className="control">
                     <label className="label">Change Email</label>
-                    <input className="input emailInput" type="text" placeholder="email" value={this.state.email} onChange={this.handleChangeEmail} />
+                    <input className="input emailInput is-small" type="text" placeholder="email" value={this.state.email} onChange={this.handleChangeEmail} />
                   </p>
                 </div>
 
@@ -194,7 +195,7 @@ class GuestProfile extends Component {
                 <div className="field">
                   <p className="control">
                     <label className="label">Change Number of accompanying guests</label>
-                    <input className="input smallInput" type="number" value={this.state.accompanying_guests} onChange={this.handleChangeAccompanyingGuests} />
+                    <input className="input smallInput is-small" type="number" value={this.state.accompanying_guests} onChange={this.handleChangeAccompanyingGuests} />
                   </p>
                 </div>
 
@@ -215,7 +216,7 @@ class GuestProfile extends Component {
                     <label className="label">
                       Change Diet Restrictions
                     </label>
-                    <input className="input" type="text" value={this.state.diet_restriction} onChange={this.handleChangeDietRestriction} />
+                    <input className="input is-small" type="text" value={this.state.diet_restriction} onChange={this.handleChangeDietRestriction} />
                   </p>
                 </div>
 
@@ -295,21 +296,21 @@ class GuestProfile extends Component {
                 <div className="field">
                   <p className="control">
                     <label className="label">Change Name</label>
-                    <input className="input" type="text" placeholder="Name" value={this.state.name} onChange={this.handleChangeName} />
+                    <input className="input is-small" type="text" placeholder="Name" value={this.state.name} onChange={this.handleChangeName} />
                   </p>
                 </div>
 
                 <div className="field">
                   <p className="control">
                     <label className="label">Change Number</label>
-                    <input className="input" type="text" placeholder="(555) 555-5555" value={this.state.number} onChange={this.handleChangeNumber} />
+                    <input className="input is-small" type="text" placeholder="(555) 555-5555" value={this.state.number} onChange={this.handleChangeNumber} />
                   </p>
                 </div>
 
                 <div className="field">
                   <p className="control">
                     <label className="label">Change Email</label>
-                    <input className="input emailInput" type="text" placeholder="email" value={this.state.email} onChange={this.handleChangeEmail} />
+                    <input className="input emailInput is-small" type="text" placeholder="email" value={this.state.email} onChange={this.handleChangeEmail} />
                   </p>
                 </div>
 
@@ -328,7 +329,7 @@ class GuestProfile extends Component {
                 <div className="field">
                   <p className="control">
                     <label className="label">Change Number of accompanying guests</label>
-                    <input className="input smallInput" type="number" value={this.state.accompanying_guests} onChange={this.handleChangeAccompanyingGuests} />
+                    <input className="input smallInput is-small" type="number" value={this.state.accompanying_guests} onChange={this.handleChangeAccompanyingGuests} />
                   </p>
                 </div>
 
@@ -349,7 +350,7 @@ class GuestProfile extends Component {
                     <label className="label">
                       Change Diet Restrictions
                     </label>
-                    <input className="input" type="text" value={this.state.diet_restriction} onChange={this.handleChangeDietRestriction} />
+                    <input className="input is-small" type="text" value={this.state.diet_restriction} onChange={this.handleChangeDietRestriction} />
                   </p>
                 </div>
 
