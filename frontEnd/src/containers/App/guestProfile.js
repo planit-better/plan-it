@@ -157,7 +157,7 @@ class GuestProfile extends Component {
 
 
             <div className="columns">
-              <form className="column is-offset-3" onSubmit={this.handleGuestChangeSubmit}>
+              <form className="column is-offset-2 is-4" onSubmit={this.handleGuestChangeSubmit}>
                 <div className="field">
                   <p className="control">
                     <label className="label">Change Name</label>
@@ -175,7 +175,7 @@ class GuestProfile extends Component {
                 <div className="field">
                   <p className="control">
                     <label className="label">Change Email</label>
-                    <input className="input" type="text" placeholder="email" value={this.state.email} onChange={this.handleChangeEmail} />
+                    <input className="input emailInput" type="text" placeholder="email" value={this.state.email} onChange={this.handleChangeEmail} />
                   </p>
                 </div>
 
@@ -194,7 +194,7 @@ class GuestProfile extends Component {
                 <div className="field">
                   <p className="control">
                     <label className="label">Change Number of accompanying guests</label>
-                    <input className="input" type="number" value={this.state.accompanying_guests} onChange={this.handleChangeAccompanyingGuests} />
+                    <input className="input smallInput" type="number" value={this.state.accompanying_guests} onChange={this.handleChangeAccompanyingGuests} />
                   </p>
                 </div>
 
@@ -227,12 +227,10 @@ class GuestProfile extends Component {
 
               </form>
 
-              <form className="column is-offset-3" onSubmit={this.handleGuestChangeSubmit}>
+              <form className="column is-2" onSubmit={this.handleGuestChangeSubmit}></form>
 
-              </form>
-
-              <div>
-                <p>Attending</p>
+              <div className="column">
+                <label className="label">Attending</label>
                 <p className="control">
                   <label className="label">Name</label>
                   <p>{this.props.currentGuest.currentGuest.name}</p>
@@ -257,6 +255,8 @@ class GuestProfile extends Component {
                   <span>{this.props.currentGuest.currentGuest.diet_restriction}</span>
                 </p>
               </div>
+
+              <div className="column is-3 is-offset-4"></div>
             </div>
 
 
@@ -291,7 +291,7 @@ class GuestProfile extends Component {
 
 
             <div className="columns">
-              <form className="column is-offset-3" onSubmit={this.handleGuestChangeSubmit}>
+              <form className="column is-offset-2 is-4" onSubmit={this.handleGuestChangeSubmit}>
                 <div className="field">
                   <p className="control">
                     <label className="label">Change Name</label>
@@ -309,7 +309,7 @@ class GuestProfile extends Component {
                 <div className="field">
                   <p className="control">
                     <label className="label">Change Email</label>
-                    <input className="input" type="text" placeholder="email" value={this.state.email} onChange={this.handleChangeEmail} />
+                    <input className="input emailInput" type="text" placeholder="email" value={this.state.email} onChange={this.handleChangeEmail} />
                   </p>
                 </div>
 
@@ -328,7 +328,7 @@ class GuestProfile extends Component {
                 <div className="field">
                   <p className="control">
                     <label className="label">Change Number of accompanying guests</label>
-                    <input className="input" type="number" value={this.state.accompanying_guests} onChange={this.handleChangeAccompanyingGuests} />
+                    <input className="input smallInput" type="number" value={this.state.accompanying_guests} onChange={this.handleChangeAccompanyingGuests} />
                   </p>
                 </div>
 
@@ -361,8 +361,10 @@ class GuestProfile extends Component {
 
               </form>
 
-              <div>
-                <p>Not Attending</p>
+              <form className="column is-2" onSubmit={this.handleGuestChangeSubmit}></form>
+
+              <div className="column">
+                <p className="label">Not Attending</p>
                 <p className="control">
                   <label className="label">Name</label>
                   <p>{this.props.currentGuest.currentGuest.name}</p>
@@ -387,6 +389,8 @@ class GuestProfile extends Component {
                   <span>{this.props.currentGuest.currentGuest.diet_restriction}</span>
                 </p>
               </div>
+
+              <div className="column is-3 is-offset-4"></div>
             </div>
 
 

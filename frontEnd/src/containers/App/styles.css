@@ -115,3 +115,11 @@
 .notePad {
   margin-right: 25px;
 }
+
+.emailInput {
+  width: 90%;
+}
+
+.smallInput {
+  width: 20%;
+}
