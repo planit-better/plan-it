@@ -25,6 +25,7 @@
   to { transform: rotate(360deg); }
 }
 
+
 .input {
   width: 50%;
 }
@@ -51,6 +52,7 @@
 
 .guestList {
   margin-top: 14px;
+  margin-right: 100px;
 }
 
 .centerInput {
@@ -89,6 +91,27 @@
   height: 989px;
 }
 
+.guest {
+  background-color: yellow;
+}
+
 .nav-left {
   height: 55px;
+}
+
+.list {
+  background: url("https://i.stack.imgur.com/8zEoh.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: 1px solid #333;
+}
+
+.guestHome {
+
+  width: 600px;
+  height: 600px;
+}
+
+.notePad {
+  margin-right: 25px;
 }
