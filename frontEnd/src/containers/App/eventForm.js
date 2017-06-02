@@ -181,19 +181,28 @@ class EventForm extends Component {
         return (
           <div className="App">
 
-            <div className="App-header field">
-              <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-              <h2>Planit-Better</h2>
-              <h3>{this.props.currentUser.username}</h3>
-              <h3>{this.props.eventStatus.currentEvent.name}</h3>
+            <div className="nav has-shadow">
+              <div className="nav-left">
+                <div className="nav-item">
+                  <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
+                  <h1 className="title is-3">Planit-Better</h1>
+                </div>
 
-              <div id="navBar" className="level-center">
-                <button className="button is-outlined is-small" onClick={this.signOut}>Change User</button>
-                <button className="button is-outlined is-small" onClick={this.displayForm}> Hide Event Form</button>
+                  <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
               </div>
 
+              <div className="nav-center">
+                <div className="nav-item">
+                  <h3>{this.props.currentUser.username}</h3>
+                </div>
+              </div>
 
-
+              <div className="nav-right">
+                <div className="nav-item">
+                  <a className="nav-item is-tab is-hidden-mobile is-active" onClick={this.signOut}>Change User</a>
+                  <a className="nav-item is-tab is-hidden-mobile is-active" onClick={this.displayForm}> Hide Event Form</a>
+                </div>
+              </div>
             </div>
 
               <div className="columns">
@@ -275,17 +284,30 @@ class EventForm extends Component {
       } else if(this.props.currentUser.userLoggedIn === true && this.state.openForm === false){
         return(
           <div className="App">
-            <div className="App-header">
-              <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-              <h2>Planit-Better</h2>
-              <h3>{this.props.currentUser.username}</h3>
-              <h3>{this.props.eventStatus.currentEvent.name}</h3>
+            <div className="nav has-shadow">
+              <div className="nav-left">
+                <div className="nav-item">
+                  <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
+                  <h1 className="title is-3">Planit-Better</h1>
+                </div>
 
-              <div id="navBar" className="level-center">
-                <button className="button is-outlined is-small" onClick={this.signOut}>Change User</button>
-                <button className="button is-outlined is-small" onClick={this.displayForm}> New Event Form</button>
+                  <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
+              </div>
+
+              <div className="nav-center">
+                <div className="nav-item">
+                  <h3>{this.props.currentUser.username}</h3>
+                </div>
+              </div>
+
+              <div className="nav-right">
+                <div className="nav-item">
+                  <a className="nav-item is-tab is-hidden-mobile is-active" onClick={this.signOut}>Change User</a>
+                  <a className="nav-item is-tab is-hidden-mobile is-active" onClick={this.displayForm}> New Event Form</a>
+                </div>
               </div>
             </div>
+
             <EventList event={this.props.currentEvent} />
           </div>
 
@@ -294,17 +316,31 @@ class EventForm extends Component {
       } else {
         return (
           <div className="App">
-            <div className="App-header">
-              <img src={logo} className="App-logo" alt="logo" />
-              <h2>Planit-Better</h2>
-              <Link to="/signinForm">
-                <button className="button formsHome is-outlined is-small">Sign Up</button>
-              </Link>
-                <Link to="/loginForm">
-                  <button className="button formsHome is-outlined is-small">Login</button>
-              </Link>
+
+            <div className="nav has-shadow">
+
+              <div className="nav-left">
+                <div className="nav-item">
+                  <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
+                  <h1 className="title is-3">Planit-Better</h1>
+                </div>
+              </div>
+
+              <div className="nav-center">
+                <div className="nav-item">
+
+                </div>
+              </div>
+
+              <div className="nav-right">
+                <div className="nav-item">
+                  <a className="nav-item is-tab is-hidden-mobile"><Link to="/signinForm">Sign Up</Link></a>
+                  <a className="nav-item is-tab is-hidden-mobile"><Link to="/loginForm">Login</Link></a>
+                </div>
+              </div>
             </div>
-            </div>
+
+          </div>
        );
     }
   }
