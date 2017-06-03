@@ -36,7 +36,6 @@ class ContractorProfile extends Component {
     handleContractorChangeSubmit = ( event ) => {
       event.preventDefault();
       this.updateContractor(this.state)
-      //.then(this.updateBudget(this.state))
       .then(this.props.loadCurrentContractor(this.state))
     }
 
@@ -165,6 +164,7 @@ class ContractorProfile extends Component {
 
      return(
 
+
       <div className="App contractor">
         <div className="nav has-shadow contractorHome">
           <div className="nav-left">
@@ -202,6 +202,7 @@ class ContractorProfile extends Component {
                   <label className="label">Change Company Name</label>
                   <input className="input" type="text" placeholder="Company Name" value={this.state.company_name} onChange={this.handleChangeName} />
                 </p>
+
               </div>
 
               <div className="field">
@@ -277,6 +278,8 @@ class ContractorProfile extends Component {
               <label className="label">Dealine</label>
               <p>{this.props.currentContractor.currentContractor.deadline} </p>
             </div>
+
+           
 
           </div>
 

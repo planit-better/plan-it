@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './styles.css';
 import { connect } from 'react-redux';
-import { loadCurrentEquipment, loadCurrentContractor, loadContractors, loadEquipment, loadGuest, loadMenu, loadTask, logOut, clearEvent } from '../../action';
+import { loadCurrentEquipment, loadCurrentContractor, loadContractors, loadBudget, loadEquipment, loadGuest, loadMenu, loadTask, logOut, clearEvent } from '../../action';
 import { Link, Redirect } from 'react-router-dom';
 
 
@@ -29,9 +29,9 @@ class EquipmentProfile extends Component {
 
   }
 
-    componentWillMount() {
-      this.props.loadCurrentEquipment(this.state)
-    }
+    // componentWillMount() {
+    //   this.props.loadCurrentEquipment(this.state)
+    // }
 
     handleEquipmentChangeSubmit = ( event ) => {
       event.preventDefault();
@@ -69,7 +69,7 @@ class EquipmentProfile extends Component {
         },
         body : JSON.stringify(equipment)
       }).then((response) =>{
-        return response.json()
+        this.updateBudget ( this.state )
       }).catch(err =>{
         throw err;
       })
@@ -92,32 +92,59 @@ class EquipmentProfile extends Component {
         })
     }
 
+    componentDidMount() {
+      console.log('mountin')
+      fetch('/api/budget', {
+      method : "GET",
+      credentials: 'include'
+    }).then((response)=>{
+      return response.json()
+    }).then((budget) =>{
+      console.log(budget)
+      this.props.loadBudget(budget)
+    }).catch(err =>{
+      throw err;
+    })
+    }
+
+
     redirectEquipment(){
       this.props.history.push("/newEquipmentForm")
     }
 
-   // updateBudget = ( contractor ) => {
-   //      console.log('hit update /task/${this.props.currentTask.currentTask.id}budget')
-   //      return fetch(`/api/budget/${this.props.currentContractor.currentContractor.id}`, {
-   //      method: "PUT",
-   //      credentials: 'include',
-   //       headers:
-   //      {
-   //        "Content-Type": "application/json",
-   //        "Accept": "application/json"
-   //      },
-   //      body : JSON.stringify({"amount": this.state.cost})
-   //    }).then((response) =>{
-   //      return response.json()
-   //    }).catch(err =>{
-   //      throw err;
-   //    })
-   // }
+
+
+    updateBudget = ( equipment ) => {
+        for(var i=0; i<this.props.budget.length; i++){
+          if(this.props.budget[i].type_id === this.state.id && this.props.budget[i].type === "Equipment"){
+            this.putBudget(this.props.budget[i])
+          }
+        }
+    }
+
+    putBudget( budget ){
+       return fetch(`/api/budget/${budget.id}`, {
+        method: "PUT",
+        credentials: 'include',
+         headers:
+        {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body : JSON.stringify({"amount": this.state.cost})
+      }).then((response) =>{
+        return;
+      }).catch(err =>{
+        throw err;
+      })
+    }
+
 
 
 
 
     render() {
+
     if(this.props.currentUser.userLoggedIn === false){
     return(
       <Redirect to={{
@@ -234,7 +261,8 @@ const mapStateToProps = (state) => {
     contractors : state.contractors,
     currentUser : state.authenticate,
     eventStatus : state.eventStatus,
-    currentEquipment : state.currentEquipment
+    currentEquipment : state.currentEquipment,
+    budget : state.budget
 
   };
 }
@@ -244,7 +272,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     loadCurrentEquipment : currentEquipment => {
       dispatch(loadCurrentEquipment(currentEquipment))
-   }
+   },
+    loadBudget : budget => {
+      dispatch(loadBudget(budget))
+    }
   }
 }
 

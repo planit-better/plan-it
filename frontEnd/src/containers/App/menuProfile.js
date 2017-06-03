@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './styles.css';
 import { connect } from 'react-redux';
-import { loadCurrentMenu, loadCurrentContractor, loadContractors, loadEquipment, loadGuest, loadMenu, loadTask, logOut, clearEvent } from '../../action';
+import { loadCurrentMenu, loadCurrentContractor, loadContractors, loadEquipment, loadGuest, loadBudget, loadMenu, loadTask, logOut, clearEvent } from '../../action';
 import { Link, Redirect } from 'react-router-dom';
 
 
@@ -22,6 +22,8 @@ class MenuProfile extends Component {
 
       cost_per_person: this.props.currentMenu.currentMenu.cost_per_person,
 
+      id : this.props.currentMenu.currentMenu.id
+
     };
 
   }
@@ -29,7 +31,6 @@ class MenuProfile extends Component {
     handleMenuChangeSubmit = ( event ) => {
       event.preventDefault();
       this.updateMenu(this.state)
-      //.then(this.updateBudget(this.state))
       .then(this.props.loadCurrentMenu(this.state))
     }
 
@@ -51,6 +52,18 @@ class MenuProfile extends Component {
       });
     }
 
+    componentDidMount() {
+      fetch('/api/budget', {
+      method : "GET",
+      credentials: 'include'
+    }).then((response)=>{
+      return response.json()
+    }).then((budget) =>{
+      this.props.loadBudget(budget)
+    }).catch(err =>{
+      throw err;
+    })
+    }
 
     updateMenu = ( menu ) => {
         return fetch(`/api/menu/${this.props.currentMenu.currentMenu.id}`, {
@@ -63,7 +76,7 @@ class MenuProfile extends Component {
         },
         body : JSON.stringify(menu)
       }).then((response) =>{
-        return response.json()
+        this.updateBudget( this.state )
       }).catch(err =>{
         throw err;
       })
@@ -91,26 +104,33 @@ class MenuProfile extends Component {
     }
 
 
-   // updateBudget = ( contractor ) => {
-   //      console.log('hit update budget')
-   //      return fetch(`/api/budget/${this.props.currentContractor.currentContractor.id}`, {
-   //      method: "PUT",
-   //      credentials: 'include',
-   //       headers:
-   //      {
-   //        "Content-Type": "application/json",
-   //        "Accept": "application/json"
-   //      },
-   //      body : JSON.stringify({"amount": this.state.cost})
-   //    }).then((response) =>{
-   //      return response.json()
-   //    }).catch(err =>{
-   //      throw err;
-   //    })
-   // }
+    updateBudget = ( menu ) => {
+        console.log('hit update budget')
+        console.log( menu )
+        console.log( this.props.budget )
+        for(var i=0; i<this.props.budget.length; i++){
+          if(this.props.budget[i].type_id === this.state.id && this.props.budget[i].type === "Menu"){
+            this.putBudget(this.props.budget[i])
+          }
+        }
+    }
 
-
-
+    putBudget( budget ){
+       return fetch(`/api/budget/${budget.id}`, {
+        method: "PUT",
+        credentials: 'include',
+         headers:
+        {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body : JSON.stringify({"amount": this.state.cost_per_person})
+      }).then((response) =>{
+        return;
+      }).catch(err =>{
+        throw err;
+      })
+    }
 
     render() {
     if(this.props.currentUser.userLoggedIn === false){
@@ -224,7 +244,8 @@ const mapStateToProps = (state) => {
     currentUser : state.authenticate,
     eventStatus : state.eventStatus,
     currentContractor : state.currentContractor,
-    currentMenu : state.currentMenu
+    currentMenu : state.currentMenu,
+    budget : state.budget
 
   };
 }
@@ -237,7 +258,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
    },
     loadCurrentMenu : currentMenu => {
       dispatch(loadCurrentMenu(currentMenu))
-   }
+   },
+    loadBudget : budget => {
+      dispatch(loadBudget(budget))
+    }
  }
 }
 

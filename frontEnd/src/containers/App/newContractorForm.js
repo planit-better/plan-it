@@ -176,8 +176,8 @@ class newContractorForm extends Component {
 
           <div className="column">
           </div>
-          <div className="list guestHome column is-4">
-            <form className="column is-offset-4" onSubmit={this.handleContractorSubmit}>
+
+            <form className="column list taskList is-4" onSubmit={this.handleContractorSubmit}>
 
               <label><h1>Enter your new contractor</h1></label>
 
@@ -246,7 +246,6 @@ class newContractorForm extends Component {
               </div>
 
             </form>
-          </div>
 
           <div className="column is-3">
           </div>
