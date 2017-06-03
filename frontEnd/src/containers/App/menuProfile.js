@@ -123,15 +123,15 @@ class MenuProfile extends Component {
 
      return(
 
-          <div className="App">
-            <div className="nav has-shadow">
+          <div className="App menuBackground">
+            <div className="nav has-shadow menuNavColor">
               <div className="nav-left">
                 <div className="nav-item">
                   <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
                   <h1 className="title is-3">Planit-Better</h1>
                 </div>
 
-                  <h3 className="menuEvent">{this.props.eventStatus.currentEvent.company_name}</h3>
+                  <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
               </div>
 
               <div className="nav-center">
@@ -149,65 +149,68 @@ class MenuProfile extends Component {
 
 
             <div className="columns">
-              <form className="column is-offset-3" >
+              <div className="column"></div>
+
+              <div className="formsHome guestHome column list is-4">
+                <form className="centerForm">
+
+                  <div className="field">
+                    <p className="control">
+                      <label className="label">Change Restaurant Name</label>
+                      <input className="input" type="text" placeholder="Company Name" value={this.state.restaurant_name} onChange={this.handleChangeRestaurantName} />
+                    </p>
+                  </div>
+
+                  <div className="field">
+                    <p className="control">
+                      <label className="label">Change Cost</label>
+                      <input className="input" type="decimal" value={this.state.cost_per_person} onChange={this.handleChangeCost} />
+                    </p>
+                  </div>
+
+                  <div className="field">
+                    <p className="control">
+                      <label className="label">Change Type </label>
+                      <input className="input" type="text" placeholder="contact" value={this.state.type_of_food} onChange={this.handleChangeType} />
+                    </p>
+                  </div>
+
+                  <div className="field">
+                    <p className="control">
+                      <button className="button is-outlined menuNavColor" name="Login" onClick={this.handleMenuChangeSubmit}>Update Menu
+                      </button>
+                      <button className="button menuNavColor is-outlined" name="Remove" onClick={this.removeMenu}> Remove Menu
+                      </button>
+                    </p>
+                  </div>
+
+                </form>
+              </div>
+
+              <div className="column"></div>
+
+              <div className="formsHome guestHome column list is-4">
+                <label className="label">Menu</label>
 
                 <div className="field">
-                  <p className="control">
-                    <label className="label">Change Restaurant Name</label>
-                    <input className="input" type="text" placeholder="Company Name" value={this.state.restaurant_name} onChange={this.handleChangeRestaurantName} />
-                  </p>
-                </div>
-
-                <div className="field">
-                  <p className="control">
-                    <label className="label">Change Cost</label>
-                    <input className="input" type="decimal" value={this.state.cost_per_person} onChange={this.handleChangeCost} />
-                  </p>
-                </div>
-
-                <div className="field">
-                  <p className="control">
-                    <label className="label">Change Type </label>
-                    <input className="input" type="text" placeholder="contact" value={this.state.type_of_food} onChange={this.handleChangeType} />
-                  </p>
-                </div>
-
-                <div className="field">
-                  <p className="control">
-                    <button className="button is-outlined bottomButton" name="Login" onClick={this.handleMenuChangeSubmit}>Update Menu
-                    </button>
-                    <button className="button is-info" name="Remove" onClick={this.removeMenu}> Remove Menu
-                    </button>
-                  </p>
-                </div>
-
-              </form>
-
-              <form className="column is-offset-3" onSubmit={this.handleMenuChangeSubmit}>
-
-              </form>
-
-              <div className="column">
-                <p>Menu</p>
-
-                  <div className="control">
-                    <label className="label">Restaurant Name</label>
+                  <label className="label">Restaurant Name</label>
                   <p>{this.props.currentMenu.currentMenu.restaurant_name}</p>
                 </div>
 
-                <div className="control">
+                <div fieldclassName="field">
                   <label className="label">Cost</label>
                   <p>{this.props.currentMenu.currentMenu.cost_per_person} </p>
                 </div>
 
-                <div className="control">
+                <div className="field">
                   <label className="label">Type of Food</label>
                   <p>{this.props.currentMenu.currentMenu.type_of_food} </p>
                 </div>
+
               </div>
+
+              <div className="column"></div>
             </div>
-
-
           </div>
 
         );
