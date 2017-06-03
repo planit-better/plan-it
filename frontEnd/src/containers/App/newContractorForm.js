@@ -146,11 +146,11 @@ class newContractorForm extends Component {
 
     return (
       <div className="App contractor">
-        <div className="nav has-shadow contractorHome">
+        <div className="nav has-shadow text contractorHome">
           <div className="nav-left">
             <div className="nav-item">
               <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-              <h1 className="title is-3">Planit-Better</h1>
+              <h1 className="title text is-3">Planit-Better</h1>
             </div>
 
             <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
@@ -164,8 +164,8 @@ class newContractorForm extends Component {
 
           <div className="nav-right">
             <div className="nav-item">
-              <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
-              <a className="nav-item is-tab is-hidden-mobile" onClick={this.openForm}>Hide Contractor Form</a>
+              <a className="nav-item is-tab is-hidden-mobile is-active text"><Link to="/">Home</Link></a>
+              <a className="nav-item is-tab is-hidden-mobile text" onClick={this.openForm}>Hide Contractor Form</a>
             </div>
           </div>
         </div>
@@ -267,11 +267,11 @@ class newContractorForm extends Component {
   } else {
     return(
       <div className="App contractor">
-        <div className=" contractorHome nav has-shadow">
+        <div className=" contractorHome text nav has-shadow">
           <div className="nav-left">
             <div className="nav-item">
               <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-              <h1 className="title is-3">Planit-Better</h1>
+              <h1 className="title is-3 text">Planit-Better</h1>
             </div>
 
             <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>

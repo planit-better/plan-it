@@ -135,10 +135,10 @@ class newEquipmentForm extends Component {
       <div className="App equipmentBackground">
 
         <div className="nav has-shadow equipmentNavColor">
-          <div className="nav-left">
+          <div className="nav-left text">
             <div className="nav-item">
               <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-              <h1 className="title is-3">Planit-Better</h1>
+              <h1 className="title is-3 text">Planit-Better</h1>
             </div>
 
             <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
@@ -163,7 +163,9 @@ class newEquipmentForm extends Component {
         <div className="columns">
           <div className="column is-offset-2 is-4 list guestHome">
 
-            <form onSubmit={this.handleEquipmentSubmit}>
+            <form className="centerForm" onSubmit={this.handleEquipmentSubmit}>
+              <label className="is-marginless"> Enter your new Equipment</label>
+
               <div className="field">
                 <p className="control">
                   <label className="label">Name</label>
@@ -200,6 +202,7 @@ class newEquipmentForm extends Component {
                 </p>
               </div>
 
+              <br></br>
               <div className="control">
                 <button className="button bottomButton is-outlined equipmentNavColor" name="Login" type="submit">Add Equipment </button>
               </div>
@@ -212,15 +215,15 @@ class newEquipmentForm extends Component {
 
 
 
-          <div className="column is-3"></div>
+          <div className="column"></div>
 
 
-          <div className="column is-2 list guestHome">
+          <div className="column is-4 list guestHome">
 
             <EquipmentList equipment={this.props.equipment} />
           </div>
 
-          <div className="column is-3 is-offset-4"></div>
+          <div className="column is-2"></div>
 
         </div>
 
@@ -230,11 +233,11 @@ class newEquipmentForm extends Component {
   }else{
     return(
       <div className="App equipmentBackground">
-        <div className="nav has-shadow equipmentNavColor">
+        <div className="nav has-shadow equipmentNavColor text">
           <div className="nav-left">
             <div className="nav-item">
                <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-               <h1 className="title is-3">Planit-Better</h1>
+               <h1 className="title is-3 text">Planit-Better</h1>
             </div>
 
             <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
