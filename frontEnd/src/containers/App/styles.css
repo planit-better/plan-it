@@ -148,6 +148,13 @@
   height: 973px;
 }
 
+.eventBackground {
+  background: url("http://parkinsonsvt.org/wp-content/uploads/2013/07/calendar-image.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 973px;
+}
+
 .menuBackground {
   background: url("http://www.lonestarsteakhouse.com/uploaded/image/original/LSTR_Background_Menu_v2.jpg");
   background-size: cover;

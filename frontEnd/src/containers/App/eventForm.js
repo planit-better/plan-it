@@ -177,7 +177,7 @@ class EventForm extends Component {
       }
       if(this.props.currentUser.userLoggedIn === true && this.state.openForm === true){
         return (
-          <div className="App">
+          <div className="App eventBackground">
 
             <div className="nav has-shadow">
               <div className="nav-left">
@@ -203,9 +203,13 @@ class EventForm extends Component {
               </div>
             </div>
 
+            <br></br>
+
               <div className="columns">
-                <div className="column is-offset-2">
-                  <form onSubmit={this.handleEventSubmit}>
+                <div className="column"></div>
+
+                <div className="guestHome formsHome column list is-4">
+                  <form className="centerForm" onSubmit={this.handleEventSubmit}>
 
                     <div className="field">
                       <p className="control">
@@ -273,15 +277,19 @@ class EventForm extends Component {
 
                   </form>
                 </div>
-              <div className="column">
-                <EventList event={this.props.currentEvent} />
+
+                <div className="column"></div>
+                <div className="guestHome formsHome column list is-4">
+                  <EventList event={this.props.currentEvent} />
+                </div>
+
+                <div className="column"></div>
               </div>
-            </div>
           </div>
         );
       } else if(this.props.currentUser.userLoggedIn === true && this.state.openForm === false){
         return(
-          <div className="App">
+          <div className="App eventBackground">
             <div className="nav has-shadow">
               <div className="nav-left">
                 <div className="nav-item">
@@ -306,14 +314,24 @@ class EventForm extends Component {
               </div>
             </div>
 
-            <EventList event={this.props.currentEvent} />
+            <div className="columns">
+
+              <div className="column"></div>
+
+              <div className="guestHome formsHome column list is-4">
+                <EventList event={this.props.currentEvent} />
+              </div>
+
+              <div className="column"></div>
+
+            </div>
           </div>
 
             );
 
       } else {
         return (
-          <div className="App">
+          <div className="App eventBackground">
 
             <div className="nav has-shadow">
 
