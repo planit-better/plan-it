@@ -200,7 +200,7 @@ class newMenuForm extends Component {
 
               <div className="column is-3"></div>
 
-              <div className="guestHome column list">
+              <div className="guestHome column list is-2">
                 <MenuList menu={this.props.menu} />
               </div>
 
