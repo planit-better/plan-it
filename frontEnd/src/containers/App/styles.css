@@ -86,6 +86,20 @@
   height: 989px;
 }
 
+.homeHeader {
+  background-image: url("http://s1.picswalls.com/wallpapers/2016/06/16/planet-background_115145186_310.jpg");
+}
+
+.text {
+  color: white;
+  text-transform: uppercase;
+}
+
+.menuText {
+  color: green;
+  text-transform: uppercase;
+}
+
 
 .nav-left {
   height: 55px;
@@ -99,7 +113,8 @@
 }
 
 .guest {
-  background-color: yellow;
+
+  background: white;
 }
 
 .guestBackground {
@@ -117,7 +132,8 @@
 }
 
 .menuNavColor {
-  background-color: rgb(40, 201, 160);
+  background-image: url("http://www.lonestarsteakhouse.com/uploaded/image/original/LSTR_Background_Menu_v2.jpg");
+  /*background-color: rgb(40, 201, 160);*/
 }
 
 .guestHome {
@@ -129,7 +145,7 @@
 }
 
 .contractorHome {
-  background-color: #3399FF;
+  background-image: url("https://assets.entrepreneur.com/content/3x2/1300/20160201183859-plumber-plumbing-water-union-sink-tools.jpeg");
 }
 
 .contractor {

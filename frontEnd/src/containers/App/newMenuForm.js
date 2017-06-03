@@ -128,11 +128,11 @@ class newMenuForm extends Component {
 
     return (
           <div className="App menuBackground">
-            <div className="nav has-shadow menuNavColor">
+            <div className="nav has-shadow menuText menuNavColor ">
               <div className="nav-left">
-                <div className="nav-item">
+                <div className="nav-item ">
                   <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-                  <h1 className="title is-3">Planit-Better</h1>
+                  <h1 className="title is-3 text">Planit-Better</h1>
                 </div>
 
                   <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
@@ -218,12 +218,12 @@ class newMenuForm extends Component {
   }else {
     return(
       <div className="App menuBackground">
-        <div className="nav has-shadow menuNavColor">
+        <div className="nav has-shadow menuNavColor menuText">
           <div className="nav-left">
             <div className="nav-item">
               <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
 
-              <h2 className="title is-3">Planit-Better</h2>
+              <h2 className="title is-3 text">Planit-Better</h2>
             </div>
               <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
           </div>

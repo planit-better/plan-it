@@ -97,7 +97,7 @@ class App extends Component {
 
       return (
         <div className="App home">
-          <div className="nav has-shadow">
+          <div className="nav homeHeader text has-shadow">
             <div className="nav-left">
               <div className="nav-item">
                 <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />

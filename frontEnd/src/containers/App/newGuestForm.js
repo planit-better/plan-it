@@ -172,11 +172,16 @@ class newGuestForm extends Component {
             </div>
           </div>
 
-          <div className="nav-right">
-            <div className="nav-item">
-              <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
-              <a className="nav-item is-tab is-hidden-mobile" onClick={this.openForm}>Hide Guest Form</a>
+          <div className="nav-menu">
+            <div className="nav-right">
+              <div className="nav-item">
+                <a className="nav-item is-tab is-active"><Link to="/">Home</Link></a>
+                <a className="nav-item is-tab" onClick={this.openForm}>Hide Guest Form</a>
+              </div>
             </div>
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
         </div>
 
@@ -319,6 +324,15 @@ class newGuestForm extends Component {
                 <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
                 <a className="nav-item is-tab is-hidden-mobile" onClick={this.openForm}>New Guest Form</a>
               </div>
+            </div>
+
+            <div className="nav-menu">
+              <span className="nav-right is-hidden-widescreen is-hidden-desktop-only is-hidden-tablet">
+                <a className="nav-item is-hidden-widescreen is-flex-touch is-tab is-active"><Link to="/">Home</Link></a>
+              <span></span>
+              <span></span>
+              <span></span>
+              </span>
             </div>
           </div>
 
