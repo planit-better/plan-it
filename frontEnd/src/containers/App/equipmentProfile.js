@@ -75,8 +75,29 @@ class EquipmentProfile extends Component {
       })
     }
 
+    removeEquipment = ( event ) => {
+      event.preventDefault()
+        return fetch(`/api/equipment/${this.props.currentEquipment.currentEquipment.id}`, {
+          method: "DELETE",
+          credentials: 'include',
+           headers:
+          {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          }
+        }).then((response) =>{
+          this.redirectEquipment()
+        }).catch(err =>{
+          throw err;
+        })
+    }
+
+    redirectEquipment(){
+      this.props.history.push("/newEquipmentForm")
+    }
+
    // updateBudget = ( contractor ) => {
-   //      console.log('hit update budget')
+   //      console.log('hit update /task/${this.props.currentTask.currentTask.id}budget')
    //      return fetch(`/api/budget/${this.props.currentContractor.currentContractor.id}`, {
    //      method: "PUT",
    //      credentials: 'include',
@@ -133,7 +154,7 @@ class EquipmentProfile extends Component {
 
 
             <div className="columns">
-              <form className="column is-offset-3" onSubmit={this.handleEquipmentChangeSubmit}>
+              <form className="column is-offset-3" >
 
                 <div className="field">
                   <p className="control">
@@ -159,7 +180,10 @@ class EquipmentProfile extends Component {
 
                 <div className="field">
                   <p className="control">
-                    <button className="button is-outlined bottomButton" name="Login" type="submit">Update Contractor </button>
+                    <button className="button is-outlined bottomButton" name="Login" onClick={this.handleEquipmentChangeSubmit}>Update Contractor
+                    </button>
+                    <button className="button is-info" name="Remove" onClick={this.removeEquipment}> Remove Equipment
+                    </button>
                   </p>
                 </div>
 
