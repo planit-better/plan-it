@@ -105,7 +105,7 @@ class ContractorProfile extends Component {
       }
 
     redirectContractor(){
-       this.props.history.push("/newContractorForm")
+      this.props.history.push("/newContractorForm")
     }
 
     componentDidMount() {
@@ -122,7 +122,7 @@ class ContractorProfile extends Component {
     }
 
 
-   updateBudget = ( contractor ) => {
+    updateBudget = ( contractor ) => {
         console.log('hit update budget')
         console.log( contractor )
         console.log( this.props.budget )
