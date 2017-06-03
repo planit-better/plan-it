@@ -141,8 +141,8 @@ class ContractorProfile extends Component {
 
      return(
 
-          <div className="App">
-            <div className="nav has-shadow">
+          <div className="App contractor">
+            <div className="nav contractorHome has-shadow">
               <div className="nav-left">
                 <div className="nav-item">
                   <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
@@ -168,7 +168,10 @@ class ContractorProfile extends Component {
 
             <br></br><br></br>
             <div className="columns">
-              <form className="column is-offset-3" >
+              <div className="column">
+              </div>
+
+              <form className="column list taskList is-4" >
 
                 <div className="field">
                   <p className="control">
@@ -200,17 +203,17 @@ class ContractorProfile extends Component {
 
                 <div className="field">
                   <p className="control">
-                    <label className="label">
-                      Change Deadline
-                    </label>
+                    <label className="label">Change Deadline</label>
                     <input className="input" type="date" value={this.state.deadline} onChange={this.handleChangeDeadline} />
                   </p>
                 </div>
 
+                <br></br>
                 <div className="field">
                   <p className="control">
-                    <button className="button is-outlined bottomButton" name="Login" onClick={this.handleContractorChangeSubmit}>Update Contractor
+                    <button className="button is-info" name="Login" onClick={this.handleContractorChangeSubmit}>Update Contractor
                     </button>
+                    <br></br><br></br>
                     <button className="button is-info" name="Remove" onClick={this.removeContractor}> Remove Contractor
                     </button>
                   </p>
@@ -218,40 +221,43 @@ class ContractorProfile extends Component {
 
               </form>
 
-              <form className="column is-offset-3" onSubmit={this.handleContractorChangeSubmit}>
+              <div className="column is-1">
+              </div>
 
-              </form>
-
-              <div className="column">
+              <div className=" list column is-4 has-text-centered">
                 <p>Contractors</p>
 
-                  <div className="control">
+                  <div>
                     <label className="label">Company Name</label>
                   <p>{this.props.currentContractor.currentContractor.company_name}</p>
                 </div>
 
-                <div className="control">
+                <div>
                   <label className="label">Cost</label>
                   <p>{this.props.currentContractor.currentContractor.cost} </p>
                 </div>
 
-                <div className="control">
+                <div>
                   <label className="label">Contact</label>
                   <p>{this.props.currentContractor.currentContractor.contact} </p>
                 </div>
 
 
-                <div className="control">
+                <div>
                   <label className="label">Date Hired</label>
                   <p>{this.props.currentContractor.currentContractor.date_hired} </p>
                 </div>
 
-                <div className="control">
+                <div>
                   <label className="label">Dealine</label>
                   <p>{this.props.currentContractor.currentContractor.deadline} </p>
                 </div>
               </div>
+
+              <div className="column">
+              </div>
             </div>
+
 
 
           </div>
