@@ -150,7 +150,7 @@ class newTaskForm extends Component {
         <div className="nav-left">
           <div className="nav-item">
             <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-            <h1 className="title is-3 text">Planit-Better</h1>
+            <h1 className="title is-3 text">Plan-Better</h1>
           </div>
             <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
         </div>
@@ -163,8 +163,8 @@ class newTaskForm extends Component {
 
         <div className="nav-right">
           <div className="nav-item">
-            <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
-            <a className="nav-item is-tab is-hidden-mobile" onClick={this.openForm}>Hide Task Form</a>
+            <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/"><p className="text">Home</p></Link></a>
+            <a className="nav-item is-tab is-hidden-mobile" onClick={this.openForm}><p className="text">Hide Task Form</p></a>
           </div>
         </div>
       </div>
@@ -253,7 +253,7 @@ class newTaskForm extends Component {
               <div className="nav-left">
                 <div className="nav-item">
                   <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-                  <h1 className="title is-3 text">Planit-Better</h1>
+                  <h1 className="title is-3 text">Plan-Better</h1>
                 </div>
 
                   <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
