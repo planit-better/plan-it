@@ -29,9 +29,9 @@ class EquipmentProfile extends Component {
 
   }
 
-    componentWillMount() {
-      this.props.loadCurrentEquipment(this.state)
-    }
+    // componentWillMount() {
+    //   this.props.loadCurrentEquipment(this.state)
+    // }
 
     handleEquipmentChangeSubmit = ( event ) => {
       event.preventDefault();
@@ -93,12 +93,14 @@ class EquipmentProfile extends Component {
     }
 
     componentDidMount() {
+      console.log('mountin')
       fetch('/api/budget', {
       method : "GET",
       credentials: 'include'
     }).then((response)=>{
       return response.json()
     }).then((budget) =>{
+      console.log(budget)
       this.props.loadBudget(budget)
     }).catch(err =>{
       throw err;
@@ -145,6 +147,7 @@ class EquipmentProfile extends Component {
 
 
     render() {
+
     if(this.props.currentUser.userLoggedIn === false){
     return(
       <Redirect to={{
@@ -252,7 +255,8 @@ const mapStateToProps = (state) => {
     contractors : state.contractors,
     currentUser : state.authenticate,
     eventStatus : state.eventStatus,
-    currentEquipment : state.currentEquipment
+    currentEquipment : state.currentEquipment,
+    budget : state.budget
 
   };
 }
