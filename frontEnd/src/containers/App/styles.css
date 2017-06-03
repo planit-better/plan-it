@@ -198,8 +198,8 @@
 }
 
 .tasksBackground {
-  background: url("https://catalystseven.com/wp-content/uploads/2016/03/Take-Control-of-Your-Task-List.jpg");
-  background-size: cover;
+  background: url("http://cdn2.hubspot.net/hubfs/53/To_Do_List.png");
+  background-size: 110% 100%;
   height: 900px;
 }
 
@@ -212,7 +212,7 @@
 }
 
 .task {
-  background: #F92B2B;
+  background: transparent;
 }
 
 .equipmentBackground {
@@ -223,7 +223,7 @@
 }
 
 .equipmentNavColor {
-  background-color: rgb(52, 203, 61);
+  background-color: rgb(71, 51, 35);
 }
 
 .centerForm {
@@ -240,6 +240,10 @@
 
 .icon {
   color: white;
+}
+
+a {
+  color: firebrick;
 }
 
 
