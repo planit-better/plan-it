@@ -46,12 +46,12 @@ class GuestList extends Component {
 
       <div className="field">
 
-        <h1 className="label guestList">Hello Guests</h1>
+        <h1 className="label">Hello Guests</h1>
         <ul>
           {
             allowedGuest.map((guest) =>
               <Link to="/guestProfile" key={guest.id} >
-                <li className="guests" onClick={this.guestRef.bind(this, guest)}>
+                <li onClick={this.guestRef.bind(this, guest)}>
                   <h3>{guest.name}</h3>
                 </li>
               </Link>

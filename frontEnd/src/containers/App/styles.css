@@ -50,11 +50,6 @@
   width: 50px;
 }
 
-.guestList {
-  margin-top: 14px;
-  margin-right: 100px;
-}
-
 .centerInput {
   width: 500px;
   margin-left: 40%;
@@ -179,3 +174,18 @@
 .equipmentNavColor {
   background-color: rgb(52, 203, 61);
 }
+
+.centerForm {
+  margin-left: 30%;
+}
+
+.centerGuestForm {
+  margin-left: 20%;
+}
+
+.guestListCentered {
+  margin-left: 34%;
+}
+
+
+
