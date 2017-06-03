@@ -88,6 +88,31 @@ class TaskProfile extends Component {
       })
     }
 
+    removeTask = ( event ) => {
+      event.preventDefault()
+        return fetch(`/api/task/${this.props.currentTask.currentTask.id}`, {
+          method: "DELETE",
+          credentials: 'include',
+           headers:
+          {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          }
+        }).then((response) =>{
+          this.redirectTask()
+        }).catch(err =>{
+          throw err;
+        })
+      }
+
+
+    redirectTask(){
+       this.props.history.push("/newTaskForm")
+    }
+
+
+
+
    // updateBudget = ( task ) => {
    //      console.log('hit update budget')
    //      return fetch(`/api/budget/${this.props.currentContractor.currentContractor.id}`, {
@@ -133,7 +158,7 @@ class TaskProfile extends Component {
 
 
             <div className="columns">
-              <form className="column is-offset-3" onSubmit={this.handleTaskChangeSubmit}>
+              <form className="column is-offset-3" >
 
                 <div className="field">
                   <p className="control">
@@ -167,7 +192,10 @@ class TaskProfile extends Component {
 
                 <div className="field">
                   <p className="control">
-                    <button className="button is-outlined bottomButton" name="Login" type="submit">Update Task </button>
+                    <button className="button is-outlined bottomButton" name="Login" onClick={this.handleTaskChangeSubmit}>Update Task
+                    </button>
+                    <button className="button is-info" name="Remove" onClick={this.removeTask}> Remove Task
+                    </button>
                   </p>
                 </div>
 

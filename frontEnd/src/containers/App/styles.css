@@ -114,6 +114,17 @@
   height: 973px;
 }
 
+.menuBackground {
+  background: url("http://www.lonestarsteakhouse.com/uploaded/image/original/LSTR_Background_Menu_v2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 973px;
+}
+
+.menuNavColor {
+  background-color: rgb(40, 201, 160);
+}
+
 .guestHome {
   height: 600px;
 }
@@ -131,7 +142,7 @@
   background-size: cover;
   height: 973px;
 }
-  
+
 .emailInput {
   width: 90%;
 }
@@ -139,3 +150,15 @@
 .smallInput {
   width: 20%;
 }
+
+.equipmentBackground {
+  background: url("http://baytown.org/Home/ShowImage?id=2269&t=635610797741930000");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 973px;
+}
+
+.equipmentNavColor {
+  background-color: rgb(52, 203, 61);
+}
+

@@ -26,6 +26,8 @@ class ContractorProfile extends Component {
 
       deadline : this.props.currentContractor.currentContractor.deadline,
 
+      id : this.props.currentContractor.currentContractor.id,
+
       event_id : this.props.eventStatus.currentEvent.id
     };
 
@@ -84,6 +86,28 @@ class ContractorProfile extends Component {
         throw err;
       })
     }
+
+    removeContractor = ( event ) => {
+      event.preventDefault()
+        return fetch(`/api/contractors/${this.props.currentContractor.currentContractor.id}`, {
+          method: "DELETE",
+          credentials: 'include',
+           headers:
+          {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          }
+        }).then((response) =>{
+          this.redirectContractor()
+        }).catch(err =>{
+          throw err;
+        })
+      }
+
+    redirectContractor(){
+       this.props.history.push("/newContractorForm")
+    }
+
 
    // updateBudget = ( contractor ) => {
    //      console.log('hit update budget')
@@ -144,7 +168,7 @@ class ContractorProfile extends Component {
 
             <br></br><br></br>
             <div className="columns">
-              <form className="column is-offset-3" onSubmit={this.handleContractorChangeSubmit}>
+              <form className="column is-offset-3" >
 
                 <div className="field">
                   <p className="control">
@@ -185,7 +209,10 @@ class ContractorProfile extends Component {
 
                 <div className="field">
                   <p className="control">
-                    <button className="button is-outlined bottomButton" name="Login" type="submit">Update Contractor </button>
+                    <button className="button is-outlined bottomButton" name="Login" onClick={this.handleContractorChangeSubmit}>Update Contractor
+                    </button>
+                    <button className="button is-info" name="Remove" onClick={this.removeContractor}> Remove Contractor
+                    </button>
                   </p>
                 </div>
 

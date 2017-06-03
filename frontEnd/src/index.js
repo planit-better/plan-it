@@ -24,7 +24,7 @@ import contractorProfile from './containers/App/contractorProfile';
 import taskProfile from './containers/App/taskProfile';
 import menuProfile from './containers/App/menuProfile';
 import equipmentProfile from './containers/App/equipmentProfile';
-
+import guestList from './components/guestList';
 
 import './index.css';
 
@@ -54,6 +54,7 @@ ReactDOM.render(
         <Route path="/taskProfile" component={taskProfile} />
         <Route path="/menuProfile" component={menuProfile} />
         <Route path="/equipmentProfile" component={equipmentProfile} />
+        <Route path="/guestList" component={guestList} />
       </div>
     </Router>
   </Provider>,

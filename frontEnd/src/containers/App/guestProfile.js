@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './styles.css';
 import { connect } from 'react-redux';
-import { loadCurrentGuest, loadCurrentContractor, loadContractors, loadEquipment, loadGuest, loadMenu, loadTask, logOut, clearEvent } from '../../action';
+import { loadCurrentGuest, updateCurrentGuest, loadContractors, loadEquipment, loadGuest, loadMenu, loadTask, logOut, clearEvent } from '../../action';
 import { Link, Redirect } from 'react-router-dom';
 
 
@@ -29,6 +29,8 @@ class GuestProfile extends Component {
       can_drink : false,
 
       diet_restriction : this.props.currentGuest.currentGuest.diet_restriction,
+
+      id: this.props.currentGuest.currentGuest.id,
 
       event_id : this.props.eventStatus.currentEvent.id
     }
@@ -114,12 +116,37 @@ class GuestProfile extends Component {
       })
     }
 
+    removeGuest = ( event ) => {
+      event.preventDefault()
+        return fetch(`/api/guest/${this.props.currentGuest.currentGuest.id}`, {
+          method: "DELETE",
+          credentials : "include",
+          headers:
+          {
+            "Content-Type" : "application/json",
+            "Accept" : "application/json"
+          }
+        }).then((response) =>{
+          this.redirectGuestList()
+        }).catch(err =>{
+          throw err;
+        })
+
+    }
+
+    redirectGuestList(){
+       this.props.history.push("/newGuestForm")
+      }
+
+
 
 
 
 
 
     render() {
+      console.log(this.props.currentGuest.currentGuest.id)
+      console.log(this.state.id)
     if(this.props.currentUser.userLoggedIn === false){
     return(
       <Redirect to={{
@@ -157,25 +184,27 @@ class GuestProfile extends Component {
 
 
             <div className="columns">
-              <form className="column is-offset-2 is-4" onSubmit={this.handleGuestChangeSubmit}>
+
+              <form className="list column is-4" >
+
                 <div className="field">
                   <p className="control">
                     <label className="label">Change Name</label>
-                    <input className="input" type="text" placeholder="Name" value={this.state.name} onChange={this.handleChangeName} />
+                    <input className="input is-small" type="text" placeholder="Name" value={this.state.name} onChange={this.handleChangeName} />
                   </p>
                 </div>
 
                 <div className="field">
                   <p className="control">
                     <label className="label">Change Number</label>
-                    <input className="input" type="text" placeholder="(555) 555-5555" value={this.state.number} onChange={this.handleChangeNumber} />
+                    <input className="input is-small" type="text" placeholder="(555) 555-5555" value={this.state.number} onChange={this.handleChangeNumber} />
                   </p>
                 </div>
 
                 <div className="field">
                   <p className="control">
                     <label className="label">Change Email</label>
-                    <input className="input emailInput" type="text" placeholder="email" value={this.state.email} onChange={this.handleChangeEmail} />
+                    <input className="input emailInput is-small" type="text" placeholder="email" value={this.state.email} onChange={this.handleChangeEmail} />
                   </p>
                 </div>
 
@@ -194,7 +223,7 @@ class GuestProfile extends Component {
                 <div className="field">
                   <p className="control">
                     <label className="label">Change Number of accompanying guests</label>
-                    <input className="input smallInput" type="number" value={this.state.accompanying_guests} onChange={this.handleChangeAccompanyingGuests} />
+                    <input className="input smallInput is-small" type="number" value={this.state.accompanying_guests} onChange={this.handleChangeAccompanyingGuests} />
                   </p>
                 </div>
 
@@ -215,13 +244,16 @@ class GuestProfile extends Component {
                     <label className="label">
                       Change Diet Restrictions
                     </label>
-                    <input className="input" type="text" value={this.state.diet_restriction} onChange={this.handleChangeDietRestriction} />
+                    <input className="input is-small" type="text" value={this.state.diet_restriction} onChange={this.handleChangeDietRestriction} />
                   </p>
                 </div>
 
                 <div className="field">
                   <p className="control">
-                    <button className="button is-info" name="Login" type="submit">Update Guest </button>
+                      <button className="button is-info" name="Login" onClick={this.handleGuestChangeSubmit}> Update Guest
+                      </button>
+                      <button className="button is-info" name="Remove" onClick={this.removeGuest}> Remove Guest
+                      </button>
                   </p>
                 </div>
 
@@ -295,21 +327,21 @@ class GuestProfile extends Component {
                 <div className="field">
                   <p className="control">
                     <label className="label">Change Name</label>
-                    <input className="input" type="text" placeholder="Name" value={this.state.name} onChange={this.handleChangeName} />
+                    <input className="input is-small" type="text" placeholder="Name" value={this.state.name} onChange={this.handleChangeName} />
                   </p>
                 </div>
 
                 <div className="field">
                   <p className="control">
                     <label className="label">Change Number</label>
-                    <input className="input" type="text" placeholder="(555) 555-5555" value={this.state.number} onChange={this.handleChangeNumber} />
+                    <input className="input is-small" type="text" placeholder="(555) 555-5555" value={this.state.number} onChange={this.handleChangeNumber} />
                   </p>
                 </div>
 
                 <div className="field">
                   <p className="control">
                     <label className="label">Change Email</label>
-                    <input className="input emailInput" type="text" placeholder="email" value={this.state.email} onChange={this.handleChangeEmail} />
+                    <input className="input emailInput is-small" type="text" placeholder="email" value={this.state.email} onChange={this.handleChangeEmail} />
                   </p>
                 </div>
 
@@ -328,7 +360,7 @@ class GuestProfile extends Component {
                 <div className="field">
                   <p className="control">
                     <label className="label">Change Number of accompanying guests</label>
-                    <input className="input smallInput" type="number" value={this.state.accompanying_guests} onChange={this.handleChangeAccompanyingGuests} />
+                    <input className="input smallInput is-small" type="number" value={this.state.accompanying_guests} onChange={this.handleChangeAccompanyingGuests} />
                   </p>
                 </div>
 
@@ -349,7 +381,7 @@ class GuestProfile extends Component {
                     <label className="label">
                       Change Diet Restrictions
                     </label>
-                    <input className="input" type="text" value={this.state.diet_restriction} onChange={this.handleChangeDietRestriction} />
+                    <input className="input is-small" type="text" value={this.state.diet_restriction} onChange={this.handleChangeDietRestriction} />
                   </p>
                 </div>
 
@@ -415,7 +447,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     loadCurrentGuest : currentGuest => {
       dispatch(loadCurrentGuest(currentGuest))
-   }
+   },
+    updateCurrentGuest : currentGuest => {
+      dispatch(updateCurrentGuest(currentGuest))
+    }
   }
 }
 

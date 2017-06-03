@@ -21,6 +21,7 @@ export const LOAD_OWNED_EVENT = 'LOAD_OWNED_EVENT';
 export const CLEAR_EVENT = "CLEAR_EVENT";
 
 export const ADD_USER_REDUX = 'ADD_USER_REDUX';
+export const UPDATE_CURRENT_GUEST = 'UPDATE_CURRENT_GUEST';
 
 
 
@@ -144,3 +145,9 @@ export const loadCurrentEquipment = currentEquipment => {
   };
 };
 
+export const updateCurrentGuest = currentGuest  => {
+  return{
+    type : UPDATE_CURRENT_GUEST,
+    currentGuest
+  };
+};
