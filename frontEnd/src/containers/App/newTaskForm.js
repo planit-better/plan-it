@@ -172,65 +172,67 @@ class newTaskForm extends Component {
         <br></br>
 
       <div className="columns">
-        <div className="column">
-        </div>
+        <div className="column"></div>
+          <div className="taskList list column is-4">
+            <form className="centerForm" onSubmit={this.handleTaskSubmit}>
 
-          <form className=" taskList list column is-4" onSubmit={this.handleTaskSubmit}>
+              <div className="field control">
+                <label className="label">Enter your new Task</label>
+              </div>
 
-            <label className="label">Enter your new Task</label>
+              <div className="field ">
+                <p className="control">
+                  <label className="label">Name</label>
+                </p>
+                <p className="control has-icons-left">
+                  <input className="input" type="text" placeholder="task name" value={this.state.name} onChange={this.handleChangeName} />
+                  <span className="icon is-left is-small">
+                    <i className="fa fa-dashboard"></i>
+                  </span>
+                </p>
+              </div>
 
-            <div className="field ">
-              <p className="control">
-                <label className="label">Name</label>
-              </p>
-              <p className="control has-icons-left">
-                <input className="input" type="text" placeholder="task name" value={this.state.name} onChange={this.handleChangeName} />
-                <span className="icon is-left is-small">
-                  <i className="fa fa-dashboard"></i>
-                </span>
-              </p>
-            </div>
+              <div className="field">
+                <p className="control">
+                  <label className="label">Type of task</label>
+                </p>
+                <p className="control has-icons-left">
+                  <input className="input" type="text"  value={this.state.type} onChange={this.handleChangeType} />
+                  <span className="icon is-left is-small">
+                    <i className="fa fa-eye"></i>
+                  </span>
+                </p>
+              </div>
 
-            <div className="field">
-              <p className="control">
-                <label className="label">Type of task</label>
-              </p>
-              <p className="control has-icons-left">
-                <input className="input" type="text"  value={this.state.type} onChange={this.handleChangeType} />
-                <span className="icon is-left is-small">
-                  <i className="fa fa-eye"></i>
-                </span>
-              </p>
-            </div>
+              <div className="field">
+                <p className="control">
+                  <label className="label"> Cost </label>
+                </p>
+                <p className="control has-icons-left">
+                  <input className="input" type="number" value={this.state.cost} onChange={this.handleChangeCost} />
+                  <span className="icon is-left is-small">
+                    <i className="fa fa-user"></i>
+                  </span>
+                </p>
+              </div>
 
-            <div className="field">
-              <p className="control">
-                <label className="label"> Cost </label>
-              </p>
-              <p className="control has-icons-left">
-                <input className="input" type="number" value={this.state.cost} onChange={this.handleChangeCost} />
-                <span className="icon is-left is-small">
-                  <i className="fa fa-user"></i>
-                </span>
-              </p>
-            </div>
+              <div className="field">
+                <p className="control">
+                  <label className="label">Deadline Number</label>
+                </p>
+                <p className="control has-icons-left">
+                  <input className="input dateInput" type="date" value={this.state.deadline} onChange={this.handleChangeDeadline} />
+                  <span className="icon is-left is-small">
+                    <i className="fa fa-calendar"></i>
+                  </span>
+                </p>
+              </div>
 
-            <div className="field">
-              <p className="control">
-                <label className="label">Deadline Number</label>
-              </p>
-              <p className="control has-icons-left">
-                <input className="input" type="date" value={this.state.deadline} onChange={this.handleChangeDeadline} />
-                <span className="icon is-left is-small">
-                  <i className="fa fa-calendar"></i>
-                </span>
-              </p>
-            </div>
-
-            <div>
-              <button className="addTask button bottomButton is-outlined" name="Login" type="submit">Add Task </button>
-            </div>
-          </form>
+              <div className="field control">
+                <button className="button guest is-outlined" name="Login" type="submit">Add Task </button>
+              </div>
+            </form>
+          </div>
 
         <br></br><br></br>
 
@@ -261,14 +263,14 @@ class newTaskForm extends Component {
 
               <div className="nav-center">
                 <div className="nav-item">
-                  <h3>{this.props.currentUser.username}</h3>
+                  <h3 className="text">{this.props.currentUser.username}</h3>
                 </div>
               </div>
 
               <div className="nav-right">
                 <div className="nav-item">
-                  <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
-                  <a className="nav-item is-tab is-hidden-mobile" onClick={this.openForm}>New Task Form</a>
+                  <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/"><p className="text">Home</p></Link></a>
+                  <a className="nav-item is-tab is-hidden-mobile" onClick={this.openForm}><p className="text">New Task Form</p></a>
                 </div>
               </div>
 

@@ -197,6 +197,10 @@
   width: 70%;
 }
 
+.timeInput {
+  width: 60%;
+}
+
 .smallInput {
   width: 20%;
 }
@@ -227,7 +231,7 @@
 }
 
 .equipmentNavColor {
-  background-color: rgb(71, 51, 35);
+  background-color: rgb(115, 93, 36);
 }
 
 .centerForm {
@@ -248,6 +252,10 @@
 
 a {
   color: firebrick;
+}
+
+.indexHomeButton {
+  color: rgb(160, 218, 241);
 }
 
 

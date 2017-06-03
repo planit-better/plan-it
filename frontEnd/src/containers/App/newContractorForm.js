@@ -174,19 +174,23 @@ class newContractorForm extends Component {
 
         <div className="columns">
 
-          <div className="column">
-          </div>
+          <div className="column"></div>
 
-            <form className="column list taskList is-4" onSubmit={this.handleContractorSubmit}>
+          <div className="column list taskList is-4">
 
-              <label><h1>Enter your new contractor</h1></label>
+            <form className="centerForm" onSubmit={this.handleContractorSubmit}>
+
+              <div className="field control">
+                <label className="label">Enter your new contractor</label>
+              </div>
 
               <div className="field">
                 <p className="control">
                   <label className="label">Company Name</label>
                 </p>
+
                 <p className="control has-icons-left">
-                  <input className="input" type="text" placeholder="Company Name" value={this.state.company_name} onChange={this.handleChangeComanyName} />
+                  <input className="timeInput input" type="text" placeholder="Company Name" value={this.state.company_name} onChange={this.handleChangeComanyName} />
                   <span className="icon is-small is-left">
                     <i className="fa fa-building"></i>
                   </span>
@@ -210,7 +214,7 @@ class newContractorForm extends Component {
                   <label className="label">Contact Number</label>
                 </p>
                 <p className="control has-icons-left">
-                  <input className="input" type="integer" placeholder="contact number" value={this.state.contact} onChange={this.handleChangeContact} />
+                  <input className="input timeInput" type="integer" placeholder="contact number" value={this.state.contact} onChange={this.handleChangeContact} />
                   <span className="icon is-small is-left">
                     <i className="fa fa-phone"></i>
                   </span>
@@ -222,7 +226,7 @@ class newContractorForm extends Component {
                   <label className="label">Hire Date</label>
                 </p>
                 <p className="control has-icons-left">
-                  <input className="input" type="date" placeholder="Hire Date" value={this.state.date_hired} onChange={this.handleChangeDateHired} />
+                  <input className="input dateInput" type="date" placeholder="Hire Date" value={this.state.date_hired} onChange={this.handleChangeDateHired} />
                   <span className="icon is-small is-left">
                     <i className="fa fa-calendar-plus-o"></i>
                   </span>
@@ -234,7 +238,7 @@ class newContractorForm extends Component {
                   <label className="label">Deadline</label>
                 </p>
                 <p className="control has-icons-left">
-                  <input className="input" type="date" value={this.state.deadline} onChange={this.handleChangeDeadline} />
+                  <input className="input dateInput" type="date" value={this.state.deadline} onChange={this.handleChangeDeadline} />
                   <span className="icon is-small is-left">
                     <i className="fa fa-calendar-times-o"></i>
                   </span>
@@ -242,26 +246,24 @@ class newContractorForm extends Component {
               </div>
 
               <div className="field control">
-                <button className="button bottomButton is-outlined" name="Login" type="submit">Add Contractor </button>
+                <button className="button guest is-outlined" name="Login" type="submit">Add Contractor </button>
               </div>
 
             </form>
-
-          <div className="column is-3">
           </div>
+
+          <div className="column"></div>
 
           <br></br><br></br>
 
-            <div className="list column is-4">
-              <ContractorList contractor={this.props.contractors}/>
-
-            </div>
-
-            <div className="column">
-            </div>
-
+          <div className="list column is-4">
+            <ContractorList contractor={this.props.contractors}/>
           </div>
+
+          <div className="column"></div>
+
         </div>
+      </div>
 
     );
   } else {

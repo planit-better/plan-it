@@ -136,12 +136,12 @@ class newMenuForm extends Component {
                   <h1 className="title is-3 text">Plan-Better</h1>
                 </div>
 
-                  <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
+                  <h3 className="menuEvent text">{this.props.eventStatus.currentEvent.name}</h3>
               </div>
 
               <div className="nav-center">
                 <div className="nav-item">
-                  <h3>{this.props.currentUser.username}</h3>
+                  <h3 className="guestText">{this.props.currentUser.username}</h3>
                 </div>
               </div>
 
@@ -199,7 +199,7 @@ class newMenuForm extends Component {
                   </div>
 
                   <div className="control">
-                    <button className="button is-small is-outlined menuNavColor" name="Login" type="submit">Add Menu </button>
+                    <button className="button is-outlined guest" name="Login" type="submit">Add Menu </button>
                   </div>
 
                 </form>
@@ -226,12 +226,12 @@ class newMenuForm extends Component {
 
               <h2 className="title is-3 text">Plan-Better</h2>
             </div>
-              <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
+              <h3 className="menuEvent text">{this.props.eventStatus.currentEvent.name}</h3>
           </div>
 
           <div className="nav-center">
             <div className="nav-item">
-              <h3>{this.props.currentUser.username}</h3>
+              <h3 className="guestText">{this.props.currentUser.username}</h3>
             </div>
           </div>
 
