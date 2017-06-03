@@ -122,9 +122,6 @@ class ContractorProfile extends Component {
 
 
     updateBudget = ( contractor ) => {
-        console.log('hit update budget')
-        console.log( contractor )
-        console.log( this.props.budget )
         for(var i=0; i<this.props.budget.length; i++){
           if(this.props.budget[i].type_id === this.state.id && this.props.budget[i].type === "Contractor"){
             this.putBudget(this.props.budget[i])
@@ -279,7 +276,7 @@ class ContractorProfile extends Component {
               <p>{this.props.currentContractor.currentContractor.deadline} </p>
             </div>
 
-           
+
 
           </div>
 

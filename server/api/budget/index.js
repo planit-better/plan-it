@@ -1,3 +1,4 @@
+/*jshint esversion: 6*/
 const express = require('express');
 const budget = express.Router();
 const db = require('../../models');

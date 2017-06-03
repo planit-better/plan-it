@@ -138,15 +138,7 @@ class GuestProfile extends Component {
        this.props.history.push("/newGuestForm")
       }
 
-
-
-
-
-
-
     render() {
-      console.log(this.props.currentGuest.currentGuest.id)
-      console.log(this.state.id)
     if(this.props.currentUser.userLoggedIn === false){
     return(
       <Redirect to={{

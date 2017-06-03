@@ -6,10 +6,8 @@ const { Menu } = db;
 
 
 menu.get('/', ( req, res) => {
-  console.log('hit menu');
   Menu.all({raw: true})
   .then((menu)=>{
-    console.log(menu)
     res.json(menu);
   }).catch(err => {
     res.send(err);
@@ -17,33 +15,26 @@ menu.get('/', ( req, res) => {
 });
 
 menu.post('/', ( req, res ) => {
-  console.log(req.body);
   Menu.create( req.body )
     .then( menu => {
-      console.log(menu);
       res.json( menu );
     })
     .catch( err => {
-      console.log(err);
       res.json( err );
     });
 });
 
 menu.delete('/:id', ( req, res ) => {
-  console.log("REQ.PaTH", req.path);
   let path = req.path.split('')[1];
-  console.log(req.body);
   Menu.destroy({
     where: {
       id: path
     }
   } )
   .then( menu => {
-    console.log( menu );
     res.json( menu );
   })
   .catch( err => {
-    console.log( err );
     res.json( err );
   });
 });
@@ -60,7 +51,6 @@ menu.put('/:id', (req,res) => {
       }
     })
     .then(data => {
-      //console.log('wat'+data);
       res.send('posted');
     });
 });

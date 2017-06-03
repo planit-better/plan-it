@@ -120,7 +120,6 @@ class newTaskForm extends Component {
       }).then(response =>{
         return(response.json())
       }).then(task =>{
-        console.log(task)
         this.addTaskBudget(task.id)
       }).catch(err => {
         throw err;

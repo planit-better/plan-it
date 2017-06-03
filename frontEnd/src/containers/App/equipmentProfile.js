@@ -36,7 +36,6 @@ class EquipmentProfile extends Component {
     handleEquipmentChangeSubmit = ( event ) => {
       event.preventDefault();
       this.updateEquipment(this.state)
-      //.then(this.updateBudget(this.state))
       .then(this.props.loadCurrentEquipment(this.state))
     }
 
@@ -93,14 +92,12 @@ class EquipmentProfile extends Component {
     }
 
     componentDidMount() {
-      console.log('mountin')
       fetch('/api/budget', {
       method : "GET",
       credentials: 'include'
     }).then((response)=>{
       return response.json()
     }).then((budget) =>{
-      console.log(budget)
       this.props.loadBudget(budget)
     }).catch(err =>{
       throw err;

@@ -26,15 +26,12 @@ const evite = (name, email, message) => {
    };
   mailgun.messages().sendMime(dataToSend, function (error, body) {
     if(error) {
-      console.log(error);
     }
-    console.log(body);
     });
   });
 };
 
 const getEmails = (emails, message) => {
-  console.log('hitting get emails?s');
   for(let i = 0; i < emails.length; i++) {
     evite(emails[i].name, emails[i].email, message);
   }

@@ -8,10 +8,8 @@ const { Guest } = db;
 
 
 text.post('/', (req,res) =>{
-  console.log(req.body);
   Guest.all()
   .then((allGuests) => {
-   // console.log(allGuests);
     getNumber(allGuests, req.body.message);
     res.json(allGuests);
   }).catch(err =>{
