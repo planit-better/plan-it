@@ -155,88 +155,97 @@ class EquipmentProfile extends Component {
 
      return(
 
-          <div className="App">
-            <div className="nav has-shadow">
-              <div className="nav-left">
-                <div className="nav-item">
-                  <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-                  <h1 className="title is-3">Planit-Better</h1>
-                </div>
+        <div className="App equipmentBackground">
 
-                  <h3 className="menuEvent">{this.props.eventStatus.currentEvent.company_name}</h3>
+          <div className="nav has-shadow equipmentNavColor">
+            <div className="nav-left">
+              <div className="nav-item">
+                <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
+                <h1 className="title is-3">Planit-Better</h1>
               </div>
 
-              <div className="nav-center">
-                <div className="nav-item">
-                  <h3>{this.props.currentUser.username}</h3>
-                </div>
-              </div>
+              <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
+            </div>
 
-              <div className="nav-right">
-                <div className="nav-item">
-                  <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
-                </div>
+            <div className="nav-center">
+              <div className="nav-item">
+                <h3>{this.props.currentUser.username}</h3>
               </div>
             </div>
+
+            <div className="nav-right">
+              <div className="nav-item">
+                <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
+              </div>
+            </div>
+          </div>
 
             <br></br><br></br>
 
             <div className="columns">
-              <form className="column is-offset-3" >
+              <div className="column"></div>
 
-                <div className="field">
-                  <p className="control">
-                    <label className="label">Change Equipment Name</label>
-                    <input className="input" type="text" placeholder="Company Name" value={this.state.name} onChange={this.handleChangeName} />
-                  </p>
-                </div>
+              <div className="column guestHome list is-4 control">
 
-                <div className="field">
-                  <p className="control">
-                    <label className="label">Change Cost</label>
-                    <input className="input" type="number" value={this.state.cost} onChange={this.handleChangeCost} />
-                  </p>
-                </div>
+                <form className="centerForm" >
+                  <div className="field">
+                    <p className="control">
+                      <label className="label">Change Equipment Name</label>
+                      <input className="input" type="text" placeholder="Company Name" value={this.state.name} onChange={this.handleChangeName} />
+                    </p>
+                  </div>
 
-                <div className="field">
-                  <p className="control">
-                    <label className="label">Change Type</label>
-                    <input className="input" type="text" placeholder="contact" value={this.state.type} onChange={this.handleChangeType} />
-                  </p>
-                </div>
+                  <div className="field">
+                    <p className="control">
+                      <label className="label">Change Cost</label>
+                      <input className="input" type="number" value={this.state.cost} onChange={this.handleChangeCost} />
+                    </p>
+                  </div>
+
+                  <div className="field">
+                    <p className="control">
+                      <label className="label">Change Type</label>
+                      <input className="input" type="text" placeholder="contact" value={this.state.type} onChange={this.handleChangeType} />
+                    </p>
+                  </div>
 
 
-                <div className="field">
-                  <p className="control">
-                    <button className="button is-outlined bottomButton" name="Login" onClick={this.handleEquipmentChangeSubmit}>Update Contractor
-                    </button>
-                    <button className="button is-info" name="Remove" onClick={this.removeEquipment}> Remove Equipment
-                    </button>
-                  </p>
-                </div>
+                  <div className="field">
+                    <p className="control">
+                      <button className="button is-outlined equipmentNavColor" name="Login" onClick={this.handleEquipmentChangeSubmit}>Update Contractor
+                      </button>
+                      <button className="button is-outlined equipmentNavColor" name="Remove" onClick={this.removeEquipment}> Remove Equipment
+                      </button>
+                    </p>
+                  </div>
 
-              </form>
+                </form>
+              </div>
+
+              <div className="column"></div>
 
               <br></br><br></br>
 
-              <div className="column">
-                <p>Equipment</p>
+              <div className="column list is-4">
+                <p className="label">Equipment</p>
 
-                  <div className="control">
+                  <div className="field">
                     <label className="label">Equipment Name</label>
                   <p>{this.props.currentEquipment.currentEquipment.name}</p>
                 </div>
 
-                <div className="control">
+                <div className="field">
                   <label className="label">Cost</label>
                   <p>{this.props.currentEquipment.currentEquipment.cost} </p>
                 </div>
 
-                <div className="control">
+                <div className="field">
                   <label className="label">Contact</label>
                   <p>{this.props.currentEquipment.currentEquipment.type} </p>
                 </div>
               </div>
+
+              <div className="column"></div>
             </div>
 
 

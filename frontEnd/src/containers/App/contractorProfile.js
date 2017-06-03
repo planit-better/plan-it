@@ -164,126 +164,130 @@ class ContractorProfile extends Component {
 
      return(
 
-          <div className="App contractor">
-            <div className="nav contractorHome has-shadow">
-              <div className="nav-left">
-                <div className="nav-item">
-                  <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-                  <h1 className="title is-3">Planit-Better</h1>
-                </div>
 
-                  <h3 className="menuEvent">{this.props.eventStatus.currentEvent.company_name}</h3>
-              </div>
-
-              <div className="nav-center">
-                <div className="nav-item">
-                  <h3>{this.props.currentUser.username}</h3>
-                </div>
-              </div>
-
-              <div className="nav-right">
-                <div className="nav-item">
-                  <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
-                </div>
-              </div>
+      <div className="App contractor">
+        <div className="nav has-shadow contractorHome">
+          <div className="nav-left">
+            <div className="nav-item">
+              <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
+              <h1 className="title is-3">Planit-Better</h1>
             </div>
+
+            <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
+          </div>
+
+          <div className="nav-center">
+            <div className="nav-item">
+              <h3>{this.props.currentUser.username}</h3>
+            </div>
+          </div>
+
+          <div className="nav-right">
+            <div className="nav-item">
+              <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
+            </div>
+          </div>
+        </div>
 
 
             <br></br><br></br>
-            <div className="columns">
-              <div className="column">
+        <div className="columns">
+          <div className="column"></div>
+
+          <div className="column guestHome list is-4 control">
+            <form className="centerForm" >
+
+              <div className="field">
+                <p className="control">
+                  <label className="label">Change Company Name</label>
+                  <input className="input" type="text" placeholder="Company Name" value={this.state.company_name} onChange={this.handleChangeName} />
+                </p>
+
               </div>
 
-              <form className="column list taskList is-4" >
-
-                <div className="field">
-                  <p className="control">
-                    <label className="label">Change Company Name</label>
-                    <input className="input" type="text" placeholder="Company Name" value={this.state.company_name} onChange={this.handleChangeName} />
-                  </p>
-                </div>
-
-                <div className="field">
-                  <p className="control">
-                    <label className="label">Change Cost</label>
-                    <input className="input" type="number" value={this.state.cost} onChange={this.handleChangeCost} />
-                  </p>
-                </div>
-
-                <div className="field">
-                  <p className="control">
-                    <label className="label">Change Contact</label>
-                    <input className="input" type="number" placeholder="contact" value={this.state.contact} onChange={this.handleChangeContact} />
-                  </p>
-                </div>
-
-                <div className="field">
-                  <p className="control">
-                    <label className="label">Change Date Hired</label>
-                    <input className="input" type="date" value={this.state.date_hired} onChange={this.handleChangeDateHired} />
-                  </p>
-                </div>
-
-                <div className="field">
-                  <p className="control">
-                    <label className="label">Change Deadline</label>
-                    <input className="input" type="date" value={this.state.deadline} onChange={this.handleChangeDeadline} />
-                  </p>
-                </div>
-
-                <br></br>
-                <div className="field">
-                  <p className="control">
-                    <button className="button is-info" name="Login" onClick={this.handleContractorChangeSubmit}>Update Contractor
-                    </button>
-                    <br></br><br></br>
-                    <button className="button is-info" name="Remove" onClick={this.removeContractor}> Remove Contractor
-                    </button>
-                  </p>
-                </div>
-
-              </form>
-
-              <div className="column is-1">
+              <div className="field">
+                <p className="control">
+                  <label className="label">Change Cost</label>
+                  <input className="input" type="number" value={this.state.cost} onChange={this.handleChangeCost} />
+                </p>
               </div>
 
-              <div className=" list column is-4 has-text-centered">
-                <p>Contractors</p>
-
-                  <div>
-                    <label className="label">Company Name</label>
-                  <p>{this.props.currentContractor.currentContractor.company_name}</p>
-                </div>
-
-                <div>
-                  <label className="label">Cost</label>
-                  <p>{this.props.currentContractor.currentContractor.cost} </p>
-                </div>
-
-                <div>
-                  <label className="label">Contact</label>
-                  <p>{this.props.currentContractor.currentContractor.contact} </p>
-                </div>
-
-
-                <div>
-                  <label className="label">Date Hired</label>
-                  <p>{this.props.currentContractor.currentContractor.date_hired} </p>
-                </div>
-
-                <div>
-                  <label className="label">Dealine</label>
-                  <p>{this.props.currentContractor.currentContractor.deadline} </p>
-                </div>
+              <div className="field">
+                <p className="control">
+                  <label className="label">Change Contact</label>
+                  <input className="input" type="number" placeholder="contact" value={this.state.contact} onChange={this.handleChangeContact} />
+                </p>
               </div>
 
-              <div className="column">
+              <div className="field">
+                <p className="control">
+                  <label className="label">Change Date Hired</label>
+                  <input className="input dateInput" type="date" value={this.state.date_hired} onChange={this.handleChangeDateHired} />
+                </p>
               </div>
+
+              <div className="field">
+                <p className="control">
+                  <label className="label">
+                    Change Deadline
+                  </label>
+                  <input className="input dateInput" type="date" value={this.state.deadline} onChange={this.handleChangeDeadline} />
+                </p>
+              </div>
+
+              <div className="field">
+                <p className="control">
+                  <button className="button is-outlined contractorHome" name="Login" onClick={this.handleContractorChangeSubmit}>Update Contractor
+                  </button>
+                  <button className="button is-outlined contractorHome" name="Remove" onClick={this.removeContractor}> Remove Contractor
+                  </button>
+                </p>
+              </div>
+
+            </form>
+          </div>
+
+
+          <div className="column"></div>
+
+          <div className=" column list is-4">
+            <p className="label">Contractors</p>
+
+            <div className="field">
+              <label className="label">Company Name</label>
+              <p>{this.props.currentContractor.currentContractor.company_name}</p>
+            </div>
+
+            <div className="field">
+              <label className="label">Cost</label>
+              <p>{this.props.currentContractor.currentContractor.cost} </p>
+            </div>
+
+            <div className="field">
+              <label className="label">Contact</label>
+              <p>{this.props.currentContractor.currentContractor.contact} </p>
             </div>
 
 
+            <div className="field">
+              <label className="label">Date Hired</label>
+              <p>{this.props.currentContractor.currentContractor.date_hired} </p>
+            </div>
+
+            <div className="field">
+              <label className="label">Dealine</label>
+              <p>{this.props.currentContractor.currentContractor.deadline} </p>
+            </div>
+
+           
 
           </div>
+
+          <div className="column"></div>
+        </div>
+
+
+      </div>
 
         );
    }

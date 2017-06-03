@@ -154,176 +154,186 @@ class GuestProfile extends Component {
       }} />
       )
     }
-     if(this.props.currentGuest.currentGuest.will_attend === true){
+    if(this.props.currentGuest.currentGuest.will_attend === true){
 
-     return(
+    return(
 
-          <div className="App">
-            <div className="nav has-shadow">
-              <div className="nav-left">
-                <div className="nav-item">
-                  <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-                  <h1 className="title is-3">Planit-Better</h1>
-                </div>
+      <div className="App guestBackground">
 
-                <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
-              </div>
-
-              <div className="nav-center">
-                <div className="nav-item">
-                  <h3>{this.props.currentUser.username}</h3>
-                </div>
-              </div>
-
-              <div className="nav-right">
-                <div className="nav-item">
-                  <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
-                </div>
-              </div>
+        <div className="guest nav has-shadow">
+          <div className="nav-left">
+            <div className="nav-item">
+              <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
+              <h1 className="title is-3">Planit-Better</h1>
             </div>
 
-
-            <div className="columns">
-
-              <form className="list column is-4" >
-
-                <div className="field">
-                  <p className="control">
-                    <label className="label">Change Name</label>
-                    <input className="input is-small" type="text" placeholder="Name" value={this.state.name} onChange={this.handleChangeName} />
-                  </p>
-                </div>
-
-                <div className="field">
-                  <p className="control">
-                    <label className="label">Change Number</label>
-                    <input className="input is-small" type="text" placeholder="(555) 555-5555" value={this.state.number} onChange={this.handleChangeNumber} />
-                  </p>
-                </div>
-
-                <div className="field">
-                  <p className="control">
-                    <label className="label">Change Email</label>
-                    <input className="input emailInput is-small" type="text" placeholder="email" value={this.state.email} onChange={this.handleChangeEmail} />
-                  </p>
-                </div>
-
-                <div className="field">
-                  <p className="control">
-                    <label className="checkbox label">
-                      Will Attend
-                    </label>
-                    <label className="checkbox">
-                      Yes
-                      <input type="checkbox" className="checkbox" name="attend" value={this.state.will_attend} onChange={this.handleChangeWillAttend}/>
-                    </label>
-                  </p>
-                </div>
-
-                <div className="field">
-                  <p className="control">
-                    <label className="label">Change Number of accompanying guests</label>
-                    <input className="input smallInput is-small" type="number" value={this.state.accompanying_guests} onChange={this.handleChangeAccompanyingGuests} />
-                  </p>
-                </div>
-
-                <div className="field">
-                  <p className="control">
-                    <label className="checkbox label">
-                      Can drink
-                    </label>
-                    <label className="checkbox">
-                      Yes
-                      <input type="checkbox" className="checkbox" name="attend" value={this.state.can_drink} onChange={this.handleChangeCanDrink}/>
-                    </label>
-                  </p>
-                </div>
-
-                <div className="field">
-                  <p className="control">
-                    <label className="label">
-                      Change Diet Restrictions
-                    </label>
-                    <input className="input is-small" type="text" value={this.state.diet_restriction} onChange={this.handleChangeDietRestriction} />
-                  </p>
-                </div>
-
-                <div className="field">
-                  <p className="control">
-                      <button className="button is-info" name="Login" onClick={this.handleGuestChangeSubmit}> Update Guest
-                      </button>
-                      <button className="button is-info" name="Remove" onClick={this.removeGuest}> Remove Guest
-                      </button>
-                  </p>
-                </div>
-
-              </form>
-
-              <form className="column is-2" onSubmit={this.handleGuestChangeSubmit}></form>
-
-              <div className="column">
-                <label className="label">Attending</label>
-                <p className="control">
-                  <label className="label">Name</label>
-                  <p>{this.props.currentGuest.currentGuest.name}</p>
-                </p>
-                <p className="control">
-                  <label className="label">Number</label>
-                  <span>{this.props.currentGuest.currentGuest.number}</span>
-                </p>
-                <p className="control">
-                  <label className="label">Email</label>
-                  <span>{this.props.currentGuest.currentGuest.email}</span>
-                </p>
-
-
-                <p className="control">
-                  <label className="label">accompanying guests</label>
-                  <span>{this.props.currentGuest.currentGuest.accompanying_guests}</span>
-                </p>
-
-                <p className="control">
-                  <label className="label">Diet Restrictions</label>
-                  <span>{this.props.currentGuest.currentGuest.diet_restriction}</span>
-                </p>
-              </div>
-
-              <div className="column is-3 is-offset-4"></div>
-            </div>
-
-
+            <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
           </div>
+
+          <div className="nav-center">
+            <div className="nav-item">
+              <h3>{this.props.currentUser.username}</h3>
+            </div>
+          </div>
+
+          <div className="nav-right">
+            <div className="nav-item">
+              <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
+            </div>
+          </div>
+        </div>
+
+
+        <div className="columns">
+          <div className="column"></div>
+
+          <div className="formsHome column list is-4">
+            <form className="centerForm">
+
+              <div className="field">
+                <p className="control">
+                  <label className="label">Change Name</label>
+                  <input className="input is-small" type="text" placeholder="Name" value={this.state.name} onChange={this.handleChangeName} />
+                </p>
+              </div>
+
+              <div className="field">
+                <p className="control">
+                  <label className="label">Change Number</label>
+                  <input className="input is-small" type="text" placeholder="(555) 555-5555" value={this.state.number} onChange={this.handleChangeNumber} />
+                </p>
+              </div>
+
+              <div className="field">
+                <p className="control">
+                  <label className="label">Change Email</label>
+                  <input className="input emailInput is-small" type="text" placeholder="email" value={this.state.email} onChange={this.handleChangeEmail} />
+                </p>
+              </div>
+
+              <div className="field">
+                <p className="control">
+                  <label className="checkbox label">
+                    Will Attend
+                  </label>
+                  <label className="checkbox">
+                    Yes
+                    <input type="checkbox" className="checkbox" name="attend" value={this.state.will_attend} onChange={this.handleChangeWillAttend}/>
+                  </label>
+                </p>
+              </div>
+
+              <div className="field">
+                <p className="control">
+                  <label className="label">Change Number of accompanying guests</label>
+                  <input className="input smallInput is-small" type="number" value={this.state.accompanying_guests} onChange={this.handleChangeAccompanyingGuests} />
+                </p>
+              </div>
+
+              <div className="field">
+                <p className="control">
+                  <label className="checkbox label">
+                    Can drink
+                  </label>
+                  <label className="checkbox">
+                    Yes
+                    <input type="checkbox" className="checkbox" name="attend" value={this.state.can_drink} onChange={this.handleChangeCanDrink}/>
+                  </label>
+                </p>
+              </div>
+
+              <div className="field">
+                <p className="control">
+                  <label className="label">
+                    Change Diet Restrictions
+                  </label>
+                  <input className="input is-small" type="text" value={this.state.diet_restriction} onChange={this.handleChangeDietRestriction} />
+                </p>
+              </div>
+
+              <div className="field">
+                <p className="control">
+                    <button className="button guest" name="Login" onClick={this.handleGuestChangeSubmit}> Update Guest
+                    </button>
+                    <button className="button is-outlined guest" name="Remove" onClick={this.removeGuest}> Remove Guest
+                    </button>
+                </p>
+              </div>
+
+            </form>
+          </div>
+
+          <div className="column"></div>
+
+          <div className="formsHome column list is-4">
+            <label className="label">Attending</label>
+
+            <p className="field">
+              <label className="label">Name</label>
+              <p>{this.props.currentGuest.currentGuest.name}</p>
+            </p>
+
+            <p className="field">
+              <label className="label">Number</label>
+              <span>{this.props.currentGuest.currentGuest.number}</span>
+            </p>
+
+            <p className="field">
+              <label className="label">Email</label>
+              <span>{this.props.currentGuest.currentGuest.email}</span>
+            </p>
+
+            <p className="field">
+              <label className="label">accompanying guests</label>
+              <span>{this.props.currentGuest.currentGuest.accompanying_guests}</span>
+            </p>
+
+            <p className="field">
+              <label className="label">Diet Restrictions</label>
+              <span>{this.props.currentGuest.currentGuest.diet_restriction}</span>
+            </p>
+          </div>
+
+          <div className="column"></div>
+        </div>
+
+
+      </div>
 
         )
    } else {
       return(
-          <div className="App">
-            <div className="nav has-shadow">
-              <div className="nav-left">
-                <div className="nav-item">
-                  <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-                  <h1 className="title is-3">Planit-Better</h1>
-                </div>
-
-                <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
+        <div className="App guestBackground">
+          <div className="guest nav has-shadow">
+            <div className="nav-left">
+              <div className="nav-item">
+                <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
+                <h1 className="title is-3">Planit-Better</h1>
               </div>
 
-              <div className="nav-center">
-                <div className="nav-item">
-                  <h3>{this.props.currentUser.username}</h3>
-                </div>
-              </div>
+              <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
+            </div>
 
-              <div className="nav-right">
-                <div className="nav-item">
-                  <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
-                </div>
+            <div className="nav-center">
+              <div className="nav-item">
+                <h3>{this.props.currentUser.username}</h3>
               </div>
             </div>
 
+            <div className="nav-right">
+              <div className="nav-item">
+                <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
+              </div>
+            </div>
+          </div>
 
-            <div className="columns">
-              <form className="column is-offset-2 is-4" onSubmit={this.handleGuestChangeSubmit}>
+
+          <div className="columns">
+            <div className="column"></div>
+
+            <div className="formsHome column list is-4">
+
+              <form className="centerForm" onSubmit={this.handleGuestChangeSubmit}>
                 <div className="field">
                   <p className="control">
                     <label className="label">Change Name</label>
@@ -387,46 +397,49 @@ class GuestProfile extends Component {
 
                 <div className="field">
                   <p className="control">
-                    <button className="button is-info" name="Login" type="submit">Update Guest </button>
+                    <button className="button guest is-outlined" name="Login" type="submit">Update Guest </button>
                   </p>
                 </div>
 
               </form>
-
-              <form className="column is-2" onSubmit={this.handleGuestChangeSubmit}></form>
-
-              <div className="column">
-                <p className="label">Not Attending</p>
-                <p className="control">
-                  <label className="label">Name</label>
-                  <p>{this.props.currentGuest.currentGuest.name}</p>
-                </p>
-                <p className="control">
-                  <label className="label">Number</label>
-                  <span>{this.props.currentGuest.currentGuest.number}</span>
-                </p>
-                <p className="control">
-                  <label className="label">Email</label>
-                  <span>{this.props.currentGuest.currentGuest.email}</span>
-                </p>
-
-
-                <p className="control">
-                  <label className="label">accompanying guests</label>
-                  <span>{this.props.currentGuest.currentGuest.accompanying_guests}</span>
-                </p>
-
-                <p className="control">
-                  <label className="label">Diet Restrictions</label>
-                  <span>{this.props.currentGuest.currentGuest.diet_restriction}</span>
-                </p>
-              </div>
-
-              <div className="column is-3 is-offset-4"></div>
             </div>
 
+            <div className="column"></div>
 
+            <div className="formsHome column list is-4">
+              <label className="label">Not Attending</label>
+
+              <p className="field">
+                <label className="label">Name</label>
+                <p>{this.props.currentGuest.currentGuest.name}</p>
+              </p>
+
+              <p className="field">
+                <label className="label">Number</label>
+                <span>{this.props.currentGuest.currentGuest.number}</span>
+              </p>
+
+              <p className="field">
+                <label className="label">Email</label>
+                <span>{this.props.currentGuest.currentGuest.email}</span>
+              </p>
+
+              <p className="field">
+                <label className="label">accompanying guests</label>
+                <span>{this.props.currentGuest.currentGuest.accompanying_guests}</span>
+              </p>
+
+              <p className="field">
+                <label className="label">Diet Restrictions</label>
+                <span>{this.props.currentGuest.currentGuest.diet_restriction}</span>
+              </p>
+            </div>
+
+            <div className="column"></div>
           </div>
+
+
+        </div>
           )
    }
   }
