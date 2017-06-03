@@ -152,8 +152,8 @@ class newEquipmentForm extends Component {
 
           <div className="nav-right text">
             <div className="nav-item">
-              <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
-              <a className="nav-item is-tab is-hidden-mobile" onClick={this.openForm}>Hide Equipment Form</a>
+              <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/"><p className="text">Home</p></Link></a>
+              <a className="nav-item is-tab is-hidden-mobile" onClick={this.openForm}><p className="text">Hide Equipment Form</p></a>
             </div>
           </div>
         </div>
