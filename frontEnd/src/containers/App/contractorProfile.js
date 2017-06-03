@@ -181,7 +181,7 @@ class ContractorProfile extends Component {
 
           <div className="nav-right">
             <div className="nav-item">
-              <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
+              <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/"><p className="text">Home</p></Link></a>
             </div>
           </div>
         </div>
@@ -234,9 +234,9 @@ class ContractorProfile extends Component {
 
               <div className="field">
                 <p className="control">
-                  <button className="button is-outlined contractorHome" name="Login" onClick={this.handleContractorChangeSubmit}>Update Contractor
+                  <button className="button is-outlined" name="Login" onClick={this.handleContractorChangeSubmit}>Update Contractor
                   </button>
-                  <button className="button is-outlined contractorHome" name="Remove" onClick={this.removeContractor}> Remove Contractor
+                  <button className="button is-outlined" name="Remove" onClick={this.removeContractor}> Remove Contractor
                   </button>
                 </p>
               </div>

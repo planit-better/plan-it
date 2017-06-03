@@ -115,8 +115,8 @@ class App extends Component {
 
             <div className="nav-right">
               <div className="nav-item">
-                  <a id="signout" className="nav-item is-tab is-hidden-mobile is-active" onClick={this.signOut}>Log Out</a>
-                  <a className="nav-item is-tab is-hidden-mobile"><Link to="/eventForm" onClick={this.newEvent}>New Event</Link></a>
+                  <a id="signout" className="nav-item is-tab is-hidden-mobile is-active" onClick={this.signOut}><p className="text">Log Out</p></a>
+                  <a className="nav-item is-tab is-hidden-mobile"><Link to="/eventForm" onClick={this.newEvent}><p className="text">New Event</p></Link></a>
               </div>
             </div>
           </div>
@@ -209,8 +209,8 @@ class App extends Component {
 
               <div className="nav-right">
                 <div className="nav-item text">
-                  <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/loginForm">Login</Link></a>
-                  <a className="nav-item is-tab is-hidden-mobile"><Link to="/signinForm">Sign Up</Link></a>
+                  <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/loginForm"><p className="text">Login</p></Link></a>
+                  <a className="nav-item is-tab is-hidden-mobile"><Link to="/signinForm"><p className="text">Sign Up</p></Link></a>
                 </div>
               </div>
             </div>
