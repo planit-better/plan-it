@@ -160,7 +160,7 @@ class newEquipmentForm extends Component {
         <br></br>
 
         <div className="columns">
-          <div className="column is-offset-2 is-4 list">
+          <div className="column is-offset-2 is-4 list guestHome">
 
             <form onSubmit={this.handleEquipmentSubmit}>
               <div className="field">
@@ -208,7 +208,7 @@ class newEquipmentForm extends Component {
 
           <div className="column is-3"></div>
 
-          <div className="column is-2 list">
+          <div className="column is-2 list guestHome">
             <EquipmentList equipment={this.props.equipment} />
           </div>
 
