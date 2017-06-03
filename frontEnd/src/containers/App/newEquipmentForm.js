@@ -131,9 +131,9 @@ class newEquipmentForm extends Component {
       if(this.state.formOpen === true){
 
     return (
-      <div className="App">
+      <div className="App equipmentBackground">
 
-        <div className="nav has-shadow">
+        <div className="nav has-shadow equipmentNavColor">
           <div className="nav-left">
             <div className="nav-item">
               <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
@@ -150,15 +150,17 @@ class newEquipmentForm extends Component {
           </div>
 
           <div className="nav-right">
-             <div className="nav-item">
-               <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
-               <a className="nav-item is-tab is-hidden-mobile" onClick={this.openForm}>Hide Equipment Form</a>
+            <div className="nav-item">
+              <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
+              <a className="nav-item is-tab is-hidden-mobile" onClick={this.openForm}>Hide Equipment Form</a>
             </div>
-            </div>
+          </div>
         </div>
+
         <br></br>
+
         <div className="columns">
-          <div className="column is-offset-2">
+          <div className="column is-offset-2 is-4 list guestHome">
 
             <form onSubmit={this.handleEquipmentSubmit}>
               <div className="field">
@@ -198,49 +200,76 @@ class newEquipmentForm extends Component {
               </div>
 
               <div className="control">
-                <button className="button bottomButton is-outlined" name="Login" type="submit">Add Equipment </button>
+                <button className="button bottomButton is-outlined equipmentNavColor" name="Login" type="submit">Add Equipment </button>
               </div>
 
             </form>
           </div>
 
-          <div className="column">
+
+          <br></br><br></br>
+
+
+
+          <div className="column is-3"></div>
+
+
+          <div className="column is-2 list guestHome">
+
             <EquipmentList equipment={this.props.equipment} />
           </div>
 
-          </div>
+          <div className="column is-3 is-offset-4"></div>
 
         </div>
+
+      </div>
 
     );
   }else{
     return(
-    <div className="App">
-      <div className="nav has-shadow">
-         <div className="nav-left">
-           <div className="nav-item">
-             <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-             <h1 className="title is-3">Planit-Better</h1>
-           </div>
+      <div className="App equipmentBackground">
+        <div className="nav has-shadow equipmentNavColor">
+          <div className="nav-left">
+            <div className="nav-item">
+               <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
+               <h1 className="title is-3">Planit-Better</h1>
+            </div>
 
-          <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
+            <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
           </div>
 
-         <div className="nav-center">
-           <div className="nav-item">
-             <h3>{this.props.currentUser.username}</h3>
-           </div>
-         </div>
+          <div className="nav-center">
+            <div className="nav-item">
+              <h3>{this.props.currentUser.username}</h3>
+            </div>
+          </div>
 
-         <div className="nav-right">
-           <div className="nav-item">
-             <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
-             <a className="nav-item is-tab is-hidden-mobile" onClick={this.openForm}>New Equipment Form</a>
-           </div>
-         </div>
-         </div>
-      <EquipmentList equipment={this.props.equipment} />
-    </div>
+          <div className="nav-right">
+
+            <div className="nav-item">
+              <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
+              <a className="nav-item is-tab is-hidden-mobile" onClick={this.openForm}>New Equipment Form</a>
+            </div>
+          </div>
+
+        </div>
+
+        <br></br>
+
+        <div className="columns">
+
+          <div className="column"></div>
+
+          <div className="list column is-4 guestHome">
+            <EquipmentList equipment={this.props.equipment} />
+          </div>
+
+          <div className="column"></div>
+
+        </div>
+      </div>
+
     )
    }
   }

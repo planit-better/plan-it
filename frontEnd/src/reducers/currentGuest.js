@@ -1,7 +1,8 @@
 /*jshint esversion: 6*/
 
 import {
-  LOAD_CURRENT_GUEST
+  LOAD_CURRENT_GUEST,
+  UPDATE_CURRENT_GUEST
 } from '../action';
 
 const initialState = {
@@ -22,6 +23,10 @@ const guest = (state = initialState, action) =>{
     case LOAD_CURRENT_GUEST:
       return Object.assign({}, state, {
         currentGuest : action.currentGuest
+      });
+    case UPDATE_CURRENT_GUEST:
+      return Object.assign({}, state, {
+        currentGuest : action.currentGUest
       });
 
       default: return state;
