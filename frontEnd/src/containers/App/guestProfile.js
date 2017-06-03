@@ -389,7 +389,10 @@ class GuestProfile extends Component {
 
                 <div className="field">
                   <p className="control">
-                    <button className="button guest is-outlined" name="Login" type="submit">Update Guest </button>
+                    <button className="button guest is-outlined" name="Login" type="submit">Update Guest
+                    </button>
+                    <button className="button is-outlined guest" name="Remove" onClick={this.removeGuest}> Remove Guest
+                    </button>
                   </p>
                 </div>
 
