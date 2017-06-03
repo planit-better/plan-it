@@ -26,9 +26,7 @@ class newEquipmentForm extends Component {
     handleEquipmentSubmit = ( event ) => {
       event.preventDefault();
       this.addEquipment(this.state)
-      //.then(this.clearState())
       .then(this.updateStore())
-      //.then(this.addEquipBudget())
 
     }
 
@@ -94,14 +92,12 @@ class newEquipmentForm extends Component {
 
 
     openForm = () => {
-      console.log(this.state.cost)
       this.setState({
         formOpen : !this.state.formOpen
       })
     }
 
     addEquipBudget(id){
-      console.log(id)
       return fetch('/api/budget', {
         method: "POST",
         credentials: 'include',

@@ -28,9 +28,7 @@ class newTaskForm extends Component {
     handleTaskSubmit = ( event ) => {
       event.preventDefault();
       this.addTask(this.state)
-      .then(this.clearState())
       .then(this.updateStore())
-      .then(this.addTaskBudget())
 
     }
 
@@ -87,7 +85,8 @@ class newTaskForm extends Component {
   }
 
 
-  addTaskBudget(){
+  addTaskBudget(id){
+    console.log(id)
       return fetch('/api/budget', {
         method: "POST",
         credentials: 'include',
@@ -98,7 +97,8 @@ class newTaskForm extends Component {
         body: JSON.stringify({
           "type": "Task",
           "amount": this.state.cost,
-          "event_id": this.props.eventStatus.currentEvent.id
+          "event_id": this.props.eventStatus.currentEvent.id,
+          "type_id" : id
         })
       }).then(response =>{
         return response
@@ -119,7 +119,10 @@ class newTaskForm extends Component {
         },
         body: JSON.stringify(task)
       }).then(response =>{
-        return(response)
+        return(response.json())
+      }).then(task =>{
+        console.log(task)
+        this.addTaskBudget(task.id)
       }).catch(err => {
         throw err;
       })

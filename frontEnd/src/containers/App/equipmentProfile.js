@@ -115,9 +115,6 @@ class EquipmentProfile extends Component {
 
 
     updateBudget = ( equipment ) => {
-        console.log('hit update budget')
-        console.log( equipment )
-        console.log( this.props.budget )
         for(var i=0; i<this.props.budget.length; i++){
           if(this.props.budget[i].type_id === this.state.id && this.props.budget[i].type === "Equipment"){
             this.putBudget(this.props.budget[i])

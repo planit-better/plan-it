@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './styles.css';
 import { connect } from 'react-redux';
-import { loadCurrentGuest, loadCurrentTask, loadCurrentContractor, loadContractors, loadEquipment, loadGuest, loadMenu, loadTask, logOut, clearEvent } from '../../action';
+import { loadCurrentGuest, loadCurrentTask, loadCurrentContractor, loadContractors, loadEquipment, loadGuest, loadMenu, loadBudget, loadTask, logOut, clearEvent } from '../../action';
 import { Link, Redirect } from 'react-router-dom';
 
 
@@ -27,7 +27,9 @@ class TaskProfile extends Component {
 
       complete : this.props.currentTask.currentTask.complete,
 
-      event_id : this.props.eventStatus.currentEvent.id
+      event_id : this.props.eventStatus.currentEvent.id,
+
+      id: this.props.currentTask.currentTask.id
 
     };
 
@@ -36,7 +38,6 @@ class TaskProfile extends Component {
     handleTaskChangeSubmit = ( event ) => {
       event.preventDefault();
       this.updateTask(this.state)
-      //.then(this.updateBudget(this.state))
       .then(this.props.loadCurrentTask(this.state))
     }
 
@@ -82,7 +83,7 @@ class TaskProfile extends Component {
         },
         body : JSON.stringify(task)
       }).then((response) =>{
-        return response.json()
+        this.updateBudget( this.state )
       }).catch(err =>{
         throw err;
       })
@@ -104,6 +105,49 @@ class TaskProfile extends Component {
           throw err;
         })
       }
+
+
+    componentDidMount() {
+      fetch('/api/budget', {
+      method : "GET",
+      credentials: 'include'
+    }).then((response)=>{
+      return response.json()
+    }).then((task) =>{
+      this.props.loadBudget(task)
+    }).catch(err =>{
+      throw err;
+    })
+    }
+
+     updateBudget = ( task ) => {
+        console.log('hit update budget')
+        console.log( task )
+        console.log( this.props.budget )
+        for(var i=0; i<this.props.budget.length; i++){
+          if(this.props.budget[i].type_id === this.state.id && this.props.budget[i].type === "Task"){
+            this.putBudget(this.props.budget[i])
+          }
+        }
+    }
+
+     putBudget( budget ){
+       return fetch(`/api/budget/${budget.id}`, {
+        method: "PUT",
+        credentials: 'include',
+         headers:
+        {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body : JSON.stringify({"amount": this.state.cost})
+      }).then((response) =>{
+        return;
+      }).catch(err =>{
+        throw err;
+      })
+    }
+
 
 
     redirectTask(){
@@ -247,7 +291,8 @@ const mapStateToProps = (state) => {
     currentUser : state.authenticate,
     eventStatus : state.eventStatus,
     currentTask : state.currentTask,
-    currentContractor : state.currentContractor
+    currentContractor : state.currentContractor,
+    budget : state.budget
 
   };
 }
@@ -260,7 +305,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
    },
     loadCurrentContractor : currentContractor => {
       dispatch(loadCurrentContractor(currentContractor))
-   }
+   },
+    loadBudget : budget => {
+      dispatch(loadBudget(budget))
+    }
 
   }
 }

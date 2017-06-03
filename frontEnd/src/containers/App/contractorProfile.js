@@ -36,7 +36,6 @@ class ContractorProfile extends Component {
     handleContractorChangeSubmit = ( event ) => {
       event.preventDefault();
       this.updateContractor(this.state)
-      //.then(this.updateBudget(this.state))
       .then(this.props.loadCurrentContractor(this.state))
     }
 
