@@ -183,107 +183,111 @@ class newGuestForm extends Component {
             <br></br>
 
         <div className="columns">
-          <form className="list column is-offset-2 is-4" onSubmit={this.handleGuestSubmit}>
 
-            <label className="label">Enter your new guest</label>
+          <div className="column"></div>
 
-            <div className="field">
-              <p className="control">
-                <label className="label">Name</label>
-              </p>
-              <p className="control has-icons-left">
-                <input className="input is-small" type="text" placeholder="Name" value={this.state.name} onChange={this.handleChangeName} />
-                <span className="icon is-small is-left">
-                  <i className="fa fa-user"></i>
-                </span>
-              </p>
-            </div>
+          <div className="column list control is-4">
+            <form className="centerGuestForm" onSubmit={this.handleGuestSubmit}>
 
-            <div className="field">
-              <p className="control">
-                <label className="label">Number</label>
-              </p>
-              <p className="control has-icons-left">
-                <input className="input is-small" type="text" placeholder="(555) 555-5555" value={this.state.number} onChange={this.handleChangeNumber} />
-                <span className="icon is-small is-left">
-                  <i className="fa fa-phone"></i>
-                </span>
-              </p>
-            </div>
+              <label className="label">Enter your new guest</label>
 
-            <div className="field">
-              <p className="control">
-                <label className="label">Email</label>
-              </p>
-              <p className="control has-icons-left">
-                <input className="input emailInput is-small" type="text" placeholder="email" value={this.state.email} onChange={this.handleChangeEmail} />
-                <span className="icon is-small is-left">
-                  <i className="fa fa-envelope"></i>
-                </span>
-              </p>
-            </div>
+              <div className="field">
+                <p className="control">
+                  <label className="label">Name</label>
+                </p>
+                <p className="control has-icons-left">
+                  <input className="input is-small" type="text" placeholder="Name" value={this.state.name} onChange={this.handleChangeName} />
+                  <span className="icon is-small is-left">
+                    <i className="fa fa-user"></i>
+                  </span>
+                </p>
+              </div>
 
-            <div className="field">
-              <p className="control">
-                <label className="checkbox label">
-                  Will Attend
-                </label>
-                <label className="checkbox">
-                  Yes
-                  <input type="checkbox" className="checkbox" name="attend" value={this.state.will_attend} onChange={this.handleChangeWillAttend}/>
-                </label>
-              </p>
-            </div>
+              <div className="field">
+                <p className="control">
+                  <label className="label">Number</label>
+                </p>
+                <p className="control has-icons-left">
+                  <input className="input is-small" type="text" placeholder="(555) 555-5555" value={this.state.number} onChange={this.handleChangeNumber} />
+                  <span className="icon is-small is-left">
+                    <i className="fa fa-phone"></i>
+                  </span>
+                </p>
+              </div>
 
-            <div className="field">
-              <p className="control">
-                <label className="label">Number of accompanying guests</label>
-                <input id="numberGuests" className="input smallInput is-small" type="number" value={this.state.accompanying_guests} onChange={this.handleChangeAccompanyingGuests} />
-              </p>
-            </div>
+              <div className="field">
+                <p className="control">
+                  <label className="label">Email</label>
+                </p>
+                <p className="control has-icons-left">
+                  <input className="input emailInput is-small" type="text" placeholder="email" value={this.state.email} onChange={this.handleChangeEmail} />
+                  <span className="icon is-small is-left">
+                    <i className="fa fa-envelope"></i>
+                  </span>
+                </p>
+              </div>
 
-            <div className="field">
-              <p className="control">
-                <label className="checkbox label">
-                  Can drink
-                </label>
-                <label className="checkbox">
-                  Yes
-                  <input type="checkbox" className="checkbox" name="attend" value={this.state.can_drink} onChange={this.handleChangeCanDrink}/>
-                </label>
-              </p>
-            </div>
+              <div className="field">
+                <p className="control">
+                  <label className="checkbox label">
+                    Will Attend
+                  </label>
+                  <label className="checkbox">
+                    Yes
+                    <input type="checkbox" className="checkbox" name="attend" value={this.state.will_attend} onChange={this.handleChangeWillAttend}/>
+                  </label>
+                </p>
+              </div>
 
-            <div className="field">
-              <p className="control">
-                <label className="label">
-                  Diet Restrictions
-                </label>
-              </p>
-              <p className="control has-icons-left">
-                <input className="input is-small" type="text" value={this.state.diet_restriction} onChange={this.handleChangeDietRestriction} />
-                <span className="icon is-small is-left">
-                  <i className="fa fa-spoon"></i>
-                </span>
-              </p>
-            </div>
+              <div className="field">
+                <p className="control">
+                  <label className="label">Number of accompanying guests</label>
+                  <input id="numberGuests" className="input smallInput is-small" type="number" value={this.state.accompanying_guests} onChange={this.handleChangeAccompanyingGuests} />
+                </p>
+              </div>
 
-            <div className="field control">
-              <button className="button bottomButton is-outlined" name="Login" type="submit">Add Guest </button>
-            </div>
+              <div className="field">
+                <p className="control">
+                  <label className="checkbox label">
+                    Can drink
+                  </label>
+                  <label className="checkbox">
+                    Yes
+                    <input type="checkbox" className="checkbox" name="attend" value={this.state.can_drink} onChange={this.handleChangeCanDrink}/>
+                  </label>
+                </p>
+              </div>
 
-          </form>
+              <div className="field">
+                <p className="control">
+                  <label className="label">
+                    Diet Restrictions
+                  </label>
+                </p>
+                <p className="control has-icons-left">
+                  <input className="input is-small" type="text" value={this.state.diet_restriction} onChange={this.handleChangeDietRestriction} />
+                  <span className="icon is-small is-left">
+                    <i className="fa fa-spoon"></i>
+                  </span>
+                </p>
+              </div>
 
-          <div className="column is-2">
+              <div className="field control">
+                <button className="button is-outlined guest" name="Login" type="submit">Add Guest </button>
+              </div>
+
+            </form>
           </div>
+
+          <div className="column"></div>
 
           <br></br>
 
-          <div className="list column control">
+          <div className="guestHome column list is-4">
             <GuestList guest={this.props.guest} />
           </div>
 
-          <div className="column is-3 is-offset-4"></div>
+          <div className="column"></div>
 
         </div>
       </div>
@@ -322,13 +326,13 @@ class newGuestForm extends Component {
           <div className="column"></div>
 
             <div className="list guestHome column is-4">
-              <div>
-                <Link to="/inviteForm"><button className="button is-outlined is-small is-pulled-left">Create Message</button></Link>
+              <div className="control">
+                <Link to="/inviteForm"><button className="button is-outlined is-small is-pulled-right guest">Create Message</button></Link>
+                <div className="notePad centerGuestForm">
+                  <GuestList guest={this.props.guest} />
+                </div>
               </div>
 
-              <div className="notePad has-text-centered">
-                <GuestList guest={this.props.guest} />
-              </div>
             </div>
 
             <div className="column"></div>
