@@ -163,11 +163,11 @@ class ContractorProfile extends Component {
 
 
       <div className="App contractor">
-        <div className="nav has-shadow contractorHome">
+        <div className="nav has-shadow contractorHome text">
           <div className="nav-left">
             <div className="nav-item">
               <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-              <h1 className="title is-3">Planit-Better</h1>
+              <h1 className="title is-3 text">Plan-Better</h1>
             </div>
 
             <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
