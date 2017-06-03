@@ -279,12 +279,12 @@ class newGuestForm extends Component {
 
           <br></br>
 
-          <div className="list column control">
+          <div className="list column is-4">
+
             <GuestList guest={this.props.guest} />
           </div>
 
-          <div className="column is-3 is-offset-4"></div>
-
+          <div className="column is-3"></div>
         </div>
       </div>
     );

@@ -151,6 +151,24 @@
   width: 20%;
 }
 
+.tasksBackground {
+  background: url("https://catalystseven.com/wp-content/uploads/2016/03/Take-Control-of-Your-Task-List.jpg");
+  background-size: cover;
+  height: 900px;
+}
+
+.allTask {
+  margin-top: 12px
+}
+
+.taskList {
+  height: 700px;
+}
+
+.task {
+  background: #F92B2B;
+}
+
 .equipmentBackground {
   background: url("https://c1.staticflickr.com/3/2851/9408028555_396725f058_b.jpg");
   background-size: cover;
@@ -161,4 +179,3 @@
 .equipmentNavColor {
   background-color: rgb(52, 203, 61);
 }
-
