@@ -283,11 +283,13 @@ class newGuestForm extends Component {
 
           <br></br>
 
+
           <div className="guestHome column list is-4">
             <GuestList guest={this.props.guest} />
           </div>
 
           <div className="column"></div>
+
 
         </div>
       </div>

@@ -144,8 +144,8 @@ class newTaskForm extends Component {
       if(this.state.formOpen === true){
 
     return (
-      <div className="App">
-       <div className="nav has-shadow">
+      <div className="App tasksBackground">
+       <div className="nav task has-shadow">
         <div className="nav-left">
           <div className="nav-item">
             <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
@@ -172,9 +172,13 @@ class newTaskForm extends Component {
 
       <div className="columns">
         <div className="column">
-          <form onSubmit={this.handleTaskSubmit}>
+        </div>
 
-            <div className="field centerInput">
+          <form className=" taskList list column is-4" onSubmit={this.handleTaskSubmit}>
+
+            <label className="label">Enter your new Task</label>
+
+            <div className="field ">
               <p className="control">
                 <label className="label">Name</label>
               </p>
@@ -186,7 +190,7 @@ class newTaskForm extends Component {
               </p>
             </div>
 
-            <div className="field centerInput">
+            <div className="field">
               <p className="control">
                 <label className="label">Type of task</label>
               </p>
@@ -198,7 +202,7 @@ class newTaskForm extends Component {
               </p>
             </div>
 
-            <div className="field centerInput">
+            <div className="field">
               <p className="control">
                 <label className="label"> Cost </label>
               </p>
@@ -210,7 +214,7 @@ class newTaskForm extends Component {
               </p>
             </div>
 
-            <div className="field centerInput">
+            <div className="field">
               <p className="control">
                 <label className="label">Deadline Number</label>
               </p>
@@ -226,21 +230,25 @@ class newTaskForm extends Component {
               <button className="addTask button bottomButton is-outlined" name="Login" type="submit">Add Task </button>
             </div>
           </form>
-        </div>
+
+        <br></br><br></br>
 
         <div className="column">
+        </div>
+
+        <div className="column list is-4 allTask">
           <TaskList task={this.props.task} />
         </div>
 
-        <div className="column is-offset-1"></div>
+        <div className="column"></div>
 
       </div>
     </div>
     );
       }else {
         return(
-          <div className="App">
-            <div className="nav has-shadow">
+          <div className="App tasksBackground">
+            <div className="nav task has-shadow">
               <div className="nav-left">
                 <div className="nav-item">
                   <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
@@ -267,8 +275,16 @@ class newTaskForm extends Component {
 
             <br></br>
 
-            <div>
-              <TaskList task={this.props.task} />
+            <div className="columns">
+              <div className="column">
+              </div>
+
+              <div className="notePad has-text-centered list column guestHome is-4">
+                <TaskList task={this.props.task} />
+              </div>
+
+              <div className="column">
+              </div>
             </div>
 
           </div>
