@@ -42,7 +42,7 @@ class EventList extends Component {
    render() {
     return(
       <div>
-        <h1>Hello Events</h1>
+        <label className="label">Hello Events</label>
         <ul>
           {
             this.props.event.map((evt) =>

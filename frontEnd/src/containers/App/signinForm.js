@@ -156,7 +156,7 @@ class signinForm extends Component{
           </div>
 
           <div>
-            <button className="button bottomButton is-outlined" name="Signup" type="submit">Sign Up </button>
+            <button className="button indexHomeButton is-outlined" name="Signup" type="submit">Sign Up </button>
           </div>
         </form>
 

@@ -186,98 +186,114 @@ class TaskProfile extends Component {
       )
     }
 
-     return(
+    return(
 
-          <div className="App">
-            <div className="App-header">
+      <div className="App tasksBackground">
+        <div className="nav task has-shadow text">
+          <div className="nav-left">
+            <div className="nav-item">
               <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-              <h2>Planit-Better</h2>
+              <h1 className="title is-3 text">Plan-Better</h1>
+            </div>
+            <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
+          </div>
+
+          <div className="nav-center">
+            <div className="nav-item">
               <h3>{this.props.currentUser.username}</h3>
-              <h3>{this.props.eventStatus.currentEvent.company_name}</h3>
             </div>
-            <div id="navBar">
-              <Link to="/"><button>Home</button></Link>
+          </div>
+
+          <div className="nav-right">
+            <div className="nav-item">
+              <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/"><p className="text">Home</p></Link></a>
             </div>
+          </div>
+        </div>
 
 
-            <div className="columns">
-              <form className="column is-offset-3" >
+        <div className="columns">
+          <div className="column"></div>
 
-                <div className="field">
-                  <p className="control">
-                    <label className="label">Change Name</label>
-                    <input className="input" type="text" value={this.state.name} onChange={this.handleChangeName} />
-                  </p>
-                </div>
+          <div className="guestHome formsHome column list is-4">
+            <form className="centerForm">
 
-                <div className="field">
-                  <p className="control">
-                    <label className="label">Change Cost</label>
-                    <input className="input" type="number" value={this.state.cost} onChange={this.handleChangeCost} />
-                  </p>
-                </div>
-
-                <div className="field">
-                  <p className="control">
-                    <label className="label">Change Type</label>
-                    <input className="input" type="text" value={this.state.type} onChange={this.handleChangeType} />
-                  </p>
-                </div>
-
-                <div className="field">
-                  <p className="control">
-                    <label className="label">Change Deadline</label>
-                    <input className="input" type="date" value={this.state.deadline} onChange={this.handleChangeDeadline} />
-                  </p>
-                </div>
-
-
-
-                <div className="field">
-                  <p className="control">
-                    <button className="button is-outlined bottomButton" name="Login" onClick={this.handleTaskChangeSubmit}>Update Task
-                    </button>
-                    <button className="button is-info" name="Remove" onClick={this.removeTask}> Remove Task
-                    </button>
-                  </p>
-                </div>
-
-              </form>
-
-              <form className="column is-offset-3" onSubmit={this.handleTaskChangeSubmit}>
-
-              </form>
-
-              <div className="column">
-                <p>Tasks</p>
-
-                  <div className="control">
-                    <label className="label"> Name</label>
-                  <p>{this.props.currentTask.currentTask.name}</p>
-                </div>
-
-                <div className="control">
-                  <label className="label">Cost</label>
-                  <p>{this.props.currentTask.currentTask.cost} </p>
-                </div>
-
-                <div className="control">
-                  <label className="label">Type</label>
-                  <p>{this.props.currentTask.currentTask.type} </p>
-                </div>
-
-
-                <div className="control">
-                  <label className="label">Deadline</label>
-                  <p>{this.props.currentTask.currentTask.deadline} </p>
-                </div>
-
-
+              <div className="field">
+                <p className="control">
+                  <label className="label">Change Name</label>
+                  <input className="input" type="text" value={this.state.name} onChange={this.handleChangeName} />
+                </p>
               </div>
+
+              <div className="field">
+                <p className="control">
+                  <label className="label">Change Cost</label>
+                  <input className="input" type="number" value={this.state.cost} onChange={this.handleChangeCost} />
+                </p>
+              </div>
+
+              <div className="field">
+                <p className="control">
+                  <label className="label">Change Type</label>
+                  <input className="input" type="text" value={this.state.type} onChange={this.handleChangeType} />
+                </p>
+              </div>
+
+              <div className="field">
+                <p className="control">
+                  <label className="label">Change Deadline</label>
+                  <input className="input dateInput" type="date" value={this.state.deadline} onChange={this.handleChangeDeadline} />
+                </p>
+              </div>
+
+
+
+              <div className="field">
+                <p className="control">
+                  <button className="button is-outlined guest" name="Login" onClick={this.handleTaskChangeSubmit}>Update Task
+                  </button>
+                  <button className="button is-outlined guest" name="Remove" onClick={this.removeTask}> Remove Task
+                  </button>
+                </p>
+              </div>
+
+            </form>
+          </div>
+
+          <div className="column"></div>
+
+          <div className="guestHome formsHome column list is-4">
+            <p className="label">Tasks</p>
+
+              <div className="field">
+                <label className="label"> Name</label>
+              <p>{this.props.currentTask.currentTask.name}</p>
+            </div>
+
+            <div className="field">
+              <label className="label">Cost</label>
+              <p>{this.props.currentTask.currentTask.cost} </p>
+            </div>
+
+            <div className="field">
+              <label className="label">Type</label>
+              <p>{this.props.currentTask.currentTask.type} </p>
+            </div>
+
+
+            <div className="field">
+              <label className="label">Deadline</label>
+              <p>{this.props.currentTask.currentTask.deadline} </p>
             </div>
 
 
           </div>
+
+          <div className="column"></div>
+        </div>
+
+
+      </div>
 
         );
    }
