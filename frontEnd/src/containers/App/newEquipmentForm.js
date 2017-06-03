@@ -16,7 +16,7 @@ class newEquipmentForm extends Component {
 
     this.state = {
       name : "",
-      cost : "",
+      cost : 0,
       type : "",
       event_id : this.props.eventStatus.currentEvent.id,
       formOpen : false
@@ -26,9 +26,9 @@ class newEquipmentForm extends Component {
     handleEquipmentSubmit = ( event ) => {
       event.preventDefault();
       this.addEquipment(this.state)
-      .then(this.clearState())
+      //.then(this.clearState())
       .then(this.updateStore())
-      .then(this.addEquipBudget())
+      //.then(this.addEquipBudget())
 
     }
 
@@ -84,7 +84,9 @@ class newEquipmentForm extends Component {
         },
         body: JSON.stringify(equipment)
       }).then(response =>{
-        return(response)
+        return(response.json())
+      }).then(data =>{
+        this.addEquipBudget(data.id)
       }).catch(err => {
         throw err;
       })
@@ -92,12 +94,14 @@ class newEquipmentForm extends Component {
 
 
     openForm = () => {
+      console.log(this.state.cost)
       this.setState({
         formOpen : !this.state.formOpen
       })
     }
 
-    addEquipBudget(){
+    addEquipBudget(id){
+      console.log(id)
       return fetch('/api/budget', {
         method: "POST",
         credentials: 'include',
@@ -107,11 +111,12 @@ class newEquipmentForm extends Component {
         },
         body: JSON.stringify({
           "type": "Equipment",
-          "amount": this.state.cost,
-          "event_id": this.props.eventStatus.currentEvent.id
+          "amount": Number(this.state.cost),
+          "event_id": Number(this.props.eventStatus.currentEvent.id),
+          "type_id": id
         })
       }).then(response =>{
-        return response
+        this.clearState()
       }).catch(err =>{
         throw err;
       })
