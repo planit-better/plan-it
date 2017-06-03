@@ -69,6 +69,28 @@ class MenuProfile extends Component {
       })
     }
 
+    removeMenu = ( event ) => {
+      event.preventDefault()
+        return fetch(`/api/menu/${this.props.currentMenu.currentMenu.id}`, {
+          method: "DELETE",
+          credentials: 'include',
+           headers:
+          {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          }
+        }).then((response) =>{
+          this.redirectMenu()
+        }).catch(err =>{
+          throw err;
+        })
+      }
+
+    redirectMenu(){
+       this.props.history.push("/newMenuForm")
+    }
+
+
    // updateBudget = ( contractor ) => {
    //      console.log('hit update budget')
    //      return fetch(`/api/budget/${this.props.currentContractor.currentContractor.id}`, {
@@ -127,7 +149,7 @@ class MenuProfile extends Component {
 
 
             <div className="columns">
-              <form className="column is-offset-3" onSubmit={this.handleMenuChangeSubmit}>
+              <form className="column is-offset-3" >
 
                 <div className="field">
                   <p className="control">
@@ -152,7 +174,10 @@ class MenuProfile extends Component {
 
                 <div className="field">
                   <p className="control">
-                    <button className="button is-outlined bottomButton" name="Login" type="submit">Update Menu </button>
+                    <button className="button is-outlined bottomButton" name="Login" onClick={this.handleMenuChangeSubmit}>Update Menu
+                    </button>
+                    <button className="button is-info" name="Remove" onClick={this.removeMenu}> Remove Menu
+                    </button>
                   </p>
                 </div>
 

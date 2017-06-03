@@ -30,7 +30,8 @@ menu.post('/', ( req, res ) => {
 });
 
 menu.delete('/:id', ( req, res ) => {
-  let path = req.path.split('/')[1];
+  console.log("REQ.PaTH", req.path);
+  let path = req.path.split('')[1];
   console.log(req.body);
   Menu.destroy({
     where: {
