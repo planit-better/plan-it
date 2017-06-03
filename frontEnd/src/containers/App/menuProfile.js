@@ -219,9 +219,9 @@ class MenuProfile extends Component {
 
                   <div className="field">
                     <p className="control">
-                      <button className="button is-outlined menuNavColor" name="Login" onClick={this.handleMenuChangeSubmit}>Update Menu
+                      <button className="button is-outlined" name="Login" onClick={this.handleMenuChangeSubmit}>Update Menu
                       </button>
-                      <button className="button menuNavColor is-outlined" name="Remove" onClick={this.removeMenu}> Remove Menu
+                      <button className="button  is-outlined" name="Remove" onClick={this.removeMenu}> Remove Menu
                       </button>
                     </p>
                   </div>

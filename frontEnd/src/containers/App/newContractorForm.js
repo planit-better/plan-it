@@ -164,8 +164,8 @@ class newContractorForm extends Component {
 
           <div className="nav-right">
             <div className="nav-item">
-              <a className="nav-item is-tab is-hidden-mobile is-active text"><Link to="/">Home</Link></a>
-              <a className="nav-item is-tab is-hidden-mobile text" onClick={this.openForm}>Hide Contractor Form</a>
+              <a className="nav-item is-tab is-hidden-mobile is-active text"><Link to="/"><p className="text">Home</p></Link></a>
+              <a className="nav-item is-tab is-hidden-mobile text" onClick={this.openForm}><p className="text">Hide Contractor Form</p></a>
             </div>
           </div>
         </div>
@@ -285,8 +285,8 @@ class newContractorForm extends Component {
 
           <div className="nav-right">
             <div className="nav-item">
-              <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
-              <a className="nav-item is-tab is-hidden-mobile" onClick={this.openForm}>New Contractor Form</a>
+              <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/"><p className="text">Home</p></Link></a>
+              <a className="nav-item is-tab is-hidden-mobile" onClick={this.openForm}><p className="text">New Contractor Form</p></a>
             </div>
           </div>
         </div>

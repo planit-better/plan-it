@@ -124,7 +124,7 @@ class signinForm extends Component{
 
           <div className="nav-right">
             <div className="nav-item text">
-              <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
+              <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/"><h1 className="text">Home</h1></Link></a>
             </div>
           </div>
         </div>
