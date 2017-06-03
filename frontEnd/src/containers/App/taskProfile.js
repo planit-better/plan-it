@@ -121,9 +121,6 @@ class TaskProfile extends Component {
     }
 
      updateBudget = ( task ) => {
-        console.log('hit update budget')
-        console.log( task )
-        console.log( this.props.budget )
         for(var i=0; i<this.props.budget.length; i++){
           if(this.props.budget[i].type_id === this.state.id && this.props.budget[i].type === "Task"){
             this.putBudget(this.props.budget[i])
@@ -153,29 +150,6 @@ class TaskProfile extends Component {
     redirectTask(){
        this.props.history.push("/newTaskForm")
     }
-
-
-
-
-   // updateBudget = ( task ) => {
-   //      console.log('hit update budget')
-   //      return fetch(`/api/budget/${this.props.currentContractor.currentContractor.id}`, {
-   //      method: "PUT",
-   //      credentials: 'include',
-   //       headers:
-   //      {
-   //        "Content-Type": "application/json",
-   //        "Accept": "application/json"
-   //      },
-   //      body : JSON.stringify({"amount": this.state.cost})
-   //    }).then((response) =>{
-   //      return response.json()
-   //    }).catch(err =>{
-   //      throw err;
-   //    })
-   // }
-
-
 
 
     render() {
