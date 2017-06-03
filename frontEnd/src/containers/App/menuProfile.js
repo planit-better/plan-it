@@ -100,7 +100,32 @@ class MenuProfile extends Component {
       }
 
     redirectMenu(){
-       this.props.history.push("/newMenuForm")
+      this.removeMenuBudget()
+      this.props.history.push("/newMenuForm")
+    }
+
+    removeMenuBudget(){
+      for(var i=0; i<this.props.budget.length; i++){
+          if(this.props.budget[i].type_id === this.state.id && this.props.budget[i].type === "Menu"){
+            this.removeBudget(this.props.budget[i])
+          }
+        }
+    }
+
+    removeBudget(budget){
+      return fetch(`/api/budget/${budget.id}`, {
+          method: "DELETE",
+          credentials: 'include',
+           headers:
+          {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          }
+        }).then((response) =>{
+          return;
+        }).catch(err =>{
+          throw err;
+        })
     }
 
 

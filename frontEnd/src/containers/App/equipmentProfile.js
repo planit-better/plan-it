@@ -29,10 +29,6 @@ class EquipmentProfile extends Component {
 
   }
 
-    // componentWillMount() {
-    //   this.props.loadCurrentEquipment(this.state)
-    // }
-
     handleEquipmentChangeSubmit = ( event ) => {
       event.preventDefault();
       this.updateEquipment(this.state)
@@ -106,9 +102,33 @@ class EquipmentProfile extends Component {
 
 
     redirectEquipment(){
+      this.removeEquipmentBudget()
       this.props.history.push("/newEquipmentForm")
     }
 
+    removeEquipmentBudget(){
+      for(var i=0; i<this.props.budget.length; i++){
+          if(this.props.budget[i].type_id === this.state.id && this.props.budget[i].type === "Equipment"){
+            this.removeBudget(this.props.budget[i])
+          }
+        }
+    }
+
+    removeBudget(budget){
+      return fetch(`/api/budget/${budget.id}`, {
+          method: "DELETE",
+          credentials: 'include',
+           headers:
+          {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          }
+        }).then((response) =>{
+          return;
+        }).catch(err =>{
+          throw err;
+        })
+    }
 
 
     updateBudget = ( equipment ) => {
