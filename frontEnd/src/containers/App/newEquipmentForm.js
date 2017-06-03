@@ -143,13 +143,13 @@ class newEquipmentForm extends Component {
             <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
           </div>
 
-          <div className="nav-center">
+          <div className="nav-center text">
             <div className="nav-item">
               <h3>{this.props.currentUser.username}</h3>
             </div>
           </div>
 
-          <div className="nav-right">
+          <div className="nav-right text">
             <div className="nav-item">
               <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
               <a className="nav-item is-tab is-hidden-mobile" onClick={this.openForm}>Hide Equipment Form</a>

@@ -90,6 +90,21 @@
   background-image: url("http://s1.picswalls.com/wallpapers/2016/06/16/planet-background_115145186_310.jpg");
 }
 
+.logHome {
+  background: url("http://i.huffpost.com/gen/4058420/images/o-EARTH-facebook.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 989px;
+}
+
+.logHeader {
+  background: url("http://i.huffpost.com/gen/4058420/images/o-EARTH-facebook.jpg");
+}
+
+.signHome {
+  background: url("http://katelynjeffrey.net/grid_demo/Simple_Grid-WEB/images/earth.jpg");
+}
+
 .text {
   color: white;
   text-transform: uppercase;
@@ -115,6 +130,11 @@
 .guest {
 
   background: white;
+}
+
+.guestText {
+  color: black;
+  text-transform: uppercase;
 }
 
 .guestBackground {
