@@ -34,7 +34,6 @@ class EventForm extends Component {
   handleEventSubmit = ( event ) => {
     event.preventDefault();
     this.addEvent(this.state)
-    .then(this.props.loadOwnedEvent(this.state))
     .then(this.updateStore())
     .then(this.clearState())
 
@@ -122,7 +121,6 @@ class EventForm extends Component {
   }
 
   componentWillMount() {
-    //this.findUserId(this.props.currentUser.username)
     fetch('/api/User', {
       method : "GET",
       credentials: 'include'
