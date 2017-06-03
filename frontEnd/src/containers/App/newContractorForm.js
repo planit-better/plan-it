@@ -170,7 +170,7 @@ class newContractorForm extends Component {
           </div>
         </div>
 
-        <br></br>
+        <br></br><br></br>
 
         <div className="columns">
 
@@ -251,7 +251,7 @@ class newContractorForm extends Component {
           <div className="column is-3">
           </div>
 
-          <br></br>
+          <br></br><br></br>
 
             <div className="list column is-4">
               <ContractorList contractor={this.props.contractors}/>
@@ -296,6 +296,8 @@ class newContractorForm extends Component {
         <div className="columns">
           <div className="column">
           </div>
+
+          <br></br><br></br>
 
           <div className="list column guestHome is-4">
             <ContractorList contractor={this.props.contractors}/>
