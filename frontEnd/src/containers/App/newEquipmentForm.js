@@ -85,6 +85,8 @@ class newEquipmentForm extends Component {
         body: JSON.stringify(equipment)
       }).then(response =>{
         return(response)
+      }).then(data =>{
+        this.addEquipBudget(data.id)
       }).catch(err => {
         throw err;
       })
@@ -97,7 +99,8 @@ class newEquipmentForm extends Component {
       })
     }
 
-    addEquipBudget(){
+    addEquipBudget(id){
+      console.log(id)
       return fetch('/api/budget', {
         method: "POST",
         credentials: 'include',
@@ -108,7 +111,8 @@ class newEquipmentForm extends Component {
         body: JSON.stringify({
           "type": "Equipment",
           "amount": this.state.cost,
-          "event_id": this.props.eventStatus.currentEvent.id
+          "event_id": this.props.eventStatus.currentEvent.id,
+          "type_id": id
         })
       }).then(response =>{
         return response
