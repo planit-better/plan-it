@@ -79,13 +79,13 @@ class loginForm extends Component{
         )
       }
     return(
-      <div className="App">
+      <div className="App logHome">
 
-        <div className="nav has-shadow">
-          <div className="nav-left">
+        <div className="nav logHeader has-shadow">
+          <div className="nav-left ">
             <div className="nav-item">
               <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-              <h1 className="title is-3">Planit-Better</h1>
+              <h1 className="title is-3 text">Planit-Better</h1>
             </div>
 
               <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
@@ -99,7 +99,7 @@ class loginForm extends Component{
 
           <div className="nav-right">
             <div className="nav-item">
-              <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
+              <a className="nav-item is-tab is-hidden-mobile is-active text"><Link to="/">Home</Link></a>
             </div>
           </div>
         </div>
@@ -108,7 +108,7 @@ class loginForm extends Component{
         <form onSubmit={this.handleLoginSubmit}>
           <div className="field centerInput">
             <p className="control">
-              <label className="label">Username</label>
+              <label className="label text">Username</label>
             </p>
             <p className="control has-icons-left">
               <input className="input" type="text" placeholder="username" value={this.state.username} onChange={this.handleChangeUsername} />
@@ -120,7 +120,7 @@ class loginForm extends Component{
 
           <div className="field centerInput">
             <p className="control">
-              <label className="label">Password</label>
+              <label className="label text">Password</label>
             </p>
             <p className="control has-icons-left">
               <input className="input" type="password" placeholder="password"  value={this.state.password} onChange={this.handleChangePassword} />

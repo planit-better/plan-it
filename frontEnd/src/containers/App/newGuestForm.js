@@ -157,7 +157,7 @@ class newGuestForm extends Component {
       <div className="App guestBackground">
 
         <div className="guest nav has-shadow">
-          <div className="nav-left">
+          <div className="nav-left guestText">
             <div className="nav-item">
               <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
               <h1 className="title is-3">Planit-Better</h1>
@@ -166,22 +166,19 @@ class newGuestForm extends Component {
               <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
           </div>
 
-          <div className="nav-center">
+          <div className="nav-center guestText">
             <div className="nav-item">
               <h3>{this.props.currentUser.username}</h3>
             </div>
           </div>
 
-          <div className="nav-menu">
+          <div className=" nav-right nav-menu guestText">
             <div className="nav-right">
               <div className="nav-item">
                 <a className="nav-item is-tab is-active"><Link to="/">Home</Link></a>
                 <a className="nav-item is-tab" onClick={this.openForm}>Hide Guest Form</a>
               </div>
             </div>
-            <span></span>
-            <span></span>
-            <span></span>
           </div>
         </div>
 
@@ -303,12 +300,12 @@ class newGuestForm extends Component {
       } else {
       return (
         <div className="App guestBackground">
-          <div className="nav has-shadow guest">
+          <div className="nav has-shadow guest guestText">
             <div className="nav-left">
               <div className="nav-item">
                 <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
 
-                <h2 className="title is-3">Planit-Better</h2>
+                <h2 className="title is-3 guestText">Planit-Better</h2>
               </div>
               <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
             </div>

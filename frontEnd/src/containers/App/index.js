@@ -192,13 +192,13 @@ class App extends Component {
       );
     } else {
       return (
-        <div className="App">
+        <div className="App logHome">
 
-          <div className="nav has-shadow is-active">
+          <div className="nav has-shadow logHeader is-active ">
               <div className="nav-left">
                 <div className="nav-item">
                   <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-                  <h1 className="title is-3">Planit-Better</h1>
+                  <h1 className="title is-3 text">Planit-Better</h1>
                 </div>
               </div>
 
@@ -209,7 +209,7 @@ class App extends Component {
               </div>
 
               <div className="nav-right">
-                <div className="nav-item">
+                <div className="nav-item text">
                   <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/loginForm">Login</Link></a>
                   <a className="nav-item is-tab is-hidden-mobile"><Link to="/signinForm">Sign Up</Link></a>
                 </div>
