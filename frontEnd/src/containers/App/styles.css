@@ -76,6 +76,10 @@
   color: green;
 }
 
+#taskBudget{
+  color: orange;
+}
+
 .columnButton {
   width: 90%;
   height: 150px;

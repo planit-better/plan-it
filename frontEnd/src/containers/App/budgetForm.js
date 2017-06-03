@@ -114,6 +114,12 @@ class Budget extends Component {
                     <td>{taskBudget}</td>
                     <td>{Number(taskBudget / (contractorBudget + menuBudget + equipmentBudget + taskBudget).toFixed(2))}</td>
                   </tr>
+                  <tr id="totalBudget">
+                    <td> Total </td>
+                    <td> {equipmentBudget + contractorBudget + menuBudget + taskBudget}</td>
+                    <td></td>
+
+                  </tr>
                 </table>
               </div>
           <div className="column">
