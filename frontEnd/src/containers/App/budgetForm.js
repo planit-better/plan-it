@@ -96,23 +96,29 @@ class Budget extends Component {
                   </tr>
                   <tr id="contractorBudget">
                     <td >Contractor</td>
-                    <td>{contractorBudget}</td>
-                    <td>{contractorBudget / (contractorBudget + menuBudget + equipmentBudget + taskBudget)}</td>
+                    <td>${contractorBudget}</td>
+                    <td>{(contractorBudget / (contractorBudget + menuBudget + equipmentBudget + taskBudget)).toFixed(2) * 100}%</td>
                   </tr>
                   <tr id="menuBudget">
                     <td>Menu</td>
-                    <td>{menuBudget}</td>
-                    <td>{menuBudget / (contractorBudget + menuBudget + equipmentBudget + taskBudget)}</td>
+                    <td>${menuBudget}</td>
+                    <td>{(menuBudget / (contractorBudget + menuBudget + equipmentBudget + taskBudget)).toFixed(2) * 100}%</td>
                   </tr>
                   <tr id="equipmentBudget">
                     <td >Equipment</td>
-                    <td>{equipmentBudget}</td>
-                    <td>{Number(equipmentBudget / (contractorBudget + menuBudget + equipmentBudget + taskBudget).toFixed(2))}</td>
+                    <td>${equipmentBudget}</td>
+                    <td>{(equipmentBudget / (contractorBudget + menuBudget + equipmentBudget + taskBudget)).toFixed(2) * 100}%</td>
                   </tr>
                   <tr id="taskBudget">
                     <td >Task</td>
-                    <td>{taskBudget}</td>
-                    <td>{Number(taskBudget / (contractorBudget + menuBudget + equipmentBudget + taskBudget).toFixed(2))}</td>
+                    <td>${taskBudget}</td>
+                    <td>{(taskBudget / (contractorBudget + menuBudget + equipmentBudget + taskBudget)).toFixed(2) * 100}%</td>
+                  </tr>
+                  <tr id="totalBudget">
+                    <td> Total </td>
+                    <td> ${equipmentBudget + contractorBudget + menuBudget + taskBudget}</td>
+                    <td></td>
+
                   </tr>
                 </table>
               </div>
@@ -132,7 +138,7 @@ class Budget extends Component {
                     value: equipmentBudget,
                   },
                   {
-                    color: "yellow",
+                    color: "orange",
                     value: taskBudget,
                   },
                   {

@@ -74,6 +74,7 @@ class newContractorForm extends Component {
     }
 
     updateStore(){
+      console.log('updateing store')
      fetch('/api/Contractors', {
       method: "GET",
       credentials : 'include'
