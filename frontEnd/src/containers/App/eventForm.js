@@ -34,7 +34,6 @@ class EventForm extends Component {
   handleEventSubmit = ( event ) => {
     event.preventDefault();
     this.addEvent(this.state)
-    .then(this.props.loadOwnedEvent(this.state))
     .then(this.updateStore())
     .then(this.clearState())
 
