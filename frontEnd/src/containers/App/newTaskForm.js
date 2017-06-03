@@ -86,7 +86,6 @@ class newTaskForm extends Component {
 
 
   addTaskBudget(id){
-    console.log(id)
       return fetch('/api/budget', {
         method: "POST",
         credentials: 'include',
