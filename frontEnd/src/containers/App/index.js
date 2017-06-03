@@ -101,7 +101,7 @@ class App extends Component {
               <div className="nav-item">
                 <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
 
-                <h2 className="title is-3">Planit-Better</h2>
+                <h2 className="title is-3">Plan-Better</h2>
               </div>
 
                 <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
@@ -132,7 +132,7 @@ class App extends Component {
                 </span>
               </p>
                 <Link to="/newContractorForm">
-                  <button className="button columnButton is-large is-info is-outlined">New Contractor
+                  <button className="button columnButton is-large is-info is-outlined">Contractors
                   </button>
                 </Link>
             </div>
@@ -143,7 +143,7 @@ class App extends Component {
                   <i className="fa fa-gavel"></i>
                 </span>
               </p>
-                <Link to="/newEquipmentForm"><button className="button columnButton is-large is-success is-outlined">New Equipment</button></Link>
+                <Link to="/newEquipmentForm"><button className="button columnButton is-large is-success is-outlined">Equipment</button></Link>
             </div>
 
             <div className="column">
@@ -152,7 +152,7 @@ class App extends Component {
                   <i className="fa fa-user-plus"></i>
                 </span>
               </p>
-                <Link to="/newGuestForm"><button className="button columnButton is-large is-warning is-outlined">New Guest</button></Link>
+                <Link to="/newGuestForm"><button className="button columnButton is-large is-warning is-outlined">Guests</button></Link>
             </div>
           </div>
 
@@ -166,7 +166,7 @@ class App extends Component {
                   <i className="fa fa-cutlery"></i>
                 </span>
               </p>
-                <Link to="/newMenuForm"><button className="button columnButton is-large is-primary is-outlined">New Menu</button></Link>
+                <Link to="/newMenuForm"><button className="button columnButton is-large is-primary is-outlined">Menu</button></Link>
             </div>
 
             <div className="column">
@@ -175,7 +175,7 @@ class App extends Component {
                   <i className="fa fa-pencil-square-o"></i>
                 </span>
               </p>
-                <Link to="/newTaskForm"><button className="button columnButton is-large is-danger  is-outlined">New Task</button></Link>
+                <Link to="/newTaskForm"><button className="button columnButton is-large is-danger  is-outlined">Tasks</button></Link>
             </div>
 
             <div className="column">
@@ -197,7 +197,7 @@ class App extends Component {
               <div className="nav-left">
                 <div className="nav-item">
                   <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-                  <h1 className="title is-3 text">Planit-Better</h1>
+                  <h1 className="title is-3 text">Plan-Better</h1>
                 </div>
               </div>
 

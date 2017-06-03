@@ -188,7 +188,7 @@ class ContractorProfile extends Component {
 
 
       <div className="App contractor">
-        <div className="nav has-shadow contractorHome">
+        <div className="nav has-shadow contractorHome text">
           <div className="nav-left">
             <div className="nav-item">
               <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
