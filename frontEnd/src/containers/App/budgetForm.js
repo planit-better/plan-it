@@ -138,7 +138,7 @@ class Budget extends Component {
                     value: equipmentBudget,
                   },
                   {
-                    color: "yellow",
+                    color: "orange",
                     value: taskBudget,
                   },
                   {
