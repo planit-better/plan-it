@@ -88,7 +88,7 @@ class Budget extends Component {
 
         <div className="columns">
               <div className="column">
-                <table>
+                <table id="table">
                   <tr>
                     <th id="categoryBudget">Category</th>
                     <th>Total Cost</th>
