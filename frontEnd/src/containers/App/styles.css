@@ -64,6 +64,10 @@
   margin-top: 15px;
 }
 
+#table{
+  font-weight: bold;
+}
+
 #contractorBudget {
   color: red;
 }
