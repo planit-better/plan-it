@@ -105,9 +105,6 @@ class MenuProfile extends Component {
 
 
     updateBudget = ( menu ) => {
-        console.log('hit update budget')
-        console.log( menu )
-        console.log( this.props.budget )
         for(var i=0; i<this.props.budget.length; i++){
           if(this.props.budget[i].type_id === this.state.id && this.props.budget[i].type === "Menu"){
             this.putBudget(this.props.budget[i])

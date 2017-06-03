@@ -16,32 +16,26 @@ contractors.get('/', ( req, res) => {
 });
 
 contractors.post('/', ( req, res ) => {
-  console.log(req.body);
   Contractors.create( req.body )
     .then( contractors => {
-      console.log(contractors);
       res.json( contractors );
     })
     .catch( err => {
-      console.log(err);
       res.json( err );
     });
 });
 
 contractors.delete('/:id', ( req, res ) => {
   let path = req.path.split('/')[1];
-  console.log(req.body);
   Contractors.destroy({
     where: {
       id: path
     }
   } )
   .then( contractors => {
-    console.log( contractors );
     res.json( contractors );
   })
   .catch( err => {
-    console.log( err );
     res.json( err );
   });
 });
@@ -65,11 +59,5 @@ contractors.put('/:id', (req,res) => {
     });
 });
 
-
-
-
-// contractors.put('/:id', ( req, res ) => {
-
-// })
 
 module.exports = contractors;

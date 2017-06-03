@@ -80,7 +80,6 @@ class App extends Component {
       return(data.json())
     }).then(response =>{
       this.props.clearEvent();
-      //sign out action
       this.props.logOut(response);
     })
   }

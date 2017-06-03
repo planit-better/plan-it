@@ -7,11 +7,8 @@ const { Event } = db;
 
 
 event.get('/', ( req, res) => {
-  console.log('hit event');
-  console.log("REQ.USER", req.user);
   Event.all({raw: true, where: {user_id: req.user.id}})
   .then((event)=>{
-    console.log(event);
     res.json(event);
   }).catch(err => {
     res.send(err);
@@ -19,32 +16,26 @@ event.get('/', ( req, res) => {
 });
 
 event.post('/', ( req, res ) => {
-  console.log(req.body);
   Event.create( req.body )
     .then( event => {
-      console.log(event);
       res.json( event );
     })
     .catch( err => {
-      console.log(err);
       res.json( err );
     });
 });
 
 event.delete('/:id', ( req, res ) => {
   let path = req.path.split('/')[1];
-  console.log(req.body);
   Event.destroy({
     where: {
       id: path
     }
   } )
   .then( event => {
-    console.log( event );
     res.json( event );
   })
   .catch( err => {
-    console.log( err );
     res.json( err );
   });
 });
@@ -64,7 +55,6 @@ event.put('/:id', (req,res) => {
       }
     })
     .then(data => {
-      //console.log('wat'+data);
       res.send('posted');
     });
 });
