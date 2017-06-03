@@ -148,7 +148,32 @@ class TaskProfile extends Component {
 
 
     redirectTask(){
-       this.props.history.push("/newTaskForm")
+      this.removeContractorBudget()
+      this.props.history.push("/newTaskForm")
+    }
+
+    removeContractorBudget(){
+      for(var i=0; i<this.props.budget.length; i++){
+          if(this.props.budget[i].type_id === this.state.id && this.props.budget[i].type === "Task"){
+            this.removeBudget(this.props.budget[i])
+          }
+        }
+    }
+
+    removeBudget(budget){
+      return fetch(`/api/budget/${budget.id}`, {
+          method: "DELETE",
+          credentials: 'include',
+           headers:
+          {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          }
+        }).then((response) =>{
+          return;
+        }).catch(err =>{
+          throw err;
+        })
     }
 
 
