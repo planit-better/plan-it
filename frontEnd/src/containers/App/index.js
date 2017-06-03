@@ -194,7 +194,7 @@ class App extends Component {
       return (
         <div className="App">
 
-          <div className="nav has-shadow">
+          <div className="nav has-shadow is-active">
               <div className="nav-left">
                 <div className="nav-item">
                   <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
@@ -210,8 +210,8 @@ class App extends Component {
 
               <div className="nav-right">
                 <div className="nav-item">
+                  <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/loginForm">Login</Link></a>
                   <a className="nav-item is-tab is-hidden-mobile"><Link to="/signinForm">Sign Up</Link></a>
-                  <a className="nav-item is-tab is-hidden-mobile"><Link to="/loginForm">Login</Link></a>
                 </div>
               </div>
             </div>

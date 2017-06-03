@@ -206,9 +206,16 @@ class newEquipmentForm extends Component {
             </form>
           </div>
 
+
+          <br></br><br></br>
+
+
+
           <div className="column is-3"></div>
 
+
           <div className="column is-2 list guestHome">
+
             <EquipmentList equipment={this.props.equipment} />
           </div>
 
@@ -239,11 +246,13 @@ class newEquipmentForm extends Component {
           </div>
 
           <div className="nav-right">
+
             <div className="nav-item">
               <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
               <a className="nav-item is-tab is-hidden-mobile" onClick={this.openForm}>New Equipment Form</a>
             </div>
           </div>
+
         </div>
 
         <br></br>
@@ -260,6 +269,7 @@ class newEquipmentForm extends Component {
 
         </div>
       </div>
+
     )
    }
   }
