@@ -155,56 +155,62 @@ class newMenuForm extends Component {
             <br></br>
 
             <div className="columns">
-              <form className="list guestHome column is-4 is-offset-2" onSubmit={this.handleMenuSubmit}>
 
-                <div className="field">
-                  <p className="control">
-                    <label className="label">type of food</label>
-                  </p>
-                  <p className="control has-icons-left">
-                    <input className="input is-small" type="text" placeholder="type of food" value={this.state.type_of_food} onChange={this.handleChangeTypeOfFood} />
-                    <span className="icon is-left is-small">
-                      <i className="fa fa-cutlery"></i>
-                    </span>
-                  </p>
-                </div>
+              <div className="column"></div>
 
-                <div className="field">
-                  <p className="control">
-                    <label className="label"> Price </label>
-                  </p>
-                  <p className="control has-icons-left">
-                      <input className="input is-small" type="number"  value={this.state.cost_per_person} onChange={this.handleChangeCostPerPerson} />
-                    <span className="icon is-left is-small">
-                      <i className="fa fa-usd"></i>
-                    </span>
-                  </p>
-                </div>
+              <div className="column guestHome list is-4 control">
+                <form className="centerForm" onSubmit={this.handleMenuSubmit}>
 
-                <div className="field">
-                  <p className="control">
-                      <label className="label">restaurant name Number</label>
-                  </p>
-                  <p className="control has-icons-left">
-                      <input className="input is-small" type="text" value={this.state.restaurant_name} onChange={this.handleChangeRestaurantName} />
-                    <span className="icon is-left is-small">
-                      <i className="fa fa-sort-numeric-asc"></i>
-                    </span>
-                  </p>
-                </div>
+                  <div className="field">
+                    <p className="control">
+                      <label className="label">type of food</label>
+                    </p>
+                    <p className="control has-icons-left">
+                      <input className="input is-small" type="text" placeholder="type of food" value={this.state.type_of_food} onChange={this.handleChangeTypeOfFood} />
+                      <span className="icon is-left is-small">
+                        <i className="fa fa-cutlery"></i>
+                      </span>
+                    </p>
+                  </div>
 
-                <div>
-                  <button className="button bottomButton is-small is-outlined menuNavColor" name="Login" type="submit">Add Menu </button>
-                </div>
-              </form>
+                  <div className="field">
+                    <p className="control">
+                      <label className="label"> Price </label>
+                    </p>
+                    <p className="control has-icons-left">
+                        <input className="input is-small" type="number"  value={this.state.cost_per_person} onChange={this.handleChangeCostPerPerson} />
+                      <span className="icon is-left is-small">
+                        <i className="fa fa-usd"></i>
+                      </span>
+                    </p>
+                  </div>
 
-              <div className="column is-3"></div>
+                  <div className="field">
+                    <p className="control">
+                        <label className="label">restaurant name Number</label>
+                    </p>
+                    <p className="control has-icons-left">
+                        <input className="input is-small" type="text" value={this.state.restaurant_name} onChange={this.handleChangeRestaurantName} />
+                      <span className="icon is-left is-small">
+                        <i className="fa fa-sort-numeric-asc"></i>
+                      </span>
+                    </p>
+                  </div>
 
-              <div className="guestHome column list is-2">
+                  <div className="control">
+                    <button className="button is-small is-outlined menuNavColor" name="Login" type="submit">Add Menu </button>
+                  </div>
+
+                </form>
+              </div>
+
+              <div className="column"></div>
+
+              <div className="guestHome column list is-4">
                 <MenuList menu={this.props.menu} />
               </div>
 
-              <div className="column is-3 is-offset-4"></div>
+              <div className="column"></div>
 
             </div>
           </div>
