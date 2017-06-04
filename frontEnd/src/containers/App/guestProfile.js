@@ -156,21 +156,21 @@ class GuestProfile extends Component {
           <div className="nav-left">
             <div className="nav-item">
               <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-              <h1 className="title is-3">Plan-Better</h1>
+              <h1 className="title is-3 guestText">Plan-Better</h1>
             </div>
 
-            <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
+            <h3 className="menuEvent guestText">{this.props.eventStatus.currentEvent.name}</h3>
           </div>
 
           <div className="nav-center">
             <div className="nav-item">
-              <h3>{this.props.currentUser.username}</h3>
+              <h3 className="guestText">{this.props.currentUser.username}</h3>
             </div>
           </div>
 
           <div className="nav-right">
             <div className="nav-item">
-              <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
+              <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/"><p className="guestText">Home</p></Link></a>
             </div>
           </div>
         </div>
@@ -300,21 +300,21 @@ class GuestProfile extends Component {
             <div className="nav-left">
               <div className="nav-item">
                 <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-                <h1 className="title is-3">Plan-Better</h1>
+                <h1 className="title is-3 guestText">Plan-Better</h1>
               </div>
 
-              <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
+              <h3 className="menuEvent guestText">{this.props.eventStatus.currentEvent.name}</h3>
             </div>
 
             <div className="nav-center">
               <div className="nav-item">
-                <h3>{this.props.currentUser.username}</h3>
+                <h3 className="guestText">{this.props.currentUser.username}</h3>
               </div>
             </div>
 
             <div className="nav-right">
               <div className="nav-item">
-                <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
+                <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/"><p className="guestText">Home</p></Link></a>
               </div>
             </div>
           </div>

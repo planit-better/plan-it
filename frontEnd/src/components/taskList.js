@@ -44,7 +44,7 @@ class TaskList extends Component {
     return(
       <div className="field">
 
-      <h1 className="label">All Tasks</h1>
+      <label className="label">All Tasks</label>
       <ul>
         {
           allowedTasks.map((task) =>

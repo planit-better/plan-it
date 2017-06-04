@@ -131,7 +131,7 @@ class loginForm extends Component{
           </div>
 
           <div>
-            <button className="button bottomButton is-outlined" name="Signup" type="submit"> Login </button>
+            <button className="button indexHomeButton" name="Signup" type="submit">Login</button>
           </div>
         </form>
           <div>

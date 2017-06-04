@@ -34,7 +34,6 @@ class EventForm extends Component {
   handleEventSubmit = ( event ) => {
     event.preventDefault();
     this.addEvent(this.state)
-    .then(this.props.loadOwnedEvent(this.state))
     .then(this.updateStore())
     .then(this.clearState())
 
@@ -122,7 +121,6 @@ class EventForm extends Component {
   }
 
   componentWillMount() {
-    //this.findUserId(this.props.currentUser.username)
     fetch('/api/User', {
       method : "GET",
       credentials: 'include'
@@ -183,7 +181,7 @@ class EventForm extends Component {
               <div className="nav-left">
                 <div className="nav-item">
                   <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-                  <h1 className="title is-3">Plan-Better</h1>
+                  <h1 className="title is-3 guestText">Plan-Better</h1>
                 </div>
 
                   <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
@@ -191,14 +189,14 @@ class EventForm extends Component {
 
               <div className="nav-center">
                 <div className="nav-item">
-                  <h3>{this.props.currentUser.username}</h3>
+                  <h3 className="guestText">{this.props.currentUser.username}</h3>
                 </div>
               </div>
 
               <div className="nav-right">
                 <div className="nav-item">
-                  <a className="nav-item is-tab is-hidden-mobile is-active" onClick={this.signOut}>Change User</a>
-                  <a className="nav-item is-tab is-hidden-mobile" onClick={this.displayForm}> Hide Event Form</a>
+                  <a className="nav-item is-tab is-hidden-mobile is-active" onClick={this.signOut}><p className="guestText">Change User</p></a>
+                  <a className="nav-item is-tab is-hidden-mobile" onClick={this.displayForm}><p className="guestText">Hide Event Form</p></a>
                 </div>
               </div>
             </div>
@@ -228,7 +226,7 @@ class EventForm extends Component {
                         <label className="label">Location Name</label>
                       </p>
                       <p className="control has-icons-left">
-                        <input className="input" type="text" placeholder="Location name" value={this.state.location_name} onChange={this.handleChangelocationName} />
+                        <input className="input dateInput" type="text" placeholder="Location name" value={this.state.location_name} onChange={this.handleChangelocationName} />
                         <span className="icon is-left is-small">
                           <i className="fa fa-compass"></i>
                         </span>
@@ -252,7 +250,7 @@ class EventForm extends Component {
                         <label className="label">Event Date</label>
                       </p>
                       <p className="control has-icons-left">
-                        <input className="input" type="date" placeholder="Event Date" value={this.state.event_date} onChange={this.handleChangeEventDate} />
+                        <input className="input dateInput" type="date" placeholder="Event Date" value={this.state.event_date} onChange={this.handleChangeEventDate} />
                         <span className="icon is-left is-small">
                           <i className="fa fa-calendar-plus-o"></i>
                         </span>
@@ -264,7 +262,7 @@ class EventForm extends Component {
                         <label className="label">Event Time</label>
                       </p>
                       <p className="control has-icons-left">
-                        <input className="input" type="time" value={this.state.event_time} onChange={this.handleChangeEventTime} />
+                        <input className="input timeInput" type="time" value={this.state.event_time} onChange={this.handleChangeEventTime} />
                         <span className="icon is-left is-small">
                           <i className="fa fa-clock-o"></i>
                         </span>
@@ -272,7 +270,7 @@ class EventForm extends Component {
                     </div>
 
                     <div className="field control">
-                      <button className="button bottomButton is-outlined" name="Login" type="submit">Add Event </button>
+                      <button className="button guest is-outlined" name="Login" type="submit">Add Event </button>
                     </div>
 
                   </form>
@@ -294,7 +292,7 @@ class EventForm extends Component {
               <div className="nav-left">
                 <div className="nav-item">
                   <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-                  <h1 className="title is-3">Plan-Better</h1>
+                  <h1 className="title is-3 guestText">Plan-Better</h1>
                 </div>
 
                   <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
@@ -302,14 +300,14 @@ class EventForm extends Component {
 
               <div className="nav-center">
                 <div className="nav-item">
-                  <h3>{this.props.currentUser.username}</h3>
+                  <h3 className="guestText">{this.props.currentUser.username}</h3>
                 </div>
               </div>
 
               <div className="nav-right">
                 <div className="nav-item">
-                  <a className="nav-item is-tab is-hidden-mobile is-active" onClick={this.signOut}>Change User</a>
-                  <a className="nav-item is-tab is-hidden-mobile " onClick={this.displayForm}> New Event Form</a>
+                  <a className="nav-item is-tab is-hidden-mobile is-active" onClick={this.signOut}><p className="guestText">Change User</p></a>
+                  <a className="nav-item is-tab is-hidden-mobile " onClick={this.displayForm}><p className="guestText">New Event Form</p></a>
                 </div>
               </div>
             </div>
@@ -338,7 +336,7 @@ class EventForm extends Component {
               <div className="nav-left">
                 <div className="nav-item">
                   <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-                  <h1 className="title is-3">Plan-Better</h1>
+                  <h1 className="title is-3 guestText">Plan-Better</h1>
                 </div>
               </div>
 

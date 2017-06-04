@@ -161,10 +161,14 @@ class newEquipmentForm extends Component {
         <br></br>
 
         <div className="columns">
-          <div className="column is-offset-2 is-4 list guestHome">
+          <div className="column"></div>
 
+          <div className="column is-4 list guestHome">
             <form className="centerForm" onSubmit={this.handleEquipmentSubmit}>
-              <label className="is-marginless"> Enter your new Equipment</label>
+
+              <div className="field control">
+                <label className="label"> Enter your new Equipment</label>
+              </div>
 
               <div className="field">
                 <p className="control">
@@ -204,7 +208,7 @@ class newEquipmentForm extends Component {
 
               <br></br>
               <div className="control">
-                <button className="button bottomButton is-outlined equipmentNavColor" name="Login" type="submit">Add Equipment </button>
+                <button className="button guest is-outlined" name="Login" type="submit">Add Equipment </button>
               </div>
 
             </form>
@@ -219,11 +223,10 @@ class newEquipmentForm extends Component {
 
 
           <div className="column is-4 list guestHome">
-
             <EquipmentList equipment={this.props.equipment} />
           </div>
 
-          <div className="column is-2"></div>
+          <div className="column"></div>
 
         </div>
 
@@ -252,8 +255,8 @@ class newEquipmentForm extends Component {
           <div className="nav-right">
 
             <div className="nav-item">
-              <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
-              <a className="nav-item is-tab is-hidden-mobile" onClick={this.openForm}>New Equipment Form</a>
+              <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/"><p className="text">Home</p></Link></a>
+              <a className="nav-item is-tab is-hidden-mobile" onClick={this.openForm}><p className="text">New Equipment Form</p></a>
             </div>
           </div>
 

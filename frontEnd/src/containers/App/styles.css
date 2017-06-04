@@ -64,6 +64,10 @@
   margin-top: 15px;
 }
 
+#table{
+  font-weight: bold;
+}
+
 #contractorBudget {
   color: red;
 }
@@ -197,6 +201,10 @@
   width: 70%;
 }
 
+.timeInput {
+  width: 60%;
+}
+
 .smallInput {
   width: 20%;
 }
@@ -227,7 +235,7 @@
 }
 
 .equipmentNavColor {
-  background-color: rgb(71, 51, 35);
+  background-color: rgb(115, 93, 36);
 }
 
 .postMan {
@@ -293,6 +301,10 @@ a {
 
 .iphoneIcon {
   margin-left: 30%;
+}
+
+.indexHomeButton {
+  color: rgb(160, 218, 241);
 }
 
 .emailText {

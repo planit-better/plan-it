@@ -178,21 +178,23 @@ class EquipmentProfile extends Component {
             <div className="nav-left">
               <div className="nav-item">
                 <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-                <h1 className="title is-3">Plan-Better</h1>
+
+                <h1 className="title is-3 text">Plan-Better</h1>
+
               </div>
 
-              <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
+              <h3 className="menuEvent text">{this.props.eventStatus.currentEvent.name}</h3>
             </div>
 
             <div className="nav-center">
               <div className="nav-item">
-                <h3>{this.props.currentUser.username}</h3>
+                <h3 className="text">{this.props.currentUser.username}</h3>
               </div>
             </div>
 
             <div className="nav-right">
               <div className="nav-item">
-                <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
+                <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/"><p className="text">Home</p></Link></a>
               </div>
             </div>
           </div>
@@ -229,9 +231,9 @@ class EquipmentProfile extends Component {
 
                   <div className="field">
                     <p className="control">
-                      <button className="button is-outlined equipmentNavColor" name="Login" onClick={this.handleEquipmentChangeSubmit}>Update Contractor
+                      <button className="button is-outlined guest" name="Login" onClick={this.handleEquipmentChangeSubmit}>Update Contractor
                       </button>
-                      <button className="button is-outlined equipmentNavColor" name="Remove" onClick={this.removeEquipment}> Remove Equipment
+                      <button className="button is-outlined guest" name="Remove" onClick={this.removeEquipment}> Remove Equipment
                       </button>
                     </p>
                   </div>

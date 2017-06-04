@@ -45,7 +45,7 @@ class EquipmentList extends Component {
     return(
       <div className="field">
 
-      <h1 className="label">All Equipment</h1>
+      <label className="label">All Equipment</label>
       <ul>
         {
           allowedEquipment.map((equipment) =>
