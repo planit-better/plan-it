@@ -124,62 +124,88 @@ class InviteForm extends Component {
     }
 
     return (
-      <div className="App">
+      <div className="App postMan">
 
-        <div className="nav has-shadow">
-          <div className="nav-left">
+        <div className="nav inviteNav has-shadow">
+          <div className="nav-left text">
             <div className="nav-item">
               <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-              <h1 className="title is-3">Plan-Better</h1>
+              <h1 className="title is-3 text">Plan-Better</h1>
             </div>
 
-            <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
+            <h3 className="menuEvent text">{this.props.eventStatus.currentEvent.name}</h3>
           </div>
 
           <div className="nav-center">
-            <div className="nav-item">
+            <div className="nav-item text">
               <h3>{this.props.currentUser.username}</h3>
             </div>
           </div>
 
-          <div className="nav-right">
+          <div className="nav-right text">
             <div className="nav-item">
-              <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/">Home</Link></a>
-              <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="newGuestForm">Cancel</Link></a>
+              <a className="nav-item is-tab is-hidden-mobile is-active"><Link to="/"><p className="text">Home</p></Link></a>
+              <a className="nav-item is-tab is-hidden-mobile"><Link to="newGuestForm"><p className="text">Cancel</p></Link></a>
             </div>
           </div>
         </div>
 
         <div>
-          <form onSubmit={this.handleTextSubmit}>
-            <div>
-               <span>Text Message</span>
-                <input type="text" placeholder="Your text here" value={this.state.message} onChange={this.handleChangeMessage} />
+          <div className="columns">
+
+          <div className="column is-1"></div>
+
+          <div className="iphone">
+            <form className="iphoneMessage column" onSubmit={this.handleTextSubmit}>
+              <div className="field">
+                  <label className="label">Text Message</label>
+                <p className="control has-icons-left has-text-centered">
+                    <input className="input iphoneText" type="textarea" placeholder="Your text here" value={this.state.message} onChange={this.handleChangeMessage}/>
+                  <span className="icon iphoneIcon is-left is-large">
+                    <i className="fa fa-mobile-phone"></i>
+                  </span>
+                </p>
               </div>
-              <div>
-                <button name="Text" type="submit"> Text All Guests </button>
-              </div>
-
-          </form>
-
-          <form onSubmit={this.handleEmailSubmit}>
-
             <div>
-              <span>Email Message</span>
-              <input type="textarea" placeholder="Your email here" value={this.state.email} onChange={this.handleChangeEmail} />
+              <button className="textButton button is-success" name="Text" type="submit"> Text All Guests </button>
             </div>
 
-            <div>
-              <button name="Email" type="submit"> Email All Guests </button>
+            </form>
+          </div>
+            <div className="column is-3">
             </div>
 
-          </form>
+            <div className="email">
+              <form className="emailMessage column" onSubmit={this.handleEmailSubmit}>
+
+                  <div className="field">
+                    <label className="label emailLabel text">Email Message</label>
+                    <p className="control has-icons-left has-text-centered">
+                      <input className="input emailText" type="textarea" placeholder="Your email here" value={this.state.email} onChange={this.handleChangeEmail} />
+                      <span className="icon emailIcon is-left is-medium">
+                        <i className="fa fa-mail-forward"></i>
+                      </span>
+                    </p>
+                  </div>
+
+                <div>
+                  <button className="emailButton button is-primary" name="Email" type="submit"> Email All Guests </button>
+                </div>
+              </form>
+
+              <div className="column is-1"></div>
+            </div>
 
         </div>
+      </div>
 
-        <div>
+      <div className="columns">
+        <div className="column is-4"></div>
+          <div className="list invite column is-5">
           <GuestList guest={this.props.guest}/>
-        </div>
+          </div>
+        <div className="column is-1"></div>
+      </div>
 
       </div>
     );

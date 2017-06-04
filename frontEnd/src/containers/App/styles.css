@@ -131,6 +131,10 @@
   border: 1px solid #333;
 }
 
+.invite {
+  height: 973px;
+}
+
 .guest {
 
   background: white;
@@ -226,6 +230,42 @@
   background-color: rgb(71, 51, 35);
 }
 
+.postMan {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 973px;
+}
+
+.iphone {
+  margin-top: 20px;
+  background: url(http://djsaabmusic.com/wp-content/uploads/2016/08/Mobile-movies-djsaabmusic.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
+  width: 550px;
+}
+
+.iphoneMessage {
+  margin-top: 30px;
+}
+
+.email {
+  margin-top: 20px;
+  background: url(http://semillasdevida.com.ar/wp-content/uploads/mail.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 400px;
+  height: 400px;
+}
+
+.emailMessage {
+  margin-top: 30px;
+}
+
+.invite {
+  height: 500px;
+}
+
 .centerForm {
   margin-left: 30%;
 }
@@ -246,5 +286,36 @@ a {
   color: firebrick;
 }
 
+.iphoneText {
+  width: 290px;
+  margin-left: 30%;
+}
 
+.iphoneIcon {
+  margin-left: 30%;
+}
 
+.emailText {
+  margin-left: 25%;
+}
+
+.emailIcon {
+  margin-left: 25%;
+}
+
+.emailButton {
+  margin-top: 25%;
+}
+
+.textButton {
+  margin-top: 20%;
+}
+
+.postMan {
+  background: url(http://mitziconnell.com/cv/wp-content/uploads/2016/09/macbook-air-laptop-journal-mouse.jpg);
+  background-size: cover;
+}
+
+.inviteNav {
+  background: black;
+}
