@@ -106,7 +106,7 @@
 }
 
 .logHeader {
-  background: url("http://i.huffpost.com/gen/4058420/images/o-EARTH-facebook.jpg");
+  background: transparent;
 }
 
 .signHome {
@@ -171,7 +171,7 @@
 }
 
 .menuNavColor {
-  background-image: url("http://www.lonestarsteakhouse.com/uploaded/image/original/LSTR_Background_Menu_v2.jpg");
+  background: transparent;
   /*background-color: rgb(40, 201, 160);*/
 }
 
@@ -184,7 +184,7 @@
 }
 
 .contractorHome {
-  background-image: url("https://assets.entrepreneur.com/content/3x2/1300/20160201183859-plumber-plumbing-water-union-sink-tools.jpeg");
+  background: transparent;
 }
 
 .contractor {
