@@ -16,6 +16,7 @@ class signinForm extends Component{
     this.state = {
       username : "",
       password : "",
+      passwordTwo : "",
       signedIn : false,
       error : ""
     };
@@ -37,7 +38,16 @@ class signinForm extends Component{
 
   handleSigninSubmit = ( event ) => {
     event.preventDefault();
+    if(this.state.password === this.state.passwordTwo){
     this.addUser(this.state)
+      }
+      else{
+        this.setState({
+          error: "passwords do not match",
+          password : "",
+          passwordTwo : ""
+        })
+      }
     //.then(this.clearState())
   }
 
@@ -50,6 +60,12 @@ class signinForm extends Component{
   handleChangePassword = ( event ) => {
     this.setState({
       password : event.target.value
+    });
+  }
+
+  handleChangePasswordTwo = ( event ) => {
+    this.setState({
+      passwordTwo : event.target.value
     });
   }
 
@@ -93,6 +109,7 @@ class signinForm extends Component{
     this.setState({
       username : "",
       password : "",
+      passwordTwo : "",
       error : ""
     });
   }
@@ -112,7 +129,7 @@ class signinForm extends Component{
           <div className="nav-left">
             <div className="nav-item">
               <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-              <h1 className="title is-3 text">Plan-Better</h1>
+              <h1 className="title is-3 text">Planit-Better</h1>
             </div>
           </div>
 
@@ -148,11 +165,19 @@ class signinForm extends Component{
               <label className="label text">Password</label>
             </p>
             <p className="control has-icons-left">
-              <input className="input" type="password" placeholder="password"  value={this.state.password} onChange={this.handleChangePassword} />
+              <input className="input" type="password" placeholder="Enter password"  value={this.state.password} onChange={this.handleChangePassword} />
               <span className="icon is-small is-left">
                 <i className="fa fa-key"></i>
               </span>
             </p>
+
+             <p className="control has-icons-left">
+              <input className="input" type="password" placeholder="Re-enter password"  value={this.state.passwordTwo} onChange={this.handleChangePasswordTwo} />
+              <span className="icon is-small is-left">
+                <i className="fa fa-key"></i>
+              </span>
+            </p>
+
           </div>
 
           <div>
