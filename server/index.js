@@ -3,10 +3,12 @@
 //server
 const express = require('express');
 const app = express();
-const PORT = process.envPORT || 6969;
+const PORT = process.env.PORT || 6969;
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const db = require('./models');
 const { User } = db;
+const KEY = 'key';
 
 //User Auth
 const session = require('express-session');
@@ -18,19 +20,24 @@ const LocalStrategy = require('passport-local').Strategy;
 const saltRounds = 10;
 const bcrypt = require('bcrypt');
 
+app.use(cookieParser());
 app.use(bodyParser.json({extended: true}));
 
 //startup Session
 app.use(session({
-  store: new RedisStore(),
-  secret: 'letTheRythemJust',
+  secret: 'letTheRythmJust',
+  name: KEY,
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: false,
+  cookie: {},
+  store: new RedisStore()
 }));
+
 
 //set up passport
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 passport.use(new LocalStrategy (
   function(username, password, done) {
@@ -41,19 +48,19 @@ passport.use(new LocalStrategy (
       }
     })
     .then ( user => {
-      console.log('testing user')
+      console.log('testing user');
       if (user === null) {
         console.log('USER AUTH FAILED');
         return done(null, false, {message: 'bad username'});
       }
       else {
-        console.log('username found')
+        console.log('username found');
         bcrypt.compare(password, user.password)
         .then(res => {
-          console.log('user name and pw okay')
+          console.log('user name and pw okay');
           if (res) { return done(null, user); }
           else {
-            console.log('password bad')
+            console.log('password bad');
             return done(null, false, {message: 'bad password'});
           }
         });
@@ -72,6 +79,9 @@ passport.serializeUser(function(user, done) {
     username: user.username,
   });
 });
+
+// is not deserializing user in produdtion == cannot get req.user == cannot search events in database by user_id ----
+// deserial works in development
 
 passport.deserializeUser(function(user, done) {
   console.log('DESERIALIZE' , user);
@@ -100,7 +110,7 @@ app.get('/logout', function(req, res){
   res.json({successLogOut: true});
 });
 
-app.listen(6969, () =>{
+app.listen(PORT, () =>{
   console.log(`server listening on port: ${PORT}`);
-  db.sequelize.sync({forceSync: true});
+  //db.sequelize.sync({forceSync: true});
 });

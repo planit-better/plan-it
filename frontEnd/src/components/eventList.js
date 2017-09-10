@@ -19,6 +19,9 @@ class EventList extends Component {
   }
 
   componentWillMount() {
+
+    //error in production with fetch GET request
+
     fetch('/api/Event', {
       method: "GET",
       credentials : 'include'

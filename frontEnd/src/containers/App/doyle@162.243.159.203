@@ -17,13 +17,22 @@ class App extends Component {
       //MOUNT EVENT
   componentWillMount() {
 
+    fetch('/api/Event', {
+      method : "GET",
+      credentials: 'include'
+    }).then((response)=>{
+      return response.json()
+    }).then((myEvent) =>{
+      this.props.loadEvent(myEvent)
+    }).catch(err =>{
+      throw err;
+    })
 
 
     fetch('/api/Equipment', {
       method : "GET",
       credentials: 'include'
     }).then((response)=>{
-      console.log(response);
       return response.json()
     }).then((equipment) =>{
       this.props.loadEquipment(equipment)
@@ -105,7 +114,7 @@ class App extends Component {
               <div className="nav-item">
                 <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
 
-                <h2 className="title is-3 text">Planit-Better</h2>
+                <h2 className="title is-3 text">Plan-Better</h2>
               </div>
 
                 <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
@@ -201,7 +210,7 @@ class App extends Component {
               <div className="nav-left">
                 <div className="nav-item">
                   <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-                  <h1 className="title is-3 text">Planit-Better</h1>
+                  <h1 className="title is-3 text">Plan-Better</h1>
                 </div>
               </div>
 

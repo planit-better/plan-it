@@ -4,11 +4,20 @@ const express = require('express');
 const event = express.Router();
 const db = require('../../models');
 const { Event } = db;
+const session = require('express-session');
+const passport = require('passport');
 
 
 event.get('/', ( req, res) => {
-  Event.all({raw: true, where: {user_id: req.user.id}})
-  .then((event)=>{
+  //console.log(`REQ.SESSION: ${JSON.stringify(req.session, null, 4)}`);
+  console.log(`REQ.HEADER: ${req.body}`);
+  //console.log('hit with XMLH');
+  Event.all({raw: true,
+    where: {
+      user_id: req.user.id
+    }
+  })
+  .then(event =>{
     res.json(event);
   }).catch(err => {
     res.send(err);

@@ -34,7 +34,7 @@ class EventForm extends Component {
   handleEventSubmit = ( event ) => {
     event.preventDefault();
     this.addEvent(this.state)
-    .then(this.updateStore())
+    .then(this.updateStore(this.state))
     .then(this.clearState())
 
   }
@@ -89,9 +89,55 @@ class EventForm extends Component {
       })
     }
 
+  getPromise=(state)=>{
+    console.log(`STATE FROM UPDATE STORE IN GET PROMISE FUNC: ${state}`)
+    //console.log(`OUTER THIS.STATE: ${this.state}`)
+    return new Promise (function (resolve, reject) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'api/Event');
+        xhr.onload = resolve;
+        xhr.onerror = reject;
+        xhr.send();
+        //console.log(`INNER THIS: ${this}`);
+    });
 
-  updateStore(){
-      fetch('/api/event', {
+  }
+
+  updateStore=(state)=>{
+    //console.log(`UPDATE STORE STATE: ${state}`)
+    this.getPromise(state)
+    .then(function(e){
+      /*console.log(`EVENT: ${e}`)
+      console.log(`THIS: ${this}`)
+      console.log(`THIS.STATE: ${this.state}`)*/
+
+    })
+  }
+    /*this.getEvent("GET", "api/event", function(err,datums){
+      if (err) {throw err; }
+      let allEvents = JSON.parse(datums)
+      console.log(allEvents);
+      this.storeEvent(allEvents);
+    }).bind(this);
+  }
+
+  storeEvent(event){
+    console.log(event);
+  }
+
+  getEvent=(method, location, done)=>{
+    let xhr = new XMLHttpRequest();
+    xhr.open(method, location);
+    xhr.onload = function () {
+      done(null, xhr.response);
+    };
+    xhr.onerror = function () {
+      done(xhr.response);
+    };
+  xhr.send();
+}*/
+
+      /*fetch('/api/event', {
       method: "GET",
       credentials:'include'
     }).then((response) =>{
@@ -100,8 +146,8 @@ class EventForm extends Component {
       this.props.loadEvent(newEvent)
     }).catch(err =>{
       throw err;
-    })
-  }
+    })*/
+  //}
 
 
   clearState(){
@@ -181,7 +227,7 @@ class EventForm extends Component {
               <div className="nav-left">
                 <div className="nav-item">
                   <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-                  <h1 className="title is-3 guestText">Plan-Better</h1>
+                  <h1 className="title is-3 guestText">Planit-Better</h1>
                 </div>
 
                   <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
@@ -292,7 +338,7 @@ class EventForm extends Component {
               <div className="nav-left">
                 <div className="nav-item">
                   <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-                  <h1 className="title is-3 guestText">Plan-Better</h1>
+                  <h1 className="title is-3 guestText">Planit-Better</h1>
                 </div>
 
                   <h3 className="menuEvent">{this.props.eventStatus.currentEvent.name}</h3>
@@ -336,7 +382,7 @@ class EventForm extends Component {
               <div className="nav-left">
                 <div className="nav-item">
                   <img src="https://fortunedotcom.files.wordpress.com/2016/08/toc09_a1.png" className="App-logo" alt="logo" />
-                  <h1 className="title is-3 guestText">Plan-Better</h1>
+                  <h1 className="title is-3 guestText">Planit-Better</h1>
                 </div>
               </div>
 
