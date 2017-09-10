@@ -48,7 +48,6 @@ class signinForm extends Component{
           passwordTwo : ""
         })
       }
-    //.then(this.clearState())
   }
 
   handleChangeUsername = ( event ) => {
@@ -99,7 +98,8 @@ class signinForm extends Component{
       this.setState({
         error : 'username is taken',
         username : "",
-        password : ""
+        password : "",
+        passwordTwo : ""
       })
 
     }

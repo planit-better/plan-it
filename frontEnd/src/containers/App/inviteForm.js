@@ -19,6 +19,8 @@ class InviteForm extends Component {
     this.state = {
       message : "",
       email : "",
+      currentEvent : this.props.eventStatus.currentEvent.name,
+      currentUser : this.props.authenticate.username
     };
 
   }
@@ -115,6 +117,8 @@ class InviteForm extends Component {
     }
 
     render() {
+      console.log(this.props.eventStatus.currentEvent.name)
+      console.log(this.props.authenticate.username)
       if(this.props.currentUser.userLoggedIn === false){
       return(
         <Redirect to={{
@@ -216,6 +220,8 @@ class InviteForm extends Component {
 const mapStateToProps = (state) => {
   return {
     guest : state.guest,
+    authenticate : state.authenticate,
+    eventStatus : state.eventStatus,
     currentUser : state.authenticate,
     eventStatus : state.eventStatus
   };
