@@ -9,14 +9,17 @@ let when = 'Tomorrow';
 
 var client = require('twilio')(accountSid, authToken);
 
-const groupText = (num, message/*, event, user*/) => {
+const groupText = (num, message, event, user) => {
+  console.log(`NUMBER: ${num}`);
+  console.log(`MESSAGE: ${message}`);
+  console.log(`EVENT: ${event}`);
+  console.log(`USER : ${user}`);
   client.messages.create(
   {
-    //messagingServiceSid: twilioAccount.messaging,
     to:  num,
     from: '+18722013106',
 
-    body: message/*`New Message from ${user} regarding ${event} : ${message}`*/
+    body: `New Message from ${user} regarding ${event} : ${message}`
 
 
   }, function(err, message) {
@@ -25,11 +28,16 @@ const groupText = (num, message/*, event, user*/) => {
   );
 };
 
-const getNumber = (params, message/*, event, user*/)  => {
+const getNumber = (params, message, event, user )  => {
+  console.log(`GUESTS: ` + params[0]);
   console.log("GET MESSAGE : " + message);
+  console.log(`EVENT: ${event}`);
+  console.log(`USER: ${user}`);
+
 
  for(let i = 0; i < params.length; i++) {
-    groupText(params[i].dataValues.number, message/*, event, user*/);
+    console.log(params[i].number);
+    groupText(params[i].number, message, event, user);
   }
 };
 

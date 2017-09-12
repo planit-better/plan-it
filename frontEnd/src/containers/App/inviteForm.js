@@ -20,6 +20,7 @@ class InviteForm extends Component {
       message : "",
       email : "",
       currentEvent : this.props.eventStatus.currentEvent.name,
+      currentEventId: this.props.eventStatus.currentEvent.id,
       currentUser : this.props.authenticate.username
     };
 
@@ -117,8 +118,7 @@ class InviteForm extends Component {
     }
 
     render() {
-      console.log(this.props.eventStatus.currentEvent.name)
-      console.log(this.props.authenticate.username)
+      console.log(this.state)
       if(this.props.currentUser.userLoggedIn === false){
       return(
         <Redirect to={{

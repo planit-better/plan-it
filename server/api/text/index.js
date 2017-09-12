@@ -8,9 +8,13 @@ const { Guest } = db;
 
 
 text.post('/', (req,res) =>{
-  Guest.all()
+  Guest.all({raw: true,
+    where: {
+      event_id: req.body.currentEventId
+    }
+  })
   .then((allGuests) => {
-    getNumber(allGuests, req.body.message/*, req.body.currentEvent, req.body.currentUser*/);
+    getNumber(allGuests, req.body.message, req.body.currentEvent, req.body.currentUser, req.body.currentEventId);
     res.json(allGuests);
   }).catch(err =>{
     res.send(err);
