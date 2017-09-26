@@ -99,7 +99,7 @@ class InviteForm extends Component {
       })
     }
 
-
+/*
     email(){
       return fetch('api/email', {
         method : "POST",
@@ -115,7 +115,7 @@ class InviteForm extends Component {
       }).catch(err => {
         throw err;
       })
-    }
+    }*/
 
     render() {
       console.log(this.state)
@@ -164,7 +164,7 @@ class InviteForm extends Component {
               <div className="field">
                   <label className="label">Text Message</label>
                 <p className="control has-icons-left has-text-centered">
-                    <input className="input iphoneText" type="textarea" placeholder="Your text here" value={this.state.message} onChange={this.handleChangeMessage}/>
+                    <input className="input iphoneText" type="textarea" placeholder="your text here" value={this.state.message} onChange={this.handleChangeMessage}/>
                   <span className="icon iphoneIcon is-left is-large">
                     <i className="fa fa-mobile-phone"></i>
                   </span>
@@ -179,26 +179,6 @@ class InviteForm extends Component {
             <div className="column is-3">
             </div>
 
-            <div className="email">
-              <form className="emailMessage column" onSubmit={this.handleEmailSubmit}>
-
-                  <div className="field">
-                    <label className="label emailLabel text">Email Message</label>
-                    <p className="control has-icons-left has-text-centered">
-                      <input className="input emailText" type="textarea" placeholder="Your email here" value={this.state.email} onChange={this.handleChangeEmail} />
-                      <span className="icon emailIcon is-left is-medium">
-                        <i className="fa fa-mail-forward"></i>
-                      </span>
-                    </p>
-                  </div>
-
-                <div>
-                  <button className="emailButton button is-primary" name="Email" type="submit"> Email All Guests </button>
-                </div>
-              </form>
-
-              <div className="column is-1"></div>
-            </div>
 
         </div>
       </div>
@@ -244,3 +224,23 @@ const ConnectedContractorApp = connect(
 
 
 export default ConnectedContractorApp;
+            /*<div className="email">
+              <form className="emailMessage column" onSubmit={this.handleEmailSubmit}>
+
+                  <div className="field">
+                    <label className="label emailLabel text">Email Message</label>
+                    <p className="control has-icons-left has-text-centered">
+                      <input className="input emailText" type="textarea" placeholder="Your email here" value={this.state.email} onChange={this.handleChangeEmail} />
+                      <span className="icon emailIcon is-left is-medium">
+                        <i className="fa fa-mail-forward"></i>
+                      </span>
+                    </p>
+                  </div>
+
+                <div>
+                  <button className="emailButton button is-primary" name="Email" type="submit"> Email All Guests </button>
+                </div>
+              </form>
+
+              <div className="column is-1"></div>
+            </div>*/

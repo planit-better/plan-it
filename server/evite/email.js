@@ -15,7 +15,6 @@ const evite = (name, email, message) => {
    attachment: filePath,
    html: `<a href='http://www.google.com'><img src='http://elizabethbcrook.com/wp-content/uploads/you-are-invited1.jpeg' alt='nothing'></a><br><b>${message}</b>
      <p>Sincerly,</p>
-     <p>Plan Better Events</p>
      <p>planbetter.events</p>`,
   });//html is where the email text body is being inputted.
 
@@ -33,6 +32,7 @@ const evite = (name, email, message) => {
 
 const getEmails = (emails, message) => {
   for(let i = 0; i < emails.length; i++) {
+    console.log(emails[i].name);
     evite(emails[i].name, emails[i].email, message);
   }
 };
