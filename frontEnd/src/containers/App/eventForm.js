@@ -104,15 +104,24 @@ class EventForm extends Component {
   }
 
   updateStore=(state)=>{
-    //console.log(`UPDATE STORE STATE: ${state}`)
     this.getPromise(state)
-    .then(function(e){
+      fetch('/api/event', {
+      method: "GET",
+      credentials:'include'
+    }).then((response) =>{
+      return response.json()
+    }).then((newEvent) =>{
+      this.props.loadEvent(newEvent)
+    }).catch(err =>{
+      throw err;
+    })
+  }
+  //}
       /*console.log(`EVENT: ${e}`)
       console.log(`THIS: ${this}`)
       console.log(`THIS.STATE: ${this.state}`)*/
 
-    })
-  }
+
     /*this.getEvent("GET", "api/event", function(err,datums){
       if (err) {throw err; }
       let allEvents = JSON.parse(datums)
@@ -137,17 +146,6 @@ class EventForm extends Component {
   xhr.send();
 }*/
 
-      /*fetch('/api/event', {
-      method: "GET",
-      credentials:'include'
-    }).then((response) =>{
-      return response.json()
-    }).then((newEvent) =>{
-      this.props.loadEvent(newEvent)
-    }).catch(err =>{
-      throw err;
-    })*/
-  //}
 
 
   clearState(){
