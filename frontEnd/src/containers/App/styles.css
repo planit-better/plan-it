@@ -331,3 +331,14 @@ a {
 .inviteNav {
   background: black;
 }
+
+.intro {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+  margin-left: 10%;
+  margin-right: 10%;
+  color: yellow;
+  background-color: grey;
+
+}

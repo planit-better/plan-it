@@ -219,6 +219,14 @@ class App extends Component {
               </div>
             </div>
 
+            <div className="intro">
+              Welcome To Planit Better!<br></br><br></br>
+              We make planning an event easy
+              Simply create a username, login, and you're ready to manage all your events, personelle and budgets.
+              We even make it easier to stay in touch with your guests with our included text feature.<br></br><br></br>
+              Managing all aspects of your events has never been easier!
+            </div>
+
         </div>
      )
     }
